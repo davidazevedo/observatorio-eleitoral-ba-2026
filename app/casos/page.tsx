@@ -21,7 +21,7 @@ export default function CasesPage() {
             <span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span>
           </Link>
           <nav className="nav" aria-label="Principal">
-            <Link href="/dossie">Dossiê</Link>
+            <Link href="/denuncia">A denúncia</Link>
             <Link href="/casos">Casos</Link>
             <Link href="/fontes">Fontes</Link>
             <Link href="/privacidade">Privacidade</Link>
@@ -42,7 +42,7 @@ export default function CasesPage() {
 
       <section className="container cases-stats" aria-label="Resumo do registro">
         <article><span>REGISTRO PÚBLICO</span><strong>{publicCases.length}</strong><p>itens publicados nesta primeira versão</p></article>
-        <article><span>FONTES PRIMÁRIAS</span><strong>{publicCases.filter((item) => item.evidenceLevel === 'L3').length}</strong><p>itens classificados como L3</p></article>
+        <article><span>DOCUMENTO PRIMÁRIO</span><strong>{publicCases.filter((item) => item.evidenceLevel === 'L2').length}</strong><p>itens classificados como L2</p></article>
         <article><span>PRIORIDADE</span><strong>{countBy('Prioridade de auditoria')}</strong><p>item atualmente priorizado para decomposição</p></article>
         <article><span>RELATOS PRIVADOS</span><strong>0</strong><p>publicados automaticamente — a regra é zero</p></article>
       </section>
@@ -68,7 +68,7 @@ export default function CasesPage() {
           <p>A matriz será preenchida gradualmente com instrumento, pagamento, contrato, fornecedor, ordem de serviço, medição, execução física e fundamento de eventual exceção eleitoral.</p>
         </div>
         <div className="actions">
-          <Link className="button" href="/dossie#matriz">Ver campos da matriz</Link>
+          <Link className="button" href="/dossie#analitico">Conhecer o dossiê analítico</Link>
           <Link className="button secondary" href="/enviar">Enviar fato ou evidência</Link>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function CasesPage() {
         <div className="container footer-top">
           <div><strong>Observatório Eleitoral Bahia 2026</strong><p>Registro público sujeito a atualização, correção e contraditório.</p></div>
           <div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div>
-          <p><Link href="/dossie">Dossiê</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/privacidade">Privacidade</Link></p>
+          <p><Link href="/denuncia">Denúncia</Link> · <Link href="/dossie">Dossiê</Link> · <Link href="/correcoes">Correções</Link> · <Link href="/atualizacoes">Atualizações</Link></p>
         </div>
       </footer>
     </main>
