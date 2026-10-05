@@ -1,5 +1,11 @@
 import { get, list, type ListBlobResultBlob } from '@vercel/blob';
 import { publicCases } from '@/lib/cases';
+import { sourceCatalog } from '@/lib/content';
+import {
+  listIntelligenceRecords,
+  researchSourceRegistry,
+  type IntelligenceRecord,
+} from '@/lib/intelligence';
 
 export type PrivateEvidence = {
   pathname: string;
@@ -65,10 +71,43 @@ function groupCount(values: string[]) {
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'pt-BR'));
 }
 
+function priorityWeight(value: string) {
+  return value === 'urgent' ? 4 : value === 'high' ? 3 : value === 'medium' ? 2 : 1;
+}
+
+function financialTotals(records: IntelligenceRecord[]) {
+  return records.reduce((acc, item) => {
+    acc.announced += item.financial?.announced || 0;
+    acc.committed += item.financial?.committed || 0;
+    acc.liquidated += item.financial?.liquidated || 0;
+    acc.paid += item.financial?.paid || 0;
+    acc.contractValue += item.financial?.contractValue || 0;
+    acc.amendmentValue += item.financial?.amendmentValue || 0;
+    return acc;
+  }, { announced: 0, committed: 0, liquidated: 0, paid: 0, contractValue: 0, amendmentValue: 0 });
+}
+
+function entityIndex(records: IntelligenceRecord[]) {
+  const map = new Map<string, { name: string; type: string; identifier?: string; mentions: number; roles: Set<string> }>();
+  for (const record of records) {
+    for (const entity of record.entities || []) {
+      const key = `${entity.type}:${entity.identifier || entity.name.toLocaleLowerCase('pt-BR')}`;
+      const current = map.get(key) || { name: entity.name, type: entity.type, identifier: entity.identifier, mentions: 0, roles: new Set<string>() };
+      current.mentions += 1;
+      if (entity.role) current.roles.add(entity.role);
+      map.set(key, current);
+    }
+  }
+  return Array.from(map.values())
+    .map((item) => ({ ...item, roles: Array.from(item.roles) }))
+    .sort((a,b) => b.mentions - a.mentions || a.name.localeCompare(b.name,'pt-BR'));
+}
+
 export async function getPrivateDashboardData() {
-  const [submissionBlobs, evidenceBlobs] = await Promise.all([
+  const [submissionBlobs, evidenceBlobs, intelligence] = await Promise.all([
     listAll('submissions/'),
     listAll('evidence/'),
+    listIntelligenceRecords(),
   ]);
 
   const metadataBlobs = submissionBlobs.filter((blob) => blob.pathname.endsWith('/metadata.json'));
@@ -100,16 +139,68 @@ export async function getPrivateDashboardData() {
   const withEvidence = submissions.filter((item) => (item.evidence || []).length > 0).length;
   const withEventDate = submissions.filter((item) => Boolean(item.eventDate)).length;
 
-  const municipalityRanking = groupCount(submissions.map((item) => item.municipality));
+  const intelMunicipalities = intelligence.map((item) => item.municipality || '').filter(Boolean);
+  const submissionMunicipalities = submissions.map((item) => item.municipality).filter(Boolean);
+  const allMunicipalities = new Set([...intelMunicipalities, ...submissionMunicipalities]);
+
+  const municipalityRanking = groupCount([
+    ...submissionMunicipalities,
+    ...intelMunicipalities,
+  ]);
   const categoryRanking = groupCount(submissions.map((item) => item.category));
-  const statusRanking = groupCount(submissions.map((item) => item.status));
-  const levelRanking = groupCount(
-    submissions.map((item) => item.review?.verificationLevel || 'unreviewed'),
-  );
+  const statusRanking = groupCount([
+    ...submissions.map((item) => item.status),
+    ...intelligence.map((item) => item.status),
+  ]);
+  const levelRanking = groupCount([
+    ...submissions.map((item) => item.review?.verificationLevel || 'L0'),
+    ...intelligence.map((item) => item.evidenceLevel),
+  ]);
+  const kindRanking = groupCount(intelligence.map((item) => item.kind));
+  const publisherRanking = groupCount(intelligence.map((item) => item.provenance?.publisher || '').filter(Boolean));
 
   const dailySubmissions = groupCount(
     submissions.map((item) => item.createdAt ? item.createdAt.slice(0, 10) : 'Sem data'),
   ).sort((a, b) => a.label.localeCompare(b.label));
+
+  const findings = intelligence.filter((item) =>
+    ['research_finding','financial_record','electoral_account','municipal_fact','legal_reference'].includes(item.kind),
+  );
+  const ingestedSources = intelligence.filter((item) => item.kind === 'public_source');
+  const relationshipRecords = intelligence.filter((item) => item.kind === 'relationship');
+  const entities = entityIndex(intelligence);
+  const relationships = intelligence.flatMap((item) => item.relations || []);
+  const queue = intelligence
+    .filter((item) => ['ingested','triage','corroborating'].includes(item.status))
+    .sort((a,b) => priorityWeight(b.priority) - priorityWeight(a.priority) || b.collectedAt.localeCompare(a.collectedAt));
+  const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
+  const finance = financialTotals(intelligence);
+
+  const sources = [
+    ...sourceCatalog.map((item) => ({
+      id: item.id,
+      name: item.title,
+      organization: item.organization,
+      category: item.group,
+      url: item.href,
+      access: 'portal',
+      scope: 'Catálogo editorial',
+      capabilities: [item.summary],
+      origin: 'editorial',
+    })),
+    ...researchSourceRegistry.map((item) => ({ ...item, origin: 'research_registry' })),
+    ...ingestedSources.map((item) => ({
+      id: item.recordId,
+      name: item.title,
+      organization: item.provenance?.publisher || 'Fonte ingerida',
+      category: item.kind,
+      url: item.provenance?.sourceUrl || '',
+      access: item.provenance?.method || 'api',
+      scope: item.municipality || item.state || 'Não informado',
+      capabilities: item.tags || [],
+      origin: 'ingested',
+    })),
+  ];
 
   return {
     generatedAt: new Date().toISOString(),
@@ -119,9 +210,15 @@ export async function getPrivateDashboardData() {
       anonymous,
       evidenceFiles: evidenceBlobs.length,
       evidenceBytes: totalEvidenceBytes,
-      municipalities: new Set(submissions.map((item) => item.municipality.trim()).filter(Boolean)).size,
+      municipalities: allMunicipalities.size,
       categories: new Set(submissions.map((item) => item.category.trim()).filter(Boolean)).size,
       publicCases: publicCases.length,
+      intelligenceRecords: intelligence.length,
+      researchFindings: findings.length,
+      sourceInventory: sources.length,
+      entities: entities.length,
+      relationships: relationships.length + relationshipRecords.length,
+      highPriority: highPriority.length,
       withEvidence,
       withEventDate,
       missingReferencedEvidence: missingReferencedEvidence.length,
@@ -132,11 +229,19 @@ export async function getPrivateDashboardData() {
       categories: categoryRanking,
       statuses: statusRanking,
       verificationLevels: levelRanking,
+      intelligenceKinds: kindRanking,
+      sourcePublishers: publisherRanking,
       dailySubmissions,
     },
     quality: {
       evidenceCoverage: submissions.length ? Math.round((withEvidence / submissions.length) * 100) : 0,
       eventDateCoverage: submissions.length ? Math.round((withEventDate / submissions.length) * 100) : 0,
+      intelligenceWithSource: intelligence.length
+        ? Math.round((intelligence.filter((item) => Boolean(item.provenance?.sourceUrl)).length / intelligence.length) * 100)
+        : 0,
+      intelligenceWithMunicipality: intelligence.length
+        ? Math.round((intelligence.filter((item) => Boolean(item.municipality)).length / intelligence.length) * 100)
+        : 0,
       missingReferencedEvidence,
       orphanEvidence: orphanEvidence.map((blob) => ({
         pathname: blob.pathname,
@@ -144,7 +249,14 @@ export async function getPrivateDashboardData() {
         uploadedAt: blob.uploadedAt instanceof Date ? blob.uploadedAt.toISOString() : String(blob.uploadedAt),
       })),
     },
+    financial: finance,
     submissions,
     publicCases,
+    intelligence,
+    findings,
+    entities,
+    relationships,
+    queue,
+    sources,
   };
 }
