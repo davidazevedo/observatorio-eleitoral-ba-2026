@@ -71,6 +71,30 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     notes:['FIPLAN: instrumento 26601.0001.26.0000007-1; celebrado em 19/06/2026; publicado em 20/06/2026; NOB 26601.0001.26.0000027-8; pagamento efetivado em 06/07/2026: R$ 1.170.000,00.','Portal municipal: Concorrência 008/2026 para executar 50 unidades vinculadas ao Convênio 007/2026, publicada em setembro.','Pergunta decisiva: qual exceção do art. 73, VI, a, fundamentou o pagamento de 06/07 e qual documento comprova obra/serviço fisicamente iniciado antes de 04/07 com cronograma prefixado?','Verificar se existia contratação ou execução anterior distinta antes de qualquer conclusão jurídica.']
   }),
   base({
+    recordId:'BOOT-CIPO-HAB-2026',kind:'research_finding',status:'corroborating',
+    title:'Cipó: R$ 1,17 milhão pago em 06/07; licitação das 50 moradias publicada apenas em agosto',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Cipó. O aviso de licitação federal referente ao Convênio 009/2026 mostra que a contratação da empresa para construir as 50 unidades teve sessão marcada para 13/08/2026; a publicação no PNCP ocorreu em agosto. A sequência temporal exige documentação da exceção legal e não prova, por si só, irregularidade.',
+    municipality:'Cipó',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','dou-cipo-concorrencia-007-2026','pge-ba-eleicoes-2026'],
+    tags:['habitacao','convenio-009-2026','pagamento-06-07','licitacao-agosto','defeso-eleitoral'],
+    evidenceLevel:'L3',analyticalConfidence:0.98,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5877340.25},
+    entities:[{name:'Município de Cipó',type:'municipality',identifier:'CNPJ 13.808.936/0001-95',role:'convenente/contratante'}],
+    provenance:src('https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704','Aviso de Licitação — Concorrência Eletrônica nº 7/2026','Diário Oficial da União','2026-08-03','Processo Administrativo 264/2026 / Convênio 009/2026'),
+    notes:['FIPLAN: instrumento 26601.0001.26.0000002-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000032-4; R$ 1.170.000,00 efetivados em 06/07.','A contratação municipal da empresa executora das 50 unidades foi levada a licitação após o pagamento, com sessão inicialmente marcada para 13/08.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
+  }),
+  base({
+    recordId:'BOOT-ITABERABA-HAB-2026',kind:'research_finding',status:'corroborating',
+    title:'Itaberaba: R$ 1,17 milhão pago em 06/07; aviso para contratar as 50 moradias publicado em 26/08',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Itaberaba. O portal oficial municipal registra em 26/08/2026 o aviso da Concorrência Eletrônica nº 010/2026-FMAS para contratar empresa especializada para executar as 50 unidades habitacionais. A diferença temporal torna prioritária a comprovação dos requisitos da exceção legal, sem presumir irregularidade.',
+    municipality:'Itaberaba',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','itaberaba-licitacao-010-2026','pge-ba-eleicoes-2026'],
+    tags:['habitacao','pagamento-06-07','licitacao-26-08','defeso-eleitoral','prioridade-documental'],
+    evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    entities:[{name:'Município de Itaberaba',type:'municipality',identifier:'CNPJ 13.719.646/0001-75',role:'convenente/contratante'}],
+    provenance:src('https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos','Publicações em Outros Veículos — Concorrência Eletrônica nº 010/2026-FMAS','Prefeitura Municipal de Itaberaba','2026-08-26','Concorrência Eletrônica 010/2026-FMAS'),
+    notes:['FIPLAN: instrumento 26601.0001.26.0000019-5; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000028-6; R$ 1.170.000,00 efetivados em 06/07.','Portal municipal: aviso de licitação para executar as 50 unidades publicado em 26/08, com sessão em 11/09.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
+  }),
+  base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
     title:'Tucano/Caldas do Jorro: obra de R$ 58,6 milhões já estava em execução física antes do defeso',
     summary:'Em 01/07, a Embasa informou rede já executada e unidades em construção no SES de Caldas do Jorro. É caso-controle: proximidade eleitoral isolada não implica irregularidade e havia evidência pública de execução física anterior ao defeso.',
