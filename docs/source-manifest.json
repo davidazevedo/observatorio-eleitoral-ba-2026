@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-05",
+  "policy": "docs/SOURCE_PRESERVATION.md",
+  "sources": [
+    {
+      "id": "govba-1700",
+      "url": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
+      "publisher": "Governo do Estado da Bahia / SECOM",
+      "status": "catalogued",
+      "snapshot": "private-pending"
+    },
+    {
+      "id": "govba-6000",
+      "url": "https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6",
+      "publisher": "Governo do Estado da Bahia / SECOM",
+      "status": "catalogued",
+      "snapshot": "private-pending"
+    },
+    {
+      "id": "transferegov-21",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "publisher": "Transferegov / MGI",
+      "status": "catalogued",
+      "snapshot": "private-pending"
+    }
+  ]
+}
