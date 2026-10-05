@@ -39,8 +39,8 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 - [x] Implementar gate do Dossiê Analítico com OTP de 6 dígitos, sessão server-side e separação lógica do canal de denúncias.
 - [ ] Conectar e verificar domínio de provedor transacional (Resend) e preencher `RESEND_API_KEY` + `DOSSIER_FROM_EMAIL`.
 - [x] Criar política e manifesto inicial de preservação de fontes.
-- [ ] Adicionar changelog público e data da última atualização.
-- [ ] Inserir política formal de correção, contraditório e canal de contato.
+- [x] Adicionar changelog público e data da última atualização.
+- [x] Inserir política formal de correção, contraditório e direito de resposta, com categoria dedicada no canal de evidências.
 
 ## Fase 2 — Matriz probatória dos 417 municípios
 Para cada município:
