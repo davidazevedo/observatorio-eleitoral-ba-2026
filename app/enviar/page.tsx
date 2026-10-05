@@ -187,7 +187,7 @@ export default function SubmitPage() {
                   <option value="">Selecione</option>
                   <option>Transferência ou convênio</option><option>Licitação ou contrato</option><option>Obra ou serviço público</option>
                   <option>Distribuição de benefício ou vantagem</option><option>Evento, publicidade ou uso de estrutura pública</option>
-                  <option>Fornecedor ou apoiador</option><option>Outro</option>
+                  <option>Fornecedor ou apoiador</option><option>Correção, contraditório ou direito de resposta</option><option>Outro</option>
                 </select>
               </label>
               <label>Relato factual
