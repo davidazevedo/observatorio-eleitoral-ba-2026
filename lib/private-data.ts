@@ -141,7 +141,7 @@ export async function getPrivateDashboardData() {
       orphanEvidence: orphanEvidence.map((blob) => ({
         pathname: blob.pathname,
         size: blob.size,
-        uploadedAt: blob.uploadedAt,
+        uploadedAt: blob.uploadedAt instanceof Date ? blob.uploadedAt.toISOString() : String(blob.uploadedAt),
       })),
     },
     submissions,
