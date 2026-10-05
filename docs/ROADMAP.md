@@ -31,8 +31,8 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 - [x] Criar página `/dossie` com fatos públicos, enquadramentos, matriz, pedidos e contexto processual.
 - [x] Criar página `/fontes` com catálogo de fontes primárias/institucionais.
 - [x] Criar página `/privacidade` com política operacional e cautelas.
-- [x] Publicar e validar por HTTP as rotas públicas `/`, `/dossie`, `/fontes`, `/privacidade` e `/enviar`.
-- [ ] Criar página `/casos` com publicação apenas de ocorrências verificadas.
+- [x] Publicar e validar por HTTP as rotas públicas `/`, `/dossie`, `/casos`, `/fontes`, `/privacidade` e `/enviar`.
+- [x] Criar página `/casos` com publicação apenas de ocorrências públicas/documentadas e filtros por escopo, categoria, status e nível de evidência.
 - [ ] Adicionar changelog público e data da última atualização.
 - [ ] Inserir política formal de correção, contraditório e canal de contato.
 
