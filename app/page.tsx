@@ -40,11 +40,41 @@ const investigation = [
 ];
 
 const timeline = [
-  ['11.06', 'R$ 1,7 bi', 'Pacote estadual anunciado para 200 cidades.'],
-  ['03.07', '≈ R$ 6 bi', 'Novo pacote anunciado na véspera do início da vedação.'],
-  ['04.07', 'Início do defeso', 'Começa o período de restrição às transferências voluntárias, ressalvadas as exceções legais.'],
-  ['04.10', '1º turno', 'A eleição acontece; o dossiê passa a ter urgência processual adicional.'],
-  ['18.12', 'Diplomação', 'Data-limite indicada no calendário eleitoral para diplomação.'],
+  {
+    date: '11.06',
+    title: 'R$ 1,7 bi',
+    desc: 'Pacote estadual anunciado para 200 cidades.',
+    href: 'https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e',
+    label: 'Abrir anúncio oficial',
+  },
+  {
+    date: '03.07',
+    title: '≈ R$ 6 bi',
+    desc: 'Novo pacote anunciado na véspera do início da vedação.',
+    href: 'https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6',
+    label: 'Abrir anúncio oficial',
+  },
+  {
+    date: '04.07',
+    title: 'Início do defeso',
+    desc: 'Começa o período de restrição às transferências voluntárias, ressalvadas as exceções legais.',
+    href: 'https://www.ba.gov.br/pge/orientacoes-para-o-ano-eleitoral-2026',
+    label: 'Ver orientação da PGE-BA',
+  },
+  {
+    date: '04.10',
+    title: '1º turno',
+    desc: 'A eleição acontece; o dossiê passa a ter urgência processual adicional.',
+    href: '/dossie#fatos',
+    label: 'Ver contexto no dossiê',
+  },
+  {
+    date: '18.12',
+    title: 'Diplomação',
+    desc: 'Data-limite indicada no calendário eleitoral para diplomação.',
+    href: '/dossie#prazo',
+    label: 'Ver contexto processual',
+  },
 ];
 
 export default function Home() {
@@ -167,13 +197,22 @@ export default function Home() {
             <p>Uma auditoria séria precisa distinguir anúncio, assinatura, empenho, liquidação, pagamento, início físico e resultado eleitoral.</p>
           </div>
           <div className="political-timeline">
-            {timeline.map(([date, title, desc], index) => (
-              <article key={date}>
+            {timeline.map((item, index) => (
+              <a
+                className="timeline-card"
+                key={item.date}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                aria-label={`${item.date} — ${item.title}. ${item.label}`}
+              >
                 <span className="timeline-index">0{index + 1}</span>
-                <time>{date}</time>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </article>
+                <span className="timeline-dot" aria-hidden="true" />
+                <time>{item.date}</time>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+                <span className="timeline-action">{item.label} →</span>
+              </a>
             ))}
           </div>
         </div>
