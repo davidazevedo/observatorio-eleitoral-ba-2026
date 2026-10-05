@@ -1,5 +1,5 @@
 import { createHmac, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
-import { get, put } from '@vercel/blob';
+import { del, get, list, put } from '@vercel/blob';
 
 export const DOSSIER_COOKIE = '__Host-dossier_session';
 export const DOSSIER_SESSION_SECONDS = 12 * 60 * 60;
@@ -10,7 +10,6 @@ export const OTP_MAX_REQUESTS_PER_HOUR = 5;
 export const DOSSIER_NOTICE_VERSION = '2026-10-05-v1';
 
 type OtpRecord = {
-  email: string;
   emailHash: string;
   codeHash: string;
   nonce: string;
@@ -21,6 +20,8 @@ type OtpRecord = {
   hourStartedAt: number;
   hourRequests: number;
 };
+
+type RateRecord = { startedAt: number; count: number };
 
 function secret() {
   const value = process.env.DOSSIER_AUTH_SECRET;
@@ -62,7 +63,7 @@ async function readOtp(email: string): Promise<OtpRecord | null> {
 }
 
 async function writeOtp(record: OtpRecord) {
-  await put(otpPath(record.email), JSON.stringify(record), {
+  await put(`dossier-access/otp/${record.emailHash}.json`, JSON.stringify(record), {
     access: 'private',
     contentType: 'application/json',
     addRandomSuffix: false,
@@ -70,29 +71,62 @@ async function writeOtp(record: OtpRecord) {
   });
 }
 
+async function deleteOtp(email: string) {
+  try {
+    await del(otpPath(email));
+  } catch {}
+}
+
+async function cleanupTransientRecords() {
+  const now = Date.now();
+  try {
+    const [otpPage, ratePage] = await Promise.all([
+      list({ prefix: 'dossier-access/otp/', limit: 1000 }),
+      list({ prefix: 'dossier-access/rate/', limit: 1000 }),
+    ]);
+    const stale = [
+      ...otpPage.blobs.filter((blob) => now - new Date(blob.uploadedAt).getTime() > 20 * 60 * 1000),
+      ...ratePage.blobs.filter((blob) => now - new Date(blob.uploadedAt).getTime() > 2 * 60 * 60 * 1000),
+    ].map((blob) => blob.pathname);
+    if (stale.length) await del(stale);
+  } catch {}
+}
+
 export async function issueOtp(email: string) {
   const normalized = normalizeEmail(email);
   const now = Date.now();
   const previous = await readOtp(normalized);
 
-  if (previous && now - previous.lastSentAt < OTP_RESEND_MS) {
-    return { ok: false as const, reason: 'cooldown', retryAfter: Math.ceil((OTP_RESEND_MS - (now - previous.lastSentAt)) / 1000) };
+  if (previous?.expiresAt && previous.expiresAt < now) {
+    await deleteOtp(normalized);
   }
 
-  let hourStartedAt = previous?.hourStartedAt || now;
-  let hourRequests = previous?.hourRequests || 0;
+  const activePrevious = previous?.expiresAt && previous.expiresAt >= now ? previous : null;
+  if (activePrevious && now - activePrevious.lastSentAt < OTP_RESEND_MS) {
+    return {
+      ok: false as const,
+      reason: 'cooldown',
+      retryAfter: Math.ceil((OTP_RESEND_MS - (now - activePrevious.lastSentAt)) / 1000),
+    };
+  }
+
+  let hourStartedAt = activePrevious?.hourStartedAt || now;
+  let hourRequests = activePrevious?.hourRequests || 0;
   if (now - hourStartedAt >= 60 * 60 * 1000) {
     hourStartedAt = now;
     hourRequests = 0;
   }
   if (hourRequests >= OTP_MAX_REQUESTS_PER_HOUR) {
-    return { ok: false as const, reason: 'rate_limit', retryAfter: Math.ceil((60 * 60 * 1000 - (now - hourStartedAt)) / 1000) };
+    return {
+      ok: false as const,
+      reason: 'rate_limit',
+      retryAfter: Math.ceil((60 * 60 * 1000 - (now - hourStartedAt)) / 1000),
+    };
   }
 
   const code = String(randomInt(0, 1_000_000)).padStart(6, '0');
   const nonce = randomBytes(16).toString('hex');
   const record: OtpRecord = {
-    email: normalized,
     emailHash: emailHash(normalized),
     codeHash: codeDigest(normalized, code, nonce),
     nonce,
@@ -108,9 +142,8 @@ export async function issueOtp(email: string) {
 
 export async function persistIssuedOtp(record: OtpRecord) {
   await writeOtp(record);
+  await cleanupTransientRecords();
 }
-
-type RateRecord = { startedAt: number; count: number };
 
 export async function checkDossierIpRateLimit(ip: string) {
   const now = Date.now();
@@ -126,8 +159,12 @@ export async function checkDossierIpRateLimit(ip: string) {
 
   if (now - record.startedAt >= 60 * 60 * 1000) record = { startedAt: now, count: 0 };
   if (record.count >= 12) {
-    return { ok: false as const, retryAfter: Math.ceil((60 * 60 * 1000 - (now - record.startedAt)) / 1000) };
+    return {
+      ok: false as const,
+      retryAfter: Math.ceil((60 * 60 * 1000 - (now - record.startedAt)) / 1000),
+    };
   }
+
   record.count += 1;
   await put(pathname, JSON.stringify(record), {
     access: 'private',
@@ -148,18 +185,29 @@ export async function verifyOtp(email: string, code: string) {
   const normalized = normalizeEmail(email);
   const record = await readOtp(normalized);
   const now = Date.now();
-  if (!record || record.expiresAt < now || record.attempts >= OTP_MAX_ATTEMPTS) return { ok: false as const };
+
+  if (!record) return { ok: false as const };
+  if (record.expiresAt < now || record.attempts >= OTP_MAX_ATTEMPTS) {
+    await deleteOtp(normalized);
+    return { ok: false as const };
+  }
 
   const received = codeDigest(normalized, code, record.nonce);
   const valid = equalHex(received, record.codeHash);
   if (!valid) {
     record.attempts += 1;
-    await writeOtp(record);
-    return { ok: false as const, remaining: Math.max(0, OTP_MAX_ATTEMPTS - record.attempts) };
+    if (record.attempts >= OTP_MAX_ATTEMPTS) {
+      await deleteOtp(normalized);
+    } else {
+      await writeOtp(record);
+    }
+    return {
+      ok: false as const,
+      remaining: Math.max(0, OTP_MAX_ATTEMPTS - record.attempts),
+    };
   }
 
-  record.expiresAt = 0;
-  await writeOtp(record);
+  await deleteOtp(normalized);
   return { ok: true as const, email: normalized, emailHash: record.emailHash };
 }
 
@@ -190,7 +238,31 @@ export function verifyDossierSession(token: unknown) {
   }
 }
 
+async function purgeExpiredAccessLogs() {
+  const now = Date.now();
+  let cursor: string | undefined;
+  const stale: string[] = [];
+  try {
+    do {
+      const page = await list({ prefix: 'dossier-access/logs/', limit: 250, cursor });
+      for (const blob of page.blobs) {
+        try {
+          const result = await get(blob.pathname, { access: 'private', useCache: false });
+          if (!result || result.statusCode !== 200) continue;
+          const record = JSON.parse(await new Response(result.stream).text()) as { retentionUntil?: string };
+          const retentionUntil = record.retentionUntil ? new Date(record.retentionUntil).getTime() : 0;
+          if (retentionUntil && retentionUntil < now) stale.push(blob.pathname);
+        } catch {}
+      }
+      cursor = page.hasMore ? page.cursor : undefined;
+    } while (cursor);
+    if (stale.length) await del(stale);
+  } catch {}
+}
+
 export async function writeDossierAccessLog(email: string) {
+  await purgeExpiredAccessLogs();
+
   const now = new Date();
   const retention = new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000);
   const eh = emailHash(email);
@@ -203,9 +275,13 @@ export async function writeDossierAccessLog(email: string) {
     marketing: false,
     retentionUntil: retention.toISOString(),
   };
-  await put(`dossier-access/logs/${now.toISOString().replace(/[:.]/g, '-')}-${eh.slice(0, 16)}.json`, JSON.stringify(record), {
-    access: 'private',
-    contentType: 'application/json',
-    addRandomSuffix: true,
-  });
+  await put(
+    `dossier-access/logs/${now.toISOString().replace(/[:.]/g, '-')}-${eh.slice(0, 16)}.json`,
+    JSON.stringify(record),
+    {
+      access: 'private',
+      contentType: 'application/json',
+      addRandomSuffix: true,
+    },
+  );
 }
