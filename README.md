@@ -23,6 +23,12 @@ Portal público para organização documental e auditável de fatos relacionados
 - `/enviar` — coleta de fatos e evidências
 - `/privacidade` — regras de privacidade e segurança
 
+## Infraestrutura
+- GitHub: `davidazevedo/observatorio-eleitoral-ba-2026`
+- Vercel: projeto `observatorio-eleitoral-ba-2026`
+- Região padrão das Functions: `gru1`
+- Evidências: Vercel Blob privado, conectado ao projeto
+
 ## Desenvolvimento
 ```bash
 npm install
