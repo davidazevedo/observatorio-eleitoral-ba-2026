@@ -60,14 +60,15 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
   })),
   base({
     recordId:'BOOT-LAJEDINHO-007-2026',kind:'research_finding',status:'corroborating',
-    title:'Lajedinho: Convênio 007/2026 teve licitação da obra em fase de contratação apenas em setembro',
-    summary:'O portal oficial de Lajedinho registra a Concorrência 008/2026 para 50 unidades do Minha Casa Minha Vida Bahia, vinculada ao Convênio 007/2026, em fase licitatória em setembro. Isso corrobora o convênio estadual de 03/07 e torna prioritário verificar se houve parcela estadual durante o defeso. Não prova repasse irregular.',
-    municipality:'Lajedinho',state:'BA',eventDate:'2026-09-22',caseIds:['OE-BA-0002'],
-    tags:['convenio-007-2026','habitacao','licitacao','defeso-eleitoral','lacuna-transferencia'],
-    evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',contractValue:5877340.25},
+    title:'Lajedinho: R$ 1,17 milhão pago em 06/07; licitação das 50 moradias publicada em setembro',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional estadual com Lajedinho. O portal oficial municipal registra, meses depois, a Concorrência 008/2026 para executar as mesmas 50 unidades, vinculada ao Convênio 007/2026. A combinação torna prioritária a obtenção da documentação da exceção legal e da eventual execução física anterior a 04/07; não prova, isoladamente, repasse irregular.',
+    municipality:'Lajedinho',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','lajedinho-transparencia-licitacoes','pge-ba-eleicoes-2026'],
+    tags:['convenio-007-2026','habitacao','pagamento-06-07','licitacao-setembro','defeso-eleitoral','prioridade-documental'],
+    evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5877340.25},
     entities:[{name:'Município de Lajedinho',type:'municipality',identifier:'CNPJ 13.810.544/0001-60',role:'convenente/contratante'}],
     provenance:src('https://transparencia.lajedinho.ba.gov.br/licitacoes','Portal da Transparência — Licitações 2026','Prefeitura Municipal de Lajedinho','2026-09-22','Concorrência 008/2026 / PNCP 13810544000160-1-000098/2026'),
-    notes:['Pergunta decisiva: houve transferência estadual do Convênio 007/2026 entre 04/07 e 04/10?','Se houve, qual exceção e qual prova de execução física anterior a 04/07?','Verificar se existia contratação anterior distinta antes de qualquer conclusão.']
+    notes:['FIPLAN: instrumento 26601.0001.26.0000007-1; celebrado em 19/06/2026; publicado em 20/06/2026; NOB 26601.0001.26.0000027-8; pagamento efetivado em 06/07/2026: R$ 1.170.000,00.','Portal municipal: Concorrência 008/2026 para executar 50 unidades vinculadas ao Convênio 007/2026, publicada em setembro.','Pergunta decisiva: qual exceção do art. 73, VI, a, fundamentou o pagamento de 06/07 e qual documento comprova obra/serviço fisicamente iniciado antes de 04/07 com cronograma prefixado?','Verificar se existia contratação ou execução anterior distinta antes de qualquer conclusão jurídica.']
   }),
   base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
