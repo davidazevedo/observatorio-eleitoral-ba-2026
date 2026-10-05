@@ -124,11 +124,11 @@ export const sourceCatalog: SourceItem[] = [
 ];
 
 export const evidenceLevels = [
-  ['L0', 'Relato não verificado', 'Narrativa recebida sem corroboração independente. Não deve gerar publicação acusatória.'],
-  ['L1', 'Relato + material', 'Há arquivo ou documento anexado, mas autenticidade, contexto ou integridade ainda precisam ser confirmados.'],
-  ['L2', 'Corroborado', 'Uma ou mais fontes públicas independentes sustentam elementos relevantes do relato.'],
-  ['L3', 'Fonte primária', 'Documento oficial/primário e cadeia documental coerente sustentam o fato objetivo.'],
-  ['L4', 'Convergência robusta', 'Múltiplas fontes primárias, execução material e relações relevantes convergem de forma auditável.'],
+  ['L0', 'Relato recebido', 'Narrativa recebida e ainda não verificada. Não deve gerar publicação acusatória.'],
+  ['L1', 'Pista localizável', 'Há material, referência, local, data ou outro elemento que permite iniciar verificação, mas o fato ainda não está corroborado.'],
+  ['L2', 'Documento primário', 'Uma fonte primária, oficial ou material original verificável sustenta um fato objetivo.'],
+  ['L3', 'Corroboração independente', 'Duas ou mais fontes independentes convergem sobre elementos relevantes do fato.'],
+  ['L4', 'Conjunto robusto / pronto para encaminhamento', 'Fontes primárias, contexto, cronologia e demais elementos convergem de forma auditável e suficiente para encaminhamento institucional.'],
 ];
 
 export const matrixFields = [
