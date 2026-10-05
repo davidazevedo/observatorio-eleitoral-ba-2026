@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-10-05T23:25:00Z",
+  "sourceDataset": "Convênios e Parcerias — FIPLAN/SEFAZ Bahia",
+  "sourceUpdatedAt": "2026-10-05 06:30:18",
+  "windowStart": "2026-07-04",
+  "windowEnd": "2026-10-04",
+  "method": "Filtro estrito: exercício 2026; tipo de despesa Transferências; recebedor nominal Município/Prefeitura Municipal; instrumento Convênio; pagamento efetivado entre 04/07 e 04/10. O conjunto identifica prioridade de auditoria, não ilegalidade.",
+  "instrumentCount": 50,
+  "paymentCount": 51,
+  "municipalityCount": 44,
+  "defesoPaid": 28772441.69
+}
