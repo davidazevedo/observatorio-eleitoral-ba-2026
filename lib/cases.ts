@@ -39,7 +39,7 @@ export const publicCases: PublicCase[] = [
     municipalityCount: 200,
     category: 'Transferências e convênios',
     status: 'Fato público documentado',
-    evidenceLevel: 'L3',
+    evidenceLevel: 'L2',
     summary:
       'O Governo da Bahia anunciou mais de R$ 1,7 bilhão em ações para 200 cidades, incluindo convênios, ordens de serviço, licitações e acordos consorciais.',
     auditQuestion:
@@ -71,18 +71,18 @@ export const publicCases: PublicCase[] = [
     slug: 'defeso-eleitoral-transferencias-2026',
     title: 'Período de vedação às transferências voluntárias',
     date: '2026-07-04',
-    dateLabel: '04 JUL — 04 OUT 2026',
+    dateLabel: '04 JUL 2026',
     scope: 'Estadual',
     municipality: 'Bahia — escopo estadual',
     category: 'Defeso eleitoral',
     status: 'Referência normativa',
     evidenceLevel: 'L3',
     summary:
-      'A orientação da PGE-BA registra a vedação ao repasse financeiro de transferências voluntárias do Estado aos municípios no período eleitoral, ressalvadas hipóteses legais específicas.',
+      'A orientação da PGE-BA e fontes federais registram restrições aplicáveis às transferências voluntárias no recorte eleitoral, com hipóteses legais específicas de exceção. O marco não é apresentado como universal para toda conduta eleitoral.',
     auditQuestion:
       'Quais pagamentos ocorridos no período foram classificados como exceção e onde estão a obrigação formal preexistente, o cronograma e a prova de execução física exigidos para cada caso?',
     sourceIds: ['pge-defeso', 'tse-defeso', 'transferegov-21'],
-    tags: ['04/07–04/10', 'art. 73', 'transferências voluntárias', 'exceções'],
+    tags: ['04/07', 'art. 73', 'transferências voluntárias', 'exceções'],
   },
   {
     id: 'OE-BA-0004',
@@ -94,7 +94,7 @@ export const publicCases: PublicCase[] = [
     municipality: 'Bahia — escopo estadual',
     category: 'Contexto eleitoral',
     status: 'Contexto processual',
-    evidenceLevel: 'L3',
+    evidenceLevel: 'L2',
     summary:
       'O resultado do primeiro turno compõe apenas o contexto temporal e processual do dossiê. Ele não é utilizado como evidência de irregularidade.',
     auditQuestion:
