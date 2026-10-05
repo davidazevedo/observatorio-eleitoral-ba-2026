@@ -1,0 +1,66 @@
+[
+  {
+    "instrumentId": "1840100012600000883",
+    "instrumentNumber": "18401.0001.26.0000088-3",
+    "municipality": "IPUPIARA",
+    "recipientCnpj": "13.798.384/0001-81",
+    "stateAgency": "Secretaria de Desenvolvimento Rural",
+    "stateAgencyAcronym": "SDR",
+    "celebrationDate": "2025-12-29",
+    "publicationDate": "2025-12-30",
+    "category": "obra/infraestrutura",
+    "instrumentValue": 2317141.59,
+    "defesoPaid": 655000.0,
+    "payments": [
+      {
+        "date": "2026-08-21",
+        "amount": 380000.0,
+        "bankOrder": "18401.0001.26.0005726-7",
+        "effective": "Sim"
+      },
+      {
+        "date": "2026-09-29",
+        "amount": 275000.0,
+        "bankOrder": "18401.0001.26.0006642-8",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "medium",
+    "object": "CONV 142/2025 - MERCADO MUNICIPAL - AMPLIAÇÃO E REFORMA"
+  },
+  {
+    "instrumentId": "1840100012600000891",
+    "instrumentNumber": "18401.0001.26.0000089-1",
+    "municipality": "IPUPIARA",
+    "recipientCnpj": "13.798.384/0001-81",
+    "stateAgency": "Secretaria de Desenvolvimento Rural",
+    "stateAgencyAcronym": "SDR",
+    "celebrationDate": "2026-01-08",
+    "publicationDate": "2026-01-10",
+    "category": "outros",
+    "instrumentValue": 424204.07,
+    "defesoPaid": 200000.0,
+    "payments": [
+      {
+        "date": "2026-08-21",
+        "amount": 200000.0,
+        "bankOrder": "18401.0001.26.0005727-5",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "medium",
+    "object": "CONV 04/2026 - CENTRO DE COMERC. DE ANIMAIS - IMPLANTAÇÃO"
+  },
+  {
+    "instrumentId": "1840100012600000735",
+    "instrumentNumber": "18401.0001.26.0000073-5",
+    "municipality": "IRAJUBA",
+    "recipientCnpj": "13.763.479/0001-60",
+    "stateAgency": "Secretaria de Desenvolvimento Rural",
+    "stateAgencyAcronym": "SDR",
+    "celebrationDate": "2026-01-09",
+    "publicationDate": "2026-01-10",
+    "category": "outros",
+    "instrumentValue": 420615.63,
+    "defesoPaid": 82000.0,
+  ...[truncated]
