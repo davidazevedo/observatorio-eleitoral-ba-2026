@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { assertSameOrigin } from '@/lib/submission-session';
-import { issueOtp, normalizeEmail, persistIssuedOtp, validEmail } from '@/lib/dossier-auth';
+import { checkDossierIpRateLimit, issueOtp, normalizeEmail, persistIssuedOtp, validEmail } from '@/lib/dossier-auth';
 import { EmailProviderUnavailableError, sendDossierOtpEmail } from '@/lib/dossier-email';
 
 export const runtime = 'nodejs';
@@ -10,6 +10,16 @@ export async function POST(request: Request) {
     assertSameOrigin(request);
     const body = await request.json();
     if (body?.website) return NextResponse.json({ ok: true, message: 'Se o endereço for válido, enviaremos um código.' });
+
+    const forwarded = request.headers.get('x-forwarded-for') || '';
+    const ip = forwarded.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'unknown';
+    const ipRate = await checkDossierIpRateLimit(ip);
+    if (!ipRate.ok) {
+      return NextResponse.json(
+        { error: 'Muitas solicitações a partir desta conexão. Tente novamente mais tarde.', retryAfter: ipRate.retryAfter },
+        { status: 429, headers: { 'retry-after': String(ipRate.retryAfter), 'cache-control': 'no-store' } },
+      );
+    }
 
     const email = normalizeEmail(body?.email);
     if (!validEmail(email)) {
