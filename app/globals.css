@@ -684,3 +684,5 @@ textarea{min-height:auto}
   .intel-relations>div{grid-template-columns:1fr}.intel-relations>div>span{text-align:left}.intel-relations p{grid-column:auto}
   .api-endpoints{grid-template-columns:1fr}
 }
+
+.intel-export-links{display:flex;flex-wrap:wrap;gap:9px}.intel-export-links a{display:inline-flex;padding:9px 11px;border:1px solid #bdb3a4;background:#fffdf8;color:#174b3d;text-decoration:none;font-size:10px;font-weight:800}.intel-export-links a:hover{background:#edf2ee;border-color:#82998e}
