@@ -14,7 +14,7 @@ export default function DossiePage() {
       <header className="site-header political-header">
         <div className="container header-inner">
           <Link className="brand political-brand" href="/"><span className="brand-mark">OE</span><span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span></Link>
-          <nav className="nav"><Link href="/dossie">Dossiê</Link><Link href="/fontes">Fontes</Link><Link href="/privacidade">Privacidade</Link></nav>
+          <nav className="nav"><Link href="/dossie">Dossiê</Link><Link href="/casos">Casos</Link><Link href="/fontes">Fontes</Link><Link href="/privacidade">Privacidade</Link></nav>
           <Link className="button compact" href="/enviar">Enviar evidência</Link>
         </div>
       </header>
