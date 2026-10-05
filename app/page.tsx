@@ -214,7 +214,7 @@ export default function Home() {
         <div className="container footer-top">
           <div><strong>Observatório Eleitoral Bahia 2026</strong><p>Fiscalização cidadã. Evidência. Transparência.</p></div>
           <div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div>
-          <p><Link href="/denuncia">Denúncia</Link> · <Link href="/casos">Casos</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/privacidade">Privacidade</Link></p>
+          <p><Link href="/denuncia">Denúncia</Link> · <Link href="/casos">Casos</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/correcoes">Correções</Link> · <Link href="/atualizacoes">Atualizações</Link></p>
         </div>
         <div className="container visual-credits">Imagens institucionais e mapa via Wikimedia Commons. O mapa é usado como contexto geográfico; estados de apuração não representam culpa.</div>
       </footer>
