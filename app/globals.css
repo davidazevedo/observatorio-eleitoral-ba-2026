@@ -247,3 +247,79 @@ textarea{min-height:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .button:hover,.political-source-card:hover{transform:none}
 }
+
+
+/* --- Public cases and occurrences registry --- */
+.cases-page{background:#e8e2d5;min-height:100vh}
+.cases-hero{background:#101d18;color:#f4f1e9;padding:90px 0 78px;border-bottom:7px solid var(--accent-amber)}
+.cases-hero h1{font-family:var(--font-heading),var(--font-body-fallback);font-size:clamp(52px,6.5vw,92px);line-height:.98;letter-spacing:-.055em;margin:0;max-width:1050px}
+.cases-hero h1 em{color:#d9b878;font-style:normal}
+.cases-hero>div>p:last-child{max-width:820px;color:#d0d8d3;font-size:17px;line-height:1.7;margin:28px 0 0}
+.cases-stats{display:grid;grid-template-columns:repeat(4,1fr);border-inline:1px solid #bdb3a2;border-bottom:1px solid #bdb3a2}
+.cases-stats article{padding:30px;border-right:1px solid #bdb3a2;background:#efe9dc}
+.cases-stats article:last-child{border-right:0}
+.cases-stats span{display:block;font-size:10px;font-weight:800;letter-spacing:.14em;color:#56635e}
+.cases-stats strong{display:block;font-family:var(--font-heading),var(--font-body-fallback);font-size:44px;line-height:1;margin:14px 0 10px;color:#7f5d32}
+.cases-stats p{margin:0;color:#596660;font-size:13px}
+.cases-intro{display:grid;grid-template-columns:1fr .9fr;gap:70px;padding:82px 0 42px;align-items:end}
+.cases-intro h2,.cases-next h2{font-family:var(--font-heading),var(--font-body-fallback);font-size:clamp(34px,4.2vw,56px);line-height:1.04;letter-spacing:-.04em;margin:0}
+.cases-intro>p{font-size:16px;color:#53605a;line-height:1.75;margin:0}
+.cases-filter-panel{margin:0 0 34px;background:#f4f0e7;border:1px solid #b9b09f;padding:28px}
+.cases-search label,.cases-filter-grid label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#4e5b55}
+.cases-search input{font-size:16px;background:#fffdf8}
+.cases-filter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.cases-filter-grid select{background:#fffdf8}
+.cases-filter-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;margin-top:18px;border-top:1px solid #d1c9bc}
+.cases-filter-footer p{margin:0;color:#596660;font-size:13px}
+.filter-reset{border:0;background:transparent;color:#174b3d;font-weight:800;text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:8px}
+.case-register{display:grid;gap:20px;padding-bottom:90px}
+.case-card{display:grid;grid-template-columns:170px minmax(0,1fr);background:#f7f3ea;border:1px solid #b9b09f;box-shadow:0 10px 26px rgba(30,35,31,.05)}
+.case-card-rail{background:#12221c;color:#f2eee6;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.case-id{font-family:var(--font-institutional),serif;font-size:12px;letter-spacing:.08em;color:#d9b878}
+.case-card-rail time{font-family:var(--font-heading),var(--font-body-fallback);font-size:26px;line-height:1.1;margin:42px 0 18px;color:#fff}
+.case-level{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-width:43px;height:31px;border-radius:999px;font-size:11px;font-weight:850;color:#10211a;background:#dfe5e1}
+.case-level-l2{background:#d5e3ea}.case-level-l3{background:#d3e6d8}.case-level-l4{background:#bed7c8}
+.case-card-main{padding:34px 38px}
+.case-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.case-badges span{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border:1px solid #c5bcad;background:#ece5d8;color:#53605a}
+.case-card h2{font-family:var(--font-heading),var(--font-body-fallback);font-size:clamp(28px,3vw,42px);line-height:1.04;letter-spacing:-.04em;margin:0 0 16px}
+.case-summary{font-size:16px;line-height:1.7;color:#4f5c56;max-width:900px}
+.audit-question{margin:28px 0;padding:22px 24px;border-left:5px solid var(--accent-amber);background:#eee5d5}
+.audit-question span{font-size:10px;font-weight:850;letter-spacing:.13em;color:#74572e}
+.audit-question p{margin:7px 0 0;font-weight:650;color:#26352f;line-height:1.65}
+.case-tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px}
+.case-tags span{font-size:11px;padding:6px 9px;border:1px solid #cbc3b7;border-radius:999px;color:#53605a;background:#faf7f1}
+.case-meta{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;border-top:1px solid #d2c9ba;padding-top:22px}
+.case-meta small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#66726c;margin-bottom:6px}
+.case-meta strong{display:block;font-size:14px}
+.case-meta>div>span{display:block;margin-top:4px;font-size:12px;color:#6b7771}
+.case-sources{display:flex;flex-wrap:wrap;gap:10px}
+.case-sources a{font-size:12px;font-weight:750;color:#174b3d;text-underline-offset:4px}
+.case-sources a:hover{text-decoration-thickness:2px}
+.cases-empty{padding:50px;text-align:center;border:1px dashed #a79d8c;background:#f2ede4}
+.cases-empty strong{font-family:var(--font-heading),var(--font-body-fallback);font-size:26px}
+.cases-empty p{color:#5b6862}
+.cases-next{margin-bottom:90px;padding:52px;background:#d8cfbe;border-left:6px solid #10261f;display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end}
+.cases-next p:not(.eyebrow){max-width:750px;color:#52605a}
+@media(max-width:950px){
+  .cases-stats{grid-template-columns:1fr 1fr}
+  .cases-stats article:nth-child(2){border-right:0}
+  .cases-stats article:nth-child(-n+2){border-bottom:1px solid #bdb3a2}
+  .cases-intro,.case-meta,.cases-next{grid-template-columns:1fr}
+  .cases-filter-grid{grid-template-columns:1fr 1fr}
+  .case-card{grid-template-columns:130px 1fr}
+}
+@media(max-width:650px){
+  .cases-hero{padding:62px 0 56px}
+  .cases-hero h1{font-size:48px}
+  .cases-stats{grid-template-columns:1fr}
+  .cases-stats article{border-right:0;border-bottom:1px solid #bdb3a2!important}
+  .cases-filter-grid{grid-template-columns:1fr}
+  .cases-filter-footer{align-items:flex-start;flex-direction:column}
+  .case-card{grid-template-columns:1fr}
+  .case-card-rail{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:18px 20px}
+  .case-card-rail time{font-size:18px;margin:0}
+  .case-level{margin-top:0}
+  .case-card-main{padding:28px 20px}
+  .cases-next{padding:34px 24px}
+}
