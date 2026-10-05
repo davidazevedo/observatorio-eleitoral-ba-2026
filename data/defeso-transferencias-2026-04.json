@@ -1,0 +1,51 @@
+[
+  {
+    "instrumentId": "2640100012600000337",
+    "instrumentNumber": "26401.0001.26.0000033-7",
+    "municipality": "JIQUIRICA",
+    "recipientCnpj": "13.764.659/0001-66",
+    "stateAgency": "Secretaria de Desenvolvimento Urbano",
+    "stateAgencyAcronym": "SEDUR",
+    "celebrationDate": "2025-12-11",
+    "publicationDate": "2025-12-12",
+    "category": "obra/infraestrutura",
+    "instrumentValue": 1096813.92,
+    "defesoPaid": 413495.16,
+    "payments": [
+      {
+        "date": "2026-09-30",
+        "amount": 413495.16,
+        "bankOrder": "26401.0001.26.0008673-1",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "medium",
+    "object": "EXECUÇÃO DE PAVIMENTAÇÃO EM CONCRETO ARMADO E DRENAGEM DA LADEIRA DA PINDOBA, NO MUNICÍPIO DE JIQUIRIÇÁ/BA."
+  },
+  {
+    "instrumentId": "2660100012600000071",
+    "instrumentNumber": "26601.0001.26.0000007-1",
+    "municipality": "LAJEDINHO",
+    "recipientCnpj": "13.810.544/0001-60",
+    "stateAgency": "Secretaria de Desenvolvimento Urbano",
+    "stateAgencyAcronym": "SEDUR",
+    "celebrationDate": "2026-06-19",
+    "publicationDate": "2026-06-20",
+    "category": "habitação",
+    "instrumentValue": 5850000.0,
+    "defesoPaid": 1170000.0,
+    "payments": [
+      {
+        "date": "2026-07-06",
+        "amount": 1170000.0,
+        "bankOrder": "26601.0001.26.0000027-8",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "urgent",
+    "object": "O objeto do presente instrumento é a cooperação técnica e financeira entre o ESTADO e o MUNICÍPIO para a Execução de 50 unidades habitacionais com 48 m2 de área construída, compreendendo 2 quartos, sala, cozinha, sanitário e área de serviço, localizadas na área urbana do município e destinadas a famílias de baixa renda, enquadradas no CadUnico do Governo Federal, conforme premissas estabelecidas no Programa Minha Casa Minha Vida"
+  },
+  {
+    "instrumentId": "2130100012600002991",
+    "instrumentNumber": "21301.0001.26.0000299-1",
+    "municipality": "LAJEDO DO TABOC...[truncated]
