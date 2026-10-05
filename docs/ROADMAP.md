@@ -28,11 +28,17 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 
 ## Fase 1 — Dossiê público mínimo viável
 - [x] Consolidar texto-base da representação.
-- [x] Criar página `/dossie` com fatos públicos, enquadramentos, matriz, pedidos e contexto processual.
+- [x] Dividir `/dossie` em camada pública (fatos/fontes/perguntas/pedidos) e `/dossie/analise` autenticada (método, matriz, red flags, trilhas e cruzamentos).
 - [x] Criar página `/fontes` com catálogo de fontes primárias/institucionais.
-- [x] Criar página `/privacidade` com política operacional e cautelas.
-- [x] Publicar e validar por HTTP as rotas públicas `/`, `/dossie`, `/casos`, `/fontes`, `/privacidade` e `/enviar`.
+- [x] Criar página `/privacidade` com política operacional, separação de finalidades, retenção e linguagem correta sobre envio sem identificação.
+- [x] Publicar as rotas públicas `/`, `/denuncia`, `/dossie`, `/casos`, `/fontes`, `/privacidade` e `/enviar`; validar novamente após o redesign da pesquisa profunda.
 - [x] Criar página `/casos` com publicação apenas de ocorrências públicas/documentadas e filtros por escopo, categoria, status e nível de evidência.
+- [x] Criar representação pública separada em `/denuncia`.
+- [x] Implementar hero documental 3D leve com fallback para `prefers-reduced-motion`.
+- [x] Transformar `/enviar` em fluxo progressivo de seis etapas.
+- [x] Implementar gate do Dossiê Analítico com OTP de 6 dígitos, sessão server-side e separação lógica do canal de denúncias.
+- [ ] Conectar e verificar domínio de provedor transacional (Resend) e preencher `RESEND_API_KEY` + `DOSSIER_FROM_EMAIL`.
+- [x] Criar política e manifesto inicial de preservação de fontes.
 - [ ] Adicionar changelog público e data da última atualização.
 - [ ] Inserir política formal de correção, contraditório e canal de contato.
 
@@ -67,11 +73,11 @@ Para cada município:
 `received -> quarantined -> triage -> corroborating -> verified | insufficient | rejected -> publishable -> referred`
 
 ### Níveis de evidência
-- L0 — relato não verificado;
-- L1 — relato + material anexado, autenticidade ainda não corroborada;
-- L2 — corroborado por fonte pública independente;
-- L3 — documento primário e cadeia documental coerente;
-- L4 — conjunto convergente de fontes primárias + execução material verificada.
+- L0 — relato recebido;
+- L1 — pista localizável;
+- L2 — documento primário;
+- L3 — corroboração independente;
+- L4 — conjunto robusto / pronto para encaminhamento.
 
 Nenhum L0/L1 deve ser exibido publicamente com identificação acusatória.
 
@@ -125,3 +131,16 @@ Gerar pacote fechado contendo:
 
 ## Critério de conclusão do MVP
 O MVP está concluído quando: landing pública estiver em produção; formulário aceitar os dois modos de envio; anexos grandes forem enviados ao Blob privado; submissão gerar protocolo; nenhum arquivo bruto estiver publicamente acessível; e o dossiê possuir fontes oficiais, metodologia explícita e política de privacidade.
+
+
+## Redesign orientado pela Pesquisa Profunda — 05/10/2026
+Critérios aplicados:
+- home responde primeiro o que está sendo questionado, por que, quais fatos públicos existem e como contribuir;
+- copy principal: “A Bahia não pode ser refém do silêncio”;
+- representação pública separada da estratégia analítica;
+- 3D/motion sem dependência pesada e com redução de movimento;
+- formulário progressivo mobile-first;
+- dossiê analítico gated por e-mail/OTP, separado da autenticação administrativa;
+- e-mail do dossiê não contamina submissões;
+- fontes centrais passam a possuir política de preservação;
+- períodos eleitorais são descritos por fundamento específico, evitando generalização de um único intervalo.
