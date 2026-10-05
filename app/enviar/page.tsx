@@ -105,7 +105,7 @@ export default function SubmitPage() {
       <header className="site-header political-header">
         <div className="container header-inner">
           <Link className="brand political-brand" href="/"><span className="brand-mark">OE</span><span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span></Link>
-          <Link className="text-link" href="/dossie">← Voltar ao dossiê</Link>
+          <div className="submit-header-links"><Link className="text-link" href="/dossie">Dossiê</Link><Link className="text-link" href="/casos">Casos públicos</Link></div>
         </div>
       </header>
 
