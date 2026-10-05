@@ -110,6 +110,34 @@ export async function persistIssuedOtp(record: OtpRecord) {
   await writeOtp(record);
 }
 
+type RateRecord = { startedAt: number; count: number };
+
+export async function checkDossierIpRateLimit(ip: string) {
+  const now = Date.now();
+  const key = createHmac('sha256', secret()).update(`ip:${ip || 'unknown'}`).digest('hex');
+  const pathname = `dossier-access/rate/${key}.json`;
+  let record: RateRecord = { startedAt: now, count: 0 };
+  try {
+    const result = await get(pathname, { access: 'private', useCache: false });
+    if (result?.statusCode === 200) {
+      record = JSON.parse(await new Response(result.stream).text()) as RateRecord;
+    }
+  } catch {}
+
+  if (now - record.startedAt >= 60 * 60 * 1000) record = { startedAt: now, count: 0 };
+  if (record.count >= 12) {
+    return { ok: false as const, retryAfter: Math.ceil((60 * 60 * 1000 - (now - record.startedAt)) / 1000) };
+  }
+  record.count += 1;
+  await put(pathname, JSON.stringify(record), {
+    access: 'private',
+    contentType: 'application/json',
+    addRandomSuffix: false,
+    allowOverwrite: true,
+  });
+  return { ok: true as const };
+}
+
 function equalHex(a: string, b: string) {
   const left = Buffer.from(a, 'hex');
   const right = Buffer.from(b, 'hex');
