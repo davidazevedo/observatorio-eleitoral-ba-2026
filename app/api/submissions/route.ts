@@ -15,6 +15,7 @@ const categories = new Set([
   'Distribuição de benefício ou vantagem',
   'Evento, publicidade ou uso de estrutura pública',
   'Fornecedor ou apoiador',
+  'Correção, contraditório ou direito de resposta',
   'Outro',
 ]);
 
