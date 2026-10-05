@@ -26,12 +26,13 @@ export default function SubmitPage() {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setBusy(true);
     setError('');
     setProtocol('');
 
     try {
-      const form = new FormData(event.currentTarget);
+      const form = new FormData(formElement);
       if (String(form.get('website') || '')) throw new Error('Envio inválido.');
 
       const files = form.getAll('evidence').filter((value): value is File => value instanceof File && value.size > 0);
@@ -89,7 +90,8 @@ export default function SubmitPage() {
 
       setProtocol(data.protocol);
       setProgress('');
-      event.currentTarget.reset();
+      formElement.reset();
+      setIdentified(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Falha inesperada ao enviar.');
       setProgress('');
