@@ -1,85 +1,49 @@
 import Link from 'next/link';
-
-const sources = [
-  {
-    date: '11 JUN 2026',
-    title: 'Pacote anunciado pelo Governo da Bahia',
-    value: 'R$ 1,7 bi',
-    detail: 'Anúncio oficial para 200 cidades, com 271 convênios, 24 ordens de serviço, 56 licitações e outros atos.',
-    href: 'https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e',
-  },
-  {
-    date: '03 JUL 2026',
-    title: 'Novo pacote de investimentos anunciado',
-    value: '≈ R$ 6 bi',
-    detail: 'Anúncio oficial envolvendo mais de 160 municípios, na véspera do início do período de vedação eleitoral.',
-    href: 'https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6',
-  },
-  {
-    date: '04 JUL — 04 OUT',
-    title: 'Período de vedação em 2026',
-    value: '3 meses',
-    detail: 'A PGE-BA descreve a vedação a transferências voluntárias, com exceções legais que precisam ser verificadas caso a caso.',
-    href: 'https://www.ba.gov.br/pge/orientacoes-para-o-ano-eleitoral-2026',
-  },
-  {
-    date: '417',
-    title: 'Municípios no escopo da matriz',
-    value: '417',
-    detail: 'A meta é permitir leitura município por município, sem transformar proximidade política ou gasto público em prova automática.',
-    href: '/dossie',
-  },
-];
-
-const investigation = [
-  ['01', 'Origem do recurso', 'Identificar concedente, instrumento, empenho, liquidação, pagamento e data efetiva da transferência.'],
-  ['02', 'Contratação', 'Cruzar licitação, contrato, fornecedor, sócios, aditivos, preços unitários e capacidade operacional.'],
-  ['03', 'Execução física', 'Comparar pagamento com ordem de serviço, medições, cronograma, fotos, localização e estágio real da obra.'],
-  ['04', 'Contexto eleitoral', 'Verificar vínculos documentados com campanhas, fornecedores eleitorais, apoiadores e eventos públicos.'],
-  ['05', 'Padrão estadual', 'Consolidar ocorrências equivalentes para distinguir casos isolados de um padrão estatisticamente relevante.'],
-];
+import HeroEvidenceScene from '@/components/HeroEvidenceScene';
 
 const timeline = [
   {
-    date: '11.06',
-    title: 'R$ 1,7 bi',
-    desc: 'Pacote estadual anunciado para 200 cidades.',
+    date: '11 JUN',
+    value: 'R$ 1,7 bi',
+    title: 'Pacote estadual anunciado',
+    text: 'Ações anunciadas para aproximadamente 200 municípios.',
     href: 'https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e',
-    label: 'Abrir anúncio oficial',
   },
   {
-    date: '03.07',
-    title: '≈ R$ 6 bi',
-    desc: 'Novo pacote anunciado na véspera do início da vedação.',
+    date: '03 JUL',
+    value: '≈ R$ 6 bi',
+    title: 'Novo pacote de investimentos',
+    text: 'Mais de cem atos e mais de 160 municípios no anúncio oficial.',
     href: 'https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6',
-    label: 'Abrir anúncio oficial',
   },
   {
-    date: '04.07',
-    title: 'Início do defeso',
-    desc: 'Começa o período de restrição às transferências voluntárias, ressalvadas as exceções legais.',
-    href: 'https://www.ba.gov.br/pge/orientacoes-para-o-ano-eleitoral-2026',
-    label: 'Ver orientação da PGE-BA',
+    date: '04 JUL',
+    value: 'MARCO',
+    title: 'Início do recorte de auditoria',
+    text: 'Data relevante para as restrições aplicáveis às transferências analisadas, com exceções que precisam ser demonstradas caso a caso.',
+    href: 'https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio',
   },
   {
-    date: '04.10',
-    title: '1º turno',
-    desc: 'A eleição acontece; o dossiê passa a ter urgência processual adicional.',
+    date: '04 OUT',
+    value: '1º TURNO',
+    title: 'Contexto eleitoral',
+    text: 'O resultado compõe a cronologia processual; não é tratado como prova de irregularidade.',
     href: '/dossie#fatos',
-    label: 'Ver contexto no dossiê',
   },
-  {
-    date: '18.12',
-    title: 'Diplomação',
-    desc: 'Data-limite indicada no calendário eleitoral para diplomação.',
-    href: '/dossie#prazo',
-    label: 'Ver contexto processual',
-  },
+];
+
+const helpTypes = [
+  ['Possível oferta de dinheiro, benefício ou vantagem', 'vídeo, áudio, conversa, testemunho'],
+  ['Possível uso de estrutura ou agente público', 'foto, vídeo, documento, escala'],
+  ['Contrato ou pagamento que merece verificação', 'contrato, nota, empenho, extrato público'],
+  ['Obra ou serviço incompatível com o registro oficial', 'fotos, localização, placa, medição'],
+  ['Possível pressão ou condicionamento político', 'mensagem, áudio, documento'],
+  ['Outro fato relevante', 'relato detalhado + qualquer evidência'],
 ];
 
 export default function Home() {
   return (
-    <main className="political-home">
+    <main className="political-home redesigned-home">
       <header className="site-header political-header">
         <div className="container header-inner">
           <Link className="brand political-brand" href="/">
@@ -87,231 +51,172 @@ export default function Home() {
             <span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span>
           </Link>
           <nav className="nav" aria-label="Principal">
-            <Link href="/dossie">Dossiê</Link>
+            <Link href="/denuncia">A denúncia</Link>
             <Link href="/casos">Casos</Link>
-            <a href="#linha-do-tempo">Linha do tempo</a>
             <Link href="/fontes">Fontes</Link>
+            <Link href="/dossie">Dossiê</Link>
             <Link href="/privacidade">Privacidade</Link>
           </nav>
           <Link className="button compact political-cta" href="/enviar">Enviar evidência</Link>
         </div>
       </header>
 
-      <section className="political-hero">
-        <div className="hero-photo" aria-hidden="true">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pal%C3%A1cio_Luis_Eduardo_Magalh%C3%A3es_%286466206113%29.jpg?width=1800"
-            alt=""
-          />
+      <section className="research-hero">
+        <div className="research-hero-photo" aria-hidden="true">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pal%C3%A1cio_Luis_Eduardo_Magalh%C3%A3es_%286466206113%29.jpg?width=1800" alt="" />
         </div>
-        <div className="hero-shade" />
-        <img
-          className="bahia-watermark"
-          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brazil_white_state_maps_-_Bahia.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <div className="container political-hero-inner">
-          <div className="hero-kicker"><span>BAHIA</span><b>ELEIÇÕES 2026</b><span>FISCALIZAÇÃO CIDADÃ</span></div>
-          <h1>Não deixe a Bahia<br/><em>ser refém.</em></h1>
-          <p className="hero-declaration">
-            Vamos libertar a Bahia pela <strong>transparência</strong>, pela <strong>fiscalização</strong> e pela <strong>verdade documentada</strong>.
-          </p>
-          <p className="hero-explainer">
-            Este observatório reúne fatos, documentos, relatos e evidências para investigar o possível uso eleitoralmente indevido de recursos, contratos, obras e estruturas públicas — sem transformar suspeita em condenação.
-          </p>
-          <div className="actions political-actions">
-            <Link className="button button-gold" href="/enviar">Tenho um fato ou evidência</Link>
-            <Link className="button button-outline-light" href="/dossie">Ler o dossiê público</Link>
+        <div className="research-hero-shade" />
+        <div className="container research-hero-grid">
+          <div className="research-hero-copy">
+            <div className="hero-kicker"><span>BAHIA</span><b>ELEIÇÕES 2026</b><span>FISCALIZAÇÃO CIDADÃ</span></div>
+            <h1>A Bahia não pode ser<br/><em>refém do silêncio.</em></h1>
+            <p className="trace-line">Dinheiro público deixa rastros. <strong>Nós vamos segui-los.</strong></p>
+            <p className="research-hero-text">
+              Milhões em recursos, contratos, obras e estruturas públicas atravessaram o ambiente eleitoral de 2026. Este observatório existe para reunir documentos, reconstruir a cronologia dos fatos e pedir que as autoridades investiguem onde houver indícios consistentes de irregularidade.
+            </p>
+            <p className="verify-motto">Não partimos da culpa. Partimos da obrigação de verificar.</p>
+            <div className="actions political-actions">
+              <Link className="button button-gold large" href="/enviar">Tenho um fato ou evidência</Link>
+              <Link className="button button-outline-light large" href="#denuncia">Entender a denúncia</Link>
+            </div>
+            <div className="hero-proof">
+              <span>Projeto independente</span><span>Fontes verificáveis</span><span>Evidências preservadas</span><span>Direito de resposta</span>
+            </div>
           </div>
-          <div className="hero-proof">
-            <span>Fatos verificáveis</span><span>Fontes oficiais</span><span>Evidência preservada</span><span>Direito de resposta</span>
-          </div>
+          <HeroEvidenceScene />
         </div>
       </section>
 
-      <section className="manifesto-band">
-        <div className="container manifesto-grid">
-          <p className="manifesto-label">NOSSO PRINCÍPIO</p>
-          <blockquote>
-            “A Bahia não pertence a governos, partidos ou grupos. <strong>Pertence ao povo baiano.</strong>”
-          </blockquote>
-          <p className="manifesto-copy">
-            Não pedimos que ninguém acredite em nós. Pedimos que examine os documentos, refaça as consultas e cobre respostas.
-          </p>
-        </div>
-      </section>
-
-      <section className="container political-intro section">
-        <div className="intro-title">
-          <p className="eyebrow">O QUE ESTÁ EM JOGO</p>
-          <h2>Não é apenas uma eleição.<br/>É o limite entre Estado e poder.</h2>
-        </div>
-        <div className="intro-copy">
-          <p>Quando bilhões são anunciados, contratados ou transferidos em ambiente eleitoral, a sociedade tem o direito de perguntar se cada operação observou a lei, o interesse público e a igualdade da disputa.</p>
-          <p><strong>Se o dinheiro é público, o caminho dele também precisa ser.</strong></p>
-        </div>
-      </section>
-
-      <section className="container evidence-collage" aria-label="Bahia, poder público e fiscalização cidadã">
-        <figure className="collage-main">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pal%C3%A1cio_Thom%C3%A9_de_Souza_-_Prefeitura_de_Salvador_-_panoramio.jpg?width=1600"
-            alt="Palácio Thomé de Souza, sede da Prefeitura de Salvador"
-          />
-          <figcaption>O poder público precisa ser visível também nos seus atos, contratos e pagamentos.</figcaption>
-        </figure>
-        <div className="collage-statement">
-          <span className="stamp">AUDITAR</span>
-          <h3>Da suspeita ao documento.</h3>
-          <p>Relato não é prova. Proximidade temporal não é condenação. O que muda o nível de uma ocorrência é a convergência entre documento, execução material e nexo verificável.</p>
-          <Link href="/dossie">Conheça a metodologia →</Link>
-        </div>
-      </section>
-
-      <section className="container section political-numbers">
-        <div className="section-heading political-heading">
+      <section className="commitment-band">
+        <div className="container commitment-grid">
+          <div className="commitment-seal"><span>FISCALIZAÇÃO CIDADÃ</span><b>BA</b><small>2026</small></div>
           <div>
-            <p className="eyebrow">NÚMEROS QUE EXIGEM VIGILÂNCIA</p>
-            <h2>A cronologia importa.<br/>Os documentos também.</h2>
+            <p className="eyebrow">NOSSO COMPROMISSO</p>
+            <h2>A Bahia não pertence ao poder.<br/><strong>O dinheiro público também não.</strong></h2>
+            <p>Este projeto não pede fé. Pede documentos, cronologia, contraditório e respostas.</p>
           </div>
-          <p>Os números abaixo são pontos de partida oficiais para a auditoria. Eles justificam perguntas; não substituem prova.</p>
-        </div>
-        <div className="source-grid political-source-grid">
-          {sources.map((s) => (
-            <a key={s.date + s.title} href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noreferrer' : undefined} className="source-card political-source-card">
-              <span className="source-date">{s.date}</span>
-              <strong className="source-value">{s.value}</strong>
-              <h3>{s.title}</h3>
-              <p>{s.detail}</p>
-              <span className="source-link">{s.href.startsWith('http') ? 'Abrir fonte oficial ↗' : 'Ver matriz →'}</span>
-            </a>
-          ))}
+          <div className="commitment-map">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brazil_white_state_maps_-_Bahia.svg" alt="" aria-hidden="true" />
+            <strong>417</strong><span>municípios no escopo</span>
+          </div>
         </div>
       </section>
 
-      <section className="timeline-section" id="linha-do-tempo">
+      <section className="container complaint-question section" id="denuncia">
+        <div className="question-mark" aria-hidden="true">?</div>
+        <div>
+          <p className="eyebrow">A DENÚNCIA</p>
+          <h2>Há uma pergunta que a Bahia precisa responder.</h2>
+          <p className="question-lead">Recursos, contratos, obras e estruturas públicas foram utilizados regularmente durante o processo eleitoral — ou existem operações em que o interesse público foi desviado para produzir vantagem política ou eleitoral?</p>
+          <p>Em ano eleitoral, o Estado continua funcionando: obras precisam continuar, serviços precisam ser prestados e investimentos legítimos não se tornam ilícitos porque uma eleição está próxima. O problema começa quando o recurso público deixa de servir ao interesse público.</p>
+          <p><strong>Nosso trabalho é reunir elementos para que essa pergunta seja respondida com documentos, não com torcida.</strong></p>
+          <Link className="text-link" href="/denuncia">Ler a representação pública completa →</Link>
+        </div>
+      </section>
+
+      <section className="facts-stage" id="fatos">
         <div className="container section">
-          <div className="timeline-heading">
-            <p className="eyebrow light">LINHA DO TEMPO</p>
-            <h2>O tempo dos fatos<br/>também é evidência.</h2>
-            <p>Uma auditoria séria precisa distinguir anúncio, assinatura, empenho, liquidação, pagamento, início físico e resultado eleitoral.</p>
+          <div className="facts-heading">
+            <p className="eyebrow light">FATOS PÚBLICOS</p>
+            <h2>Não começamos com uma acusação.<br/><em>Começamos com datas.</em></h2>
+            <p>O objetivo é confrontar o que foi anunciado com o que foi juridicamente formalizado, efetivamente movimentado, contratado e executado.</p>
           </div>
-          <div className="political-timeline">
-            {timeline.map((item, index) => (
-              <a
-                className="timeline-card"
-                key={item.date}
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                aria-label={`${item.date} — ${item.title}. ${item.label}`}
-              >
-                <span className="timeline-index">0{index + 1}</span>
-                <span className="timeline-dot" aria-hidden="true" />
+          <div className="facts-timeline">
+            {timeline.map((item,index)=>(
+              <a key={item.date} className="fact-node" href={item.href} target={item.href.startsWith('http')?'_blank':undefined} rel={item.href.startsWith('http')?'noreferrer':undefined}>
+                <span className="fact-index">0{index+1}</span>
                 <time>{item.date}</time>
+                <strong>{item.value}</strong>
                 <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <span className="timeline-action">{item.label} →</span>
+                <p>{item.text}</p>
+                <em>{item.href.startsWith('http')?'Fonte oficial ↗':'Ver no dossiê →'}</em>
               </a>
             ))}
           </div>
+          <p className="timeline-caution">Cada espécie de conduta possui fundamento, circunscrição e marco próprios. O portal não trata um único intervalo como se representasse todas as vedações eleitorais.</p>
         </div>
       </section>
 
-      <section className="container section" id="denuncia">
-        <div className="section-heading political-heading">
-          <div>
-            <p className="eyebrow">O QUE QUEREMOS APURAR</p>
-            <h2>Nem boato.<br/>Nem silêncio.</h2>
+      <section className="chain-stage">
+        <div className="container chain-stage-grid">
+          <div className="chain-statements">
+            <p className="eyebrow light">O PONTO QUE EXIGE RESPOSTA</p>
+            <h2><span>Anunciar</span> não é transferir.</h2>
+            <h2><span>Assinar</span> não é pagar.</h2>
+            <h2><span>Pagar</span> não significa executar.</h2>
+            <h2><span>Executar</span> não significa agir com finalidade eleitoral.</h2>
+            <p>É o encadeamento dos fatos que precisa ser investigado.</p>
           </div>
-          <p>A hipótese de trabalho é investigar possível uso eleitoralmente indevido de recursos, contratos, obras, serviços ou estruturas públicas. Só será tratado como fato o que tiver lastro verificável.</p>
-        </div>
-        <div className="thesis-grid political-thesis">
-          <article><span className="number">01</span><h3>Dinheiro público</h3><p>Mapear transferências, pagamentos e desbloqueios, com atenção especial ao período eleitoral e às exceções legalmente documentadas.</p></article>
-          <article><span className="number">02</span><h3>Contratos e execução</h3><p>Examinar preços, aditivos, medições, capacidade operacional e correspondência entre desembolso e obra ou serviço efetivamente executado.</p></article>
-          <article><span className="number">03</span><h3>Nexo eleitoral</h3><p>Verificar apenas quando houver documentos: relações entre recursos públicos, agentes, fornecedores, prestadores eleitorais, apoiadores ou concessão de vantagens.</p></article>
-        </div>
-        <div className="political-warning">
-          <b>Regra editorial:</b> correlação temporal, alinhamento político, anúncio de obra ou contratação pública não serão apresentados como prova de ilícito por si sós.
-        </div>
-      </section>
-
-      <section className="dark-section political-method" id="metodo">
-        <div className="container section">
-          <p className="eyebrow light">MÉTODO DE AUDITORIA CIDADÃ</p>
-          <h2>O poder deixa rastros.<br/>Nós seguimos os documentos.</h2>
-          <div className="steps">
-            {investigation.map(([n, title, desc]) => (
-              <article key={n}><span>{n}</span><div><h3>{title}</h3><p>{desc}</p></div></article>
+          <div className="chain-visual" aria-label="Trilha simplificada da investigação">
+            {['RECURSO','INSTRUMENTO','TRANSFERÊNCIA','CONTRATO','FORNECEDOR','EXECUÇÃO','CONTEXTO ELEITORAL'].map((item,index)=>(
+              <div key={item}><b>{String(index+1).padStart(2,'0')}</b><span>{item}</span>{index<6?<i>→</i>:null}</div>
             ))}
           </div>
-          <div className="method-motto">recurso → instrumento → transferência → contrato → fornecedor → execução → contexto eleitoral</div>
         </div>
       </section>
 
-      <section className="representation political-representation" id="representacao">
-        <div className="container section">
-          <div className="section-heading political-heading">
-            <div><p className="eyebrow">DOSSIÊ PÚBLICO</p><h2>Uma denúncia que possa ser conferida.</h2></div>
-            <p>A força da representação não virá da retórica. Virá da capacidade de mostrar ao Ministério Público onde olhar, o que requisitar e quais documentos precisam ser confrontados.</p>
-          </div>
-          <div className="document-body political-document">
-            <div className="document-stamp">DOCUMENTO DE TRABALHO · 2026</div>
-            <h3>Objeto</h3>
-            <p>Requer-se a apuração da regularidade da destinação, transferência, contratação e execução de recursos públicos estaduais e, quando aplicável, federais, destinados a municípios baianos no contexto das Eleições 2026, bem como da eventual utilização eleitoralmente indevida de bens, serviços, contratos, obras, benefícios ou estruturas financiadas com recursos públicos.</p>
-            <h3>O que torna a apuração necessária</h3>
-            <p>Foram localizados anúncios oficiais de pacotes de investimentos de grande materialidade em junho e em 3 de julho de 2026. A proximidade com o início do período de vedação não prova irregularidade, mas torna necessária a identificação da data efetiva de cada transferência, de seu fundamento jurídico e da execução física correspondente.</p>
-            <h3>O que será separado</h3>
-            <p>O dossiê distingue fatos comprovados por fonte primária, ocorrências corroboradas por múltiplas fontes, indícios documentais e hipóteses ainda pendentes de diligência. Essa separação é parte central da credibilidade do projeto.</p>
-            <Link className="button secondary" href="/dossie">Acessar o dossiê completo →</Link>
-          </div>
+      <section className="container participation-stage">
+        <div className="participation-copy">
+          <p className="eyebrow">VOCÊ PODE AJUDAR</p>
+          <h2>Você viu algo que precisa ser verificado?</h2>
+          <p>Conte o que aconteceu. Diga onde, quando e quem estava envolvido. Envie o que tiver: documento, fotografia, vídeo, áudio, link, contrato, comprovante, conversa ou outro registro.</p>
+          <p className="participation-highlight">Um relato pode ser apenas o início. Uma evidência pode mostrar onde procurar.</p>
+          <Link className="button button-gold large" href="/enviar">Enviar fato ou evidência</Link>
+        </div>
+        <div className="evidence-types">
+          {helpTypes.map(([title,material],index)=><article key={title}><span>0{index+1}</span><h3>{title}</h3><p>{material}</p></article>)}
         </div>
       </section>
 
-      <section className="container civic-callout">
-        <div className="civic-callout-map">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brazil_white_state_maps_-_Bahia.svg"
-            alt="Silhueta do estado da Bahia"
-          />
-        </div>
-        <div className="civic-callout-copy">
-          <p className="eyebrow light">PARTICIPE</p>
-          <h2>Ajude a libertar a Bahia<br/>pela verdade documentada.</h2>
-          <p>Você viu, registrou ou recebeu algo relevante? Documento, vídeo, imagem, áudio ou relato direto podem ajudar a transformar uma suspeita dispersa em uma pergunta institucional precisa.</p>
-          <div className="actions">
-            <Link className="button button-gold" href="/enviar">Enviar fato ou evidência</Link>
-            <Link className="button button-outline-light" href="/privacidade">Como protegemos o material</Link>
+      <section className="public-cases-preview">
+        <div className="container public-cases-grid">
+          <div className="map-status">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brazil_white_state_maps_-_Bahia.svg" alt="Silhueta do estado da Bahia" />
+            <div className="map-dots" aria-hidden="true">{Array.from({length:34}).map((_,index)=><i key={index} style={{'--i':index} as React.CSSProperties} />)}</div>
+          </div>
+          <div>
+            <p className="eyebrow light">O QUE JÁ FOI DOCUMENTADO</p>
+            <h2>417 municípios. Uma mesma pergunta: o dinheiro chegou como, quando e para quê?</h2>
+            <div className="map-metrics"><div><strong>417</strong><span>no escopo</span></div><div><strong>4</strong><span>registros públicos iniciais</span></div><div><strong>0</strong><span>relatos privados publicados automaticamente</span></div></div>
+            <p>As cores e estados do mapa representarão o estágio da apuração — nunca “culpa”. A expansão municipal será publicada gradualmente conforme documentos forem localizados e corroborados.</p>
+            <Link className="button button-outline-light" href="/casos">Abrir registro público</Link>
           </div>
         </div>
       </section>
 
-      <section className="container author-section">
-        <div className="author-monogram">DPA</div>
+      <section className="container dossier-preview">
+        <div className="dossier-folder" aria-hidden="true"><span>DOSSIÊ</span><b>ANÁLISE</b><i>acesso verificado</i></div>
         <div>
-          <p className="eyebrow">RESPONSABILIDADE AUTORAL</p>
-          <h2>Este projeto tem nome e responsabilidade.</h2>
-          <p>O Observatório Eleitoral Bahia 2026 é uma iniciativa cívica independente, idealizada e coordenada por <strong>David Pereira de Azevedo</strong>. Não possui vínculo oficial com partido, campanha, candidatura, órgão público ou veículo de imprensa.</p>
-          <p className="author-motto">“Assinar é assumir publicamente o compromisso com a verdade, a correção e a possibilidade de contraditório.”</p>
+          <p className="eyebrow">DOSSIÊ</p>
+          <h2>O que já sabemos. O que ainda precisa ser explicado.</h2>
+          <p>Os fatos, fontes e pedidos permanecem públicos. A matriz, os critérios de priorização, as trilhas e os cruzamentos analíticos exigem confirmação de e-mail antes do acesso.</p>
+          <div className="actions"><Link className="button" href="/dossie">Ver resumo público</Link><Link className="button secondary" href="/dossie/acesso">Acessar análise</Link></div>
         </div>
+      </section>
+
+      <section className="final-civic-cta">
+        <div className="container">
+          <p className="eyebrow light">A VERDADE PRECISA DE QUEM DECIDA NÃO SE CALAR</p>
+          <h2>Vamos libertar a Bahia do silêncio.</h2>
+          <h3>Com fatos. Com documentos. Com coragem.</h3>
+          <p>Se você possui um fato, documento, fotografia, áudio ou vídeo que possa ajudar a reconstruir o que aconteceu, sua contribuição pode indicar onde a investigação deve olhar.</p>
+          <strong>Não precisamos de boatos. Precisamos de fatos.</strong>
+          <div className="actions"><Link className="button button-gold large" href="/enviar">Enviar uma evidência</Link><Link className="button button-outline-light large" href="/denuncia">Entender a denúncia</Link></div>
+        </div>
+      </section>
+
+      <section className="container author-strip">
+        <div className="author-monogram">DPA</div>
+        <div><span>Uma iniciativa independente de</span><strong>David Pereira de Azevedo</strong><p>Idealização e coordenação · Bahia · 2026</p></div>
       </section>
 
       <footer className="political-footer">
         <div className="container footer-top">
-          <div>
-            <strong>Observatório Eleitoral Bahia 2026</strong>
-            <p>Fiscalização cidadã. Evidência. Transparência.</p>
-          </div>
-          <div className="footer-signature">
-            <span>Idealização e coordenação</span>
-            <strong>David Pereira de Azevedo</strong>
-          </div>
-          <p><Link href="/dossie">Dossiê</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/privacidade">Privacidade</Link></p>
+          <div><strong>Observatório Eleitoral Bahia 2026</strong><p>Fiscalização cidadã. Evidência. Transparência.</p></div>
+          <div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div>
+          <p><Link href="/denuncia">Denúncia</Link> · <Link href="/casos">Casos</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/privacidade">Privacidade</Link></p>
         </div>
-        <div className="container visual-credits">
-          Imagens: Palácio Deputado Luís Eduardo Magalhães — Fotos GOVBA/Manu Dias, via Wikimedia Commons; Palácio Thomé de Souza — Gabriel Fernandes, via Wikimedia Commons; mapa da Bahia — EPorto (WMB), CC BY-SA 4.0.
-        </div>
+        <div className="container visual-credits">Imagens institucionais e mapa via Wikimedia Commons. O mapa é usado como contexto geográfico; estados de apuração não representam culpa.</div>
       </footer>
     </main>
   );
