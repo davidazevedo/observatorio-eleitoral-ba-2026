@@ -23,7 +23,7 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 - [x] Projeto Vercel `observatorio-eleitoral-ba-2026` ligado ao GitHub e operando em `gru1`.
 - [x] Primeiro deploy Git integrado concluído com build e TypeScript aprovados.
 - [x] Blob privado associado ao projeto e credencial injetada na Vercel.
-- [ ] Validar upload e submissão fim a fim com arquivo real em produção.
+- [x] Validar upload e submissão fim a fim com arquivo real em produção (05/10/2026; protocolo BA26-E70C7BCA).
 - [ ] Aplicar rate limiting/WAF e proteção antiautomação adicional.
 
 ## Fase 1 — Dossiê público mínimo viável
