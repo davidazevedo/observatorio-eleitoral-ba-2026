@@ -324,7 +324,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'reports' && (
             <>
               <section className="intel-metrics-grid reports">
-                <article><span>Anunciado</span><strong>{money(data.financial.announced)}</strong><small>registros financeiros ingeridos</small></article>
+                <article><span>Anunciado</span><strong>{money(data.financial.announced)}</strong><small>soma bruta dos valores anotados; pode haver sobreposição entre pacotes e subitens</small></article>
                 <article><span>Empenhado</span><strong>{money(data.financial.committed)}</strong><small>quando disponível</small></article>
                 <article><span>Liquidado</span><strong>{money(data.financial.liquidated)}</strong><small>quando disponível</small></article>
                 <article><span>Pago</span><strong>{money(data.financial.paid)}</strong><small>movimentação efetiva registrada</small></article>
