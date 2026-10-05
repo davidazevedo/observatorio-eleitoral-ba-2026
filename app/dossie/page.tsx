@@ -78,7 +78,17 @@ export default function DossiePage() {
             <div className="chain-large"><span>origem</span><b>→</b><span>instrumento</span><b>→</b><span>transferência</span><b>→</b><span>contrato</span><b>→</b><span>fornecedor</span><b>→</b><span>execução física</span><b>→</b><span>contexto eleitoral</span></div>
             <p>O portal separa documento primário, indicador objetivo, correlação e hipótese. Relatos de cidadãos servem como pista para busca de documentos e nunca são automaticamente convertidos em afirmação pública.</p>
             <div className="levels">
-              {evidenceLevels.map(([level,title,desc]) => <div key={level}><strong>{level}</strong><h3>{title}</h3><p>{desc}</p></div>)}
+              {evidenceLevels.map(([level,title,desc]) => (
+                <div
+                  key={level}
+                  className={`evidence-level evidence-${level.toLowerCase()}`}
+                  aria-label={`${level}: ${title}`}
+                >
+                  <strong className="level-badge">{level}</strong>
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
