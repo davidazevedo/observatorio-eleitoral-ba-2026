@@ -4,11 +4,14 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Observatório Eleitoral Bahia 2026',
   description:
-    'Iniciativa independente para organizar fatos, documentos e pedidos de apuração sobre a aplicação de recursos públicos no período eleitoral na Bahia.',
+    'Iniciativa cívica independente para reunir fatos, documentos e evidências sobre a aplicação de recursos públicos no contexto eleitoral da Bahia.',
+  authors: [{ name: 'David Pereira de Azevedo' }],
+  creator: 'David Pereira de Azevedo',
+  publisher: 'Observatório Eleitoral Bahia 2026',
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Observatório Eleitoral Bahia 2026',
-    description: 'Fatos, documentos, rastreabilidade e participação cidadã.',
+    title: 'Observatório Eleitoral Bahia 2026 — Não deixe a Bahia ser refém',
+    description: 'Transparência, fiscalização cidadã e verdade documentada.',
     locale: 'pt_BR',
     type: 'website',
   },
