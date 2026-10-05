@@ -124,8 +124,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           <div><strong>Cockpit de Inteligência</strong><small>Observatório Eleitoral Bahia 2026 · ambiente reservado</small></div>
         </div>
         <div className="private-topbar-actions">
-          <a href="/api/private/export?format=csv">Exportar denúncias CSV</a>
-          <a href="/api/private/export?format=json">Exportar base JSON</a>
+          <a href="/api/private/export?format=csv">Denúncias CSV</a>
+          <a href="/api/private/export?format=csv&scope=intelligence">Intel CSV</a>
+          <a href="/api/private/export?format=json">Base completa JSON</a>
           <button type="button" onClick={logout}>Sair</button>
         </div>
       </header>
@@ -337,6 +338,10 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                   <div className="private-panel-title"><div><p className="eyebrow">INTEGRIDADE</p><h2>Alertas da base</h2></div></div>
                   <div className="quality-grid"><div><strong>{data.metrics.missingReferencedEvidence}</strong><span>evidências referenciadas ausentes</span></div><div><strong>{data.metrics.orphanEvidence}</strong><span>arquivos órfãos</span></div><div><strong>{100-data.quality.intelligenceWithSource}%</strong><span>Intel sem URL de fonte</span></div><div><strong>{100-data.quality.intelligenceWithMunicipality}%</strong><span>Intel sem município</span></div></div>
                 </article>
+              </section>
+              <section className="private-panel private-report">
+                <div className="private-panel-title"><div><p className="eyebrow">EXPORTAÇÃO ANALÍTICA</p><h2>Extrair por domínio</h2></div></div>
+                <div className="intel-export-links"><a href="/api/private/export?format=csv">Denúncias CSV</a><a href="/api/private/export?format=csv&scope=intelligence">Inteligência CSV</a><a href="/api/private/export?format=csv&scope=sources">Fontes CSV</a><a href="/api/private/export?format=csv&scope=entities">Entidades CSV</a><a href="/api/private/export?format=csv&scope=relationships">Relações CSV</a><a href="/api/private/export?format=json">Base completa JSON</a></div>
               </section>
               <section className="private-panel private-report">
                 <div className="private-panel-title"><div><p className="eyebrow">LEITURA AUTOMÁTICA</p><h2>Resumo operacional</h2></div></div>
