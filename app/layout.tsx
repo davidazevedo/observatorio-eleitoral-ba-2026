@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   publisher: 'Observatório Eleitoral Bahia 2026',
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Observatório Eleitoral Bahia 2026 — Não deixe a Bahia ser refém',
-    description: 'Transparência, fiscalização cidadã e verdade documentada.',
+    title: 'Observatório Eleitoral Bahia 2026 — Fiscalização cidadã baseada em documentos',
+    description: 'Fatos públicos, fontes verificáveis, cronologia e canal seguro para envio de evidências sobre recursos públicos no contexto eleitoral da Bahia.',
     locale: 'pt_BR',
     type: 'website',
   },
