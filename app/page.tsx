@@ -88,6 +88,7 @@ export default function Home() {
           </Link>
           <nav className="nav" aria-label="Principal">
             <Link href="/dossie">Dossiê</Link>
+            <Link href="/casos">Casos</Link>
             <a href="#linha-do-tempo">Linha do tempo</a>
             <Link href="/fontes">Fontes</Link>
             <Link href="/privacidade">Privacidade</Link>
