@@ -1,0 +1,62 @@
+[
+  {
+    "instrumentId": "1840100012600002525",
+    "instrumentNumber": "18401.0001.26.0000252-5",
+    "municipality": "ANTONIO CARDOSO",
+    "recipientCnpj": "13.607.494/0001-19",
+    "stateAgency": "Secretaria de Desenvolvimento Rural",
+    "stateAgencyAcronym": "SDR",
+    "celebrationDate": "2026-04-10",
+    "publicationDate": "2026-04-11",
+    "category": "obra/infraestrutura",
+    "instrumentValue": 1375033.92,
+    "defesoPaid": 150000.0,
+    "payments": [
+      {
+        "date": "2026-08-21",
+        "amount": 150000.0,
+        "bankOrder": "18401.0001.26.0005720-8",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "medium",
+    "object": "CONV 54/2026 - MERCADO MUNICIPAL - REFORMA"
+  },
+  {
+    "instrumentId": "2130100012600002760",
+    "instrumentNumber": "21301.0001.26.0000276-0",
+    "municipality": "ARACAS",
+    "recipientCnpj": "16.131.088/0001-10",
+    "stateAgency": "Secretaria do Trabalho, Emprego, Renda e Esporte",
+    "stateAgencyAcronym": "SETRE",
+    "celebrationDate": "2026-06-25",
+    "publicationDate": "2026-06-26",
+    "category": "outros",
+    "instrumentValue": 732421.46,
+    "defesoPaid": 8146.7,
+    "payments": [
+      {
+        "date": "2026-07-10",
+        "amount": 8146.7,
+        "bankOrder": "21301.0001.26.0002296-8",
+        "effective": "Sim"
+      }
+    ],
+    "priority": "high",
+    "object": "PROCESSO 069.1479.2026.0003119-33 - Implantação de grama sintética na Areninha Society, localizada na Fazenda Bomfim, no município de Araçás/BA"
+  },
+  {
+    "instrumentId": "2640100012600000485",
+    "instrumentNumber": "26401.0001.26.0000048-5",
+    "municipality": "ARACI",
+    "recipientCnpj": "14.232.086/0001-92",
+    "stateAgency": "Secretaria de Desenvolvimento Urbano",
+    "stateAgencyAcronym": "SEDUR",
+    "celebrationDate": "2025-12-04",
+    "publicationDate": "2025-12-05",
+    "category": "obra/infraestrutura",
+    "instrumentValue": 533821.65,
+    "defesoPaid": 261748.73,
+    "payments": [
+      {
+        "date": "2026-0...[truncated]
