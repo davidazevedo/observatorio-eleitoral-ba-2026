@@ -102,17 +102,17 @@ export default function SubmitPage() {
 
   return (
     <main>
-      <header className="site-header">
+      <header className="site-header political-header">
         <div className="container header-inner">
-          <Link className="brand" href="/">observatório<span>.</span></Link>
+          <Link className="brand political-brand" href="/"><span className="brand-mark">OE</span><span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span></Link>
           <Link className="text-link" href="/dossie">← Voltar ao dossiê</Link>
         </div>
       </header>
 
       <section className="container form-hero">
         <p className="eyebrow">ENVIO DE FATO OU EVIDÊNCIA</p>
-        <h1>Conte o que você sabe.<br/><em>Separe fato de interpretação.</em></h1>
-        <p className="lead">Quanto mais precisos forem local, data, pessoas envolvidas, origem do material e sequência dos acontecimentos, maior a capacidade de verificação.</p>
+        <h1>A verdade precisa de quem <em>decide não se calar.</em></h1>
+        <p className="lead">Envie o que você viu, registrou ou recebeu diretamente. Quanto mais precisos forem local, data, origem do material e sequência dos acontecimentos, maior a capacidade de transformar o relato em uma trilha verificável.</p>
       </section>
 
       <section className="container form-layout">
