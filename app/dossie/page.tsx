@@ -123,7 +123,7 @@ export default function DossiePage() {
         </article>
       </section>
 
-      <footer className="political-footer"><div className="container footer-top"><div><strong>Observatório Eleitoral Bahia 2026</strong><p>Resumo público verificável e sujeito a correção.</p></div><div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div><p><Link href="/denuncia">Denúncia</Link> · <Link href="/casos">Casos</Link> · <Link href="/fontes">Fontes</Link></p></div></footer>
+      <footer className="political-footer"><div className="container footer-top"><div><strong>Observatório Eleitoral Bahia 2026</strong><p>Resumo público verificável e sujeito a correção.</p></div><div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div><p><Link href="/denuncia">Denúncia</Link> · <Link href="/casos">Casos</Link> · <Link href="/fontes">Fontes</Link> · <Link href="/correcoes">Correções</Link></p></div></footer>
     </main>
   );
 }
