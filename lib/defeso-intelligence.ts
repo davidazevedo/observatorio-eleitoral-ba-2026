@@ -1,123 +1,111 @@
 import type { IntelligenceRecord, Priority } from '@/lib/intelligence';
-import chunk01 from '@/data/defeso-transferencias-2026-01.json';
-import chunk02 from '@/data/defeso-transferencias-2026-02.json';
-import chunk03 from '@/data/defeso-transferencias-2026-03.json';
-import chunk04 from '@/data/defeso-transferencias-2026-04.json';
-import chunk05 from '@/data/defeso-transferencias-2026-05.json';
-import chunk06 from '@/data/defeso-transferencias-2026-06.json';
-import chunk07 from '@/data/defeso-transferencias-2026-07.json';
+import p01 from '@/data/defeso/part-01.json';
+import p02 from '@/data/defeso/part-02.json';
+import p03 from '@/data/defeso/part-03.json';
+import p04 from '@/data/defeso/part-04.json';
+import p05 from '@/data/defeso/part-05.json';
+import p06 from '@/data/defeso/part-06.json';
+import p07 from '@/data/defeso/part-07.json';
+import p08 from '@/data/defeso/part-08.json';
+import p09 from '@/data/defeso/part-09.json';
+import p10 from '@/data/defeso/part-10.json';
+import p11 from '@/data/defeso/part-11.json';
+import p12 from '@/data/defeso/part-12.json';
+import p13 from '@/data/defeso/part-13.json';
+import p14 from '@/data/defeso/part-14.json';
+import p15 from '@/data/defeso/part-15.json';
+import p16 from '@/data/defeso/part-16.json';
+import p17 from '@/data/defeso/part-17.json';
+import p18 from '@/data/defeso/part-18.json';
+import p19 from '@/data/defeso/part-19.json';
+import p20 from '@/data/defeso/part-20.json';
+import p21 from '@/data/defeso/part-21.json';
+import p22 from '@/data/defeso/part-22.json';
+import p23 from '@/data/defeso/part-23.json';
+import p24 from '@/data/defeso/part-24.json';
+import p25 from '@/data/defeso/part-25.json';
 
-type DefesoPayment = {
-  date: string;
-  amount: number;
-  bankOrder: string;
-  effective: string;
+type RawPayment = [date: string, amount: number, bankOrder: string];
+type RawRow = {
+  i: string; n: string; m: string; c: string; a: string; cd: string; pd: string;
+  k: string; v: number; d: number; p: RawPayment[]; pr: string; o: string;
 };
 
-type DefesoRow = {
-  instrumentId: string;
-  instrumentNumber: string;
-  municipality: string;
-  recipientCnpj: string;
-  stateAgency: string;
-  stateAgencyAcronym: string;
-  celebrationDate: string;
-  publicationDate: string;
-  category: string;
-  instrumentValue: number;
-  defesoPaid: number;
-  payments: DefesoPayment[];
-  priority: string;
-  object: string;
-};
-
-const rows = [
-  ...chunk01, ...chunk02, ...chunk03, ...chunk04, ...chunk05, ...chunk06, ...chunk07,
-] as DefesoRow[];
-
+const rawRows = [...p01, ...p02, ...p03, ...p04, ...p05, ...p06, ...p07, ...p08, ...p09, ...p10, ...p11, ...p12, ...p13, ...p14, ...p15, ...p16, ...p17, ...p18, ...p19, ...p20, ...p21, ...p22, ...p23, ...p24, ...p25] as RawRow[];
 const collectedAt = '2026-10-05T23:25:00.000Z';
 const datasetUrl = 'https://dados.ba.gov.br/dataset/convenios-e-parcerias';
 const datasetDownloadUrl = 'https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip';
+
+const agencyNames: Record<string,string> = {
+  SEDUR: 'Secretaria de Desenvolvimento Urbano',
+  SDR: 'Secretaria de Desenvolvimento Rural',
+  SETRE: 'Secretaria do Trabalho, Emprego, Renda e Esporte',
+  SEAGRI: 'Secretaria da Agricultura, Pecuária, Irrigação, Pesca e Aquicultura',
+  'CASA CIVIL': 'Casa Civil',
+};
+
+function agencyName(acronym: string) {
+  return agencyNames[acronym] || acronym;
+}
 
 function money(value: number) {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 }
 
-function paymentNote(payments: DefesoPayment[]) {
-  return payments
-    .map((payment) => `${payment.date}: ${money(payment.amount)} — NOB ${payment.bankOrder} — efetivado: ${payment.effective}`)
-    .join(' | ');
+function paymentNote(payments: RawPayment[]) {
+  return payments.map(([date, amount, bankOrder]) => `${date}: ${money(amount)} — NOB ${bankOrder} — pagamento efetivado`).join(' | ');
 }
 
-export const defesoFinancialRecords: IntelligenceRecord[] = rows.map((row) => ({
-  schemaVersion: 1,
-  recordId: `FIPLAN-DEFESO-${row.instrumentId}`,
-  kind: 'financial_record',
-  status: 'corroborating',
-  title: `${row.municipality}: ${money(row.defesoPaid)} em pagamento(s) efetivado(s) de convênio durante o defeso`,
-  summary: `A base oficial Convênios e Parcerias/FIPLAN registra pagamento(s) efetivado(s) de ${money(row.defesoPaid)} no período de 04/07 a 04/10/2026 para o Município de ${row.municipality}, no instrumento ${row.instrumentNumber}, celebrado em ${row.celebrationDate}. O registro exige verificação da exceção legal aplicável e não constitui, isoladamente, prova de irregularidade.`,
-  content: row.object,
-  municipality: row.municipality,
-  state: 'BA',
-  eventDate: row.payments.map((payment) => payment.date).sort()[0],
-  collectedAt,
-  sourceIds: ['dados-abertos-ba-convenios-parcerias', 'pge-ba-eleicoes-2026'],
-  caseIds: ['OE-BA-0003'],
-  tags: ['convênio', 'transferência', 'pagamento-efetivado', 'defeso-eleitoral', row.category, row.stateAgencyAcronym.toLowerCase()],
-  evidenceLevel: 'L2',
-  analyticalConfidence: 0.99,
-  priority: row.priority as Priority,
-  entities: [
-    { name: `Município de ${row.municipality}`, type: 'municipality', identifier: row.recipientCnpj, role: 'recebedor do convênio' },
-    { name: row.stateAgency, type: 'public_body', role: 'órgão estadual concedente' },
-  ],
-  relations: [
-    {
-      from: row.stateAgency,
-      to: `Município de ${row.municipality}`,
-      type: 'convenio_com_pagamento_no_defeso',
-      description: `${row.instrumentNumber}; ${money(row.defesoPaid)} efetivado(s) entre 04/07 e 04/10/2026.`,
+export const defesoFinancialRecords: IntelligenceRecord[] = rawRows.map((row) => {
+  const agency = agencyName(row.a);
+  const eventDate = row.p.map(([date]) => date).sort()[0];
+  return {
+    schemaVersion: 1,
+    recordId: `FIPLAN-DEFESO-${row.i}`,
+    kind: 'financial_record',
+    status: 'corroborating',
+    title: `${row.m}: ${money(row.d)} em pagamento(s) efetivado(s) de convênio durante o defeso`,
+    summary: `A base oficial Convênios e Parcerias/FIPLAN registra pagamento(s) efetivado(s) de ${money(row.d)} entre 04/07 e 04/10/2026 para o Município de ${row.m}, no instrumento ${row.n}, celebrado em ${row.cd}. O registro exige verificação da exceção legal aplicável e não constitui, isoladamente, prova de irregularidade.`,
+    content: row.o,
+    municipality: row.m,
+    state: 'BA',
+    eventDate,
+    collectedAt,
+    sourceIds: ['dados-abertos-ba-convenios-parcerias', 'pge-ba-eleicoes-2026'],
+    caseIds: ['OE-BA-0003'],
+    tags: ['convênio', 'transferência', 'pagamento-efetivado', 'defeso-eleitoral', row.k, row.a.toLowerCase()],
+    evidenceLevel: 'L2',
+    analyticalConfidence: 0.99,
+    priority: row.pr as Priority,
+    entities: [
+      { name: `Município de ${row.m}`, type: 'municipality', identifier: row.c, role: 'recebedor do convênio' },
+      { name: agency, type: 'public_body', role: 'órgão estadual concedente' },
+    ],
+    relations: [{ from: agency, to: `Município de ${row.m}`, type: 'convenio_com_pagamento_no_defeso', description: `${row.n}; ${money(row.d)} efetivado(s) no período crítico.` }],
+    financial: { currency: 'BRL', paid: row.d, contractValue: row.v },
+    provenance: {
+      sourceUrl: datasetUrl,
+      sourceTitle: 'Convênios e Parcerias',
+      publisher: 'SEFAZ Bahia / FIPLAN',
+      sourceDate: '2026-10-05',
+      retrievedAt: collectedAt,
+      externalId: row.n,
+      collector: 'fiplan-defeso-2026-v1',
+      method: 'import',
     },
-  ],
-  financial: {
-    currency: 'BRL',
-    paid: row.defesoPaid,
-    contractValue: row.instrumentValue,
-  },
-  provenance: {
-    sourceUrl: datasetUrl,
-    sourceTitle: 'Convênios e Parcerias',
-    publisher: 'SEFAZ Bahia / FIPLAN',
-    sourceDate: '2026-10-05',
-    retrievedAt: collectedAt,
-    externalId: row.instrumentNumber,
-    collector: 'fiplan-defeso-2026-v1',
-    method: 'import',
-  },
-  notes: [
-    `Celebração: ${row.celebrationDate}; publicação: ${row.publicationDate}.`,
-    paymentNote(row.payments),
-    'Pergunta de auditoria: qual exceção do art. 73, VI, a, fundamentou o repasse e quais documentos comprovam os requisitos da exceção?',
-    'A existência de pagamento no período crítico é um gatilho de verificação documental; não equivale a conclusão de ilicitude.',
-  ],
-  raw: {
-    instrumentId: row.instrumentId,
-    instrumentNumber: row.instrumentNumber,
-    recipientCnpj: row.recipientCnpj,
-    stateAgencyAcronym: row.stateAgencyAcronym,
-    celebrationDate: row.celebrationDate,
-    publicationDate: row.publicationDate,
-    category: row.category,
-    payments: row.payments,
-    datasetDownloadUrl,
-  },
-}));
+    notes: [
+      `Celebração: ${row.cd}; publicação: ${row.pd}.`,
+      paymentNote(row.p),
+      'Pergunta de auditoria: qual exceção do art. 73, VI, a, fundamentou o repasse e quais documentos comprovam os requisitos da exceção?',
+      'A existência de pagamento no período crítico é um gatilho de verificação documental; não equivale a conclusão de ilicitude.',
+    ],
+    raw: { instrumentId: row.i, instrumentNumber: row.n, recipientCnpj: row.c, agencyAcronym: row.a, category: row.k, payments: row.p, datasetDownloadUrl },
+  };
+});
 
-const housingDefeso = rows.filter((row) =>
-  row.category === 'habitação' &&
-  row.stateAgencyAcronym === 'SEDUR' &&
-  row.defesoPaid === 1170000 &&
-  ['2026-07-06', '2026-07-07'].includes(row.payments[0]?.date),
+const housingDefeso = rawRows.filter((row) =>
+  row.k === 'habitação' && row.a === 'SEDUR' && row.d === 1170000 &&
+  ['2026-07-06', '2026-07-07'].includes(row.p[0]?.[0]),
 );
 
 export const defesoSummaryRecords: IntelligenceRecord[] = [
@@ -138,29 +126,14 @@ export const defesoSummaryRecords: IntelligenceRecord[] = [
     analyticalConfidence: 0.99,
     priority: 'urgent',
     financial: { currency: 'BRL', paid: 28772441.69 },
-    provenance: {
-      sourceUrl: datasetUrl,
-      sourceTitle: 'Convênios e Parcerias',
-      publisher: 'SEFAZ Bahia / FIPLAN',
-      sourceDate: '2026-10-05',
-      retrievedAt: collectedAt,
-      collector: 'fiplan-defeso-2026-v1',
-      method: 'derived_analysis',
-    },
+    provenance: { sourceUrl: datasetUrl, sourceTitle: 'Convênios e Parcerias', publisher: 'SEFAZ Bahia / FIPLAN', sourceDate: '2026-10-05', retrievedAt: collectedAt, collector: 'fiplan-defeso-2026-v1', method: 'derived_analysis' },
     notes: [
       'Critério: exercício 2026; tipo de despesa Transferências; recebedor nominal Município/Prefeitura Municipal; instrumento Convênio; Pagamento_Efetivado=Sim; data entre 04/07 e 04/10.',
       '44 municípios; 50 instrumentos; 51 pagamentos; R$ 28.772.441,69.',
       'Concentração por órgão: SEDUR R$ 23.935.757,78; SDR R$ 2.933.845,04; Casa Civil R$ 1.126.313,95; SETRE R$ 576.524,92; SEAGRI R$ 200.000,00.',
-      'A análise deve procurar, para cada instrumento, prova de execução física anterior a 04/07 com cronograma prefixado ou documentação de emergência/calamidade, conforme o caso.',
+      'Para cada instrumento, procurar prova de execução física anterior a 04/07 com cronograma prefixado ou documentação de emergência/calamidade, conforme o caso.',
     ],
-    raw: {
-      instrumentCount: 50,
-      paymentCount: 51,
-      municipalityCount: 44,
-      windowStart: '2026-07-04',
-      windowEnd: '2026-10-04',
-      datasetDownloadUrl,
-    },
+    raw: { instrumentCount: 50, paymentCount: 51, municipalityCount: 44, windowStart: '2026-07-04', windowEnd: '2026-10-04', datasetDownloadUrl },
   },
   {
     schemaVersion: 1,
@@ -168,7 +141,7 @@ export const defesoSummaryRecords: IntelligenceRecord[] = [
     kind: 'research_finding',
     status: 'corroborating',
     title: 'Habitação: R$ 9,36 milhões pagos a oito municípios em 06–07/07',
-    summary: `Na linha de 50 unidades do Minha Casa Minha Vida Bahia, a base FIPLAN registra oito primeiras parcelas de R$ 1,17 milhão efetivadas após o início do defeso: seis em 06/07 e duas em 07/07, totalizando R$ 9,36 milhões. Municípios: ${housingDefeso.map((row) => row.municipality).sort().join(', ')}. O achado exige a documentação da exceção legal para cada convênio.`,
+    summary: `Na linha de 50 unidades do Minha Casa Minha Vida Bahia, a base FIPLAN registra oito primeiras parcelas de R$ 1,17 milhão efetivadas após o início do defeso: seis em 06/07 e duas em 07/07, totalizando R$ 9,36 milhões. Municípios: ${housingDefeso.map((row) => row.m).sort().join(', ')}. O achado exige a documentação da exceção legal para cada convênio.`,
     state: 'BA',
     eventDate: '2026-07-06',
     collectedAt,
@@ -178,31 +151,17 @@ export const defesoSummaryRecords: IntelligenceRecord[] = [
     evidenceLevel: 'L3',
     analyticalConfidence: 0.99,
     priority: 'urgent',
-    entities: housingDefeso.map((row) => ({ name: `Município de ${row.municipality}`, type: 'municipality' as const, identifier: row.recipientCnpj, role: 'recebedor' })),
-    financial: { currency: 'BRL', paid: housingDefeso.reduce((sum, row) => sum + row.defesoPaid, 0) },
-    provenance: {
-      sourceUrl: datasetUrl,
-      sourceTitle: 'Convênios e Parcerias',
-      publisher: 'SEFAZ Bahia / FIPLAN',
-      sourceDate: '2026-10-05',
-      retrievedAt: collectedAt,
-      collector: 'fiplan-defeso-2026-v1',
-      method: 'derived_analysis',
-    },
+    entities: housingDefeso.map((row) => ({ name: `Município de ${row.m}`, type: 'municipality' as const, identifier: row.c, role: 'recebedor' })),
+    financial: { currency: 'BRL', paid: housingDefeso.reduce((sum, row) => sum + row.d, 0) },
+    provenance: { sourceUrl: datasetUrl, sourceTitle: 'Convênios e Parcerias', publisher: 'SEFAZ Bahia / FIPLAN', sourceDate: '2026-10-05', retrievedAt: collectedAt, collector: 'fiplan-defeso-2026-v1', method: 'derived_analysis' },
     notes: [
-      'Pagamentos de 06/07: Cipó, Esplanada, Iraquara, Itaberaba, Lajedinho e Lapão — R$ 1,17 milhão cada.',
-      'Pagamentos de 07/07: Barra e Macajuba — R$ 1,17 milhão cada.',
-      'A etapa seguinte é localizar licitação/contrato/ordem de serviço/medição e evidência física anterior a 04/07 para cada município.',
-      'Lajedinho já possui achado separado: a licitação municipal da execução das 50 unidades foi publicada somente em setembro de 2026.',
+      '06/07: Cipó, Esplanada, Iraquara, Itaberaba, Lajedinho e Lapão — R$ 1,17 milhão cada.',
+      '07/07: Barra e Macajuba — R$ 1,17 milhão cada.',
+      'Próxima verificação: licitação, contrato, ordem de serviço, medição e evidência física anterior a 04/07 para cada município.',
+      'Lajedinho já possui achado separado: a licitação municipal das 50 unidades foi publicada somente em setembro de 2026.',
     ],
-    raw: {
-      municipalities: housingDefeso.map((row) => row.municipality).sort(),
-      datasetDownloadUrl,
-    },
+    raw: { municipalities: housingDefeso.map((row) => row.m).sort(), datasetDownloadUrl },
   },
 ];
 
-export const defesoIntelligenceRecords: IntelligenceRecord[] = [
-  ...defesoSummaryRecords,
-  ...defesoFinancialRecords,
-];
+export const defesoIntelligenceRecords: IntelligenceRecord[] = [...defesoSummaryRecords, ...defesoFinancialRecords];
