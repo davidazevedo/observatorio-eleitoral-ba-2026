@@ -144,3 +144,20 @@ Critérios aplicados:
 - e-mail do dossiê não contamina submissões;
 - fontes centrais passam a possuir política de preservação;
 - períodos eleitorais são descritos por fundamento específico, evitando generalização de um único intervalo.
+
+
+## Fase 9 — Intel API e Cockpit de Investigação
+- [x] Criar Intel API server-to-server para pesquisas profundas e agentes.
+- [x] Autenticação dedicada por chave com hash SHA-256 na Vercel.
+- [x] Suportar ingestão de complaint, public_source, research_finding, financial_record, electoral_account, entity, relationship, municipal_fact e legal_reference.
+- [x] Preservar proveniência por URL, publicador, data, coletor, método, externalId e checksum quando disponíveis.
+- [x] Criar consulta privada por kind, município, status, nível probatório, caso e texto.
+- [x] Integrar registros Intel ao Cockpit privado.
+- [x] Ampliar Cockpit com Denúncias, Inteligência, Fontes, Entidades, Relações, Municípios, Relatórios e documentação da API.
+- [x] Criar inventário inicial de fontes para TSE, Transferegov, PNCP, Obrasgov, Transparência Bahia e TCE-BA.
+- [x] Criar exportações CSV por escopo: submissões, inteligência, fontes, entidades e relações.
+- [x] Manter JSON completo do cockpit para análises externas.
+- [ ] Migrar metadados e grafo relacional de Blob para Postgres/Neon quando o volume justificar.
+- [ ] Implementar coletores automáticos por fonte oficial e jobs incrementais.
+- [ ] Adicionar resolução de entidades/deduplicação por CNPJ, CPF quando público e legalmente pertinente, órgão, campanha e fornecedor.
+- [ ] Adicionar detecção de anomalias financeiras e temporais com fila de revisão humana.
