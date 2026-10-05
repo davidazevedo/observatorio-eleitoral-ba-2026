@@ -20,9 +20,10 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 - [x] Separação entre upload bruto e publicação.
 - [x] Protocolo de recebimento.
 - [x] Repositório GitHub dedicado: `davidazevedo/observatorio-eleitoral-ba-2026`.
-- [x] Projeto Vercel `observatorio-eleitoral-ba-2026` criado em `gru1`.
-- [ ] Validar primeiro deploy Git integrado.
-- [ ] Associar Blob privado ao projeto e validar upload fim a fim.
+- [x] Projeto Vercel `observatorio-eleitoral-ba-2026` ligado ao GitHub e operando em `gru1`.
+- [x] Primeiro deploy Git integrado concluído com build e TypeScript aprovados.
+- [x] Blob privado associado ao projeto e credencial injetada na Vercel.
+- [ ] Validar upload e submissão fim a fim com arquivo real em produção.
 - [ ] Aplicar rate limiting/WAF e proteção antiautomação adicional.
 
 ## Fase 1 — Dossiê público mínimo viável
@@ -30,6 +31,7 @@ Construir uma plataforma pública, apartidária na metodologia e auditável para
 - [x] Criar página `/dossie` com fatos públicos, enquadramentos, matriz, pedidos e contexto processual.
 - [x] Criar página `/fontes` com catálogo de fontes primárias/institucionais.
 - [x] Criar página `/privacidade` com política operacional e cautelas.
+- [x] Publicar e validar por HTTP as rotas públicas `/`, `/dossie`, `/fontes`, `/privacidade` e `/enviar`.
 - [ ] Criar página `/casos` com publicação apenas de ocorrências verificadas.
 - [ ] Adicionar changelog público e data da última atualização.
 - [ ] Inserir política formal de correção, contraditório e canal de contato.
