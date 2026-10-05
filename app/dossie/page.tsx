@@ -11,17 +11,17 @@ export const metadata = {
 export default function DossiePage() {
   return (
     <main>
-      <header className="site-header">
+      <header className="site-header political-header">
         <div className="container header-inner">
-          <Link className="brand" href="/">observatório<span>.</span></Link>
+          <Link className="brand political-brand" href="/"><span className="brand-mark">OE</span><span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span></Link>
           <nav className="nav"><Link href="/dossie">Dossiê</Link><Link href="/fontes">Fontes</Link><Link href="/privacidade">Privacidade</Link></nav>
           <Link className="button compact" href="/enviar">Enviar evidência</Link>
         </div>
       </header>
 
       <section className="container form-hero dossier-hero">
-        <p className="eyebrow">DOSSIÊ PÚBLICO · VERSÃO DE TRABALHO · 05/10/2026</p>
-        <h1>Pedido de apuração baseado em <em>documentos, cronologia e nexo.</em></h1>
+        <p className="eyebrow">DOSSIÊ PÚBLICO · BAHIA 2026 · VERSÃO DE TRABALHO</p>
+        <h1>A Bahia merece respostas baseadas em <em>documentos, cronologia e nexo.</em></h1>
         <p className="lead">Este documento organiza fatos públicos, hipóteses de investigação e uma metodologia verificável. Ele não declara previamente a existência de compra de votos, fraude contratual ou abuso de poder.</p>
       </section>
 
@@ -119,7 +119,7 @@ export default function DossiePage() {
         </article>
       </section>
 
-      <footer><div className="container footer-inner"><div><strong>Observatório Eleitoral Bahia 2026</strong><p>Dossiê público em atualização e sujeito a correção.</p></div><Link href="/fontes">Consultar catálogo de fontes →</Link></div></footer>
+      <footer className="political-footer"><div className="container footer-top"><div><strong>Observatório Eleitoral Bahia 2026</strong><p>Dossiê público em atualização e sujeito a correção.</p></div><div className="footer-signature"><span>Idealização e coordenação</span><strong>David Pereira de Azevedo</strong></div><Link href="/fontes">Consultar catálogo de fontes →</Link></div></footer>
     </main>
   );
 }
