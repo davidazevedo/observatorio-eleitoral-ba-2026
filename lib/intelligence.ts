@@ -1,6 +1,7 @@
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { get, list, put, type ListBlobResultBlob } from '@vercel/blob';
 import { bootstrapIntelligenceRecords } from '@/lib/intelligence-bootstrap';
+import { defesoIntelligenceRecords } from '@/lib/defeso-intelligence';
 
 export type IntelligenceKind =
   | 'complaint'
@@ -404,6 +405,7 @@ export async function listIntelligenceRecords(): Promise<IntelligenceRecord[]> {
   const persisted = records.filter((item): item is IntelligenceRecord => Boolean(item?.recordId));
   const byId = new Map<string, IntelligenceRecord>();
   for (const item of bootstrapIntelligenceRecords) byId.set(item.recordId, item);
+  for (const item of defesoIntelligenceRecords) byId.set(item.recordId, item);
   for (const item of persisted) byId.set(item.recordId, item);
   return Array.from(byId.values()).sort((a,b) => b.collectedAt.localeCompare(a.collectedAt));
 }
