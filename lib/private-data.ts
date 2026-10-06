@@ -80,11 +80,13 @@ function priorityWeight(value: string) {
 function financialTotals(records: IntelligenceRecord[]) {
   return records.reduce((acc, item) => {
     acc.announced += item.financial?.announced || 0;
-    acc.committed += item.financial?.committed || 0;
-    acc.liquidated += item.financial?.liquidated || 0;
-    acc.paid += item.financial?.paid || 0;
-    acc.contractValue += item.financial?.contractValue || 0;
-    acc.amendmentValue += item.financial?.amendmentValue || 0;
+    if (item.kind === 'financial_record') {
+      acc.committed += item.financial?.committed || 0;
+      acc.liquidated += item.financial?.liquidated || 0;
+      acc.paid += item.financial?.paid || 0;
+      acc.amendmentValue += item.financial?.amendmentValue || 0;
+    }
+    acc.contractValue += item.kind === 'financial_record' ? (item.financial?.contractValue || 0) : 0;
     return acc;
   }, { announced: 0, committed: 0, liquidated: 0, paid: 0, contractValue: 0, amendmentValue: 0 });
 }
@@ -178,6 +180,30 @@ export async function getPrivateDashboardData() {
     .sort((a,b) => priorityWeight(b.priority) - priorityWeight(a.priority) || b.collectedAt.localeCompare(a.collectedAt));
   const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
   const finance = financialTotals(intelligence);
+  const housingTargets = ['Barra','Cipó','Esplanada','Iraquara','Itaberaba','Lajedinho','Lapão','Macajuba'];
+  const housingAudit = housingTargets.map((municipality) => {
+    const payment = intelligence.find((item) => item.kind === 'financial_record' && item.municipality === municipality && (item.tags || []).includes('habitação'));
+    const analytical = intelligence
+      .filter((item) => item.kind === 'research_finding' && item.municipality === municipality && (item.tags || []).includes('habitacao'))
+      .sort((a,b) => priorityWeight(b.priority)-priorityWeight(a.priority) || b.evidenceLevel.localeCompare(a.evidenceLevel))[0];
+    const gap = Boolean(analytical?.recordId.includes('GAP'));
+    return {
+      municipality,
+      paymentRecordId: payment?.recordId || null,
+      paymentDate: payment?.eventDate || null,
+      paid: payment?.financial?.paid || 0,
+      instrumentNumber: typeof payment?.raw?.instrumentNumber === 'string' ? payment.raw.instrumentNumber : null,
+      findingRecordId: analytical?.recordId || null,
+      findingTitle: analytical?.title || 'Aguardando cruzamento documental',
+      evidenceLevel: analytical?.evidenceLevel || payment?.evidenceLevel || 'L1',
+      priority: analytical?.priority || payment?.priority || 'medium',
+      status: gap ? 'lacuna' : analytical ? 'corroborado' : 'triagem',
+      exceptionDocumented: false,
+      sourceUrl: analytical?.provenance?.sourceUrl || payment?.provenance?.sourceUrl || null,
+    };
+  });
+  const housingCorroborated = housingAudit.filter((item)=>item.status==='corroborado').length;
+  const housingGaps = housingAudit.filter((item)=>item.status==='lacuna').length;
   const archivedSourceBytes = sourceArchives.reduce((sum,item)=>sum + item.size,0);
   const validSourceCertificates = sourceArchives.filter(verifySourceArchiveRecord).length;
   const sourceArchivesWithVerification = sourceArchives.map((item)=>({ ...item, certificateValid: verifySourceArchiveRecord(item) }));
@@ -231,6 +257,8 @@ export async function getPrivateDashboardData() {
       archivedSources: sourceArchives.length,
       archivedSourceBytes,
       validSourceCertificates,
+      housingCorroborated,
+      housingGaps,
       versionedDatasets: gitPreservations.length,
       versionedRows,
       versionedPaid: fiplanPreservation.extraction.result.paidBRL,
@@ -278,5 +306,6 @@ export async function getPrivateDashboardData() {
     sources,
     sourceArchives: sourceArchivesWithVerification,
     gitPreservations,
+    housingAudit,
   };
 }
