@@ -16,7 +16,12 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     state:'BA', eventDate:'2026-07-04', caseIds:['OE-BA-0003'], tags:['art-73','transferencia-voluntaria','regra-auditoria'],
     evidenceLevel:'L3', analyticalConfidence:1, priority:'high', financial:{currency:'BRL'},
     entities:[{name:'Procuradoria Geral do Estado da Bahia',type:'public_body',role:'orientação jurídica oficial'}],
-    provenance:src('https://www.ba.gov.br/pge/perguntas-frequentes-faq','Perguntas Frequentes - FAQ','Procuradoria Geral do Estado da Bahia','2026-05-05')
+    provenance:src('https://www.ba.gov.br/pge/perguntas-frequentes-faq','Perguntas Frequentes - FAQ','Procuradoria Geral do Estado da Bahia','2026-05-05'),
+    notes:[
+      'Teste documental da exceção ordinária: instrumento formal anterior ao período vedado, execução física da obra/serviço já iniciada antes de 04/07/2026 e cronograma prefixado também anterior ao marco.',
+      'A orientação eleitoral da PGE-BA, citando o TSE no RO-El nº 176880 (Ac. 25/03/2021), registra que a mera publicação de convênio, ainda que acompanhada de cronograma, não basta para afastar a vedação se a obra não estiver fisicamente iniciada antes do período crítico.',
+      'Hipóteses de emergência ou calamidade pública devem ser verificadas separadamente mediante ato formal e aderência do objeto à situação excepcional.'
+    ]
   }),
   base({
     recordId:'BOOT-PACOTE-2026-06-11', kind:'research_finding', status:'verified',
