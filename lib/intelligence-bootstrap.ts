@@ -146,6 +146,54 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     notes:['Instrumento FIPLAN 26601.0001.26.0000018-7; NOB 26601.0001.26.0000033-2.','Concorrência 001/2026 refere-se a 20 unidades federais FNHIS Sub 50 e foi explicitamente excluída do cruzamento estadual.','Prosseguir no DOE, contratos, ordens de serviço e publicações posteriores.']
   }),
   base({
+    recordId:'BOOT-GAP-BARRA-HAB-2026',kind:'research_finding',status:'triage',
+    title:'Barra: R$ 1,17 milhão pago em 07/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 07/07/2026 no convênio habitacional com Barra. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente a este convênio estadual. A ausência de localização é uma lacuna de pesquisa, não evidência de inexistência ou irregularidade.',
+    municipality:'Barra',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
+    tags:['habitacao','pagamento-07-07','defeso-eleitoral','lacuna-contratacao'],
+    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    entities:[{name:'Município de Barra',type:'municipality',identifier:'CNPJ 13.880.703/0001-01',role:'convenente/recebedor'}],
+    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000006-3'),
+    notes:['FIPLAN: convênio 26601.0001.26.0000006-3; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000039-1; R$ 1.170.000,00 efetivados em 07/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: DOE municipal/estadual, PNCP por CNPJ do município, portal municipal, ordem de serviço e medições.']
+  }),
+  base({
+    recordId:'BOOT-GAP-ESPLANADA-HAB-2026',kind:'research_finding',status:'triage',
+    title:'Esplanada: R$ 1,17 milhão pago em 06/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional com Esplanada. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A lacuna exige aprofundamento e não autoriza inferência de irregularidade.',
+    municipality:'Esplanada',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
+    tags:['habitacao','pagamento-06-07','defeso-eleitoral','lacuna-contratacao'],
+    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    entities:[{name:'Município de Esplanada',type:'municipality',identifier:'CNPJ 13.885.231/0001-71',role:'convenente/recebedor'}],
+    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000009-8'),
+    notes:['FIPLAN: convênio 26601.0001.26.0000009-8; celebrado em 25/06; publicado em 27/06; NOB 26601.0001.26.0000034-0; R$ 1.170.000,00 efetivados em 06/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.885.231/0001-71, DOE, portal municipal, ordem de serviço e medições.']
+  }),
+  base({
+    recordId:'BOOT-GAP-IRAQUARA-HAB-2026',kind:'research_finding',status:'triage',
+    title:'Iraquara: R$ 1,17 milhão pago em 06/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional com Iraquara. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A ausência de localização permanece como lacuna documental.',
+    municipality:'Iraquara',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
+    tags:['habitacao','pagamento-06-07','defeso-eleitoral','lacuna-contratacao'],
+    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    entities:[{name:'Município de Iraquara',type:'municipality',identifier:'CNPJ 13.922.596/0001-29',role:'convenente/recebedor'}],
+    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000018-7'),
+    notes:['FIPLAN: convênio 26601.0001.26.0000018-7; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000033-2; R$ 1.170.000,00 efetivados em 06/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.922.596/0001-29, DOE, portal municipal, ordem de serviço e medições.']
+  }),
+  base({
+    recordId:'BOOT-GAP-MACAJUBA-HAB-2026',kind:'research_finding',status:'triage',
+    title:'Macajuba: R$ 1,17 milhão pago em 07/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 07/07/2026 no convênio habitacional com Macajuba. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A lacuna será tratada como diligência, não como conclusão.',
+    municipality:'Macajuba',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
+    tags:['habitacao','pagamento-07-07','defeso-eleitoral','lacuna-contratacao'],
+    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    entities:[{name:'Município de Macajuba',type:'municipality',identifier:'CNPJ 13.810.841/0001-06',role:'convenente/recebedor'}],
+    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000016-0'),
+    notes:['FIPLAN: convênio 26601.0001.26.0000016-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000041-3; R$ 1.170.000,00 efetivados em 07/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.810.841/0001-06, DOE, portal municipal, ordem de serviço e medições.']
+  }),
+  base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
     title:'Tucano/Caldas do Jorro: obra de R$ 58,6 milhões já estava em execução física antes do defeso',
     summary:'Em 01/07, a Embasa informou rede já executada e unidades em construção no SES de Caldas do Jorro. É caso-controle: proximidade eleitoral isolada não implica irregularidade e havia evidência pública de execução física anterior ao defeso.',
