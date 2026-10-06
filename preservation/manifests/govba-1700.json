@@ -1,0 +1,29 @@
+{
+  "sourceId": "govba-1700",
+  "title": "Pacote estadual superior a R$ 1,7 bilhão — 11/06/2026",
+  "publisher": "SECOM Bahia",
+  "history": [
+    {
+      "sourceId": "govba-1700",
+      "title": "Pacote estadual superior a R$ 1,7 bilhão — 11/06/2026",
+      "publisher": "SECOM Bahia",
+      "originalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
+      "retrievedAt": "2026-10-06T01:06:40Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ba.gov.br/comunicacao/conteudo-temporariamente-indisponivel",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "72457",
+      "etag": "\"1791248806\"",
+      "last-modified": "Tue, 06 Oct 2026 01:06:46 GMT",
+      "date": "Tue, 06 Oct 2026 01:06:46 GMT",
+      "cache-control": "private",
+      "size": 72457,
+      "sha256": "97b467999ab08bbfceb5e4c1351b8770fe78cf164f6e7507096731b0c5087f04",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/govba-1700/2026-10-06T01-06-40Z.html",
+      "available": true,
+      "certificateSha256": "a318f3e46d3b0847afc417baed476cde168f7495d3d26bad0bd9fa334e990acc"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "sourceId": "dados-ba-convenios-api",
+  "title": "Catálogo CKAN — Convênios e Parcerias",
+  "publisher": "Dados Abertos Bahia / SEFAZ",
+  "history": [
+    {
+      "sourceId": "dados-ba-convenios-api",
+      "title": "Catálogo CKAN — Convênios e Parcerias",
+      "publisher": "Dados Abertos Bahia / SEFAZ",
+      "originalUrl": "https://dados.ba.gov.br/api/3/action/package_show?id=convenios-e-parcerias",
+      "retrievedAt": "2026-10-06T01:06:58Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+      "available": false,
+      "certificateSha256": "f13517165fde3224b368602333bbda45974f48ba988b47016a2865ecbbcb2034"
+    }
+  ]
+}

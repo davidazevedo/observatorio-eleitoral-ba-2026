@@ -1,0 +1,18 @@
+{
+  "sourceId": "sedur-mcmv-22",
+  "title": "Convênios para 1.100 moradias em 22 municípios",
+  "publisher": "SEDUR Bahia",
+  "history": [
+    {
+      "sourceId": "sedur-mcmv-22",
+      "title": "Convênios para 1.100 moradias em 22 municípios",
+      "publisher": "SEDUR Bahia",
+      "originalUrl": "https://www.ba.gov.br/sedur/noticias/2026-07/12409/governo-da-bahia-firma-convenios-para-construcao-de-1100-moradias-em-22",
+      "retrievedAt": "2026-10-06T01:06:50Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "available": false,
+      "certificateSha256": "d7f3429939354ff765faee2119d9124b0a680aed4b948a794897b901ab3b4ef5"
+    }
+  ]
+}
