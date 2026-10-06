@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "fiplan-convenios-parcerias-2026-10-05",
+  "sourceUrl": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+  "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+  "retrievedAt": "2026-10-06T01:09:27Z",
+  "transport": {
+    "scheme": "https",
+    "certificateVerification": "failed-on-standard-chain-validation; content retrieved with certificate verification disabled after recording the failure",
+    "certificate": {
+      "subject": "C=BR, ST=Bahia, O=BAHIA SECRETARIA DA FAZENDA, CN=dados.ba.gov.br",
+      "issuer": "C=GB, O=Sectigo Limited, CN=Sectigo Public Server Authentication CA OV R36",
+      "sha256Fingerprint": "C9:E9:D3:D1:FF:02:A4:4F:86:CB:EB:0C:EA:F1:61:95:57:76:33:9B:9C:73:16:C1:42:C9:10:21:E4:64:46:3D",
+      "notBefore": "2026-08-27T00:00:00Z",
+      "notAfter": "2027-03-13T23:59:59Z"
+    }
+  },
+  "http": {
+    "status": 200,
+    "server": "nginx",
+    "contentType": "application/zip",
+    "contentLength": 12213436,
+    "contentDisposition": "inline; filename=conveniosparcerias.zip",
+    "lastModified": "Mon, 05 Oct 2026 09:33:41 GMT",
+    "etag": "\"1791192821.5951693-12213436-2157843167\"",
+    "cacheControl": "no-cache, public, max-age=0, must-revalidate"
+  },
+  "sourceArtifact": {
+    "filename": "conveniosparcerias.zip",
+    "size": 12213436,
+    "sha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+    "fullRawCopyPreservedInGit": false,
+    "reason": "O ZIP completo tem 12,2 MB e é atualizado com frequência; preservamos hash, metadados HTTP e os registros exatos usados na análise."
+  },
+  "extraction": {
+    "parser": "python csv.DictReader delimiter=';' / oeba-fiplan-defeso-v1",
+    "selection": "ANO_EXERCICIO_INT=2026; nom_tipo_despesa=Transferências; recebedor nominal Município/Prefeitura Municipal; Pagamento_Efetivado=Sim; dtc_pagto_nob entre 04/07/2026 e 04/10/2026",
+    "sourceMembers": [
+      "VW_INSTRUMENTO_DESPESA.csv",
+      "VW_PAGAMENTOS_NOTA_ORDEM_BANCARIA.csv"
+    ],
+    "result": {
+      "instruments": 50,
+      "payments": 51,
+      "municipalities": 44,
+      "paidBRL": 28772441.69
+    },
+    "preservedExtracts": [
+      {
+        "path": "preservation/extracts/fiplan-defeso-instrumentos-2026.csv.gz",
+        "uncompressedSize": 42920,
+        "uncompressedSha256": "523cead11f24b017cbf0aafe16f5dc0807219c45c86f4c52800bbe30a7fd4488",
+        "gzipSize": 7280,
+        "gzipSha256": "11d52faf2075a05b1be70447ef840e100097fa99f9c6275e6a01d23070b29c4e",
+        "rows": 50
+      },
+      {
+        "path": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+        "uncompressedSize": 10164,
+        "uncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "gzipSize": 1296,
+        "gzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "rows": 51
+      }
+    ]
+  },
+  "interpretationBoundary": "Este manifesto prova a proveniência e integridade da coleta e dos recortes usados. Não prova, por si só, ilegalidade dos pagamentos nem substitui validação oficial/pericial."
+}
