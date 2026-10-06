@@ -2,6 +2,7 @@ import { get, list, type ListBlobResultBlob } from '@vercel/blob';
 import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
 import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-archive';
+import fiplanPreservation from '@/preservation/manifests/fiplan-defeso-2026.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -180,6 +181,12 @@ export async function getPrivateDashboardData() {
   const archivedSourceBytes = sourceArchives.reduce((sum,item)=>sum + item.size,0);
   const validSourceCertificates = sourceArchives.filter(verifySourceArchiveRecord).length;
   const sourceArchivesWithVerification = sourceArchives.map((item)=>({ ...item, certificateValid: verifySourceArchiveRecord(item) }));
+  const gitPreservations = [{
+    ...fiplanPreservation,
+    repositoryCommit: '5a5a17c79338233a15b174f4eb3b4a1a4a70c9a0',
+    repositoryUrl: 'https://github.com/davidazevedo/observatorio-eleitoral-ba-2026/commit/5a5a17c79338233a15b174f4eb3b4a1a4a70c9a0',
+  }];
+  const versionedRows = fiplanPreservation.extraction.result.instruments + fiplanPreservation.extraction.result.payments;
 
   const sources = [
     ...sourceCatalog.map((item) => ({
@@ -224,6 +231,9 @@ export async function getPrivateDashboardData() {
       archivedSources: sourceArchives.length,
       archivedSourceBytes,
       validSourceCertificates,
+      versionedDatasets: gitPreservations.length,
+      versionedRows,
+      versionedPaid: fiplanPreservation.extraction.result.paidBRL,
       entities: entities.length,
       relationships: relationships.length + relationshipRecords.length,
       highPriority: highPriority.length,
@@ -267,5 +277,6 @@ export async function getPrivateDashboardData() {
     queue,
     sources,
     sourceArchives: sourceArchivesWithVerification,
+    gitPreservations,
   };
 }
