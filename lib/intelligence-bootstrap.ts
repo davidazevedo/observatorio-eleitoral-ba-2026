@@ -95,6 +95,21 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     notes:['FIPLAN: instrumento 26601.0001.26.0000019-5; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000028-6; R$ 1.170.000,00 efetivados em 06/07.','Portal municipal: aviso de licitação para executar as 50 unidades publicado em 26/08, com sessão em 11/09.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
   }),
   base({
+    recordId:'BOOT-LAPAO-HAB-2026',kind:'research_finding',status:'corroborating',
+    title:'Lapão: R$ 1,17 milhão pago em 06/07; licitação das 50 moradias publicada em 31/07',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Lapão. O aviso da Concorrência Eletrônica nº 010/2026, para executar as 50 unidades do Convênio nº 002/2026 SEDUR, foi publicado em 31/07/2026, com abertura em 18/08; a homologação posterior foi em favor da Nunes Engenharia Ltda. A sequência temporal exige a documentação da exceção legal e não prova, isoladamente, irregularidade.',
+    municipality:'Lapão',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','lapao-concorrencia-010-2026','pge-ba-eleicoes-2026'],
+    tags:['habitacao','convenio-002-2026','pagamento-06-07','licitacao-31-07','defeso-eleitoral','prioridade-documental'],
+    evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5822160.50},
+    entities:[
+      {name:'Município de Lapão',type:'municipality',identifier:'CNPJ 13.891.528/0001-40',role:'convenente/contratante'},
+      {name:'Nunes Engenharia Ltda',type:'supplier',identifier:'CNPJ 07.492.799/0001-20',role:'empresa homologada para execução'}
+    ],
+    provenance:src('https://www.escavador.com/diarios/9247755/DOEBA/P/2026-07-31?page=130','Aviso de Licitação — Concorrência Eletrônica nº 010/2026','Diário Oficial do Estado da Bahia / Prefeitura Municipal de Lapão','2026-07-31','PNCP 15448570000116-1-000001/2026'),
+    notes:['FIPLAN: instrumento 26601.0001.26.0000004-7; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000038-3; R$ 1.170.000,00 efetivados em 06/07.','Aviso da Concorrência 010/2026 publicado em 31/07; sessão em 18/08.','Homologação publicada em 24/09 em favor da Nunes Engenharia Ltda, por R$ 5.822.160,50.','Verificar eventual contratação ou execução anterior distinta, ordem de serviço, medições e fundamento formal da exceção do art. 73, VI, a, antes de concluir sobre a legalidade do repasse.']
+  }),
+  base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
     title:'Tucano/Caldas do Jorro: obra de R$ 58,6 milhões já estava em execução física antes do defeso',
     summary:'Em 01/07, a Embasa informou rede já executada e unidades em construção no SES de Caldas do Jorro. É caso-controle: proximidade eleitoral isolada não implica irregularidade e havia evidência pública de execução física anterior ao defeso.',
