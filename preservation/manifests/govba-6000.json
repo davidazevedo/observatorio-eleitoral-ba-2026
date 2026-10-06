@@ -24,6 +24,28 @@
       "rawPath": "preservation/snapshots/govba-6000/2026-10-06T01-06-47Z.html",
       "available": true,
       "certificateSha256": "1267051fe471173247fac41a4a983eb698b22d378a29ce598a2179261bae1226"
+    },
+    {
+      "sourceId": "govba-6000",
+      "title": "Pacote estadual de aproximadamente R$ 6 bilhões — 03/07/2026",
+      "publisher": "SECOM Bahia",
+      "originalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6",
+      "retrievedAt": "2026-10-06T18:24:04Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "83435",
+      "etag": "\"1791311045\"",
+      "last-modified": "Tue, 06 Oct 2026 18:24:05 GMT",
+      "date": "Tue, 06 Oct 2026 18:24:12 GMT",
+      "cache-control": "private",
+      "size": 83435,
+      "sha256": "2870b8da3e4af6fbd975fb25cf9127932de1929e9d9a9e5f8e675ea538a706ba",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/govba-6000/2026-10-06T18-24-04Z.html",
+      "available": true,
+      "certificateSha256": "5e941a2d11ddc03de656cd6e0ad74a16324421ffd4a7ecaddb7e88a655c2067d"
     }
   ]
 }
