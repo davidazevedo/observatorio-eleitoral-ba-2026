@@ -105,7 +105,7 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     sourceIds:['dados-abertos-ba-convenios-parcerias','lapao-concorrencia-010-2026','pge-ba-eleicoes-2026'],
     tags:['habitacao','convenio-002-2026','pagamento-06-07','licitacao-31-07','defeso-eleitoral','prioridade-documental'],
     evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5822160.50},
-    raw:{procurementDate:'2026-07-31',procurementStatus:'homologado',procurementControl:'Concorrência Eletrônica 010/2026',procurementValue:5822160.50,supplier:'Nunes Engenharia Ltda',supplierCnpj:'07.492.799/0001-20',electoralCrossmatch:'no_direct_match_tse_ba',electoralCrossmatchNote:'Busca exata no snapshot TSE/BA de 06/10/2026: zero ocorrências nos seis arquivos de despesas/documentos de candidatos e órgãos partidários.'},
+    raw:{procurementDate:'2026-07-31',procurementStatus:'homologado',procurementControl:'Concorrência Eletrônica 010/2026',procurementValue:5822160.50,supplier:'Nunes Engenharia Ltda',supplierCnpj:'07.492.799/0001-20',electoralCrossmatch:'no_exact_match',electoralCrossmatchNote:'Busca exata no snapshot TSE/BA de 06/10/2026: zero ocorrências nos seis arquivos de despesas/documentos de candidatos e órgãos partidários.'},
     entities:[
       {name:'Município de Lapão',type:'municipality',identifier:'CNPJ 13.891.528/0001-40',role:'convenente/contratante'},
       {name:'Nunes Engenharia Ltda',type:'supplier',identifier:'CNPJ 07.492.799/0001-20',role:'empresa homologada para execução'}
