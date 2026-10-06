@@ -197,7 +197,7 @@ export async function getPrivateDashboardData() {
       findingTitle: analytical?.title || 'Aguardando cruzamento documental',
       evidenceLevel: analytical?.evidenceLevel || payment?.evidenceLevel || 'L1',
       priority: analytical?.priority || payment?.priority || 'medium',
-      status: gap ? 'lacuna' : analytical ? 'corroborado' : 'triagem',
+      status: (gap ? 'lacuna' : analytical ? 'corroborado' : 'triagem') as 'lacuna' | 'corroborado' | 'triagem',
       exceptionDocumented: false,
       sourceUrl: analytical?.provenance?.sourceUrl || payment?.provenance?.sourceUrl || null,
     };
