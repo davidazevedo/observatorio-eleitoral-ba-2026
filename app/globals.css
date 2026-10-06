@@ -695,3 +695,37 @@ textarea{min-height:auto}
 
 /* Housing diligence matrix */
 .housing-audit-table{display:grid;overflow:auto;margin-top:18px}.housing-audit-table>div{display:grid;grid-template-columns:120px 115px 100px minmax(340px,1fr) 70px 90px;gap:12px;align-items:center;min-width:930px;padding:12px;border-bottom:1px solid #ddd5c8;font-size:10px}.housing-audit-head{background:#17261f!important;color:#e9eee9;text-transform:uppercase;letter-spacing:.06em;font-size:8px!important}.housing-audit-table>div>strong{font-size:12px}.housing-audit-table>div>div small{display:block;color:#65716a;line-height:1.4;margin-top:5px}.housing-audit-table>div>div code{display:block;color:#816846;font-size:8px;margin-top:4px}.housing-status-ok,.housing-status-gap,.housing-status-triage{display:inline-block;border-radius:999px;padding:4px 7px;text-transform:uppercase;font-size:8px;letter-spacing:.04em}.housing-status-ok{background:#d3e6d8;color:#28523b}.housing-status-gap{background:#ead9b9;color:#6e5229}.housing-status-triage{background:#dde1de;color:#34433c}.housing-exception-pending{display:inline-flex;justify-content:center;padding:5px 8px;border-radius:999px;background:#efd2cf;color:#7a2d28;font-size:8px;font-weight:800;text-transform:uppercase}
+
+
+/* --- Analytical filter system --- */
+.analytic-filter-shell{margin:0 0 24px;background:#f8f4eb;border:1px solid #bdb3a4;border-top:4px solid #174b3d;box-shadow:0 10px 30px rgba(28,45,37,.045)}
+.analytic-filter-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #d8d0c3}
+.analytic-filter-head .eyebrow{margin:0 0 3px;font-size:9px}.analytic-filter-head strong{font-size:12px;color:#31453c}
+.analytic-filter-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.analytic-filter-actions>span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#6a776f}
+.analytic-filter-actions button{border:1px solid #bcb2a3;background:#fffdf8;padding:7px 10px;font:inherit;font-size:9px;font-weight:800;color:#174b3d;cursor:pointer}
+.analytic-filter-actions button.clear{border-color:#9b5a50;color:#7e302b;background:#fff8f5}
+.analytic-filter-grid{display:grid;gap:10px;padding:14px 20px 0}
+.analytic-filter-grid.primary{grid-template-columns:minmax(300px,2fr) minmax(170px,1fr) 145px 145px}
+.analytic-filter-grid.secondary{grid-template-columns:repeat(4,minmax(130px,1fr));padding-bottom:14px}
+.analytic-filter-grid label{display:block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#647069}
+.analytic-filter-grid label>span{display:block;margin-bottom:4px}
+.analytic-filter-grid input,.analytic-filter-grid select{margin:0;border-radius:4px;padding:9px 10px;font-size:11px;background:#fff;border-color:#c8bfb1;min-height:38px}
+.analytic-filter-grid .analytic-search input{font-size:12px}
+.analytic-filter-chips{display:flex;gap:6px;flex-wrap:wrap;padding:11px 20px 15px;border-top:1px dashed #d7cec0;background:#f3eee5}
+.analytic-filter-chips button{border:1px solid #bea87f;background:#fff9ef;color:#6d522d;border-radius:999px;padding:5px 9px;font-size:9px;font-weight:800;cursor:pointer}
+.analytic-filter-chips button:hover{background:#eadcc4}
+.filter-result-count{display:block;font-size:10px;color:#728078;margin-top:4px}
+.private-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.private-filters input,.private-filters select{margin:0;min-width:180px;border-radius:4px;padding:8px 9px;font-size:10px}
+@media(max-width:1200px){
+  .analytic-filter-grid.primary{grid-template-columns:1fr 1fr}
+  .analytic-filter-grid.secondary{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .analytic-filter-head{align-items:flex-start;flex-direction:column}
+  .analytic-filter-actions{justify-content:flex-start}
+  .analytic-filter-grid.primary,.analytic-filter-grid.secondary{grid-template-columns:1fr}
+  .analytic-filter-grid{padding-inline:14px}
+  .analytic-filter-chips{padding-inline:14px}
+}
