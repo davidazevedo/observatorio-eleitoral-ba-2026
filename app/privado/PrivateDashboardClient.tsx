@@ -13,6 +13,15 @@ type SourceRow = {
 type EntityRow = { name: string; type: string; identifier?: string; mentions: number; roles: string[] };
 type RelationRow = { from: string; to: string; type: string; description?: string };
 type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
+type GitPreservationRow = {
+  schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
+  repositoryCommit:string; repositoryUrl:string;
+  transport:{scheme:string;certificateVerification:string;certificate:{subject:string;issuer:string;sha256Fingerprint:string;notBefore:string;notAfter:string}};
+  http:{status:number;server:string;contentType:string;contentLength:number;contentDisposition:string;lastModified:string;etag:string;cacheControl:string};
+  sourceArtifact:{filename:string;size:number;sha256:string;fullRawCopyPreservedInGit:boolean;reason:string};
+  extraction:{parser:string;selection:string;sourceMembers:string[];result:{instruments:number;payments:number;municipalities:number;paidBRL:number};preservedExtracts:Array<{path:string;uncompressedSize:number;uncompressedSha256:string;gzipSize:number;gzipSha256:string;rows:number}>};
+  interpretationBoundary:string;
+};
 
 type DashboardData = {
   generatedAt: string;
@@ -22,6 +31,7 @@ type DashboardData = {
     researchFindings: number; sourceInventory: number; entities: number; relationships: number; highPriority: number;
     withEvidence: number; withEventDate: number; missingReferencedEvidence: number; orphanEvidence: number;
     archivedSources: number; archivedSourceBytes: number; validSourceCertificates: number;
+    versionedDatasets: number; versionedRows: number; versionedPaid: number;
   };
   rankings: {
     municipalities: Ranking[]; categories: Ranking[]; statuses: Ranking[]; verificationLevels: Ranking[];
@@ -43,6 +53,7 @@ type DashboardData = {
   queue: IntelligenceRecord[];
   sources: SourceRow[];
   sourceArchives: SourceArchiveRow[];
+  gitPreservations: GitPreservationRow[];
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -186,7 +197,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Denúncias</span><strong>{data.metrics.submissions}</strong><small>{data.metrics.anonymous} sem identificação · {data.metrics.identified} identificadas</small></article>
                 <article><span>Registros Intel</span><strong>{data.metrics.intelligenceRecords}</strong><small>{data.metrics.researchFindings} achados analíticos</small></article>
                 <article><span>Fontes</span><strong>{data.metrics.sourceInventory}</strong><small>catálogo + fontes de pesquisa + ingeridas</small></article>
-                <article><span>Snapshots</span><strong>{data.metrics.archivedSources}</strong><small>{formatBytes(data.metrics.archivedSourceBytes)} preservados · {data.metrics.validSourceCertificates} certificados íntegros</small></article>
+                <article><span>Snapshots</span><strong>{data.metrics.archivedSources + data.metrics.versionedDatasets}</strong><small>Blob privado + datasets versionados no Git</small></article>
                 <article><span>Municípios</span><strong>{data.metrics.municipalities}</strong><small>presentes em denúncias ou inteligência</small></article>
                 <article><span>Entidades</span><strong>{data.metrics.entities}</strong><small>pessoas, empresas, órgãos e fornecedores</small></article>
                 <article><span>Relações</span><strong>{data.metrics.relationships}</strong><small>vínculos registrados para análise</small></article>
@@ -377,6 +388,29 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'provenance' && (
             <>
+              <section className="private-panel git-preservation-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">PROVENIÊNCIA VERSIONADA</p><h2>Datasets certificados no Git</h2></div><span>{data.metrics.versionedDatasets} dataset · {data.metrics.versionedRows} linhas preservadas</span></div>
+                {data.gitPreservations.map((item)=>(
+                  <article className="git-preservation-card" key={item.sourceId}>
+                    <div className="source-archive-head"><div><strong>{item.publisher}</strong><small>{item.sourceId}</small></div><span className="source-cert-ok">GIT ✓</span></div>
+                    <div className="git-preservation-kpis">
+                      <div><small>Instrumentos</small><strong>{item.extraction.result.instruments}</strong></div>
+                      <div><small>Pagamentos</small><strong>{item.extraction.result.payments}</strong></div>
+                      <div><small>Municípios</small><strong>{item.extraction.result.municipalities}</strong></div>
+                      <div><small>Valor filtrado</small><strong>{money(item.extraction.result.paidBRL)}</strong></div>
+                    </div>
+                    <div className="source-hash"><small>SHA-256 DO ZIP OFICIAL</small><code>{item.sourceArtifact.sha256}</code></div>
+                    <div className="source-archive-meta"><span><b>Coleta</b>{formatDate(item.retrievedAt)}</span><span><b>HTTP</b>{item.http.status}</span><span><b>Last-Modified</b>{item.http.lastModified}</span><span><b>ETag</b>{item.http.etag}</span></div>
+                    <div className="git-preservation-warning"><strong>Transporte TLS</strong><span>O servidor apresentou cadeia de certificado incompleta no ambiente de coleta. A falha foi registrada; o certificado apresentado e sua impressão SHA-256 foram preservados. O conteúdo foi baixado somente após registrar essa limitação.</span></div>
+                    <div className="source-hash"><small>FINGERPRINT DO CERTIFICADO APRESENTADO</small><code>{item.transport.certificate.sha256Fingerprint}</code></div>
+                    <div className="git-extract-grid">
+                      {item.extraction.preservedExtracts.map((extract)=><div key={extract.path}><strong>{extract.rows} linhas</strong><span>{extract.path.split('/').pop()}</span><code>{extract.uncompressedSha256}</code></div>)}
+                    </div>
+                    <p className="private-report-note">{item.interpretationBoundary}</p>
+                    <div className="source-archive-actions"><a href={item.sourceUrl} target="_blank" rel="noreferrer">Fonte oficial ↗</a><a href={item.repositoryUrl} target="_blank" rel="noreferrer">Commit de preservação ↗</a></div>
+                  </article>
+                ))}
+              </section>
               <section className="private-panel source-archive-form">
                 <div className="private-panel-title"><div><p className="eyebrow">PRESERVAÇÃO PROBATÓRIA</p><h2>Arquivar fonte pública</h2></div></div>
                 <p className="private-report-note">A coleta salva uma cópia bruta em Blob privado e registra SHA-256, URL original/final, data/hora e cabeçalhos HTTP. O hash permite comprovar posteriormente que o arquivo preservado não foi alterado.</p>
