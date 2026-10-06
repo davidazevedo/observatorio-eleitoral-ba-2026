@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-05",
+  "updatedAt": "2026-10-06",
   "targets": [
     {
       "id": "govba-1700",
@@ -95,6 +95,142 @@
       "url": "https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos",
       "title": "Itaberaba — Publicações em Outros Veículos",
       "publisher": "Prefeitura Municipal de Itaberaba",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "pncp-cipo-55-detail",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/55",
+      "title": "Cipó — CE 007/2026 (contratação posteriormente anulada)",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-cipo-63-detail",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/63",
+      "title": "Cipó — CE 009/2026 (republicação das 50 moradias)",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-cipo-63-itens",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13808936000195/compras/2026/63/itens",
+      "title": "Cipó — itens CE 009/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-cipo-63-resultados",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13808936000195/compras/2026/63/itens/7936485/resultados",
+      "title": "Cipó — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-160-detail",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13719646000175/compras/2026/160",
+      "title": "Itaberaba — controle PNCP 160/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-160-itens",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/160/itens",
+      "title": "Itaberaba — itens controle PNCP 160/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-160-resultados",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/160/itens/1/resultados",
+      "title": "Itaberaba — resultados controle PNCP 160/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-161-detail",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13719646000175/compras/2026/161",
+      "title": "Itaberaba — controle PNCP 161/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-161-itens",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/161/itens",
+      "title": "Itaberaba — itens controle PNCP 161/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-itaberaba-161-resultados",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/161/itens/1/resultados",
+      "title": "Itaberaba — resultados controle PNCP 161/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-lajedinho-98-detail",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13810544000160/compras/2026/98",
+      "title": "Lajedinho — CE 008/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-lajedinho-98-itens",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13810544000160/compras/2026/98/itens",
+      "title": "Lajedinho — itens CE 008/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-lajedinho-98-resultados",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13810544000160/compras/2026/98/itens/1/resultados",
+      "title": "Lajedinho — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-macajuba-19-detail-auto",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13810841000106/compras/2026/19",
+      "title": "Macajuba — CE 004/2026 / PA 254/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-macajuba-19-itens",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "title": "Macajuba — itens CE 004/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "pncp-macajuba-19-resultados",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens/1/resultados",
+      "title": "Macajuba — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "preserveRaw": true,
+      "maxRawBytes": 1000000
+    },
+    {
+      "id": "macajuba-diario-index",
+      "url": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "title": "Macajuba — índice do Diário Oficial 2026",
+      "publisher": "Prefeitura Municipal de Macajuba",
       "preserveRaw": true,
       "maxRawBytes": 4000000
     }
