@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "tse-ba-prestacao-contas-2026-2026-10-06",
+  "publisher": "Tribunal Superior Eleitoral",
+  "catalogUrl": "https://dadosabertos.tse.jus.br/dataset/prestacao-de-contas-eleitorais-2026",
+  "catalogSnapshot": {
+    "privateArchiveSourceId": "tse-prestacao-contas-2026-catalog",
+    "sha256": "83aea4ef3cd0af900ed3f383e0aaf8dc377b72994f90b11f211adc53ed2d5db5"
+  },
+  "retrievedAt": "2026-10-06T17:50:00.000Z",
+  "sourceArchives": [
+    {
+      "name": "Prestação de contas de candidatos",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_de_contas_eleitorais_candidatos_2026.zip",
+      "sha256": "57f9ddf54daf4b698960299f7e8f04157d4566d1a4c3a83c17759d51f2ca9769",
+      "lastModified": "Tue, 06 Oct 2026 08:59:33 GMT",
+      "etag": "\"a31a6ad-65d2837a30ac8\"",
+      "contentLength": 171026093,
+      "privateArchiveSourceId": "tse-candidatos-2026-2026-10-06"
+    },
+    {
+      "name": "Documentos fiscais de despesa",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/despesa_documento_2026.zip",
+      "sha256": "95615970cf2a73346aa4e10277cf71235a39afc43d5ec9e5e0e09ec7cb6beb3e",
+      "lastModified": "Sun, 04 Oct 2026 07:58:35 GMT",
+      "etag": "\"4ad61f-65cff21e0e0f6\"",
+      "contentLength": 4904479,
+      "privateArchiveSourceId": "tse-despesa-documento-2026-2026-10-06"
+    },
+    {
+      "name": "Prestação de contas de órgãos partidários",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_de_contas_eleitorais_orgaos_partidarios_2026.zip",
+      "sha256": "7cd3f3c670e302ec1ae140ecb6431e0c902b3473e38135be57e6db424c43ceca",
+      "privateArchiveSourceId": "tse-partidos-2026-2026-10-06"
+    }
+  ],
+  "baFiles": [
+    {
+      "name": "despesas_contratadas_candidatos_2026_BA.csv",
+      "sha256": "f2a2346aaec8a09da978e2e45f91a0d34344a7f2a20f6cc909dce8026c72195b"
+    },
+    {
+      "name": "despesas_pagas_candidatos_2026_BA.csv",
+      "sha256": "9af7e9f27a53827375843581986ce6134f28c3a300d7d241c9dc2712653b7bd1"
+    },
+    {
+      "name": "despesa_candidato_documento_2026_BA.csv",
+      "sha256": "bbf8548e6965a4e07262db88f9b4df956c3ab3ec6665d1344b76f6be571b2839"
+    },
+    {
+      "name": "despesas_contratadas_orgaos_partidarios_2026_BA.csv",
+      "sha256": "4949bb086dd1b04069f8f3dd0543fd572f8b9a26795ca9ce6d371e96d47cdb6e"
+    },
+    {
+      "name": "despesas_pagas_orgaos_partidarios_2026_BA.csv",
+      "sha256": "3b94b89f801fb31a1ad2e0ff6199493a0fef495ddf91703067fe56fde776a68e"
+    },
+    {
+      "name": "despesa_partido_documento_2026_BA.csv",
+      "sha256": "e29ea67522cf4b9dc23241cb375770451c47fd27b311ae774de9631a3470e481"
+    }
+  ],
+  "crossMatches": [
+    {
+      "subject": "Nunes Engenharia Ltda",
+      "identifier": "07492799000120",
+      "method": "correspondência exata de CNPJ normalizado",
+      "filesChecked": 6,
+      "resultCount": 0,
+      "scope": "Bahia",
+      "interpretation": "Zero correspondências no snapshot consultado. Não demonstra inexistência de vínculos fora dessas bases/versões."
+    }
+  ],
+  "interpretationBoundary": "Manifesto de integridade e reprodutibilidade. Não atribui irregularidade nem produz inferência causal."
+}

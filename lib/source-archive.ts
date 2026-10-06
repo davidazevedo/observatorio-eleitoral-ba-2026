@@ -26,7 +26,7 @@ export type SourceArchiveRecord = {
   notes?: string[];
 };
 
-const MAX_BYTES = 150 * 1024 * 1024;
+const MAX_BYTES = 250 * 1024 * 1024;
 
 function safeId(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 120) || 'source';
@@ -110,14 +110,14 @@ export async function archivePublicSource(input: {
 
   const contentType = response.headers.get('content-type') || 'application/octet-stream';
   const declared = Number(response.headers.get('content-length') || 0);
-  if (declared > MAX_BYTES) throw new Error('Fonte excede o limite de preservação de 150 MB.');
+  if (declared > MAX_BYTES) throw new Error('Fonte excede o limite de preservação de 250 MB.');
 
   const hash = createHash('sha256');
   let size = 0;
   const transform = new TransformStream<Uint8Array, Uint8Array>({
     transform(chunk, controller) {
       size += chunk.byteLength;
-      if (size > MAX_BYTES) throw new Error('Fonte excede o limite de preservação de 150 MB.');
+      if (size > MAX_BYTES) throw new Error('Fonte excede o limite de preservação de 250 MB.');
       hash.update(chunk);
       controller.enqueue(chunk);
     },

@@ -187,6 +187,9 @@ export async function getPrivateDashboardData() {
       .filter((item) => item.kind === 'research_finding' && item.municipality === municipality && (item.tags || []).includes('habitacao'))
       .sort((a,b) => priorityWeight(b.priority)-priorityWeight(a.priority) || b.evidenceLevel.localeCompare(a.evidenceLevel))[0];
     const gap = Boolean(analytical?.recordId.includes('GAP'));
+    const raw = analytical?.raw || {};
+    const rawString = (key: string) => typeof raw[key] === 'string' ? String(raw[key]) : null;
+    const rawNumber = (key: string) => typeof raw[key] === 'number' ? Number(raw[key]) : null;
     return {
       municipality,
       paymentRecordId: payment?.recordId || null,
@@ -199,6 +202,14 @@ export async function getPrivateDashboardData() {
       priority: analytical?.priority || payment?.priority || 'medium',
       status: (gap ? 'lacuna' : analytical ? 'corroborado' : 'triagem') as 'lacuna' | 'corroborado' | 'triagem',
       exceptionDocumented: false,
+      procurementDate: rawString('procurementDate'),
+      procurementStatus: rawString('procurementStatus'),
+      procurementControl: rawString('procurementControl'),
+      procurementValue: rawNumber('procurementValue'),
+      supplier: rawString('supplier'),
+      supplierCnpj: rawString('supplierCnpj'),
+      electoralCrossmatch: rawString('electoralCrossmatch') || 'not_run',
+      electoralCrossmatchNote: rawString('electoralCrossmatchNote'),
       sourceUrl: analytical?.provenance?.sourceUrl || payment?.provenance?.sourceUrl || null,
     };
   });

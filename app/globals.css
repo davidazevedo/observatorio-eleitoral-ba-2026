@@ -729,3 +729,9 @@ textarea{min-height:auto}
   .analytic-filter-grid{padding-inline:14px}
   .analytic-filter-chips{padding-inline:14px}
 }
+
+.housing-audit-v2>div{grid-template-columns:110px 165px 150px minmax(300px,1.4fr) minmax(230px,1fr) 90px;min-width:1180px}
+.housing-audit-v2>div>div{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.housing-audit-v2 .intel-level{margin-top:5px}
+.housing-tse-none,.housing-tse-pending{display:inline-flex;margin-top:6px;padding:4px 7px;border-radius:999px;font-size:8px;text-transform:uppercase;letter-spacing:.04em}
+.housing-tse-none{background:#d7e5dc;color:#25513a}.housing-tse-pending{background:#e7dfd1;color:#6c5a3b}

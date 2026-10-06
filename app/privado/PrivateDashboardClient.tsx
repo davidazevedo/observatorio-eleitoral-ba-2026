@@ -13,7 +13,7 @@ type SourceRow = {
 type EntityRow = { name: string; type: string; identifier?: string; mentions: number; roles: string[] };
 type RelationRow = { from: string; to: string; type: string; description?: string };
 type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
-type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; sourceUrl:string|null };
+type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; procurementDate:string|null; procurementStatus:string|null; procurementControl:string|null; procurementValue:number|null; supplier:string|null; supplierCnpj:string|null; electoralCrossmatch:string; electoralCrossmatchNote:string|null; sourceUrl:string|null };
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
   repositoryCommit:string; repositoryUrl:string;
@@ -152,6 +152,8 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [relationType,setRelationType]=useState('Todos');
   const [archiveCertFilter,setArchiveCertFilter]=useState('Todos');
   const [archiveTypeFilter,setArchiveTypeFilter]=useState('Todos');
+  const [housingDocumentFilter,setHousingDocumentFilter]=useState('Todos');
+  const [housingTseFilter,setHousingTseFilter]=useState('Todos');
 
   const municipalityOptions=useMemo(()=>Array.from(new Set([
     ...data.intelligence.map((item)=>item.municipality||''),
@@ -247,9 +249,13 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     const min=minAmount?Number(minAmount):null,max=maxAmount?Number(maxAmount):null;
     if(min!==null && Number.isFinite(min) && item.paid<min) return false;
     if(max!==null && Number.isFinite(max) && item.paid>max) return false;
+    if(housingDocumentFilter==='Contratação localizada' && item.status!=='corroborado') return false;
+    if(housingDocumentFilter==='Lacuna' && item.status!=='lacuna') return false;
+    if(housingTseFilter==='Sem match exato' && item.electoralCrossmatch!=='no_exact_match') return false;
+    if(housingTseFilter==='Pendente' && item.electoralCrossmatch==='no_exact_match') return false;
     const q=normalized(globalQuery);
-    return !q || normalized([item.municipality,item.findingTitle,item.instrumentNumber,item.status,item.evidenceLevel,item.priority]).includes(q);
-  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery]);
+    return !q || normalized([item.municipality,item.findingTitle,item.instrumentNumber,item.procurementControl,item.procurementStatus,item.supplier,item.supplierCnpj,item.electoralCrossmatch,item.status,item.evidenceLevel,item.priority]).includes(q);
+  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery,housingDocumentFilter,housingTseFilter]);
 
   const filteredEntities=useMemo(()=>{
     const map=new Map<string,EntityRow & {roles:string[]}>();
@@ -578,17 +584,17 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Lacunas</span><strong>{visibleHousing.filter((item)=>item.status==='lacuna').length}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
               </section>
               <section className="private-panel">
-                <div className="private-panel-title"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → exceção legal</h2></div></div>
-                <p className="private-report-note">“Corroborado” significa apenas que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. Nenhum dos dois estados equivale a conclusão de ilegalidade.</p>
-                <div className="housing-audit-table">
-                  <div className="housing-audit-head"><span>Município</span><span>Parcela</span><span>Data</span><span>Situação documental</span><span>Nível</span><span>Exceção</span></div>
+                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → fornecedor → TSE → exceção</h2></div><div className="private-filters"><select value={housingDocumentFilter} onChange={(e)=>setHousingDocumentFilter(e.target.value)}><option>Todos</option><option>Contratação localizada</option><option>Lacuna</option></select><select value={housingTseFilter} onChange={(e)=>setHousingTseFilter(e.target.value)}><option>Todos</option><option>Sem match exato</option><option>Pendente</option></select></div></div>
+                <p className="private-report-note">“Corroborado” significa que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. “Sem match exato TSE” descreve somente os arquivos/versionamento consultados e não exclui outros vínculos. Nenhum estado equivale a conclusão de ilegalidade.</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Pagamento</span><span>Contratação</span><span>Situação / referência</span><span>Fornecedor / TSE</span><span>Exceção</span></div>
                   {visibleHousing.map((item)=>(
                     <div key={item.municipality}>
                       <strong>{item.municipality}</strong>
-                      <span>{money(item.paid)}</span>
-                      <span>{item.paymentDate||'—'}</span>
-                      <div><b className={item.status==='corroborado'?'housing-status-ok':item.status==='lacuna'?'housing-status-gap':'housing-status-triage'}>{item.status}</b><small>{item.findingTitle}</small>{item.instrumentNumber?<code>{item.instrumentNumber}</code>:null}</div>
-                      <span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span>
+                      <div><b>{money(item.paid)}</b><small>{item.paymentDate||'—'}</small>{item.instrumentNumber?<code>{item.instrumentNumber}</code>:null}</div>
+                      <div><b>{item.procurementDate||'não localizada'}</b>{item.procurementValue?<small>{money(item.procurementValue)}</small>:null}</div>
+                      <div><b className={item.status==='corroborado'?'housing-status-ok':item.status==='lacuna'?'housing-status-gap':'housing-status-triage'}>{item.status}</b><small>{item.procurementStatus||item.findingTitle}</small>{item.procurementControl?<code>{item.procurementControl}</code>:null}<span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span></div>
+                      <div>{item.supplier?<><strong>{item.supplier}</strong>{item.supplierCnpj?<code>{item.supplierCnpj}</code>:null}</>:<span>Fornecedor não consolidado</span>}{item.electoralCrossmatch==='no_exact_match'?<b className="housing-tse-none">TSE: sem match exato</b>:<b className="housing-tse-pending">TSE: pendente</b>}{item.electoralCrossmatchNote?<small>{item.electoralCrossmatchNote}</small>:null}</div>
                       <span className="housing-exception-pending">{item.exceptionDocumented?'documentada':'pendente'}</span>
                     </div>
                   ))}

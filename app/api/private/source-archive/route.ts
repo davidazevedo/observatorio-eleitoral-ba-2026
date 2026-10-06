@@ -3,7 +3,7 @@ import { isPrivateRequestAuthenticated } from '@/lib/private-auth';
 import { archivePublicSource } from '@/lib/source-archive';
 
 export const runtime = 'nodejs';
-export const maxDuration = 60;
+export const maxDuration = 180;
 
 export async function POST(request: Request) {
   if (!isPrivateRequestAuthenticated(request)) {
