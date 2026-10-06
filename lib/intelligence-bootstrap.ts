@@ -146,6 +146,25 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     notes:['Instrumento FIPLAN 26601.0001.26.0000018-7; NOB 26601.0001.26.0000033-2.','Concorrência 001/2026 refere-se a 20 unidades federais FNHIS Sub 50 e foi explicitamente excluída do cruzamento estadual.','Prosseguir no DOE, contratos, ordens de serviço e publicações posteriores.']
   }),
   base({
+    recordId:'BOOT-TSE-NUNES-CROSSMATCH-2026',kind:'electoral_account',status:'verified',
+    title:'TSE 2026/BA: nenhuma ocorrência direta de Nunes Engenharia nos seis recortes eleitorais consultados',
+    summary:'Busca exata pelo CNPJ 07.492.799/0001-20 e pelo nome NUNES ENGENHARIA nos recortes Bahia de despesas contratadas, despesas pagas e documentos fiscais de candidatos e órgãos partidários do TSE 2026 retornou zero ocorrências. O resultado reduz a hipótese de sobreposição eleitoral direta desta empresa nas bases consultadas, sem excluir relações por pessoas físicas, sociedades, outras UFs ou atualizações posteriores.',
+    municipality:'Lapão',state:'BA',eventDate:'2026-10-06',caseIds:['OE-BA-0003'],
+    sourceIds:['tse-prestacao-contas-2026-catalog'],
+    tags:['tse-crossmatch','fornecedor','resultado-negativo','lapao','nunes-engenharia'],
+    evidenceLevel:'L2',analyticalConfidence:1,priority:'low',financial:{currency:'BRL'},
+    entities:[{name:'Nunes Engenharia Ltda',type:'supplier',identifier:'CNPJ 07.492.799/0001-20',role:'fornecedor público cruzado com bases eleitorais'}],
+    provenance:src('https://dadosabertos.tse.jus.br/tl/dataset/prestacao-de-contas-eleitorais-2026','Prestação de Contas Eleitorais 2026','Tribunal Superior Eleitoral','2026-10-06','preservation/manifests/tse-2026-crossmatch.json'),
+    notes:[
+      'Arquivos consultados: despesas contratadas/pagas de candidatos BA, documentos fiscais de candidatos BA, despesas contratadas/pagas de órgãos partidários BA e documentos fiscais partidários BA.',
+      'Universo consultado: 36.459 despesas contratadas de candidatos; 25.798 pagamentos de candidatos; 2.250 documentos fiscais de candidatos; 660 despesas contratadas partidárias; 237 pagamentos partidários; 1 documento fiscal partidário.',
+      'Método: busca exata pelo CNPJ normalizado 07492799000120 e, em paralelo, pelo texto NUNES ENGENHARIA.',
+      'Resultado: 0 ocorrências nos seis arquivos do snapshot coletado em 06/10/2026.',
+      'Os seis recortes BA foram preservados em preservation/extracts/tse/; hashes e hashes dos ZIPs oficiais constam em preservation/manifests/tse-2026-crossmatch.json.',
+      'Reexecutar o cruzamento sobre versões posteriores do TSE antes de encaminhamento institucional.'
+    ]
+  }),
+  base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
     title:'Tucano/Caldas do Jorro: obra de R$ 58,6 milhões já estava em execução física antes do defeso',
     summary:'Em 01/07, a Embasa informou rede já executada e unidades em construção no SES de Caldas do Jorro. É caso-controle: proximidade eleitoral isolada não implica irregularidade e havia evidência pública de execução física anterior ao defeso.',
