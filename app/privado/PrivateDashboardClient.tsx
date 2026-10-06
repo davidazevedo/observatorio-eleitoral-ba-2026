@@ -141,6 +141,17 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [maxAmount,setMaxAmount]=useState('');
   const [sortBy,setSortBy]=useState('priority');
   const [filtersExpanded,setFiltersExpanded]=useState(true);
+  const [submissionCategory,setSubmissionCategory]=useState('Todos');
+  const [submissionEvidence,setSubmissionEvidence]=useState('Todos');
+  const [sourceCategory,setSourceCategory]=useState('Todos');
+  const [sourceAccess,setSourceAccess]=useState('Todos');
+  const [entityQuery,setEntityQuery]=useState('');
+  const [entityType,setEntityType]=useState('Todos');
+  const [entityMentions,setEntityMentions]=useState('1');
+  const [relationQuery,setRelationQuery]=useState('');
+  const [relationType,setRelationType]=useState('Todos');
+  const [archiveCertFilter,setArchiveCertFilter]=useState('Todos');
+  const [archiveTypeFilter,setArchiveTypeFilter]=useState('Todos');
 
   const municipalityOptions=useMemo(()=>Array.from(new Set([
     ...data.intelligence.map((item)=>item.municipality||''),
@@ -148,6 +159,12 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   ].filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence,data.submissions]);
 
   const publisherOptions=useMemo(()=>Array.from(new Set(data.intelligence.map((item)=>item.provenance?.publisher||'').filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence]);
+  const submissionCategoryOptions=useMemo(()=>Array.from(new Set(data.submissions.map((item)=>item.category).filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.submissions]);
+  const sourceCategoryOptions=useMemo(()=>Array.from(new Set(data.sources.map((item)=>item.category).filter(Boolean))).sort(),[data.sources]);
+  const sourceAccessOptions=useMemo(()=>Array.from(new Set(data.sources.map((item)=>item.access).filter(Boolean))).sort(),[data.sources]);
+  const entityTypeOptions=useMemo(()=>Array.from(new Set(data.entities.map((item)=>item.type).filter(Boolean))).sort(),[data.entities]);
+  const relationTypeOptions=useMemo(()=>Array.from(new Set(data.relationships.map((item)=>item.type).filter(Boolean))).sort(),[data.relationships]);
+  const archiveTypeOptions=useMemo(()=>Array.from(new Set(data.sourceArchives.map((item)=>item.contentType.split(';')[0]).filter(Boolean))).sort(),[data.sourceArchives]);
 
   const filteredIntelligence=useMemo(()=>{
     const q=normalized(globalQuery);
@@ -187,6 +204,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     const global=normalized(globalQuery);
     return data.submissions.filter((item) => {
       if (mode !== 'Todos' && item.mode !== mode) return false;
+      if (submissionCategory!=='Todos' && item.category!==submissionCategory) return false;
+      if (submissionEvidence==='Com evidência' && (item.evidence||[]).length===0) return false;
+      if (submissionEvidence==='Sem evidência' && (item.evidence||[]).length>0) return false;
       if (municipalityFilter!=='Todos' && item.municipality!==municipalityFilter) return false;
       if (!inDateRange(item.eventDate||item.createdAt,dateFrom,dateTo)) return false;
       const hay=[item.protocol,item.municipality,item.locality,item.category,item.peopleOrEntities,item.statement,item.sourceContext,item.contact?.name,item.contact?.email].join(' ');
@@ -194,7 +214,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
       if(global && !normalized(hay).includes(global)) return false;
       return true;
     });
-  }, [data.submissions, query, mode,globalQuery,municipalityFilter,dateFrom,dateTo]);
+  }, [data.submissions, query, mode,submissionCategory,submissionEvidence,globalQuery,municipalityFilter,dateFrom,dateTo]);
 
   const visibleIntel = useMemo(() => {
     const local=normalized(intelQuery);
@@ -208,11 +228,13 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const visibleSources = useMemo(() => {
     const q=normalized([sourceQuery,globalQuery].filter(Boolean).join(' '));
     return data.sources.filter((item)=>{
+      if(sourceCategory!=='Todos' && item.category!==sourceCategory) return false;
+      if(sourceAccess!=='Todos' && item.access!==sourceAccess) return false;
       if(publisherFilter!=='Todos' && item.organization!==publisherFilter) return false;
       if(!q) return true;
       return normalized([item.name,item.organization,item.category,item.scope,...(item.capabilities||[])]).includes(q);
     });
-  }, [data.sources,sourceQuery,globalQuery,publisherFilter]);
+  }, [data.sources,sourceQuery,globalQuery,publisherFilter,sourceCategory,sourceAccess]);
 
   const visibleHousing=useMemo(()=>data.housingAudit.filter((item)=>{
     if(municipalityFilter!=='Todos' && item.municipality!==municipalityFilter) return false;
@@ -243,7 +265,34 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     return Array.from(map.values()).sort((a,b)=>b.mentions-a.mentions||a.name.localeCompare(b.name,'pt-BR'));
   },[filteredIntelligence]);
 
+  const visibleEntities=useMemo(()=>{
+    const q=normalized(entityQuery);
+    const min=Math.max(1,Number(entityMentions)||1);
+    return filteredEntities.filter((item)=>{
+      if(entityType!=='Todos' && item.type!==entityType) return false;
+      if(item.mentions<min) return false;
+      if(q && !normalized([item.name,item.identifier,item.type,...item.roles]).includes(q)) return false;
+      return true;
+    });
+  },[filteredEntities,entityQuery,entityType,entityMentions]);
+
   const filteredRelations=useMemo(()=>filteredIntelligence.flatMap((item)=>item.relations||[]),[filteredIntelligence]);
+  const visibleRelations=useMemo(()=>{
+    const q=normalized(relationQuery);
+    return filteredRelations.filter((item)=>{
+      if(relationType!=='Todos' && item.type!==relationType) return false;
+      if(q && !normalized([item.from,item.to,item.type,item.description]).includes(q)) return false;
+      return true;
+    });
+  },[filteredRelations,relationQuery,relationType]);
+
+  const visibleSourceArchives=useMemo(()=>data.sourceArchives.filter((item)=>{
+    if(archiveCertFilter==='Íntegro' && !item.certificateValid) return false;
+    if(archiveCertFilter==='Revisar' && item.certificateValid) return false;
+    if(archiveTypeFilter!=='Todos' && !item.contentType.toLowerCase().includes(archiveTypeFilter.toLowerCase())) return false;
+    const q=normalized(globalQuery);
+    return !q || normalized([item.title,item.publisher,item.sourceId,item.originalUrl,item.sha256,item.contentType]).includes(q);
+  }),[data.sourceArchives,archiveCertFilter,archiveTypeFilter,globalQuery]);
 
   const filteredMunicipalities=useMemo(()=>{
     const counts=new Map<string,number>();
@@ -363,7 +412,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <div className="analytic-filter-grid secondary">
                 <label><span>Nível probatório</span><select value={evidenceFilter} onChange={(e)=>setEvidenceFilter(e.target.value)}><option>Todos</option>{['L0','L1','L2','L3','L4'].map((v)=><option key={v}>{v}</option>)}</select></label>
                 <label><span>Prioridade</span><select value={priorityFilter} onChange={(e)=>setPriorityFilter(e.target.value)}><option>Todos</option>{['urgent','high','medium','low'].map((v)=><option key={v}>{v}</option>)}</select></label>
-                <label><span>Status</span><select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value)}><option>Todos</option>{['ingested','triage','corroborating','verified','insufficient','rejected','publishable','referred','corroborado','lacuna'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                <label><span>Status</span><select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value)}><option>Todos</option>{['ingested','triage','corroborating','verified','insufficient','rejected','publishable','referred','corroborado','lacuna','triagem'].map((v)=><option key={v}>{v}</option>)}</select></label>
                 <label><span>Órgão / publicador</span><select value={publisherFilter} onChange={(e)=>setPublisherFilter(e.target.value)}><option>Todos</option>{publisherOptions.map((v)=><option key={v}>{v}</option>)}</select></label>
                 <label><span>Pagamento</span><select value={paymentFilter} onChange={(e)=>setPaymentFilter(e.target.value)}><option>Todos</option><option>Com pagamento</option><option>Sem pagamento</option></select></label>
                 <label><span>Valor mínimo (R$)</span><input inputMode="decimal" value={minAmount} onChange={(e)=>setMinAmount(e.target.value.replace(/[^0-9.]/g,''))} placeholder="0" /></label>
@@ -450,8 +499,10 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <div className="private-panel-title submissions-heading">
                 <div><p className="eyebrow">DENÚNCIAS RECEBIDAS</p><h2>Base privada</h2></div>
                 <div className="private-filters">
-                  <input type="search" value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Protocolo, município, texto…" />
+                  <input type="search" value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Protocolo, texto, entidade…" />
                   <select value={mode} onChange={(e)=>setMode(e.target.value)}><option>Todos</option><option value="anonymous">sem identificação</option><option value="identified">identificada</option></select>
+                  <select value={submissionCategory} onChange={(e)=>setSubmissionCategory(e.target.value)}><option>Todos</option>{submissionCategoryOptions.map((item)=><option key={item}>{item}</option>)}</select>
+                  <select value={submissionEvidence} onChange={(e)=>setSubmissionEvidence(e.target.value)}><option>Todos</option><option>Com evidência</option><option>Sem evidência</option></select>
                 </div>
               </div>
               <div className="private-submissions">
@@ -504,7 +555,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'sources' && (
             <section className="private-panel">
-              <div className="private-panel-title submissions-heading"><div><p className="eyebrow">INVENTÁRIO DE FONTES</p><h2>Onde pesquisar e de onde vieram os dados</h2></div><div className="private-filters"><input value={sourceQuery} onChange={(e)=>setSourceQuery(e.target.value)} placeholder="TSE, contratos, despesas…" /></div></div>
+              <div className="private-panel-title submissions-heading"><div><p className="eyebrow">INVENTÁRIO DE FONTES</p><h2>Onde pesquisar e de onde vieram os dados</h2><small className="filter-result-count">{visibleSources.length} fonte(s)</small></div><div className="private-filters"><input value={sourceQuery} onChange={(e)=>setSourceQuery(e.target.value)} placeholder="TSE, contratos, despesas…" /><select value={sourceCategory} onChange={(e)=>setSourceCategory(e.target.value)}><option>Todos</option>{sourceCategoryOptions.map((v)=><option key={v}>{v}</option>)}</select><select value={sourceAccess} onChange={(e)=>setSourceAccess(e.target.value)}><option>Todos</option>{sourceAccessOptions.map((v)=><option key={v}>{v}</option>)}</select></div></div>
               <div className="intel-source-grid">
                 {visibleSources.map((source)=>(
                   <article key={source.origin+source.id}>
@@ -548,19 +599,19 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'entities' && (
             <section className="private-panel">
-              <div className="private-panel-title"><div><p className="eyebrow">ÍNDICE DE ENTIDADES</p><h2>Pessoas, empresas, órgãos e fornecedores</h2></div></div>
+              <div className="private-panel-title submissions-heading"><div><p className="eyebrow">ÍNDICE DE ENTIDADES</p><h2>Pessoas, empresas, órgãos e fornecedores</h2><small className="filter-result-count">{visibleEntities.length} entidade(s)</small></div><div className="private-filters"><input value={entityQuery} onChange={(e)=>setEntityQuery(e.target.value)} placeholder="Nome, CNPJ, papel…" /><select value={entityType} onChange={(e)=>setEntityType(e.target.value)}><option>Todos</option>{entityTypeOptions.map((v)=><option key={v}>{v}</option>)}</select><select value={entityMentions} onChange={(e)=>setEntityMentions(e.target.value)}><option value="1">≥ 1 menção</option><option value="2">≥ 2 menções</option><option value="3">≥ 3 menções</option><option value="5">≥ 5 menções</option><option value="10">≥ 10 menções</option></select></div></div>
               <div className="intel-entity-table">
                 <div className="intel-table-head"><span>Entidade</span><span>Tipo</span><span>Identificador</span><span>Menções</span><span>Papéis</span></div>
-                {filteredEntities.map((item)=><div key={item.type+item.identifier+item.name}><strong>{item.name}</strong><span>{item.type}</span><code>{item.identifier||'—'}</code><b>{item.mentions}</b><span>{item.roles.join(', ')||'—'}</span></div>)}
+                {visibleEntities.map((item)=><div key={item.type+item.identifier+item.name}><strong>{item.name}</strong><span>{item.type}</span><code>{item.identifier||'—'}</code><b>{item.mentions}</b><span>{item.roles.join(', ')||'—'}</span></div>)}
               </div>
             </section>
           )}
 
           {tab === 'relations' && (
             <section className="private-panel">
-              <div className="private-panel-title"><div><p className="eyebrow">GRAFO RELACIONAL</p><h2>Vínculos registrados para análise</h2></div></div>
+              <div className="private-panel-title submissions-heading"><div><p className="eyebrow">GRAFO RELACIONAL</p><h2>Vínculos registrados para análise</h2><small className="filter-result-count">{visibleRelations.length} relação(ões)</small></div><div className="private-filters"><input value={relationQuery} onChange={(e)=>setRelationQuery(e.target.value)} placeholder="Origem, destino, descrição…" /><select value={relationType} onChange={(e)=>setRelationType(e.target.value)}><option>Todos</option>{relationTypeOptions.map((v)=><option key={v}>{v}</option>)}</select></div></div>
               <div className="intel-relations">
-                {filteredRelations.length ? filteredRelations.map((item,index)=><div key={index}><strong>{item.from}</strong><span>{item.type}</span><strong>{item.to}</strong><p>{item.description||''}</p></div>):<p>Nenhuma relação estruturada ingerida ainda. A Intel API já aceita relações entre entidades.</p>}
+                {visibleRelations.length ? visibleRelations.map((item,index)=><div key={index}><strong>{item.from}</strong><span>{item.type}</span><strong>{item.to}</strong><p>{item.description||''}</p></div>):<p>Nenhuma relação estruturada ingerida ainda. A Intel API já aceita relações entre entidades.</p>}
               </div>
             </section>
           )}
@@ -603,7 +654,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               </section>
               <section className="private-panel private-report">
                 <div className="private-panel-title"><div><p className="eyebrow">LEITURA AUTOMÁTICA</p><h2>Resumo operacional</h2></div></div>
-                <p>No recorte atual há <strong>{visibleSubmissions.length}</strong> denúncia(s), <strong>{filteredIntelligence.length}</strong> registro(s) de inteligência, <strong>{filteredMunicipalities.length}</strong> município(s) e <strong>{filteredEntities.length}</strong> entidade(s). A fila de apuração contém <strong>{filteredQueue.length}</strong> item(ns).</p>
+                <p>No recorte atual há <strong>{visibleSubmissions.length}</strong> denúncia(s), <strong>{filteredIntelligence.length}</strong> registro(s) de inteligência, <strong>{filteredMunicipalities.length}</strong> município(s) e <strong>{visibleEntities.length}</strong> entidade(s). A fila de apuração contém <strong>{filteredQueue.length}</strong> item(ns).</p>
                 <p className="private-report-note">Esses números descrevem a base. Eles não atribuem culpa, dolo, abuso ou irregularidade. Qualquer conclusão depende de análise documental e jurídica humana.</p>
               </section>
             </>
@@ -642,9 +693,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 {archiveMessage?<p className="source-archive-message">{archiveMessage}</p>:null}
               </section>
               <section className="private-panel">
-                <div className="private-panel-title"><div><p className="eyebrow">CADEIA DE PROVENIÊNCIA</p><h2>Snapshots preservados</h2></div><span>{data.metrics.validSourceCertificates}/{data.metrics.archivedSources} certificados íntegros</span></div>
+                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">CADEIA DE PROVENIÊNCIA</p><h2>Snapshots preservados</h2><small className="filter-result-count">{visibleSourceArchives.length} snapshot(s) no recorte</small></div><div className="private-filters"><select value={archiveCertFilter} onChange={(e)=>setArchiveCertFilter(e.target.value)}><option>Todos</option><option>Íntegro</option><option>Revisar</option></select><select value={archiveTypeFilter} onChange={(e)=>setArchiveTypeFilter(e.target.value)}><option>Todos</option>{archiveTypeOptions.map((v)=><option key={v}>{v}</option>)}</select></div></div>
                 <div className="source-archive-list">
-                  {data.sourceArchives.filter((item)=>!globalQuery||normalized([item.title,item.publisher,item.sourceId,item.originalUrl,item.sha256]).includes(normalized(globalQuery))).length?data.sourceArchives.filter((item)=>!globalQuery||normalized([item.title,item.publisher,item.sourceId,item.originalUrl,item.sha256]).includes(normalized(globalQuery))).map((item)=><article key={item.manifestBlobPath}>
+                  {visibleSourceArchives.length?visibleSourceArchives.map((item)=><article key={item.manifestBlobPath}>
                     <div className="source-archive-head"><div><strong>{item.title||item.sourceId}</strong><small>{item.publisher||new URL(item.originalUrl).hostname}</small></div><span className={item.certificateValid?'source-cert-ok':'source-cert-bad'}>{item.certificateValid?'SHA ✓':'REVISAR'}</span></div>
                     <p>{item.originalUrl}</p>
                     <div className="source-archive-meta"><span><b>Coleta</b>{formatDate(item.retrievedAt)}</span><span><b>HTTP</b>{item.httpStatus}</span><span><b>Tipo</b>{item.contentType}</span><span><b>Tamanho</b>{formatBytes(item.size)}</span></div>
