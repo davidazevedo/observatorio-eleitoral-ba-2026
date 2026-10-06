@@ -153,6 +153,8 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [archiveCertFilter,setArchiveCertFilter]=useState('Todos');
   const [archiveTypeFilter,setArchiveTypeFilter]=useState('Todos');
   const [housingDocumentFilter,setHousingDocumentFilter]=useState('Todos');
+  const [housingProcurementStatus,setHousingProcurementStatus]=useState('Todos');
+  const [housingSupplierFilter,setHousingSupplierFilter]=useState('Todos');
   const [housingTseFilter,setHousingTseFilter]=useState('Todos');
 
   const municipalityOptions=useMemo(()=>Array.from(new Set([
@@ -251,11 +253,15 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     if(max!==null && Number.isFinite(max) && item.paid>max) return false;
     if(housingDocumentFilter==='Contratação localizada' && item.status!=='corroborado') return false;
     if(housingDocumentFilter==='Lacuna' && item.status!=='lacuna') return false;
+    if(housingProcurementStatus!=='Todos' && item.procurementStatus!==housingProcurementStatus) return false;
+    if(housingSupplierFilter==='Com fornecedor' && !item.supplier) return false;
+    if(housingSupplierFilter==='Sem fornecedor' && item.supplier) return false;
     if(housingTseFilter==='Sem match exato' && item.electoralCrossmatch!=='no_exact_match') return false;
-    if(housingTseFilter==='Pendente' && item.electoralCrossmatch==='no_exact_match') return false;
+    if(housingTseFilter==='Não aplicável ainda' && item.electoralCrossmatch!=='not_applicable_no_supplier') return false;
+    if(housingTseFilter==='Não executado' && item.electoralCrossmatch!=='not_run') return false;
     const q=normalized(globalQuery);
     return !q || normalized([item.municipality,item.findingTitle,item.instrumentNumber,item.procurementControl,item.procurementStatus,item.supplier,item.supplierCnpj,item.electoralCrossmatch,item.status,item.evidenceLevel,item.priority]).includes(q);
-  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery,housingDocumentFilter,housingTseFilter]);
+  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery,housingDocumentFilter,housingProcurementStatus,housingSupplierFilter,housingTseFilter]);
 
   const filteredEntities=useMemo(()=>{
     const map=new Map<string,EntityRow & {roles:string[]}>();
@@ -584,7 +590,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Lacunas</span><strong>{visibleHousing.filter((item)=>item.status==='lacuna').length}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
               </section>
               <section className="private-panel">
-                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → fornecedor → TSE → exceção</h2></div><div className="private-filters"><select value={housingDocumentFilter} onChange={(e)=>setHousingDocumentFilter(e.target.value)}><option>Todos</option><option>Contratação localizada</option><option>Lacuna</option></select><select value={housingTseFilter} onChange={(e)=>setHousingTseFilter(e.target.value)}><option>Todos</option><option>Sem match exato</option><option>Pendente</option></select></div></div>
+                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → fornecedor → TSE → exceção</h2><small className="filter-result-count">{visibleHousing.length} caso(s) no recorte</small></div><div className="private-filters"><select value={housingDocumentFilter} onChange={(e)=>setHousingDocumentFilter(e.target.value)}><option>Todos</option><option>Contratação localizada</option><option>Lacuna</option></select><select value={housingProcurementStatus} onChange={(e)=>setHousingProcurementStatus(e.target.value)}><option>Todos</option><option value="em_andamento">Em andamento</option><option value="homologado">Homologado</option><option value="nao_localizado">Não localizado</option></select><select value={housingSupplierFilter} onChange={(e)=>setHousingSupplierFilter(e.target.value)}><option>Todos</option><option>Com fornecedor</option><option>Sem fornecedor</option></select><select value={housingTseFilter} onChange={(e)=>setHousingTseFilter(e.target.value)}><option>Todos</option><option>Sem match exato</option><option>Não aplicável ainda</option><option>Não executado</option></select></div></div>
                 <p className="private-report-note">“Corroborado” significa que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. “Sem match exato TSE” descreve somente os arquivos/versionamento consultados e não exclui outros vínculos. Nenhum estado equivale a conclusão de ilegalidade.</p>
                 <div className="housing-audit-table housing-audit-v2">
                   <div className="housing-audit-head"><span>Município</span><span>Pagamento</span><span>Contratação</span><span>Situação / referência</span><span>Fornecedor / TSE</span><span>Exceção</span></div>
@@ -594,7 +600,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                       <div><b>{money(item.paid)}</b><small>{item.paymentDate||'—'}</small>{item.instrumentNumber?<code>{item.instrumentNumber}</code>:null}</div>
                       <div><b>{item.procurementDate||'não localizada'}</b>{item.procurementValue?<small>{money(item.procurementValue)}</small>:null}</div>
                       <div><b className={item.status==='corroborado'?'housing-status-ok':item.status==='lacuna'?'housing-status-gap':'housing-status-triage'}>{item.status}</b><small>{item.procurementStatus||item.findingTitle}</small>{item.procurementControl?<code>{item.procurementControl}</code>:null}<span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span></div>
-                      <div>{item.supplier?<><strong>{item.supplier}</strong>{item.supplierCnpj?<code>{item.supplierCnpj}</code>:null}</>:<span>Fornecedor não consolidado</span>}{item.electoralCrossmatch==='no_exact_match'?<b className="housing-tse-none">TSE: sem match exato</b>:<b className="housing-tse-pending">TSE: pendente</b>}{item.electoralCrossmatchNote?<small>{item.electoralCrossmatchNote}</small>:null}</div>
+                      <div>{item.supplier?<><strong>{item.supplier}</strong>{item.supplierCnpj?<code>{item.supplierCnpj}</code>:null}</>:<span>Fornecedor não consolidado</span>}{item.electoralCrossmatch==='no_exact_match'?<b className="housing-tse-none">TSE: sem match exato</b>:item.electoralCrossmatch==='not_applicable_no_supplier'?<b className="housing-tse-pending">TSE: aguarda fornecedor</b>:<b className="housing-tse-pending">TSE: não executado</b>}{item.electoralCrossmatchNote?<small>{item.electoralCrossmatchNote}</small>:null}</div>
                       <span className="housing-exception-pending">{item.exceptionDocumented?'documentada':'pendente'}</span>
                     </div>
                   ))}
