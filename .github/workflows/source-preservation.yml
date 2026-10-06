@@ -1,0 +1,39 @@
+name: Preserve public sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */12 * * *'
+  push:
+    paths:
+      - 'preservation/targets.json'
+      - 'scripts/archive_sources.py'
+      - '.github/workflows/source-preservation.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: source-preservation
+  cancel-in-progress: false
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve sources and calculate certificates
+        run: python3 scripts/archive_sources.py
+      - name: Commit new or changed snapshots
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain -- preservation/manifests preservation/snapshots docs/source-certificate-index.json)" ]; then
+            echo "No source changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add preservation/manifests preservation/snapshots docs/source-certificate-index.json
+          git commit -m "data: preserve public source snapshots"
+          git push

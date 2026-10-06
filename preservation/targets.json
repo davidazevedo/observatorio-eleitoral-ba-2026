@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-05",
+  "targets": [
+    {
+      "id": "govba-1700",
+      "url": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
+      "title": "Pacote estadual superior a R$ 1,7 bilhão — 11/06/2026",
+      "publisher": "SECOM Bahia",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "govba-6000",
+      "url": "https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6",
+      "title": "Pacote estadual de aproximadamente R$ 6 bilhões — 03/07/2026",
+      "publisher": "SECOM Bahia",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "sedur-mcmv-22",
+      "url": "https://www.ba.gov.br/sedur/noticias/2026-07/12409/governo-da-bahia-firma-convenios-para-construcao-de-1100-moradias-em-22",
+      "title": "Convênios para 1.100 moradias em 22 municípios",
+      "publisher": "SEDUR Bahia",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "pge-eleicoes-faq",
+      "url": "https://www.ba.gov.br/pge/perguntas-frequentes-faq",
+      "title": "PGE-BA — FAQ Eleições 2026",
+      "publisher": "PGE Bahia",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "transferegov-21",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "title": "Comunicado nº 21/2026 — defeso eleitoral",
+      "publisher": "Transferegov / MGI",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "tse-res-23760-2026",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "title": "Resolução TSE nº 23.760/2026",
+      "publisher": "Tribunal Superior Eleitoral",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "dados-ba-convenios-api",
+      "url": "https://dados.ba.gov.br/api/3/action/package_show?id=convenios-e-parcerias",
+      "title": "Catálogo CKAN — Convênios e Parcerias",
+      "publisher": "Dados Abertos Bahia / SEFAZ",
+      "preserveRaw": true,
+      "maxRawBytes": 6000000
+    },
+    {
+      "id": "dados-ba-convenios-zip",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "title": "Dataset bruto — Convênios e Parcerias",
+      "publisher": "Dados Abertos Bahia / SEFAZ",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "lajedinho-licitacoes",
+      "url": "https://transparencia.lajedinho.ba.gov.br/licitacoes",
+      "title": "Lajedinho — Licitações 2026",
+      "publisher": "Prefeitura Municipal de Lajedinho",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "iraquara-licitacoes",
+      "url": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
+      "title": "Iraquara — Editais de Licitação",
+      "publisher": "Prefeitura Municipal de Iraquara",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "cipo-dou-habitacao",
+      "url": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
+      "title": "Cipó — aviso de licitação das unidades habitacionais",
+      "publisher": "Diário Oficial da União",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    },
+    {
+      "id": "itaberaba-publicacoes",
+      "url": "https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos",
+      "title": "Itaberaba — Publicações em Outros Veículos",
+      "publisher": "Prefeitura Municipal de Itaberaba",
+      "preserveRaw": true,
+      "maxRawBytes": 4000000
+    }
+  ]
+}
