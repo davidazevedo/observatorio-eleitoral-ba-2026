@@ -80,6 +80,38 @@ function levelClass(level: string) {
 function priorityClass(priority: string) {
   return `intel-priority intel-priority-${priority}`;
 }
+function normalized(value: unknown) {
+  return String(value ?? '').trim().toLocaleLowerCase('pt-BR');
+}
+function recordAmount(item: IntelligenceRecord) {
+  return Math.max(
+    item.financial?.paid || 0,
+    item.financial?.liquidated || 0,
+    item.financial?.committed || 0,
+    item.financial?.contractValue || 0,
+    item.financial?.announced || 0,
+  );
+}
+function inDateRange(value: string | undefined, from: string, to: string) {
+  if (!value) return !from && !to;
+  const day=value.slice(0,10);
+  if (from && day < from) return false;
+  if (to && day > to) return false;
+  return true;
+}
+function financialTotalsFor(records: IntelligenceRecord[]) {
+  return records.reduce((acc,item)=>{
+    acc.announced += item.financial?.announced || 0;
+    if(item.kind==='financial_record'){
+      acc.committed += item.financial?.committed || 0;
+      acc.liquidated += item.financial?.liquidated || 0;
+      acc.paid += item.financial?.paid || 0;
+      acc.contractValue += item.financial?.contractValue || 0;
+      acc.amendmentValue += item.financial?.amendmentValue || 0;
+    }
+    return acc;
+  },{announced:0,committed:0,liquidated:0,paid:0,contractValue:0,amendmentValue:0});
+}
 
 export default function PrivateDashboardClient({ data }: { data: DashboardData }) {
   const [tab, setTab] = useState<Tab>('overview');
@@ -95,31 +127,149 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [archiveMessage,setArchiveMessage]=useState('');
   const [archiving,setArchiving]=useState(false);
 
+  // Filtros analíticos transversais
+  const [globalQuery,setGlobalQuery]=useState('');
+  const [municipalityFilter,setMunicipalityFilter]=useState('Todos');
+  const [dateFrom,setDateFrom]=useState('');
+  const [dateTo,setDateTo]=useState('');
+  const [evidenceFilter,setEvidenceFilter]=useState('Todos');
+  const [priorityFilter,setPriorityFilter]=useState('Todos');
+  const [statusFilter,setStatusFilter]=useState('Todos');
+  const [publisherFilter,setPublisherFilter]=useState('Todos');
+  const [paymentFilter,setPaymentFilter]=useState('Todos');
+  const [minAmount,setMinAmount]=useState('');
+  const [maxAmount,setMaxAmount]=useState('');
+  const [sortBy,setSortBy]=useState('priority');
+  const [filtersExpanded,setFiltersExpanded]=useState(true);
+
+  const municipalityOptions=useMemo(()=>Array.from(new Set([
+    ...data.intelligence.map((item)=>item.municipality||''),
+    ...data.submissions.map((item)=>item.municipality||''),
+  ].filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence,data.submissions]);
+
+  const publisherOptions=useMemo(()=>Array.from(new Set(data.intelligence.map((item)=>item.provenance?.publisher||'').filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence]);
+
+  const filteredIntelligence=useMemo(()=>{
+    const q=normalized(globalQuery);
+    const min=minAmount ? Number(minAmount) : null;
+    const max=maxAmount ? Number(maxAmount) : null;
+    const rows=data.intelligence.filter((item)=>{
+      if(municipalityFilter!=='Todos' && item.municipality!==municipalityFilter) return false;
+      if(evidenceFilter!=='Todos' && item.evidenceLevel!==evidenceFilter) return false;
+      if(priorityFilter!=='Todos' && item.priority!==priorityFilter) return false;
+      if(statusFilter!=='Todos' && item.status!==statusFilter) return false;
+      if(publisherFilter!=='Todos' && (item.provenance?.publisher||'')!==publisherFilter) return false;
+      if(!inDateRange(item.eventDate||item.collectedAt,dateFrom,dateTo)) return false;
+      const amount=recordAmount(item);
+      if(paymentFilter==='Com pagamento' && (item.financial?.paid||0)<=0) return false;
+      if(paymentFilter==='Sem pagamento' && (item.financial?.paid||0)>0) return false;
+      if(min!==null && Number.isFinite(min) && amount<min) return false;
+      if(max!==null && Number.isFinite(max) && amount>max) return false;
+      if(q){
+        const hay=[item.recordId,item.title,item.summary,item.content,item.municipality,item.provenance?.publisher,item.provenance?.externalId,...(item.tags||[]),...(item.caseIds||[]),...(item.entities||[]).flatMap((e)=>[e.name,e.identifier,e.role])].join(' ');
+        if(!normalized(hay).includes(q)) return false;
+      }
+      return true;
+    });
+    return [...rows].sort((a,b)=>{
+      if(sortBy==='date-desc') return (b.eventDate||b.collectedAt).localeCompare(a.eventDate||a.collectedAt);
+      if(sortBy==='date-asc') return (a.eventDate||a.collectedAt).localeCompare(b.eventDate||b.collectedAt);
+      if(sortBy==='amount-desc') return recordAmount(b)-recordAmount(a);
+      if(sortBy==='amount-asc') return recordAmount(a)-recordAmount(b);
+      if(sortBy==='municipality') return (a.municipality||'').localeCompare(b.municipality||'','pt-BR');
+      const weight=(p:string)=>p==='urgent'?4:p==='high'?3:p==='medium'?2:1;
+      return weight(b.priority)-weight(a.priority) || (b.eventDate||b.collectedAt).localeCompare(a.eventDate||a.collectedAt);
+    });
+  },[data.intelligence,globalQuery,municipalityFilter,dateFrom,dateTo,evidenceFilter,priorityFilter,statusFilter,publisherFilter,paymentFilter,minAmount,maxAmount,sortBy]);
+
   const visibleSubmissions = useMemo(() => {
-    const normalized = query.trim().toLocaleLowerCase('pt-BR');
+    const local=normalized(query);
+    const global=normalized(globalQuery);
     return data.submissions.filter((item) => {
       if (mode !== 'Todos' && item.mode !== mode) return false;
-      if (!normalized) return true;
-      return [item.protocol,item.municipality,item.locality,item.category,item.peopleOrEntities,item.statement,item.sourceContext,item.contact?.name,item.contact?.email]
-        .join(' ').toLocaleLowerCase('pt-BR').includes(normalized);
+      if (municipalityFilter!=='Todos' && item.municipality!==municipalityFilter) return false;
+      if (!inDateRange(item.eventDate||item.createdAt,dateFrom,dateTo)) return false;
+      const hay=[item.protocol,item.municipality,item.locality,item.category,item.peopleOrEntities,item.statement,item.sourceContext,item.contact?.name,item.contact?.email].join(' ');
+      if(local && !normalized(hay).includes(local)) return false;
+      if(global && !normalized(hay).includes(global)) return false;
+      return true;
     });
-  }, [data.submissions, query, mode]);
+  }, [data.submissions, query, mode,globalQuery,municipalityFilter,dateFrom,dateTo]);
 
   const visibleIntel = useMemo(() => {
-    const normalized = intelQuery.trim().toLocaleLowerCase('pt-BR');
-    return data.intelligence.filter((item) => {
-      if (intelKind !== 'Todos' && item.kind !== intelKind) return false;
-      if (!normalized) return true;
-      return [item.recordId,item.title,item.summary,item.content,item.municipality,item.provenance?.publisher,...(item.tags || []),...(item.entities || []).map((e) => e.name)]
-        .join(' ').toLocaleLowerCase('pt-BR').includes(normalized);
+    const local=normalized(intelQuery);
+    return filteredIntelligence.filter((item)=>{
+      if(intelKind!=='Todos' && item.kind!==intelKind) return false;
+      if(!local) return true;
+      return normalized([item.recordId,item.title,item.summary,item.content,item.municipality,item.provenance?.publisher,...(item.tags||[]),...(item.entities||[]).map((e)=>e.name)].join(' ')).includes(local);
     });
-  }, [data.intelligence, intelQuery, intelKind]);
+  }, [filteredIntelligence,intelQuery,intelKind]);
 
   const visibleSources = useMemo(() => {
-    const normalized = sourceQuery.trim().toLocaleLowerCase('pt-BR');
-    if (!normalized) return data.sources;
-    return data.sources.filter((item) => [item.name,item.organization,item.category,item.scope,...(item.capabilities || [])].join(' ').toLocaleLowerCase('pt-BR').includes(normalized));
-  }, [data.sources, sourceQuery]);
+    const q=normalized([sourceQuery,globalQuery].filter(Boolean).join(' '));
+    return data.sources.filter((item)=>{
+      if(publisherFilter!=='Todos' && item.organization!==publisherFilter) return false;
+      if(!q) return true;
+      return normalized([item.name,item.organization,item.category,item.scope,...(item.capabilities||[])]).includes(q);
+    });
+  }, [data.sources,sourceQuery,globalQuery,publisherFilter]);
+
+  const visibleHousing=useMemo(()=>data.housingAudit.filter((item)=>{
+    if(municipalityFilter!=='Todos' && item.municipality!==municipalityFilter) return false;
+    if(evidenceFilter!=='Todos' && item.evidenceLevel!==evidenceFilter) return false;
+    if(priorityFilter!=='Todos' && item.priority!==priorityFilter) return false;
+    if(statusFilter!=='Todos' && item.status!==statusFilter) return false;
+    if(!inDateRange(item.paymentDate||undefined,dateFrom,dateTo)) return false;
+    if(paymentFilter==='Com pagamento' && item.paid<=0) return false;
+    if(paymentFilter==='Sem pagamento' && item.paid>0) return false;
+    const min=minAmount?Number(minAmount):null,max=maxAmount?Number(maxAmount):null;
+    if(min!==null && Number.isFinite(min) && item.paid<min) return false;
+    if(max!==null && Number.isFinite(max) && item.paid>max) return false;
+    const q=normalized(globalQuery);
+    return !q || normalized([item.municipality,item.findingTitle,item.instrumentNumber,item.status,item.evidenceLevel,item.priority]).includes(q);
+  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery]);
+
+  const filteredEntities=useMemo(()=>{
+    const map=new Map<string,EntityRow & {roles:string[]}>();
+    for(const record of filteredIntelligence){
+      for(const entity of record.entities||[]){
+        const key=`${entity.type}:${entity.identifier||normalized(entity.name)}`;
+        const current=map.get(key)||{name:entity.name,type:entity.type,identifier:entity.identifier,mentions:0,roles:[]};
+        current.mentions+=1;
+        if(entity.role && !current.roles.includes(entity.role)) current.roles.push(entity.role);
+        map.set(key,current);
+      }
+    }
+    return Array.from(map.values()).sort((a,b)=>b.mentions-a.mentions||a.name.localeCompare(b.name,'pt-BR'));
+  },[filteredIntelligence]);
+
+  const filteredRelations=useMemo(()=>filteredIntelligence.flatMap((item)=>item.relations||[]),[filteredIntelligence]);
+
+  const filteredMunicipalities=useMemo(()=>{
+    const counts=new Map<string,number>();
+    for(const item of filteredIntelligence) if(item.municipality) counts.set(item.municipality,(counts.get(item.municipality)||0)+1);
+    for(const item of visibleSubmissions) if(item.municipality) counts.set(item.municipality,(counts.get(item.municipality)||0)+1);
+    return Array.from(counts.entries()).map(([label,count])=>({label,count})).sort((a,b)=>b.count-a.count||a.label.localeCompare(b.label,'pt-BR'));
+  },[filteredIntelligence,visibleSubmissions]);
+
+  const filteredFinance=useMemo(()=>financialTotalsFor(filteredIntelligence),[filteredIntelligence]);
+
+  const filteredQueue=useMemo(()=>filteredIntelligence.filter((item)=>['ingested','triage','corroborating'].includes(item.status)).slice(0,50),[filteredIntelligence]);
+
+  const activeFilterCount=[
+    globalQuery, municipalityFilter!=='Todos'?municipalityFilter:'', dateFrom,dateTo,
+    evidenceFilter!=='Todos'?evidenceFilter:'',priorityFilter!=='Todos'?priorityFilter:'',
+    statusFilter!=='Todos'?statusFilter:'',publisherFilter!=='Todos'?publisherFilter:'',
+    paymentFilter!=='Todos'?paymentFilter:'',minAmount,maxAmount,
+  ].filter(Boolean).length;
+
+  function clearAnalyticalFilters(){
+    setGlobalQuery('');setMunicipalityFilter('Todos');setDateFrom('');setDateTo('');
+    setEvidenceFilter('Todos');setPriorityFilter('Todos');setStatusFilter('Todos');
+    setPublisherFilter('Todos');setPaymentFilter('Todos');setMinAmount('');setMaxAmount('');
+    setSortBy('priority');
+  }
+
 
   async function archiveSource() {
     if (!archiveUrl.trim()) return;
@@ -194,6 +344,48 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <div className="private-security-note"><strong>ACESSO RESTRITO</strong><span>Não compartilhar dados pessoais, relações não corroboradas ou hipóteses internas.</span></div>
           </section>
 
+          <section className="analytic-filter-shell">
+            <div className="analytic-filter-head">
+              <div><p className="eyebrow">FILTRO ANALÍTICO GLOBAL</p><strong>{filteredIntelligence.length} de {data.intelligence.length} registros Intel · {visibleSubmissions.length} denúncia(s)</strong></div>
+              <div className="analytic-filter-actions">
+                {activeFilterCount>0?<span>{activeFilterCount} filtro(s) ativo(s)</span>:<span>Universo completo</span>}
+                <button type="button" onClick={()=>setFiltersExpanded((value)=>!value)}>{filtersExpanded?'Recolher':'Expandir'} filtros</button>
+                {activeFilterCount>0?<button type="button" className="clear" onClick={clearAnalyticalFilters}>Limpar tudo</button>:null}
+              </div>
+            </div>
+            {filtersExpanded?<>
+              <div className="analytic-filter-grid primary">
+                <label className="analytic-search"><span>Busca transversal</span><input value={globalQuery} onChange={(e)=>setGlobalQuery(e.target.value)} placeholder="Município, CNPJ, fornecedor, convênio, NOB, termo…" /></label>
+                <label><span>Município</span><select value={municipalityFilter} onChange={(e)=>setMunicipalityFilter(e.target.value)}><option>Todos</option>{municipalityOptions.map((item)=><option key={item}>{item}</option>)}</select></label>
+                <label><span>De</span><input type="date" value={dateFrom} onChange={(e)=>setDateFrom(e.target.value)} /></label>
+                <label><span>Até</span><input type="date" value={dateTo} onChange={(e)=>setDateTo(e.target.value)} /></label>
+              </div>
+              <div className="analytic-filter-grid secondary">
+                <label><span>Nível probatório</span><select value={evidenceFilter} onChange={(e)=>setEvidenceFilter(e.target.value)}><option>Todos</option>{['L0','L1','L2','L3','L4'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                <label><span>Prioridade</span><select value={priorityFilter} onChange={(e)=>setPriorityFilter(e.target.value)}><option>Todos</option>{['urgent','high','medium','low'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                <label><span>Status</span><select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value)}><option>Todos</option>{['ingested','triage','corroborating','verified','insufficient','rejected','publishable','referred','corroborado','lacuna'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                <label><span>Órgão / publicador</span><select value={publisherFilter} onChange={(e)=>setPublisherFilter(e.target.value)}><option>Todos</option>{publisherOptions.map((v)=><option key={v}>{v}</option>)}</select></label>
+                <label><span>Pagamento</span><select value={paymentFilter} onChange={(e)=>setPaymentFilter(e.target.value)}><option>Todos</option><option>Com pagamento</option><option>Sem pagamento</option></select></label>
+                <label><span>Valor mínimo (R$)</span><input inputMode="decimal" value={minAmount} onChange={(e)=>setMinAmount(e.target.value.replace(/[^0-9.]/g,''))} placeholder="0" /></label>
+                <label><span>Valor máximo (R$)</span><input inputMode="decimal" value={maxAmount} onChange={(e)=>setMaxAmount(e.target.value.replace(/[^0-9.]/g,''))} placeholder="sem limite" /></label>
+                <label><span>Ordenar por</span><select value={sortBy} onChange={(e)=>setSortBy(e.target.value)}><option value="priority">Prioridade</option><option value="date-desc">Data ↓</option><option value="date-asc">Data ↑</option><option value="amount-desc">Valor ↓</option><option value="amount-asc">Valor ↑</option><option value="municipality">Município A–Z</option></select></label>
+              </div>
+              {activeFilterCount>0?<div className="analytic-filter-chips">
+                {globalQuery?<button onClick={()=>setGlobalQuery('')}>Busca: {globalQuery} ×</button>:null}
+                {municipalityFilter!=='Todos'?<button onClick={()=>setMunicipalityFilter('Todos')}>{municipalityFilter} ×</button>:null}
+                {dateFrom?<button onClick={()=>setDateFrom('')}>Desde {dateFrom} ×</button>:null}
+                {dateTo?<button onClick={()=>setDateTo('')}>Até {dateTo} ×</button>:null}
+                {evidenceFilter!=='Todos'?<button onClick={()=>setEvidenceFilter('Todos')}>{evidenceFilter} ×</button>:null}
+                {priorityFilter!=='Todos'?<button onClick={()=>setPriorityFilter('Todos')}>Prioridade: {priorityFilter} ×</button>:null}
+                {statusFilter!=='Todos'?<button onClick={()=>setStatusFilter('Todos')}>Status: {statusFilter} ×</button>:null}
+                {publisherFilter!=='Todos'?<button onClick={()=>setPublisherFilter('Todos')}>{publisherFilter} ×</button>:null}
+                {paymentFilter!=='Todos'?<button onClick={()=>setPaymentFilter('Todos')}>{paymentFilter} ×</button>:null}
+                {minAmount?<button onClick={()=>setMinAmount('')}>≥ R$ {minAmount} ×</button>:null}
+                {maxAmount?<button onClick={()=>setMaxAmount('')}>≤ R$ {maxAmount} ×</button>:null}
+              </div>:null}
+            </>:null}
+          </section>
+
           {tab === 'overview' && (
             <>
               <section className="intel-metrics-grid">
@@ -230,7 +422,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">FILA DE INVESTIGAÇÃO</p><h2>Próximos itens a trabalhar</h2></div><button className="intel-link-button" onClick={()=>setTab('findings')}>Ver tudo →</button></div>
                 <div className="intel-queue">
-                  {data.queue.length ? data.queue.slice(0,8).map((item) => (
+                  {filteredQueue.length ? filteredQueue.slice(0,8).map((item) => (
                     <div key={item.recordId}>
                       <span className={priorityClass(item.priority)}>{item.priority}</span>
                       <div><strong>{item.title}</strong><small>{item.recordId} · {item.kind} · {item.municipality || 'sem município'}</small></div>
@@ -243,7 +435,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-grid-two">
                 <article className="private-panel">
                   <div className="private-panel-title"><div><p className="eyebrow">MUNICÍPIOS</p><h2>Maior volume de registros</h2></div></div>
-                  <div className="ranking-list">{data.rankings.municipalities.slice(0,10).map((item)=><div key={item.label}><span>{item.label}</span><b>{item.count}</b></div>)}</div>
+                  <div className="ranking-list">{filteredMunicipalities.slice(0,10).map((item)=><div key={item.label}><span>{item.label}</span><b>{item.count}</b></div>)}</div>
                 </article>
                 <article className="private-panel">
                   <div className="private-panel-title"><div><p className="eyebrow">TIPOS DE INTELIGÊNCIA</p><h2>Composição da base</h2></div></div>
@@ -283,7 +475,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'findings' && (
             <section className="private-panel">
               <div className="private-panel-title submissions-heading">
-                <div><p className="eyebrow">INTELIGÊNCIA INGESTADA</p><h2>Achados, contas e registros</h2></div>
+                <div><p className="eyebrow">INTELIGÊNCIA INGESTADA</p><h2>Achados, contas e registros</h2><small className="filter-result-count">{visibleIntel.length} resultado(s) no recorte atual</small></div>
                 <div className="private-filters">
                   <input type="search" value={intelQuery} onChange={(e)=>setIntelQuery(e.target.value)} placeholder="Buscar achado, entidade, município…" />
                   <select value={intelKind} onChange={(e)=>setIntelKind(e.target.value)}><option>Todos</option>{Array.from(new Set(data.intelligence.map((item)=>item.kind))).map((kind)=><option key={kind}>{kind}</option>)}</select>
@@ -329,17 +521,17 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'housing' && (
             <>
               <section className="intel-metrics-grid">
-                <article><span>Convênios-alvo</span><strong>{data.housingAudit.length}</strong><small>bloco de 50 unidades por município</small></article>
-                <article><span>Parcela identificada</span><strong>{money(data.housingAudit.reduce((sum,item)=>sum+item.paid,0))}</strong><small>R$ 1,17 mi por município · FIPLAN</small></article>
-                <article><span>Corroborados</span><strong>{data.metrics.housingCorroborated}</strong><small>contratação posterior localizada</small></article>
-                <article><span>Lacunas</span><strong>{data.metrics.housingGaps}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
+                <article><span>Convênios-alvo</span><strong>{visibleHousing.length}</strong><small>bloco de 50 unidades por município</small></article>
+                <article><span>Parcela identificada</span><strong>{money(visibleHousing.reduce((sum,item)=>sum+item.paid,0))}</strong><small>R$ 1,17 mi por município · FIPLAN</small></article>
+                <article><span>Corroborados</span><strong>{visibleHousing.filter((item)=>item.status==='corroborado').length}</strong><small>contratação posterior localizada</small></article>
+                <article><span>Lacunas</span><strong>{visibleHousing.filter((item)=>item.status==='lacuna').length}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
               </section>
               <section className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → exceção legal</h2></div></div>
                 <p className="private-report-note">“Corroborado” significa apenas que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. Nenhum dos dois estados equivale a conclusão de ilegalidade.</p>
                 <div className="housing-audit-table">
                   <div className="housing-audit-head"><span>Município</span><span>Parcela</span><span>Data</span><span>Situação documental</span><span>Nível</span><span>Exceção</span></div>
-                  {data.housingAudit.map((item)=>(
+                  {visibleHousing.map((item)=>(
                     <div key={item.municipality}>
                       <strong>{item.municipality}</strong>
                       <span>{money(item.paid)}</span>
@@ -359,7 +551,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <div className="private-panel-title"><div><p className="eyebrow">ÍNDICE DE ENTIDADES</p><h2>Pessoas, empresas, órgãos e fornecedores</h2></div></div>
               <div className="intel-entity-table">
                 <div className="intel-table-head"><span>Entidade</span><span>Tipo</span><span>Identificador</span><span>Menções</span><span>Papéis</span></div>
-                {data.entities.map((item)=><div key={item.type+item.identifier+item.name}><strong>{item.name}</strong><span>{item.type}</span><code>{item.identifier||'—'}</code><b>{item.mentions}</b><span>{item.roles.join(', ')||'—'}</span></div>)}
+                {filteredEntities.map((item)=><div key={item.type+item.identifier+item.name}><strong>{item.name}</strong><span>{item.type}</span><code>{item.identifier||'—'}</code><b>{item.mentions}</b><span>{item.roles.join(', ')||'—'}</span></div>)}
               </div>
             </section>
           )}
@@ -368,7 +560,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <section className="private-panel">
               <div className="private-panel-title"><div><p className="eyebrow">GRAFO RELACIONAL</p><h2>Vínculos registrados para análise</h2></div></div>
               <div className="intel-relations">
-                {data.relationships.length ? data.relationships.map((item,index)=><div key={index}><strong>{item.from}</strong><span>{item.type}</span><strong>{item.to}</strong><p>{item.description||''}</p></div>):<p>Nenhuma relação estruturada ingerida ainda. A Intel API já aceita relações entre entidades.</p>}
+                {filteredRelations.length ? filteredRelations.map((item,index)=><div key={index}><strong>{item.from}</strong><span>{item.type}</span><strong>{item.to}</strong><p>{item.description||''}</p></div>):<p>Nenhuma relação estruturada ingerida ainda. A Intel API já aceita relações entre entidades.</p>}
               </div>
             </section>
           )}
@@ -377,11 +569,11 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <section className="private-grid-two">
               <article className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">COBERTURA TERRITORIAL</p><h2>Municípios na base</h2></div></div>
-                <div className="intel-municipality-list">{data.rankings.municipalities.map((item,index)=><div key={item.label}><span>{String(index+1).padStart(2,'0')}</span><strong>{item.label}</strong><b>{item.count}</b></div>)}</div>
+                <div className="intel-municipality-list">{filteredMunicipalities.map((item,index)=><div key={item.label}><span>{String(index+1).padStart(2,'0')}</span><strong>{item.label}</strong><b>{item.count}</b></div>)}</div>
               </article>
               <article className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">OBJETIVO</p><h2>Matriz dos 417 municípios</h2></div></div>
-                <div className="intel-coverage-number"><strong>{data.metrics.municipalities}</strong><span>com informação na base</span><i>{Math.round((data.metrics.municipalities/417)*100)}%</i></div>
+                <div className="intel-coverage-number"><strong>{filteredMunicipalities.length}</strong><span>no recorte analítico atual</span><i>{Math.round((filteredMunicipalities.length/417)*100)}%</i></div>
                 <p className="private-report-note">O número indica cobertura de dados, não suspeita nem irregularidade. A meta é completar a matriz de origem → transferência → contratação → execução → contexto.</p>
               </article>
             </section>
@@ -390,10 +582,10 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'reports' && (
             <>
               <section className="intel-metrics-grid reports">
-                <article><span>Anunciado</span><strong>{money(data.financial.announced)}</strong><small>soma bruta dos valores anotados; pode haver sobreposição entre pacotes e subitens</small></article>
-                <article><span>Empenhado</span><strong>{money(data.financial.committed)}</strong><small>quando disponível</small></article>
-                <article><span>Liquidado</span><strong>{money(data.financial.liquidated)}</strong><small>quando disponível</small></article>
-                <article><span>Pago</span><strong>{money(data.financial.paid)}</strong><small>movimentação efetiva registrada</small></article>
+                <article><span>Anunciado</span><strong>{money(filteredFinance.announced)}</strong><small>soma bruta dos valores anotados; pode haver sobreposição entre pacotes e subitens</small></article>
+                <article><span>Empenhado</span><strong>{money(filteredFinance.committed)}</strong><small>quando disponível</small></article>
+                <article><span>Liquidado</span><strong>{money(filteredFinance.liquidated)}</strong><small>quando disponível</small></article>
+                <article><span>Pago</span><strong>{money(filteredFinance.paid)}</strong><small>movimentação efetiva registrada</small></article>
               </section>
               <section className="private-grid-two">
                 <article className="private-panel">
@@ -411,7 +603,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               </section>
               <section className="private-panel private-report">
                 <div className="private-panel-title"><div><p className="eyebrow">LEITURA AUTOMÁTICA</p><h2>Resumo operacional</h2></div></div>
-                <p>Há <strong>{data.metrics.submissions}</strong> denúncia(s), <strong>{data.metrics.intelligenceRecords}</strong> registro(s) de inteligência, <strong>{data.metrics.sourceInventory}</strong> fonte(s) catalogada(s) e <strong>{data.metrics.entities}</strong> entidade(s) indexada(s). A fila prioritária contém <strong>{data.metrics.highPriority}</strong> item(ns).</p>
+                <p>No recorte atual há <strong>{visibleSubmissions.length}</strong> denúncia(s), <strong>{filteredIntelligence.length}</strong> registro(s) de inteligência, <strong>{filteredMunicipalities.length}</strong> município(s) e <strong>{filteredEntities.length}</strong> entidade(s). A fila de apuração contém <strong>{filteredQueue.length}</strong> item(ns).</p>
                 <p className="private-report-note">Esses números descrevem a base. Eles não atribuem culpa, dolo, abuso ou irregularidade. Qualquer conclusão depende de análise documental e jurídica humana.</p>
               </section>
             </>
@@ -452,7 +644,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">CADEIA DE PROVENIÊNCIA</p><h2>Snapshots preservados</h2></div><span>{data.metrics.validSourceCertificates}/{data.metrics.archivedSources} certificados íntegros</span></div>
                 <div className="source-archive-list">
-                  {data.sourceArchives.length?data.sourceArchives.map((item)=><article key={item.manifestBlobPath}>
+                  {data.sourceArchives.filter((item)=>!globalQuery||normalized([item.title,item.publisher,item.sourceId,item.originalUrl,item.sha256]).includes(normalized(globalQuery))).length?data.sourceArchives.filter((item)=>!globalQuery||normalized([item.title,item.publisher,item.sourceId,item.originalUrl,item.sha256]).includes(normalized(globalQuery))).map((item)=><article key={item.manifestBlobPath}>
                     <div className="source-archive-head"><div><strong>{item.title||item.sourceId}</strong><small>{item.publisher||new URL(item.originalUrl).hostname}</small></div><span className={item.certificateValid?'source-cert-ok':'source-cert-bad'}>{item.certificateValid?'SHA ✓':'REVISAR'}</span></div>
                     <p>{item.originalUrl}</p>
                     <div className="source-archive-meta"><span><b>Coleta</b>{formatDate(item.retrievedAt)}</span><span><b>HTTP</b>{item.httpStatus}</span><span><b>Tipo</b>{item.contentType}</span><span><b>Tamanho</b>{formatBytes(item.size)}</span></div>
