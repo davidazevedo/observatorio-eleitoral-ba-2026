@@ -13,6 +13,7 @@ type SourceRow = {
 type EntityRow = { name: string; type: string; identifier?: string; mentions: number; roles: string[] };
 type RelationRow = { from: string; to: string; type: string; description?: string };
 type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
+type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; sourceUrl:string|null };
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
   repositoryCommit:string; repositoryUrl:string;
@@ -31,7 +32,7 @@ type DashboardData = {
     researchFindings: number; sourceInventory: number; entities: number; relationships: number; highPriority: number;
     withEvidence: number; withEventDate: number; missingReferencedEvidence: number; orphanEvidence: number;
     archivedSources: number; archivedSourceBytes: number; validSourceCertificates: number;
-    versionedDatasets: number; versionedRows: number; versionedPaid: number;
+    housingCorroborated:number; housingGaps:number; versionedDatasets: number; versionedRows: number; versionedPaid: number;
   };
   rankings: {
     municipalities: Ranking[]; categories: Ranking[]; statuses: Ranking[]; verificationLevels: Ranking[];
@@ -54,9 +55,10 @@ type DashboardData = {
   sources: SourceRow[];
   sourceArchives: SourceArchiveRow[];
   gitPreservations: GitPreservationRow[];
+  housingAudit: HousingAuditRow[];
 };
 
-type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -142,7 +144,8 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'submissions', label: 'Denúncias', count: data.metrics.submissions },
     { id: 'findings', label: 'Inteligência', count: data.metrics.intelligenceRecords },
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
-    { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources },
+    { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
+    { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -321,6 +324,34 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 ))}
               </div>
             </section>
+          )}
+
+          {tab === 'housing' && (
+            <>
+              <section className="intel-metrics-grid">
+                <article><span>Convênios-alvo</span><strong>{data.housingAudit.length}</strong><small>bloco de 50 unidades por município</small></article>
+                <article><span>Parcela identificada</span><strong>{money(data.housingAudit.reduce((sum,item)=>sum+item.paid,0))}</strong><small>R$ 1,17 mi por município · FIPLAN</small></article>
+                <article><span>Corroborados</span><strong>{data.metrics.housingCorroborated}</strong><small>contratação posterior localizada</small></article>
+                <article><span>Lacunas</span><strong>{data.metrics.housingGaps}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → exceção legal</h2></div></div>
+                <p className="private-report-note">“Corroborado” significa apenas que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. Nenhum dos dois estados equivale a conclusão de ilegalidade.</p>
+                <div className="housing-audit-table">
+                  <div className="housing-audit-head"><span>Município</span><span>Parcela</span><span>Data</span><span>Situação documental</span><span>Nível</span><span>Exceção</span></div>
+                  {data.housingAudit.map((item)=>(
+                    <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <span>{money(item.paid)}</span>
+                      <span>{item.paymentDate||'—'}</span>
+                      <div><b className={item.status==='corroborado'?'housing-status-ok':item.status==='lacuna'?'housing-status-gap':'housing-status-triage'}>{item.status}</b><small>{item.findingTitle}</small>{item.instrumentNumber?<code>{item.instrumentNumber}</code>:null}</div>
+                      <span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span>
+                      <span className="housing-exception-pending">{item.exceptionDocumented?'documentada':'pendente'}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </>
           )}
 
           {tab === 'entities' && (
