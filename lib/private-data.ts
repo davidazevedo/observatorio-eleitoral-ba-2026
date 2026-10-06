@@ -1,6 +1,7 @@
 import { get, list, type ListBlobResultBlob } from '@vercel/blob';
 import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
+import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-archive';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -104,10 +105,11 @@ function entityIndex(records: IntelligenceRecord[]) {
 }
 
 export async function getPrivateDashboardData() {
-  const [submissionBlobs, evidenceBlobs, intelligence] = await Promise.all([
+  const [submissionBlobs, evidenceBlobs, intelligence, sourceArchives] = await Promise.all([
     listAll('submissions/'),
     listAll('evidence/'),
     listIntelligenceRecords(),
+    listSourceArchives(),
   ]);
 
   const metadataBlobs = submissionBlobs.filter((blob) => blob.pathname.endsWith('/metadata.json'));
@@ -175,6 +177,9 @@ export async function getPrivateDashboardData() {
     .sort((a,b) => priorityWeight(b.priority) - priorityWeight(a.priority) || b.collectedAt.localeCompare(a.collectedAt));
   const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
   const finance = financialTotals(intelligence);
+  const archivedSourceBytes = sourceArchives.reduce((sum,item)=>sum + item.size,0);
+  const validSourceCertificates = sourceArchives.filter(verifySourceArchiveRecord).length;
+  const sourceArchivesWithVerification = sourceArchives.map((item)=>({ ...item, certificateValid: verifySourceArchiveRecord(item) }));
 
   const sources = [
     ...sourceCatalog.map((item) => ({
@@ -216,6 +221,9 @@ export async function getPrivateDashboardData() {
       intelligenceRecords: intelligence.length,
       researchFindings: findings.length,
       sourceInventory: sources.length,
+      archivedSources: sourceArchives.length,
+      archivedSourceBytes,
+      validSourceCertificates,
       entities: entities.length,
       relationships: relationships.length + relationshipRecords.length,
       highPriority: highPriority.length,
@@ -258,5 +266,6 @@ export async function getPrivateDashboardData() {
     relationships,
     queue,
     sources,
+    sourceArchives: sourceArchivesWithVerification,
   };
 }

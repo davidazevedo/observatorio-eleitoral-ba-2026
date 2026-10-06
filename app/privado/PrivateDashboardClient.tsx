@@ -12,6 +12,7 @@ type SourceRow = {
 };
 type EntityRow = { name: string; type: string; identifier?: string; mentions: number; roles: string[] };
 type RelationRow = { from: string; to: string; type: string; description?: string };
+type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
 
 type DashboardData = {
   generatedAt: string;
@@ -20,6 +21,7 @@ type DashboardData = {
     municipalities: number; categories: number; publicCases: number; intelligenceRecords: number;
     researchFindings: number; sourceInventory: number; entities: number; relationships: number; highPriority: number;
     withEvidence: number; withEventDate: number; missingReferencedEvidence: number; orphanEvidence: number;
+    archivedSources: number; archivedSourceBytes: number; validSourceCertificates: number;
   };
   rankings: {
     municipalities: Ranking[]; categories: Ranking[]; statuses: Ranking[]; verificationLevels: Ranking[];
@@ -40,9 +42,10 @@ type DashboardData = {
   relationships: RelationRow[];
   queue: IntelligenceRecord[];
   sources: SourceRow[];
+  sourceArchives: SourceArchiveRow[];
 };
 
-type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -72,6 +75,12 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [intelQuery, setIntelQuery] = useState('');
   const [intelKind, setIntelKind] = useState('Todos');
   const [sourceQuery, setSourceQuery] = useState('');
+  const [archiveUrl,setArchiveUrl]=useState('');
+  const [archiveSourceId,setArchiveSourceId]=useState('');
+  const [archiveTitle,setArchiveTitle]=useState('');
+  const [archivePublisher,setArchivePublisher]=useState('');
+  const [archiveMessage,setArchiveMessage]=useState('');
+  const [archiving,setArchiving]=useState(false);
 
   const visibleSubmissions = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase('pt-BR');
@@ -99,6 +108,19 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     return data.sources.filter((item) => [item.name,item.organization,item.category,item.scope,...(item.capabilities || [])].join(' ').toLocaleLowerCase('pt-BR').includes(normalized));
   }, [data.sources, sourceQuery]);
 
+  async function archiveSource() {
+    if (!archiveUrl.trim()) return;
+    setArchiving(true); setArchiveMessage('');
+    try {
+      const response=await fetch('/api/private/source-archive',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({url:archiveUrl,sourceId:archiveSourceId,title:archiveTitle,publisher:archivePublisher})});
+      const payload=await response.json();
+      if(!response.ok) throw new Error(payload?.error||'Falha ao arquivar.');
+      setArchiveMessage(`Snapshot preservado: ${payload.record.sha256}`);
+      window.setTimeout(()=>window.location.reload(),700);
+    } catch (error) { setArchiveMessage(error instanceof Error?error.message:'Falha ao arquivar.'); }
+    finally { setArchiving(false); }
+  }
+
   async function logout() {
     await fetch('/api/private/logout', { method: 'POST' });
     window.location.href = '/privado/login';
@@ -109,6 +131,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'submissions', label: 'Denúncias', count: data.metrics.submissions },
     { id: 'findings', label: 'Inteligência', count: data.metrics.intelligenceRecords },
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
+    { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -163,6 +186,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Denúncias</span><strong>{data.metrics.submissions}</strong><small>{data.metrics.anonymous} sem identificação · {data.metrics.identified} identificadas</small></article>
                 <article><span>Registros Intel</span><strong>{data.metrics.intelligenceRecords}</strong><small>{data.metrics.researchFindings} achados analíticos</small></article>
                 <article><span>Fontes</span><strong>{data.metrics.sourceInventory}</strong><small>catálogo + fontes de pesquisa + ingeridas</small></article>
+                <article><span>Snapshots</span><strong>{data.metrics.archivedSources}</strong><small>{formatBytes(data.metrics.archivedSourceBytes)} preservados · {data.metrics.validSourceCertificates} certificados íntegros</small></article>
                 <article><span>Municípios</span><strong>{data.metrics.municipalities}</strong><small>presentes em denúncias ou inteligência</small></article>
                 <article><span>Entidades</span><strong>{data.metrics.entities}</strong><small>pessoas, empresas, órgãos e fornecedores</small></article>
                 <article><span>Relações</span><strong>{data.metrics.relationships}</strong><small>vínculos registrados para análise</small></article>
@@ -347,6 +371,31 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <div className="private-panel-title"><div><p className="eyebrow">LEITURA AUTOMÁTICA</p><h2>Resumo operacional</h2></div></div>
                 <p>Há <strong>{data.metrics.submissions}</strong> denúncia(s), <strong>{data.metrics.intelligenceRecords}</strong> registro(s) de inteligência, <strong>{data.metrics.sourceInventory}</strong> fonte(s) catalogada(s) e <strong>{data.metrics.entities}</strong> entidade(s) indexada(s). A fila prioritária contém <strong>{data.metrics.highPriority}</strong> item(ns).</p>
                 <p className="private-report-note">Esses números descrevem a base. Eles não atribuem culpa, dolo, abuso ou irregularidade. Qualquer conclusão depende de análise documental e jurídica humana.</p>
+              </section>
+            </>
+          )}
+
+          {tab === 'provenance' && (
+            <>
+              <section className="private-panel source-archive-form">
+                <div className="private-panel-title"><div><p className="eyebrow">PRESERVAÇÃO PROBATÓRIA</p><h2>Arquivar fonte pública</h2></div></div>
+                <p className="private-report-note">A coleta salva uma cópia bruta em Blob privado e registra SHA-256, URL original/final, data/hora e cabeçalhos HTTP. O hash permite comprovar posteriormente que o arquivo preservado não foi alterado.</p>
+                <div className="source-archive-fields"><input value={archiveUrl} onChange={(e)=>setArchiveUrl(e.target.value)} placeholder="https://fonte-oficial..." /><input value={archiveSourceId} onChange={(e)=>setArchiveSourceId(e.target.value)} placeholder="ID curto da fonte (opcional)" /><input value={archiveTitle} onChange={(e)=>setArchiveTitle(e.target.value)} placeholder="Título (opcional)" /><input value={archivePublisher} onChange={(e)=>setArchivePublisher(e.target.value)} placeholder="Órgão/publicador (opcional)" /></div>
+                <button type="button" className="source-archive-button" disabled={archiving||!archiveUrl.trim()} onClick={archiveSource}>{archiving?'Preservando…':'Preservar snapshot'}</button>
+                {archiveMessage?<p className="source-archive-message">{archiveMessage}</p>:null}
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">CADEIA DE PROVENIÊNCIA</p><h2>Snapshots preservados</h2></div><span>{data.metrics.validSourceCertificates}/{data.metrics.archivedSources} certificados íntegros</span></div>
+                <div className="source-archive-list">
+                  {data.sourceArchives.length?data.sourceArchives.map((item)=><article key={item.manifestBlobPath}>
+                    <div className="source-archive-head"><div><strong>{item.title||item.sourceId}</strong><small>{item.publisher||new URL(item.originalUrl).hostname}</small></div><span className={item.certificateValid?'source-cert-ok':'source-cert-bad'}>{item.certificateValid?'SHA ✓':'REVISAR'}</span></div>
+                    <p>{item.originalUrl}</p>
+                    <div className="source-archive-meta"><span><b>Coleta</b>{formatDate(item.retrievedAt)}</span><span><b>HTTP</b>{item.httpStatus}</span><span><b>Tipo</b>{item.contentType}</span><span><b>Tamanho</b>{formatBytes(item.size)}</span></div>
+                    <div className="source-hash"><small>SHA-256 DO ARQUIVO</small><code>{item.sha256}</code></div>
+                    <div className="source-hash"><small>HASH DO CERTIFICADO</small><code>{item.certificateSha256}</code></div>
+                    <div className="source-archive-actions"><a href={item.originalUrl} target="_blank" rel="noreferrer">Fonte original ↗</a><a href={`/api/private/source-archive/file?pathname=${encodeURIComponent(item.rawBlobPath)}&name=${encodeURIComponent(item.sourceId)}`}>Baixar cópia preservada ↓</a></div>
+                  </article>):<p>Nenhum snapshot preservado ainda.</p>}
+                </div>
               </section>
             </>
           )}
