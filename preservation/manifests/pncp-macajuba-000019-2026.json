@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "pncp-macajuba-000019-2026",
+  "publisher": "Portal Nacional de Contratações Públicas",
+  "sourceUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13810841000106/compras/2026/19",
+  "appUrl": "https://pncp.gov.br/app/editais/13810841000106/2026/19",
+  "retrievedAt": "2026-10-06T01:18:20Z",
+  "http": {
+    "status": 200,
+    "contentType": "application/json",
+    "date": "Tue, 06 Oct 2026 01:18:20 GMT",
+    "cacheControl": "no-cache, no-store, max-age=0, must-revalidate",
+    "strictTransportSecurity": "max-age=15768000"
+  },
+  "artifact": {
+    "path": "preservation/snapshots/pncp/macajuba-13810841000106-1-000019-2026.json",
+    "size": 2266,
+    "sha256": "cb5448be3b497aef92689d853015d025cdf727d3bf2b09e3b787330dd8e32c4d"
+  },
+  "keyFacts": {
+    "numeroControlePNCP": "13810841000106-1-000019/2026",
+    "numeroCompra": "004",
+    "processo": "254/2026",
+    "dataPublicacaoPncp": "2026-07-28T09:29:33",
+    "valorTotalEstimado": 5849648.93,
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A CONSTRUÇÃO DE 50 (CINQUENTA) UNIDADES HABITACIONAIS NO MUNICÍPIO DE MACAJUBA-BA, CONVÊNIO Nº 014/2026.",
+    "fontesOrcamentarias": [
+      "Estadual",
+      "Federal"
+    ]
+  },
+  "interpretationBoundary": "O snapshot comprova o conteúdo retornado pela API PNCP no momento da coleta. A comparação temporal com o pagamento FIPLAN é um indicador de auditoria e não prova ilegalidade."
+}

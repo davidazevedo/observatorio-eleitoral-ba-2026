@@ -107,6 +107,17 @@
       "status": "blocked-at-preservation",
       "retrievedAt": "2026-10-06T01:07:14Z",
       "note": "Servidor respondeu HTTP 403 à coleta automatizada; usar FIPLAN/DOE/portais municipais como fontes primárias substitutas para os fatos financeiros."
+    },
+    {
+      "id": "pncp-macajuba-000019-2026",
+      "url": "https://pncp.gov.br/api/consulta/v1/orgaos/13810841000106/compras/2026/19",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "status": "git-versioned-raw",
+      "retrievedAt": "2026-10-06T01:18:20Z",
+      "sha256": "cb5448be3b497aef92689d853015d025cdf727d3bf2b09e3b787330dd8e32c4d",
+      "size": 2266,
+      "snapshot": "preservation/snapshots/pncp/macajuba-13810841000106-1-000019-2026.json",
+      "note": "Resposta JSON original da API oficial PNCP para a Concorrência Eletrônica nº 004/2026, Processo 254/2026."
     }
   ]
 }

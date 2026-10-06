@@ -110,6 +110,42 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     notes:['FIPLAN: instrumento 26601.0001.26.0000004-7; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000038-3; R$ 1.170.000,00 efetivados em 06/07.','Aviso da Concorrência 010/2026 publicado em 31/07; sessão em 18/08.','Homologação publicada em 24/09 em favor da Nunes Engenharia Ltda, por R$ 5.822.160,50.','Verificar eventual contratação ou execução anterior distinta, ordem de serviço, medições e fundamento formal da exceção do art. 73, VI, a, antes de concluir sobre a legalidade do repasse.']
   }),
   base({
+    recordId:'BOOT-MACAJUBA-HAB-2026',kind:'research_finding',status:'corroborating',
+    title:'Macajuba: R$ 1,17 milhão pago em 07/07; concorrência das 50 moradias publicada no PNCP em 28/07',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 07/07/2026 no convênio habitacional com Macajuba. A API oficial do PNCP registra em 28/07/2026 a Concorrência Eletrônica nº 004/2026, Processo 254/2026, para construir exatamente 50 unidades habitacionais, vinculadas ao Convênio nº 014/2026, com valor estimado de R$ 5.849.648,93 e fonte orçamentária estadual. A sequência temporal exige documentação da exceção legal e não prova, isoladamente, irregularidade.',
+    municipality:'Macajuba',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],
+    sourceIds:['dados-abertos-ba-convenios-parcerias','pncp-macajuba-000019-2026','pge-ba-eleicoes-2026'],
+    tags:['habitacao','convenio-014-2026','pagamento-07-07','pncp-28-07','defeso-eleitoral','prioridade-documental'],
+    evidenceLevel:'L3',analyticalConfidence:0.995,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5849648.93},
+    entities:[{name:'Município de Macajuba',type:'municipality',identifier:'CNPJ 13.810.841/0001-06',role:'convenente/contratante'}],
+    provenance:src('https://pncp.gov.br/app/editais/13810841000106/2026/19','PNCP — Concorrência Eletrônica nº 004/2026, Processo 254/2026','Portal Nacional de Contratações Públicas','2026-07-28','13810841000106-1-000019/2026'),
+    notes:['FIPLAN: instrumento 26601.0001.26.0000016-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000041-3; R$ 1.170.000,00 efetivados em 07/07.','PNCP: publicação em 28/07; valor estimado R$ 5.849.648,93; objeto das mesmas 50 unidades; fonte orçamentária inclui recurso estadual.','Resposta JSON original da API PNCP preservada em preservation/snapshots/pncp/macajuba-13810841000106-1-000019-2026.json, SHA-256 cb5448be3b497aef92689d853015d025cdf727d3bf2b09e3b787330dd8e32c4d.','Verificar eventual contratação/execução anterior distinta, ordem de serviço, medições e fundamento formal da exceção antes de conclusão jurídica.']
+  }),
+  base({
+    recordId:'BOOT-BARRA-HAB-GAP-2026',kind:'research_finding',status:'triage',
+    title:'Barra: pagamento de R$ 1,17 milhão em 07/07; concorrência correspondente às 50 unidades ainda não localizada no PNCP',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 07/07/2026 no convênio estadual das 50 unidades de Barra. Consulta à API oficial do PNCP, CNPJ 13.880.703/0001-01, modalidade Concorrência Eletrônica, de 01/01 a 05/10/2026, retornou oito contratações e nenhuma com objeto habitacional correspondente. Isso é uma lacuna de pesquisa, não prova de ausência de contratação ou de irregularidade.',
+    municipality:'Barra',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-07-07','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.90,priority:'high',financial:{currency:'BRL',paid:1170000},
+    provenance:src('https://pncp.gov.br/','Consulta API PNCP por CNPJ e modalidade','Portal Nacional de Contratações Públicas','2026-10-05','CNPJ 13880703000101 / modalidade 4 / 20260101-20261005'),
+    notes:['Instrumento FIPLAN 26601.0001.26.0000006-3; NOB 26601.0001.26.0000039-1.','Prosseguir no DOE, portal municipal, contratos, ordens de serviço e outras modalidades/sistemas de origem.']
+  }),
+  base({
+    recordId:'BOOT-ESPLANADA-HAB-GAP-2026',kind:'research_finding',status:'triage',
+    title:'Esplanada: pagamento de R$ 1,17 milhão em 06/07; concorrência correspondente às 50 unidades ainda não localizada no PNCP',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio estadual das 50 unidades de Esplanada. Consulta à API oficial do PNCP, CNPJ 13.885.231/0001-71, modalidade Concorrência Eletrônica, de 01/01 a 05/10/2026, retornou quatorze contratações e nenhuma com objeto habitacional correspondente. Isso é uma lacuna de pesquisa, não prova de ausência de contratação ou de irregularidade.',
+    municipality:'Esplanada',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-06-07','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.90,priority:'high',financial:{currency:'BRL',paid:1170000},
+    provenance:src('https://pncp.gov.br/','Consulta API PNCP por CNPJ e modalidade','Portal Nacional de Contratações Públicas','2026-10-05','CNPJ 13885231000171 / modalidade 4 / 20260101-20261005'),
+    notes:['Instrumento FIPLAN 26601.0001.26.0000009-8; NOB 26601.0001.26.0000034-0.','Existe outro projeto MCMV/PTS em Esplanada; não foi associado a este convênio estadual sem prova documental.','Prosseguir no DOE, portal municipal, contratos, ordens de serviço e outras modalidades/sistemas de origem.']
+  }),
+  base({
+    recordId:'BOOT-IRAQUARA-HAB-GAP-2026',kind:'research_finding',status:'triage',
+    title:'Iraquara: pagamento de R$ 1,17 milhão em 06/07; concorrência estadual das 50 unidades ainda não localizada',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio estadual das 50 unidades de Iraquara. A API oficial do PNCP localiza em 2026 uma concorrência habitacional para 20 unidades do MCMV FNHIS Sub 50, publicada em janeiro, mas esse é um projeto federal distinto. Não foi localizada até 05/10 uma Concorrência Eletrônica correspondente às 50 unidades estaduais. A ausência é uma lacuna de pesquisa, não prova de irregularidade.',
+    municipality:'Iraquara',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-06-07','projeto-federal-distinto','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000},
+    provenance:src('https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3','Portal da Transparência — Editais de Licitação','Prefeitura Municipal de Iraquara','2026-10-05','CNPJ 13922596000129 / PNCP + portal municipal'),
+    notes:['Instrumento FIPLAN 26601.0001.26.0000018-7; NOB 26601.0001.26.0000033-2.','Concorrência 001/2026 refere-se a 20 unidades federais FNHIS Sub 50 e foi explicitamente excluída do cruzamento estadual.','Prosseguir no DOE, contratos, ordens de serviço e publicações posteriores.']
+  }),
+  base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',
     title:'Tucano/Caldas do Jorro: obra de R$ 58,6 milhões já estava em execução física antes do defeso',
     summary:'Em 01/07, a Embasa informou rede já executada e unidades em construção no SES de Caldas do Jorro. É caso-controle: proximidade eleitoral isolada não implica irregularidade e havia evidência pública de execução física anterior ao defeso.',
