@@ -1,28 +1,112 @@
 {
-  "version": 1,
-  "updatedAt": "2026-10-05",
+  "version": 2,
+  "updatedAt": "2026-10-06",
   "policy": "docs/SOURCE_PRESERVATION.md",
   "sources": [
     {
       "id": "govba-1700",
       "url": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
       "publisher": "Governo do Estado da Bahia / SECOM",
-      "status": "catalogued",
-      "snapshot": "private-pending"
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:12Z",
+      "sha256": "97b467999ab08bbfceb5e4c1351b8770fe78cf164f6e7507096731b0c5087f04",
+      "size": 72457,
+      "note": "A resposta atual preservada informou conteúdo temporariamente indisponível; o hash atesta essa resposta atual, não a versão histórica integral da matéria."
     },
     {
       "id": "govba-6000",
       "url": "https://www.ba.gov.br/comunicacao/noticias/2026-07/383361/audio-governo-do-estado-anuncia-pacote-de-investimentos-de-cerca-de-r-6",
       "publisher": "Governo do Estado da Bahia / SECOM",
-      "status": "catalogued",
-      "snapshot": "private-pending"
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:14Z",
+      "sha256": "8de3a0da39b5770ec50231fbbfd5b091616d5ebd0fc625d82585e0d11f993fdf",
+      "size": 83437
+    },
+    {
+      "id": "pge-eleicoes-faq",
+      "url": "https://www.ba.gov.br/pge/perguntas-frequentes-faq",
+      "publisher": "PGE Bahia",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:14Z",
+      "sha256": "114b15ff553bb4b7cf73d0bc2d182a02bee3abeacefa74dac989992186b6a688",
+      "size": 115705
     },
     {
       "id": "transferegov-21",
       "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
       "publisher": "Transferegov / MGI",
-      "status": "catalogued",
-      "snapshot": "private-pending"
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:15Z",
+      "sha256": "5e09394cd9bb97a375bbc2c82b222e2fcd003c269d1173d1fd1cb9c1c52bf73d",
+      "size": 653395
+    },
+    {
+      "id": "tse-res-23760-2026",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "publisher": "Tribunal Superior Eleitoral",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:15Z",
+      "sha256": "46a8509e8a3ace99bc8fdf1275a2577169d909057a187b89b80eb11243eff3db",
+      "size": 327675
+    },
+    {
+      "id": "lajedinho-licitacoes",
+      "url": "https://transparencia.lajedinho.ba.gov.br/licitacoes",
+      "publisher": "Prefeitura Municipal de Lajedinho",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:16Z",
+      "sha256": "f1cbb73c2eeb4d0166d9734c7a7c75161ac1b063ff9313a3a3ca653c371f6a61",
+      "size": 32001
+    },
+    {
+      "id": "iraquara-licitacoes",
+      "url": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
+      "publisher": "Prefeitura Municipal de Iraquara",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:16Z",
+      "sha256": "d127d013e30d15f0e2255791794464e57f4e31544acd6ed6c29cd71f3515dcb7",
+      "size": 163621
+    },
+    {
+      "id": "cipo-dou-habitacao",
+      "url": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
+      "publisher": "Diário Oficial da União",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:16Z",
+      "sha256": "0fe900c28d7d13365a72c6368f50fbc3c3500634634ccaf03336b02b4c743d71",
+      "size": 84028
+    },
+    {
+      "id": "itaberaba-publicacoes",
+      "url": "https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos",
+      "publisher": "Prefeitura Municipal de Itaberaba",
+      "status": "preserved-hash",
+      "retrievedAt": "2026-10-06T01:07:16Z",
+      "sha256": "2ce3f080c5917cff652942aa929faf5351ec2a7ac4997d740731b7572bb44de9",
+      "size": 58665
+    },
+    {
+      "id": "fiplan-defeso-2026",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "status": "git-versioned-extracts",
+      "retrievedAt": "2026-10-06T01:09:27Z",
+      "sha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "size": 12213436,
+      "repositoryEvidenceCommit": "5a5a17c79338233a15b174f4eb3b4a1a4a70c9a0",
+      "extracts": [
+        "preservation/extracts/fiplan-defeso-instrumentos-2026.csv.gz",
+        "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz"
+      ],
+      "note": "TLS apresentou cadeia incompleta no ambiente; fingerprint do certificado e falha foram preservados no manifesto."
+    },
+    {
+      "id": "sedur-mcmv-22",
+      "url": "https://www.ba.gov.br/sedur/noticias/2026-07/12409/governo-da-bahia-firma-convenios-para-construcao-de-1100-moradias-em-22",
+      "publisher": "SEDUR Bahia",
+      "status": "blocked-at-preservation",
+      "retrievedAt": "2026-10-06T01:07:14Z",
+      "note": "Servidor respondeu HTTP 403 à coleta automatizada; usar FIPLAN/DOE/portais municipais como fontes primárias substitutas para os fatos financeiros."
     }
   ]
 }
