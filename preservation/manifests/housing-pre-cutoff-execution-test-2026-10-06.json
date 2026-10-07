@@ -56,7 +56,8 @@
         "housingLinkage": "not_located",
         "note": "A emergência estava temporalmente vigente, mas o objeto habitacional localizado não menciona o Decreto 065/2026 nem atendimento/reconstrução das áreas atingidas. Outras contratações municipais emergenciais localizadas fazem essa vinculação expressamente. Não presumir nem excluir a exceção sem o processo do convênio."
       },
-      "status": "open_high_priority"
+      "status": "open_high_priority",
+      "bankOrder": "26601.0001.26.0000032-4"
     },
     {
       "municipality": "Itaberaba",
@@ -77,7 +78,8 @@
         "status": "no_case_linkage_located",
         "note": "Nenhuma fonte pública localizada nesta rodada vinculou o convênio habitacional a situação de emergência/calamidade vigente em julho de 2026."
       },
-      "status": "open_high_priority"
+      "status": "open_high_priority",
+      "bankOrder": "26601.0001.26.0000028-6"
     },
     {
       "municipality": "Lajedinho",
@@ -103,7 +105,8 @@
         "status": "no_case_linkage_located",
         "note": "Foram localizadas referências municipais a emergências de 2025, mas não documento que vincule o convênio habitacional de 2026 a atendimento emergencial."
       },
-      "status": "open_high_priority"
+      "status": "open_high_priority",
+      "bankOrder": "26601.0001.26.0000027-8"
     },
     {
       "municipality": "Macajuba",
@@ -124,6 +127,98 @@
         "status": "no_case_linkage_located",
         "note": "A pesquisa encontrou decreto municipal de emergência de 2024, sem demonstração de vigência ou vínculo com o convênio habitacional de 2026. Não foi localizada, nesta rodada, exceção emergencial aplicável ao repasse."
       },
+      "status": "open_high_priority",
+      "bankOrder": "26601.0001.26.0000041-3"
+    },
+    {
+      "municipality": "Lapão",
+      "agreement": "Convênio 002/2026 SEDUR",
+      "instrumentId": "26601.0001.26.0000004-7",
+      "bankOrder": "26601.0001.26.0000038-3",
+      "agreementSigned": "2026-06-19",
+      "agreementPublished": "2026-06-20",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "laterMunicipalProcurement": "Concorrência Eletrônica 010/2026 — publicada 31/07/2026; homologação em 24/09/2026 para Nunes Engenharia Ltda., R$ 5.822.160,50",
+      "exactAgreementText": "not_located_public_sources",
+      "originalWorkPlan": "not_located_public_sources",
+      "preCutoffPhysicalExecutionEvidence": "not_located_public_sources",
+      "preCutoffOrderOfService": "not_located_public_sources",
+      "preCutoffMeasurementOrAttestation": "not_located_public_sources",
+      "releaseAuthorizationOrLegalOpinion": "not_located_public_sources",
+      "emergencyException": {
+        "status": "no_case_linkage_located",
+        "note": "Nenhuma fonte pública localizada nesta rodada vinculou o Convênio 002/2026 a situação de emergência/calamidade vigente em julho de 2026."
+      },
+      "status": "open_high_priority"
+    },
+    {
+      "municipality": "Barra",
+      "agreement": "convênio habitacional SEDUR — número a confirmar no termo integral",
+      "instrumentId": "26601.0001.26.0000006-3",
+      "bankOrder": "26601.0001.26.0000039-1",
+      "agreementSigned": "not_verified_in_public_term",
+      "agreementPublished": "not_verified_in_public_term",
+      "paymentDate": "2026-07-07",
+      "paidBRL": 1170000,
+      "laterMunicipalProcurement": "not_located_public_sources",
+      "exactAgreementText": "not_located_public_sources",
+      "originalWorkPlan": "not_located_public_sources",
+      "preCutoffPhysicalExecutionEvidence": "not_located_public_sources",
+      "preCutoffOrderOfService": "not_located_public_sources",
+      "preCutoffMeasurementOrAttestation": "not_located_public_sources",
+      "releaseAuthorizationOrLegalOpinion": "not_located_public_sources",
+      "emergencyException": {
+        "status": "requires_specific_linkage",
+        "declaration": "Decreto Municipal 075/2026, de 25/02/2026, homologado pelo Decreto Estadual 24.408/2026, por chuvas intensas, prazo de 180 dias",
+        "declarationUrl": "https://www.escavador.com/diarios/6228221/DOEBA/P/2026-03-05?page=8",
+        "housingLinkage": "not_located",
+        "note": "A situação de emergência alcançava temporalmente 07/07/2026, mas não foi localizado documento que vincule o repasse das 50 unidades do programa habitacional estadual ao atendimento da emergência. A exceção deve ser testada no processo específico do convênio."
+      },
+      "status": "open_high_priority"
+    },
+    {
+      "municipality": "Esplanada",
+      "agreement": "convênio habitacional SEDUR — número a confirmar no termo integral",
+      "instrumentId": "26601.0001.26.0000009-8",
+      "bankOrder": "26601.0001.26.0000034-0",
+      "agreementSigned": "not_verified_in_public_term",
+      "agreementPublished": "not_verified_in_public_term",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "laterMunicipalProcurement": "not_located_public_sources",
+      "exactAgreementText": "not_located_public_sources",
+      "originalWorkPlan": "not_located_public_sources",
+      "preCutoffPhysicalExecutionEvidence": "not_located_public_sources",
+      "preCutoffOrderOfService": "not_located_public_sources",
+      "preCutoffMeasurementOrAttestation": "not_located_public_sources",
+      "releaseAuthorizationOrLegalOpinion": "not_located_public_sources",
+      "emergencyException": {
+        "status": "no_case_linkage_located",
+        "note": "Nenhuma fonte pública localizada nesta rodada vinculou o repasse habitacional a situação de emergência/calamidade vigente em julho de 2026."
+      },
+      "status": "open_high_priority"
+    },
+    {
+      "municipality": "Iraquara",
+      "agreement": "convênio habitacional SEDUR — número a confirmar no termo integral",
+      "instrumentId": "26601.0001.26.0000018-7",
+      "bankOrder": "26601.0001.26.0000033-2",
+      "agreementSigned": "not_verified_in_public_term",
+      "agreementPublished": "not_verified_in_public_term",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "laterMunicipalProcurement": "contratação estadual das 50 unidades não localizada; contratação federal de 20 unidades FNHIS Sub 50 excluída por objeto distinto",
+      "exactAgreementText": "not_located_public_sources",
+      "originalWorkPlan": "not_located_public_sources",
+      "preCutoffPhysicalExecutionEvidence": "not_located_public_sources",
+      "preCutoffOrderOfService": "not_located_public_sources",
+      "preCutoffMeasurementOrAttestation": "not_located_public_sources",
+      "releaseAuthorizationOrLegalOpinion": "not_located_public_sources",
+      "emergencyException": {
+        "status": "no_case_linkage_located",
+        "note": "Nenhuma fonte pública localizada nesta rodada vinculou o repasse estadual das 50 unidades a situação de emergência/calamidade vigente em julho de 2026."
+      },
       "status": "open_high_priority"
     }
   ],
@@ -142,5 +237,25 @@
     "medição, relatório fotográfico, atesto ou vistoria que comprove execução física anterior a 04/07/2026",
     "no caso de Cipó, documento que eventualmente vincule Convênio 009/2026/50 moradias à situação de emergência do Decreto 065/2026"
   ],
-  "status": "open"
+  "status": "open",
+  "coverage": {
+    "municipalitiesTested": 8,
+    "municipalities": [
+      "Barra",
+      "Cipó",
+      "Esplanada",
+      "Iraquara",
+      "Itaberaba",
+      "Lajedinho",
+      "Lapão",
+      "Macajuba"
+    ],
+    "activeEmergencyDeclarationAtPaymentLocated": [
+      "Barra",
+      "Cipó"
+    ],
+    "preCutoffPhysicalExecutionEvidenceLocated": [],
+    "exactHousingAgreementAndOriginalWorkPlanLocated": []
+  },
+  "updatedAt": "2026-10-07T01:45:00Z"
 }
