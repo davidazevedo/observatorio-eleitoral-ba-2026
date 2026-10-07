@@ -14,6 +14,11 @@ type EntityRow = { name: string; type: string; identifier?: string; mentions: nu
 type RelationRow = { from: string; to: string; type: string; description?: string };
 type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
 type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; exceptionStatus:'under_test'|'not_located'|'documented'; exceptionNote:string|null; instrumentPublishedAt:string|null; physicalExecutionStatus:'not_located'|'documented'; prefixedScheduleStatus:'not_located'|'documented'; procurementDate:string|null; procurementStatus:string|null; procurementControl:string|null; procurementValue:number|null; supplier:string|null; supplierCnpj:string|null; electoralCrossmatch:string; electoralCrossmatchNote:string|null; sourceUrl:string|null };
+type CohortMunicipality = { rank:number; name:string; state:string; priority:string; selectionReasons:string[]; territoryIrece:boolean; defesoPaymentExposureBRL:number; centralEvidenceQualified:boolean; centralEvidenceType:string|null; jeronimo2026ValidVotePct:number|null; jeronimoVoteSource:string|null; investigationStatus:string; legalConclusion:string };
+type CentralEvidenceItem = { id:string; municipality:string; title:string; type:string; status:string; amountBRL:number; sourceScope:string; evidenceReference?:string; caseGroup:string; legalConclusion:string; nextTest?:string[] };
+type MunicipalityCohort69 = { schemaVersion:number; cohortId:string; createdAt:string; methodology:{statement:string;existingCasesExcluded:string[];rules:string[];statewideJeronimo2026ValidVotePct:number;territoryIreceOfficialMunicipalityCount:number;newMunicipalityCount:number;newDefesoPaymentMunicipalities:number;newIreceMunicipalities:number;highVoteSupplementMunicipalities:number;overlaps:{ireceAndDefesoPayment:string[]}}; evidenceGoal:{waveTargetCentralEvidence:number;priorCentralEvidence:number;additionalQualifiedFiplanMunicipalFacts:number;minimumCentralEvidenceAfterClassification:number;countingRule:string}; municipalities:CohortMunicipality[] };
+type CentralEvidenceWave = { schemaVersion:number;manifestId:string;generatedAt:string;purpose:string;countingPolicy:string;counts:{total:number;housingCore:number;expansionFinancialFacts:number;expansionFinancialExposureBRL:number};legalBoundary:string;items:CentralEvidenceItem[] };
+
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
   repositoryCommit:string; repositoryUrl:string;
@@ -56,9 +61,11 @@ type DashboardData = {
   sourceArchives: SourceArchiveRow[];
   gitPreservations: GitPreservationRow[];
   housingAudit: HousingAuditRow[];
+  municipalityCohort69: MunicipalityCohort69;
+  centralEvidenceWave01: CentralEvidenceWave;
 };
 
-type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -357,6 +364,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
+    { id: 'expansion', label: 'Coorte 69', count: data.municipalityCohort69.municipalities.length },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -604,6 +612,39 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                       <div title={item.exceptionNote||undefined}><span className={item.exceptionStatus==='documented'?'housing-status-ok':'housing-exception-pending'}>{item.exceptionStatus==='documented'?'documentada':item.exceptionStatus==='under_test'?'em teste':'não localizada'}</span><small>R1 instrumento: {item.instrumentPublishedAt?`✓ ${item.instrumentPublishedAt}`:'não verificado'}</small><small>R2 execução física: {item.physicalExecutionStatus==='documented'?'✓ documentada':'não localizada'}</small><small>R3 cronograma: {item.prefixedScheduleStatus==='documented'?'✓ documentado':'não localizado'}</small></div>
                     </div>
                   ))}
+                </div>
+              </section>
+            </>
+          )}
+
+          {tab === 'expansion' && (
+            <>
+              <section className="private-grid-three">
+                <article className="private-panel"><p className="eyebrow">EXPANSÃO TERRITORIAL</p><h2>{data.municipalityCohort69.methodology.newMunicipalityCount} novos municípios</h2><p className="private-report-note">A votação é critério de priorização da amostra, nunca evidência de irregularidade.</p></article>
+                <article className="private-panel"><p className="eyebrow">IRECÊ</p><h2>{data.municipalityCohort69.methodology.newIreceMunicipalities} novos + Lapão</h2><p className="private-report-note">Cobertura completa dos 20 municípios do Território de Identidade de Irecê.</p></article>
+                <article className="private-panel"><p className="eyebrow">EVIDÊNCIAS CENTRAIS · LEVA 01</p><h2>{data.centralEvidenceWave01.counts.total} itens</h2><p className="private-report-note">{data.centralEvidenceWave01.counts.housingCore} do núcleo habitacional + {data.centralEvidenceWave01.counts.expansionFinancialFacts} fatos financeiros adicionais.</p></article>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">COORTE DE PRIORIZAÇÃO</p><h2>69 municípios selecionados para a próxima onda</h2><small>{money(data.centralEvidenceWave01.counts.expansionFinancialExposureBRL)} em pagamentos FIPLAN já qualificados entre os 36 municípios com exposição financeira.</small></div></div>
+                <p className="private-report-note">{data.municipalityCohort69.methodology.statement} Referência estadual de Jerônimo em 2026: {data.municipalityCohort69.methodology.statewideJeronimo2026ValidVotePct.toFixed(2)}% dos votos válidos. Percentuais municipais só aparecem quando já verificados nesta coorte.</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Seleção</span><span>FIPLAN no defeso</span><span>Jerônimo 2026</span><span>Evidência central</span><span>Status</span></div>
+                  {data.municipalityCohort69.municipalities.map((item)=><div key={item.name}>
+                    <strong>{item.name}</strong>
+                    <div><b>{item.priority}</b><small>{item.territoryIrece?'Território Irecê':''}</small></div>
+                    <div>{item.defesoPaymentExposureBRL>0?<b>{money(item.defesoPaymentExposureBRL)}</b>:<span>sem fato financeiro classificado</span>}</div>
+                    <div>{item.jeronimo2026ValidVotePct!==null?<><b>{item.jeronimo2026ValidVotePct.toFixed(2)}%</b><small>votos válidos</small></>:<span>percentual pendente de ingestão</span>}</div>
+                    <div>{item.centralEvidenceQualified?<b className="housing-status-ok">qualificada</b>:<span className="housing-exception-pending">triagem</span>}</div>
+                    <div><small>{item.selectionReasons.map((reason)=>reason==='defeso_fiplan_payment'?'pagamento FIPLAN':reason==='territorio_irece'?'Irecê':'alta votação 2026').join(' · ')}</small></div>
+                  </div>)}
+                </div>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">REGISTRO PROBATÓRIO</p><h2>Primeira leva de 50 evidências centrais</h2></div></div>
+                <p className="private-report-note">{data.centralEvidenceWave01.countingPolicy}</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Valor</span><span>Fato</span></div>
+                  {data.centralEvidenceWave01.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><b>{money(item.amountBRL)}</b><span>{item.title}</span></div>)}
                 </div>
               </section>
             </>
