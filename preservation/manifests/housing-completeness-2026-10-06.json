@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "batchId": "housing-completeness-2026-10-06-late",
+  "generatedAt": "2026-10-07T01:15:00Z",
+  "purpose": "Registrar diligências de completude sobre resultado, fornecedor, contrato e atos posteriores das contratações habitacionais prioritárias, preservando a distinção entre fonte oficial, índice derivado e resultado negativo de pesquisa.",
+  "methodology": {
+    "rule": "Ausência de resultado nas fontes consultadas é registrada como 'não localizado até o corte', nunca como inexistência.",
+    "primarySourcesPreferred": [
+      "PNCP",
+      "portais oficiais municipais",
+      "Diário Oficial",
+      "SEDUR/PGE/FIPLAN"
+    ],
+    "secondarySourcesUse": "Índices derivados do PNCP são utilizados apenas para corroborar datas/status e localizar referências; não substituem adjudicação, homologação ou contrato oficiais."
+  },
+  "cases": [
+    {
+      "municipality": "Cipó",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "procurement": {
+        "firstAttempt": {
+          "number": "Concorrência Eletrônica 007/2026",
+          "process": "264/2026",
+          "pncpControl": "13808936000195-1-000055/2026",
+          "publicationDate": "2026-08-03",
+          "observedStatus": "anulada",
+          "formalAnnulmentActLocated": false
+        },
+        "republication": {
+          "number": "Concorrência Eletrônica 009/2026",
+          "process": "311/2026",
+          "pncpControl": "13808936000195-1-000063/2026",
+          "publicationDate": "2026-08-24",
+          "proposalsClosedAt": "2026-09-09T09:00:00-03:00",
+          "resultLocated": false,
+          "supplierLocated": false
+        }
+      },
+      "researchBoundary": "Até o corte desta diligência, foi possível corroborar a anulação da primeira tentativa e o encerramento da republicação, mas não localizar ato formal de anulação, adjudicação, homologação ou contrato referente às 50 unidades."
+    },
+    {
+      "municipality": "Itaberaba",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "procurement": {
+        "number": "Concorrência Eletrônica FMAS 010/2026",
+        "process": "FMAS 091/2026",
+        "controls": [
+          {
+            "pncpControl": "13719646000175-1-000160/2026",
+            "includedAt": "2026-08-26T11:18:47",
+            "quantity": 1,
+            "unitValueBRL": 5850000,
+            "totalBRL": 5850000
+          },
+          {
+            "pncpControl": "13719646000175-1-000161/2026",
+            "includedAt": "2026-08-26T11:50:50",
+            "quantity": 50,
+            "unitValueBRL": 117000,
+            "totalBRL": 5850000
+          }
+        ],
+        "proposalsClosedAt": "2026-09-11T08:00:00-03:00",
+        "resultLocated": false,
+        "supplierLocated": false,
+        "interpretation": "Mesma descrição, processo, valor total e prazo; diferença cadastral é compatível com correção/republicação, mas o ato formal explicativo não foi localizado."
+      },
+      "researchBoundary": "Portal oficial municipal consultado até 06/10 contém atos de outras concorrências posteriores, sem ato localizado de adjudicação/homologação/contrato da FMAS 010/2026 no recorte consultado."
+    },
+    {
+      "municipality": "Macajuba",
+      "paymentDate": "2026-07-07",
+      "paidBRL": 1170000,
+      "procurement": {
+        "number": "Concorrência Eletrônica 004/2026",
+        "process": "254/2026",
+        "pncpControl": "13810841000106-1-000019/2026",
+        "publicationDate": "2026-07-28",
+        "proposalsClosedAt": "2026-08-14T07:50:00-03:00",
+        "estimatedBRL": 5849648.93,
+        "resultLocated": false,
+        "supplierLocated": false,
+        "contractLocated": false
+      },
+      "researchBoundary": "A contratação e o encerramento do prazo são corroborados, mas não foi localizado, no corte desta diligência, vencedor, adjudicação, homologação ou contrato das 50 unidades."
+    },
+    {
+      "municipality": "Lajedinho",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "procurement": {
+        "number": "Concorrência Eletrônica 008/2026",
+        "process": "093",
+        "pncpControl": "13810544000160-1-000098/2026",
+        "publicationDate": "2026-09-11",
+        "rectificationDate": "2026-09-22",
+        "rectificationReason": "Inclusão do Anexo XXI – Cronograma Físico-Financeiro",
+        "rescheduledProposalDeadline": "2026-10-09T08:20:00-03:00",
+        "rescheduledSession": "2026-10-09T08:30:00-03:00",
+        "resultLocated": false,
+        "supplierLocated": false,
+        "resultExpectedAtCutoff": false
+      },
+      "researchBoundary": "Em 06/10 o certame ainda não havia alcançado a sessão remarcada; ausência de fornecedor nesse corte é temporalmente esperada."
+    }
+  ],
+  "legalDocumentGap": {
+    "coreQuestion": "Qual documento sustentou juridicamente a transferência realizada durante o período vedado, especialmente quanto à exigência de obrigação formal preexistente e obra/serviço fisicamente iniciado com cronograma prefixado, quando aplicável?",
+    "documentsToSeek": [
+      "termo integral do convênio e plano de trabalho",
+      "cronograma físico-financeiro vigente antes de 04/07/2026",
+      "nota técnica/parecer jurídico que autorizou a liberação",
+      "ordem bancária/NOB e condição de liberação da primeira parcela",
+      "ordem de serviço ou documento equivalente anterior a 04/07/2026",
+      "medição/atesto de execução física anterior a 04/07/2026",
+      "eventual contrato ou execução prévia distinta",
+      "ato de adjudicação/homologação e contrato da contratação municipal posterior"
+    ]
+  },
+  "status": "open",
+  "nextClosureCondition": "Fechar cada caso em uma das saídas: fundamento documental localizado; ou diligência negativa certificada com fontes, data de corte e cadeia de documentos ausentes."
+}
