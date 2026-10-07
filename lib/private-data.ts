@@ -16,6 +16,7 @@ import p0RuralMarketGaps from '@/data/investigation/p0-rural-market-gaps-2026-10
 import p0ClassificationCoverage from '@/data/investigation/p0-classification-coverage-36-2026-10-06.json';
 import prebaPackagesIndex from '@/data/investigation/preba-packages-index-2026-10-07.json';
 import prebaLajedoPackage from '@/data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json';
+import prebaBeloCampoPackage from '@/data/investigation/preba-package-02-belo-campo-2026-10-07.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -367,5 +368,6 @@ export async function getPrivateDashboardData() {
     p0ClassificationCoverage,
     prebaPackagesIndex,
     prebaLajedoPackage,
+    prebaBeloCampoPackage,
   };
 }
