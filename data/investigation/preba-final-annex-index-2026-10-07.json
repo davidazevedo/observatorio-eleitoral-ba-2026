@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "indexId": "PREBA-FINAL-ANNEX-INDEX-2026-10-07",
+  "representationId": "PREBA-CONSOLIDATED-2026-10-07",
+  "generatedDate": "2026-10-07",
+  "annexes": [
+    {"order":1,"id":"ANEXO-01","title":"Universo investigativo consolidado — 77 municípios","path":"data/investigation/municipality-universe-77-2026-10-07.json","purpose":"Define escopo e composição da fila prioritária."},
+    {"order":2,"id":"ANEXO-02","title":"Classificação P0 — 36/36","path":"data/investigation/p0-classification-coverage-36-2026-10-06.json","purpose":"Demonstra cobertura integral da classificação P0."},
+    {"order":3,"id":"ANEXO-03","title":"Evidências centrais — Wave 01","path":"preservation/manifests/central-evidence-wave-01-50.json","purpose":"Primeira leva de fatos financeiros/documentais versionados."},
+    {"order":4,"id":"ANEXO-04","title":"Evidências críticas — Wave 02","path":"preservation/manifests/central-evidence-wave-02-critical-p0.json","purpose":"Fatos adicionais dos casos críticos."},
+    {"order":5,"id":"ANEXO-05","title":"Evidências Wave 03 — Araçás/Jaguaquara","path":"preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json","purpose":"Cláusulas, contratação e corroboração municipal."},
+    {"order":6,"id":"ANEXO-06","title":"Pacote PREBA-01 — Lajedo do Tabocal","path":"data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json","humanReadable":"docs/PREBA_01_LAJEDO_DO_TABOCAL.md","purpose":"Núcleo crítico 01."},
+    {"order":7,"id":"ANEXO-07","title":"Pacote PREBA-02 — Belo Campo","path":"data/investigation/preba-package-02-belo-campo-2026-10-07.json","humanReadable":"docs/PREBA_02_BELO_CAMPO.md","purpose":"Núcleo crítico 02."},
+    {"order":8,"id":"ANEXO-08","title":"Pacote PREBA-03 — Araçás","path":"data/investigation/preba-package-03-aracas-2026-10-07.json","humanReadable":"docs/PREBA_03_ARACAS.md","purpose":"Núcleo urgente 03."},
+    {"order":9,"id":"ANEXO-09","title":"Pacote PREBA-04 — Jaguaquara","path":"data/investigation/preba-package-04-jaguaquara-2026-10-07.json","humanReadable":"docs/PREBA_04_JAGUAQUARA.md","purpose":"Núcleo urgente 04."},
+    {"order":10,"id":"ANEXO-10","title":"Manifesto de preservação FIPLAN","path":"preservation/manifests/fiplan-defeso-2026.json","purpose":"Cadeia de origem, integridade e hashes da base financeira preservada."}
+  ],
+  "protocolFolderOrder": [
+    "00_REPRESENTACAO",
+    "01_METODOLOGIA",
+    "02_CLASSIFICACAO_P0",
+    "03_EVIDENCIAS_WAVE_01",
+    "04_EVIDENCIAS_WAVE_02",
+    "05_EVIDENCIAS_WAVE_03",
+    "06_LAJEDO_DO_TABOCAL",
+    "07_BELO_CAMPO",
+    "08_ARACAS",
+    "09_JAGUAQUARA",
+    "10_FIPLAN_PRESERVACAO"
+  ],
+  "finalGate": {
+    "readyForNewsOfFactProtocol": true,
+    "pendingBeforeDefinitiveAccusation": [
+      "documentos requisitados dos processos administrativos",
+      "documentos de execução física e financeira",
+      "respostas formais sobre enquadramento jurídico"
+    ]
+  }
+}
