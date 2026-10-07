@@ -28,6 +28,41 @@ export type IntelligenceStatus =
 export type EvidenceLevel = 'L0' | 'L1' | 'L2' | 'L3' | 'L4';
 export type Priority = 'low' | 'medium' | 'high' | 'urgent';
 
+export type IntelligenceWorkflowState = 'new' | 'analyzing' | 'corroborated' | 'discarded' | 'promoted';
+export type IntelligenceClassification =
+  | 'unclassified'
+  | 'documented_fact'
+  | 'apparent_incompatibility'
+  | 'document_gap'
+  | 'lawful_explanation'
+  | 'investigative_hypothesis';
+
+export type IntelligenceReviewEvent = {
+  schemaVersion: 1;
+  eventId: string;
+  recordId: string;
+  createdAt: string;
+  actor: 'private-dashboard-session';
+  workflowState: IntelligenceWorkflowState;
+  classification: IntelligenceClassification;
+  status: IntelligenceStatus;
+  evidenceLevel: EvidenceLevel;
+  priority: Priority;
+  municipality?: string;
+  caseId?: string;
+  note?: string;
+};
+
+export type IntelligenceReviewSummary = {
+  workflowState: IntelligenceWorkflowState;
+  classification: IntelligenceClassification;
+  reviewedAt: string;
+  reviewCount: number;
+  actor: IntelligenceReviewEvent['actor'];
+  linkedCaseId?: string;
+  note?: string;
+};
+
 export type IntelligenceEntity = {
   name: string;
   type: 'person' | 'company' | 'public_body' | 'campaign' | 'municipality' | 'supplier' | 'other';
@@ -88,6 +123,9 @@ export type IntelligenceRecord = {
   provenance: IntelligenceProvenance;
   notes?: string[];
   raw?: Record<string, unknown>;
+  recordOrigin?: 'bootstrap' | 'defeso' | 'batch' | 'ingested';
+  review?: IntelligenceReviewSummary;
+  reviewHistory?: IntelligenceReviewEvent[];
 };
 
 export type ResearchSource = {
@@ -250,6 +288,8 @@ const allowedStatuses = new Set<IntelligenceStatus>([
 ]);
 const allowedLevels = new Set<EvidenceLevel>(['L0','L1','L2','L3','L4']);
 const allowedPriorities = new Set<Priority>(['low','medium','high','urgent']);
+const allowedWorkflowStates = new Set<IntelligenceWorkflowState>(['new','analyzing','corroborated','discarded','promoted']);
+const allowedClassifications = new Set<IntelligenceClassification>(['unclassified','documented_fact','apparent_incompatibility','document_gap','lawful_explanation','investigative_hypothesis']);
 
 function txt(value: unknown, max: number) {
   return typeof value === 'string' ? value.trim().slice(0, max) : '';
@@ -381,6 +421,58 @@ export async function persistIntelligenceRecord(record: IntelligenceRecord) {
   return pathname;
 }
 
+function workflowStatus(state: IntelligenceWorkflowState): IntelligenceStatus {
+  if (state === 'new') return 'ingested';
+  if (state === 'analyzing') return 'triage';
+  if (state === 'corroborated') return 'verified';
+  if (state === 'discarded') return 'rejected';
+  return 'publishable';
+}
+
+export async function persistIntelligenceReview(input: {
+  recordId: string;
+  workflowState: IntelligenceWorkflowState;
+  classification: IntelligenceClassification;
+  evidenceLevel: EvidenceLevel;
+  priority: Priority;
+  municipality?: string;
+  caseId?: string;
+  note?: string;
+}) {
+  const recordIdValue = txt(input.recordId, 120);
+  if (!/^INT-[A-Z0-9-]+$/i.test(recordIdValue)) throw new Error('recordId inválido.');
+  if (!allowedWorkflowStates.has(input.workflowState)) throw new Error('workflowState inválido.');
+  if (!allowedClassifications.has(input.classification)) throw new Error('classification inválida.');
+  if (!allowedLevels.has(input.evidenceLevel)) throw new Error('evidenceLevel inválido.');
+  if (!allowedPriorities.has(input.priority)) throw new Error('priority inválida.');
+
+  const createdAt = new Date().toISOString();
+  const event: IntelligenceReviewEvent = {
+    schemaVersion: 1,
+    eventId: `REV-${createdAt.slice(0,10).replace(/-/g,'')}-${crypto.randomUUID().split('-')[0].toUpperCase()}`,
+    recordId: recordIdValue,
+    createdAt,
+    actor: 'private-dashboard-session',
+    workflowState: input.workflowState,
+    classification: input.classification,
+    status: workflowStatus(input.workflowState),
+    evidenceLevel: input.evidenceLevel,
+    priority: input.priority,
+    municipality: txt(input.municipality, 160) || undefined,
+    caseId: txt(input.caseId, 120) || undefined,
+    note: txt(input.note, 2000) || undefined,
+  };
+
+  const pathname = `intelligence/reviews/${recordIdValue}/${createdAt.replace(/[:.]/g,'-')}-${event.eventId}.json`;
+  await put(pathname, JSON.stringify(event, null, 2), {
+    access: 'private',
+    contentType: 'application/json',
+    addRandomSuffix: false,
+    allowOverwrite: false,
+  });
+  return { event, pathname };
+}
+
 async function listAll(prefix: string) {
   const blobs: ListBlobResultBlob[] = [];
   let cursor: string | undefined;
@@ -393,7 +485,10 @@ async function listAll(prefix: string) {
 }
 
 export async function listIntelligenceRecords(): Promise<IntelligenceRecord[]> {
-  const blobs = await listAll('intelligence/records/');
+  const [blobs, reviewBlobs] = await Promise.all([
+    listAll('intelligence/records/'),
+    listAll('intelligence/reviews/'),
+  ]);
   const records = await Promise.all(blobs.filter((blob) => blob.pathname.endsWith('.json')).map(async (blob) => {
     try {
       const result = await get(blob.pathname, { access: 'private', useCache: false });
@@ -403,13 +498,59 @@ export async function listIntelligenceRecords(): Promise<IntelligenceRecord[]> {
       return null;
     }
   }));
+  const reviews = await Promise.all(reviewBlobs.filter((blob) => blob.pathname.endsWith('.json')).map(async (blob) => {
+    try {
+      const result = await get(blob.pathname, { access: 'private', useCache: false });
+      if (!result || result.statusCode !== 200) return null;
+      return JSON.parse(await new Response(result.stream).text()) as IntelligenceReviewEvent;
+    } catch {
+      return null;
+    }
+  }));
+
   const persisted = records.filter((item): item is IntelligenceRecord => Boolean(item?.recordId));
+  const reviewEvents = reviews.filter((item): item is IntelligenceReviewEvent => Boolean(item?.recordId && item?.eventId));
+  const reviewsByRecord = new Map<string, IntelligenceReviewEvent[]>();
+  for (const event of reviewEvents) {
+    const current = reviewsByRecord.get(event.recordId) || [];
+    current.push(event);
+    reviewsByRecord.set(event.recordId, current);
+  }
+  for (const events of reviewsByRecord.values()) events.sort((a,b) => a.createdAt.localeCompare(b.createdAt));
+
   const byId = new Map<string, IntelligenceRecord>();
-  for (const item of bootstrapIntelligenceRecords) if (!supersededHousingRecordIds.has(item.recordId)) byId.set(item.recordId, item);
-  for (const item of defesoIntelligenceRecords) byId.set(item.recordId, item);
-  for (const item of intelligenceBatch20261006) byId.set(item.recordId, item);
-  for (const item of persisted) byId.set(item.recordId, item);
-  return Array.from(byId.values()).sort((a,b) => b.collectedAt.localeCompare(a.collectedAt));
+  for (const item of bootstrapIntelligenceRecords) if (!supersededHousingRecordIds.has(item.recordId)) byId.set(item.recordId, { ...item, recordOrigin: 'bootstrap' });
+  for (const item of defesoIntelligenceRecords) byId.set(item.recordId, { ...item, recordOrigin: 'defeso' });
+  for (const item of intelligenceBatch20261006) byId.set(item.recordId, { ...item, recordOrigin: 'batch' });
+  for (const item of persisted) byId.set(item.recordId, { ...item, recordOrigin: 'ingested' });
+
+  const merged = Array.from(byId.values()).map((item) => {
+    const history = reviewsByRecord.get(item.recordId) || [];
+    const latest = history.at(-1);
+    if (!latest) return item;
+    const caseIds = latest.caseId
+      ? Array.from(new Set([...(item.caseIds || []), latest.caseId]))
+      : item.caseIds;
+    return {
+      ...item,
+      status: latest.status,
+      evidenceLevel: latest.evidenceLevel,
+      priority: latest.priority,
+      municipality: latest.municipality || item.municipality,
+      caseIds,
+      review: {
+        workflowState: latest.workflowState,
+        classification: latest.classification,
+        reviewedAt: latest.createdAt,
+        reviewCount: history.length,
+        actor: latest.actor,
+        linkedCaseId: latest.caseId,
+        note: latest.note,
+      },
+      reviewHistory: history,
+    } satisfies IntelligenceRecord;
+  });
+  return merged.sort((a,b) => b.collectedAt.localeCompare(a.collectedAt));
 }
 
 export const intelligenceSchemaExample = {
