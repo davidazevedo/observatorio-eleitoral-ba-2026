@@ -22,6 +22,8 @@ type P0TriageRow = { municipality:string; instrument:string; agency:string; cate
 type P0Triage36 = { schemaVersion:number;batchId:string;generatedAt:string;cutoffDate:string;scope:{municipalities:number;instruments:number;defesoPaidBRL:number};methodology:{statement:string;legalTest:string[];boundary:string};summary:{instrumentsPublishedBeforeCutoff:number;instrumentsPublishedOnOrAfterCutoff:number;criticalMunicipalities:string[];urgentFocus:string[]};deepDiveFacts:Record<string,{status:string;assessment:string}>;instruments:P0TriageRow[] };
 type CentralEvidenceWave02 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;relationToPriorEvidence?:string;legalConclusion:string}>;boundary:string };
 type CentralEvidenceWave03 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;boundary?:string;legalConclusion:string}>;boundary:string };
+type ComidaControlCase = { municipality:string;fiplanInstrument:string;fiplanPaymentDate:string;fiplanPaidBRL:number;program:string;municipalAgreement:string;linkage:string;evidence:Array<{date:string;type:string;fact:string}>;status:string;assessment:string };
+type P0ComidaControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:ComidaControlCase[];nextActions:string[] };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -70,6 +72,7 @@ type DashboardData = {
   p0Triage36: P0Triage36;
   centralEvidenceWave02: CentralEvidenceWave02;
   centralEvidenceWave03: CentralEvidenceWave03;
+  p0ComidaNoPratoControl: P0ComidaControl;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -659,6 +662,25 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
                     <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
                   </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">GRUPO DE CONTROLE · COMIDA NO PRATO</p><h2>Separação entre execução prévia e implantação tardia</h2><small>{data.p0ComidaNoPratoControl.cases.length} municípios já classificados neste cluster</small></div></div>
+                <p className="private-report-note">{data.p0ComidaNoPratoControl.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Convênio</span><span>Pagamento</span><span>Indicadores pré-04/07</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0ComidaNoPratoControl.cases.map((item)=>{
+                    const pre=item.evidence.filter((e)=>e.date<'2026-07-04');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{item.municipalAgreement}</b><code>{item.fiplanInstrument}</code><small>vínculo: {item.linkage}</small></div>
+                      <div><b>{money(item.fiplanPaidBRL)}</b><small>{item.fiplanPaymentDate}</small></div>
+                      <div><b>{pre.length} ato(s)</b><small>{pre.map((e)=>`${e.date} · ${e.type}`).join(' | ')||'nenhum localizado'}</small></div>
+                      <div><b className={item.status==='pre_cutoff_execution_indicators'?'housing-status-ok':item.status==='post_cutoff_implementation_indicators'?'housing-status-gap':'housing-exception-pending'}>{item.status==='pre_cutoff_execution_indicators'?'execução prévia plausível':item.status==='pre_cutoff_procurement_only'?'atos prévios; execução aberta':item.status==='post_cutoff_implementation_indicators'?'implantação posterior localizada':'vínculo pendente'}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
                 </div>
               </section>
 
