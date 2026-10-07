@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "batchId": "p0-rural-market-gaps-2026-10-06",
+  "generatedAt": "2026-10-07T07:20:00Z",
+  "purpose": "Classificar os três P0 restantes cuja transferência está comprovada, mas a cadeia municipal contratação→execução ainda não foi localizada com segurança.",
+  "methodology": {
+    "rule": "Receita municipal ou identificação nominal do convênio fecha o vínculo financeiro/objeto, mas não substitui licitação, contrato, OS ou medição. Ausência de ato localizado permanece lacuna de pesquisa.",
+    "statusDefinition": "document_gap = fato financeiro confirmado e objeto identificado, mas elos operacionais posteriores ainda não localizados nas fontes consultadas."
+  },
+  "cases": [
+    {
+      "municipality": "Irajuba",
+      "fiplanInstrument": "18401.0001.26.0000073-5",
+      "stateAgreement": "Convênio 02/2026",
+      "paymentDate": "2026-08-21",
+      "paidBRL": 82000,
+      "instrumentValueBRL": 420615.63,
+      "object": "Implantação de passagem molhada",
+      "linkage": "FIPLAN nominalmente identifica Convênio 02/2026 / passagem molhada",
+      "procurement": "not_located_inequivocally",
+      "contract": "not_located",
+      "serviceOrder": "not_located",
+      "measurement": "not_located",
+      "status": "document_gap",
+      "assessment": "O instrumento e o pagamento estão comprovados, mas não foi localizada nesta rodada contratação/OS/medição inequivocamente ligada ao Convênio 02/2026. Referências antigas a passagem molhada no município não foram usadas para fechar o caso por risco de objeto distinto."
+    },
+    {
+      "municipality": "Nova Soure",
+      "fiplanInstruments": [
+        {
+          "instrument": "18401.0001.26.0000168-5",
+          "agreement": "Convênio 97/2025",
+          "paymentDate": "2026-08-26",
+          "paidBRL": 250000,
+          "object": "Mercado Municipal — reforma"
+        },
+        {
+          "instrument": "18401.0001.26.0000169-3",
+          "agreement": "Convênio 138/2025",
+          "paymentDate": "2026-08-21",
+          "paidBRL": 196845.04,
+          "object": "Mercado de Cereais — reforma"
+        }
+      ],
+      "paidBRL": 446845.04,
+      "municipalRevenueCorroboration": {
+        "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/novasoure/cidadao/receita",
+        "facts": [
+          "Receita municipal possui rubrica Convênio nº 97/2025 - Mercado Municipal, com arrecadação acumulada de R$ 550.000,00.",
+          "Receita municipal possui rubrica Convênio nº 138/2025 - Mercado de Cereais, com arrecadação acumulada de R$ 496.845,04."
+        ]
+      },
+      "procurement": "not_located_inequivocally_for_2025_agreements",
+      "contract": "not_located",
+      "serviceOrder": "not_located",
+      "measurement": "not_located",
+      "status": "document_gap",
+      "assessment": "A fonte municipal independente confirma os dois convênios e o recebimento acumulado. Porém as buscas abertas também retornam obras antigas de mercado, inclusive 2021/2022, que não devem ser confundidas com os Convênios 97/2025 e 138/2025. Localizar a contratação específica dos instrumentos de 2025 antes de qualquer inferência."
+    },
+    {
+      "municipality": "São Félix",
+      "fiplanInstrument": "18401.0001.26.0000349-1",
+      "stateAgreement": "Convênio 101/2026",
+      "paymentDate": "2026-08-21",
+      "paidBRL": 400000,
+      "instrumentValueBRL": 2614496.12,
+      "object": "Implantação de mercado",
+      "linkage": "FIPLAN nominalmente identifica Convênio 101/2026 / mercado",
+      "procurement": "not_located_inequivocally",
+      "contract": "not_located",
+      "serviceOrder": "not_located",
+      "measurement": "not_located",
+      "status": "document_gap",
+      "assessment": "O repasse e o objeto estão identificados no FIPLAN, mas a cadeia específica de contratação e execução do Convênio 101/2026 não foi localizada nas fontes indexadas desta rodada. Manter como lacuna documental, não como evidência de inexistência de execução."
+    }
+  ]
+}
