@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "batchId": "irece-p0-deep-scan-2026-10-06",
+  "generatedAt": "2026-10-07T06:00:00Z",
+  "territory": "Território de Identidade de Irecê",
+  "scope": {
+    "officialMunicipalities": 20,
+    "p0Municipalities": [
+      "Lapão",
+      "Cafarnaum",
+      "Canarana",
+      "Ipupiara"
+    ],
+    "p0Count": 4,
+    "remainingTerritorialTriage": 16
+  },
+  "methodology": {
+    "rule": "O território é prioridade geográfica. Município sem gatilho financeiro/documental permanece controle territorial, não caso suspeito.",
+    "chain": "pagamento → instrumento → contratação → contrato → OS/AIO → execução/medição → exceção"
+  },
+  "cases": [
+    {
+      "municipality": "Lapão",
+      "fiplanInstrument": "26601.0001.26.0000004-7",
+      "paymentDate": "2026-07-06",
+      "paidBRL": 1170000,
+      "object": "50 unidades habitacionais estaduais",
+      "procurement": "Concorrência Eletrônica 010/2026 publicada em 31/07; homologada em 24/09 para Nunes Engenharia Ltda.",
+      "preCutoffContract": false,
+      "preCutoffPhysicalExecution": "not_located",
+      "status": "high_priority_exception_test",
+      "assessment": "Contratação executora localizada apenas após o pagamento. Continuar busca por eventual arranjo/execução anterior e documentação da exceção."
+    },
+    {
+      "municipality": "Cafarnaum",
+      "fiplanInstrument": "18401.0001.26.0000071-9",
+      "paymentDate": "2026-08-21",
+      "paidBRL": 200000,
+      "object": "Convênio 144/2025 — ampliação e reforma do Mercado Municipal",
+      "procurement": "not_located_inequivocally",
+      "preCutoffContract": null,
+      "preCutoffPhysicalExecution": "not_located",
+      "status": "document_gap",
+      "assessment": "O instrumento é antigo (2025), o que torna plausível execução anterior; porém a contratação/OS/medição correspondente ao mercado ainda não foi localizada nas fontes consultadas. Prioridade é identificar a cadeia municipal do Convênio 144/2025."
+    },
+    {
+      "municipality": "Canarana",
+      "fiplanInstrument": "26401.0001.26.0000156-2",
+      "paymentDate": "2026-09-30",
+      "paidBRL": 820084.88,
+      "object": "Pavimentação em piso intertravado com drenagem",
+      "procurement": "Concorrência Eletrônica 006/2026, homologada em 15/05 para A.M. DA SILVA CONSTRUÇÃO CIVIL LTDA-ME",
+      "contract": "C012105/2026, 21/05/2026, R$ 2.086.737,78",
+      "supplierCnpj": "08.777.139/0001-58",
+      "preCutoffContract": true,
+      "preCutoffPhysicalExecution": "not_located",
+      "status": "pre_cutoff_contract_execution_open",
+      "assessment": "Licitação e contrato antecedem 04/07; falta OS/AIO/medição para comprovar execução física prévia e fechar a exceção."
+    },
+    {
+      "municipality": "Ipupiara",
+      "fiplanInstruments": [
+        {
+          "instrument": "18401.0001.26.0000088-3",
+          "paymentDate": "2026-08-21",
+          "paidBRL": 655000,
+          "object": "Convênio 142/2025 — ampliação e reforma do Mercado Municipal"
+        },
+        {
+          "instrument": "18401.0001.26.0000089-1",
+          "paymentDate": "2026-08-21",
+          "paidBRL": 200000,
+          "object": "Convênio 04/2026 — implantação do Centro de Comercialização de Animais"
+        }
+      ],
+      "marketProcurement": {
+        "control": "13798384000181-1-000001/2026",
+        "publicationDate": "2026-01-14",
+        "homologationDate": "2026-03-25",
+        "contract": "079/2026",
+        "contractStart": "2026-03-26",
+        "supplier": "VPR CONSTRUCOES LTDA",
+        "supplierCnpj": "14.923.146/0001-13",
+        "contractedBRL": 2229000
+      },
+      "animalCenterProcurement": {
+        "control": "13798384000181-1-000015/2026",
+        "publicationDate": "2026-04-17",
+        "homologationDate": "2026-05-20",
+        "contract": "114/2026",
+        "supplier": "VPR CONSTRUCOES LTDA",
+        "supplierCnpj": "14.923.146/0001-13",
+        "homologatedBRL": 466600
+      },
+      "preCutoffContract": true,
+      "preCutoffPhysicalExecution": "not_located",
+      "status": "pre_cutoff_contract_execution_open",
+      "assessment": "Os dois objetos possuem contratação formal anterior a 04/07, reduzindo o risco temporal. A questão remanescente é execução material prévia e cronograma/condição de liberação das parcelas de 21/08."
+    }
+  ],
+  "territoryNextActions": [
+    "Cafarnaum: localizar licitação/contrato/OS do Convênio 144/2025 do Mercado Municipal",
+    "Canarana: localizar OS/AIO e primeira medição da pavimentação em piso intertravado",
+    "Ipupiara: localizar OS/AIO e primeira medição dos contratos 079/2026 e 114/2026",
+    "Lapão: manter a diligência habitacional já aberta",
+    "Nos 16 municípios restantes do território, executar varredura FIPLAN/PNCP/contratos/obras para descobrir novos gatilhos documentais"
+  ]
+}
