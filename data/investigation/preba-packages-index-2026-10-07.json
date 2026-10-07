@@ -53,9 +53,22 @@
       "packageId": "PREBA-03-ARACAS-2026",
       "municipality": "Araçás",
       "priority": "urgent",
-      "status": "queued",
+      "status": "public_source_exhausted_ready_for_diligence_request",
+      "structuredData": "data/investigation/preba-package-03-aracas-2026-10-07.json",
+      "humanReadable": "docs/PREBA_03_ARACAS.md",
+      "coreEvidence": [
+        "CE-016",
+        "CE-055",
+        "CE-056"
+      ],
       "protocolReady": false,
-      "focus": "termo com vedação pré-repasse/AIO, contratação publicada em 10/07 e necessidade de histórico integral dos repasses"
+      "mainBlockers": [
+        "histórico integral FIPLAN e natureza do pagamento de R$ 8.146,70",
+        "Plano de Trabalho e cronograma prefixado",
+        "AIO/OS, contrato e prova objetiva de início físico",
+        "íntegra da Concorrência 007/2026, adjudicação/homologação e contrato",
+        "fundamento jurídico de eventual liberação durante o defeso"
+      ]
     },
     {
       "order": 4,
