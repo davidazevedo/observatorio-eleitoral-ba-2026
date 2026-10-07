@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "central-evidence-wave-03-aracas-jaguaquara",
+  "generatedAt": "2026-10-07T04:35:00Z",
+  "previousWave": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+  "countingPolicy": "Adicionar apenas fatos documentais novos. Corroboração por segunda fonte do mesmo pagamento só entra quando agrega vínculo material novo — por exemplo, o número/nome específico do convênio e objeto.",
+  "counts": {
+    "newEvidence": 3,
+    "cumulativeCentralEvidence": 57
+  },
+  "items": [
+    {
+      "id": "CE-055",
+      "municipality": "Araçás",
+      "type": "agreement_execution_clause_fact",
+      "status": "fact",
+      "title": "Convênio 31/2026 veda atividade do plano antes do início do repasse, fixa primeira parcela em R$ 292.514,22 e exige autorização para início da obra",
+      "source": "SUDESB — Termo de Convênio 31/2026, SEI 069.1479.2026.0003119-33",
+      "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-06/SEI_00142985210_Termo_de_Convenio.pdf",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-056",
+      "municipality": "Araçás",
+      "type": "post_cutoff_procurement_fact",
+      "status": "fact",
+      "title": "Concorrência 007/2026 para executar exatamente a Areninha do Convênio 31/2026, valor R$ 732.421,46, foi publicada em 10/07/2026",
+      "source": "PNCP — controle 16131088000110-1-000007/2026",
+      "sourceUrl": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+      "legalConclusion": "none",
+      "boundary": "O pagamento FIPLAN de R$ 8.146,70 em 10/07 não coincide com a primeira parcela de R$ 292.514,22; histórico integral de repasses continua necessário."
+    },
+    {
+      "id": "CE-057",
+      "municipality": "Jaguaquara",
+      "type": "municipal_revenue_linkage_fact",
+      "status": "fact",
+      "title": "Portal municipal identifica a receita como Convênio Estadual 28/2026 — Construção de Estádio de Jaguaquara — com R$ 518.432,07 acumulados, exatamente o valor do repasse FIPLAN de 10/07",
+      "source": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "legalConclusion": "none",
+      "boundary": "A coincidência de valor e a rubrica específica corroboram o vínculo do pagamento com o estádio; ainda não provam ausência de execução física anterior ao marco."
+    }
+  ],
+  "boundary": "O total acumulado de 57 representa fatos centrais auditáveis, não número de ilícitos. Araçás e Jaguaquara continuam dependendo de histórico integral de repasses, contratação/AIO/OS, medições e fundamento de exceção."
+}
