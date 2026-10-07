@@ -1,0 +1,854 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "central-evidence-wave-01-50",
+  "generatedAt": "2026-10-07T03:00:00Z",
+  "purpose": "Congelar a primeira leva de 50 evidências centrais para triagem eleitoral, distinguindo fatos documentais de conclusões jurídicas.",
+  "countingPolicy": "Cada item representa um fato documental central. Cópias, hashes, certificados, snapshots repetidos, consultas negativas e análises derivadas permanecem como suporte e não aumentam a contagem central.",
+  "counts": {
+    "total": 50,
+    "housingCore": 14,
+    "expansionFinancialFacts": 36,
+    "expansionFinancialExposureBRL": 16444765.940000001
+  },
+  "legalBoundary": "Nenhum item, isoladamente ou pela simples associação com votação eleitoral, comprova conduta vedada. Os fatos financeiros são gatilhos para testar as exceções do art. 73, VI, a, e demais fundamentos aplicáveis.",
+  "items": [
+    {
+      "id": "CE-001",
+      "municipality": "Barra",
+      "title": "Pagamento habitacional efetivado em 07/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-002",
+      "municipality": "Cipó",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-003",
+      "municipality": "Esplanada",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-004",
+      "municipality": "Iraquara",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-005",
+      "municipality": "Itaberaba",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-006",
+      "municipality": "Lajedinho",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-007",
+      "municipality": "Lapão",
+      "title": "Pagamento habitacional efetivado em 06/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-008",
+      "municipality": "Macajuba",
+      "title": "Pagamento habitacional efetivado em 07/07/2026",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1170000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-009",
+      "municipality": "Cipó",
+      "title": "Contratação das 50 moradias localizada após o pagamento",
+      "type": "procurement_fact",
+      "status": "fact",
+      "amountBRL": 5877340.25,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-010",
+      "municipality": "Itaberaba",
+      "title": "Contratação das 50 moradias localizada após o pagamento",
+      "type": "procurement_fact",
+      "status": "fact",
+      "amountBRL": 5850000,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-011",
+      "municipality": "Lajedinho",
+      "title": "Contratação das 50 moradias localizada após o pagamento",
+      "type": "procurement_fact",
+      "status": "fact",
+      "amountBRL": 5877340.25,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-012",
+      "municipality": "Lapão",
+      "title": "Contratação das 50 moradias localizada após o pagamento",
+      "type": "procurement_fact",
+      "status": "fact",
+      "amountBRL": 5822160.5,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-013",
+      "municipality": "Macajuba",
+      "title": "Contratação das 50 moradias localizada após o pagamento",
+      "type": "procurement_fact",
+      "status": "fact",
+      "amountBRL": 5849648.93,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-014",
+      "municipality": "Lapão",
+      "title": "Homologação em favor da Nunes Engenharia Ltda.",
+      "type": "procurement_result_fact",
+      "status": "fact",
+      "amountBRL": 5822160.5,
+      "sourceScope": "PNCP/DOE/portal municipal preservados",
+      "caseGroup": "housing_core",
+      "legalConclusion": "none"
+    },
+    {
+      "id": "CE-015",
+      "municipality": "Antônio Cardoso",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 150000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 150000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-016",
+      "municipality": "Araçás",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 8146.70",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 8146.7,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-017",
+      "municipality": "Araci",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 496717.02",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 496717.02,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-018",
+      "municipality": "Aratuípe",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 574446.41",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 574446.41,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-019",
+      "municipality": "Belo Campo",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 200000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 200000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-020",
+      "municipality": "Brumado",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 2035388.31",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 2035388.31,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-021",
+      "municipality": "Cafarnaum",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 200000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 200000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-022",
+      "municipality": "Canarana",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 820084.88",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 820084.88,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-023",
+      "municipality": "Candeal",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 59950,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-024",
+      "municipality": "Dom Basílio",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 59950,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-025",
+      "municipality": "Eunápolis",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 246045.75",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 246045.75,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-026",
+      "municipality": "Ipupiara",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 855000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 855000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-027",
+      "municipality": "Irajuba",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 82000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 82000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-028",
+      "municipality": "Ituaçu",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 845033.50",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 845033.5,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-029",
+      "municipality": "Jaguaquara",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 918432.07",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 918432.07,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-030",
+      "municipality": "Jiquiriçá",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 413495.16",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 413495.16,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-031",
+      "municipality": "Lajedo do Tabocal",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 49946.15",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 49946.15,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-032",
+      "municipality": "Macarani",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 62450.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 62450,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-033",
+      "municipality": "Maetinga",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 63259.50",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 63259.5,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-034",
+      "municipality": "Nova Soure",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 446845.04",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 446845.04,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-035",
+      "municipality": "Paramirim",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 213995.50",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 213995.5,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-036",
+      "municipality": "Pindobaçu",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 63187.25",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 63187.25,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-037",
+      "municipality": "Planaltino",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 615333.54",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 615333.54,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-038",
+      "municipality": "Queimadas",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 59950,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-039",
+      "municipality": "Remanso",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1623948.12",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1623948.12,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-040",
+      "municipality": "Ribeira do Pombal",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 273552.84",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 273552.84,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-041",
+      "municipality": "Rio Real",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1217461.02",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1217461.02,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-042",
+      "municipality": "Santa Bárbara",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 119900.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 119900,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-043",
+      "municipality": "São Félix",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 400000.00",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 400000,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-044",
+      "municipality": "Sento Sé",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 132338.45",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 132338.45,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-045",
+      "municipality": "Serra do Ramalho",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 192561.75",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 192561.75,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-046",
+      "municipality": "Sítio do Quinto",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1092504.11",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1092504.11,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-047",
+      "municipality": "Tabocas do Brejo Velho",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1452398.81",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 1452398.81,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-048",
+      "municipality": "Teodoro Sampaio",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 66721.25",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 66721.25,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-049",
+      "municipality": "Uauá",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 151469.16",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 151469.16,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    },
+    {
+      "id": "CE-050",
+      "municipality": "Ubaíra",
+      "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 182253.65",
+      "type": "financial_fact",
+      "status": "fact",
+      "amountBRL": 182253.65,
+      "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+      "caseGroup": "expansion_wave_01",
+      "legalConclusion": "none",
+      "nextTest": [
+        "instrumento anterior a 04/07",
+        "execução física/obrigação preexistente quando aplicável",
+        "cronograma",
+        "exceção legal",
+        "contratação/OS/medição"
+      ]
+    }
+  ]
+}
