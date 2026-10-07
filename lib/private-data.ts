@@ -4,6 +4,7 @@ import { sourceCatalog } from '@/lib/content';
 import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-archive';
 import fiplanPreservation from '@/preservation/manifests/fiplan-defeso-2026.json';
 import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-2026-10-06.json';
+import municipalityUniverse77 from '@/data/investigation/municipality-universe-77-2026-10-07.json';
 import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
 import p0Triage36 from '@/data/investigation/p0-triage-36-2026-10-06.json';
 import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wave-02-critical-p0.json';
@@ -344,6 +345,7 @@ export async function getPrivateDashboardData() {
     gitPreservations,
     housingAudit,
     municipalityCohort69,
+    municipalityUniverse77,
     centralEvidenceWave01,
     p0Triage36,
     centralEvidenceWave02,
