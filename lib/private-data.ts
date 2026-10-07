@@ -5,6 +5,7 @@ import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-arch
 import fiplanPreservation from '@/preservation/manifests/fiplan-defeso-2026.json';
 import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-2026-10-06.json';
 import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
+import p0Triage36 from '@/data/investigation/p0-triage-36-2026-10-06.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -337,5 +338,6 @@ export async function getPrivateDashboardData() {
     housingAudit,
     municipalityCohort69,
     centralEvidenceWave01,
+    p0Triage36,
   };
 }
