@@ -7,6 +7,7 @@ import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-20
 import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
 import p0Triage36 from '@/data/investigation/p0-triage-36-2026-10-06.json';
 import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wave-02-critical-p0.json';
+import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -341,5 +342,6 @@ export async function getPrivateDashboardData() {
     centralEvidenceWave01,
     p0Triage36,
     centralEvidenceWave02,
+    centralEvidenceWave03,
   };
 }
