@@ -75,9 +75,22 @@
       "packageId": "PREBA-04-JAGUAQUARA-2026",
       "municipality": "Jaguaquara",
       "priority": "urgent",
-      "status": "queued",
+      "status": "public_source_exhausted_ready_for_diligence_request",
+      "structuredData": "data/investigation/preba-package-04-jaguaquara-2026-10-07.json",
+      "humanReadable": "docs/PREBA_04_JAGUAQUARA.md",
+      "coreEvidence": [
+        "CE-029",
+        "CE-029-STADIUM-SLICE",
+        "CE-057"
+      ],
       "protocolReady": false,
-      "focus": "R$ 518.432,07 confirmados por FIPLAN e receita municipal; localizar OS/AIO/medição e execução física anterior a 04/07"
+      "mainBlockers": [
+        "Processo SEI integral 069.1475.2026.0002965-01 e identificação formal do convenente",
+        "termo do convênio referido municipalmente como 28/2026, Plano de Trabalho e cronograma",
+        "contratação, contrato, AIO/OS e prova objetiva de início físico",
+        "fundamento jurídico do pagamento de R$ 518.432,07 em 10/07",
+        "histórico integral FIPLAN"
+      ]
     }
   ]
 }
