@@ -14,6 +14,8 @@ import p0InfrastructureControl from '@/data/investigation/p0-infrastructure-cont
 import ireceP0DeepScan from '@/data/investigation/irece-p0-deep-scan-2026-10-06.json';
 import p0RuralMarketGaps from '@/data/investigation/p0-rural-market-gaps-2026-10-06.json';
 import p0ClassificationCoverage from '@/data/investigation/p0-classification-coverage-36-2026-10-06.json';
+import prebaPackagesIndex from '@/data/investigation/preba-packages-index-2026-10-07.json';
+import prebaLajedoPackage from '@/data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -363,5 +365,7 @@ export async function getPrivateDashboardData() {
     ireceP0DeepScan,
     p0RuralMarketGaps,
     p0ClassificationCoverage,
+    prebaPackagesIndex,
+    prebaLajedoPackage,
   };
 }
