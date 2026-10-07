@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "packageId": "PREBA-04-JAGUAQUARA-2026",
+  "generatedDate": "2026-10-07",
+  "purpose": "Pacote probatório interno para subsidiar eventual notícia de fato ou representação à Procuradoria Regional Eleitoral na Bahia (PRE-BA).",
+  "municipality": "Jaguaquara",
+  "state": "BA",
+  "status": "public_source_exhausted_ready_for_diligence_request",
+  "protocolReadiness": "ready_for_diligence_request_not_final_protocol",
+  "classification": "urgent_document_gap",
+  "legalBoundary": "O pacote documenta o pagamento de R$ 518.432,07, seu vínculo material com a rubrica municipal do Convênio Estadual 28/2026 para construção de estádio e a proximidade temporal entre publicação do instrumento, início do defeso e pagamento. Não afirma, por si só, ilícito eleitoral, ausência de execução física anterior ou a identidade do órgão estadual convenente sem o processo integral.",
+  "coreQuestion": "O pagamento de R$ 518.432,07 efetivado em 10/07/2026 no instrumento FIPLAN 21301.0001.26.0000298-1 estava amparado por obrigação formal preexistente destinada a obra fisicamente em andamento antes de 04/07/2026 e com cronograma prefixado, ou por outra exceção legal documentada?",
+  "identifiers": {
+    "municipalRevenueLabel": "Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara",
+    "seiProcess": "069.1475.2026.0002965-01",
+    "fiplanInstrument": "21301.0001.26.0000298-1",
+    "fiplanAgency": "SETRE",
+    "stateAgreementNumberAsMunicipalRevenue": "28/2026",
+    "agencyNumberingCaution": "A numeração 28/2026 não deve ser atribuída automaticamente à SUDESB: a página pública da SUDESB lista seu Convênio 28/2026 de 2026 para Ibititá. A identidade formal do convenente estadual de Jaguaquara deve ser confirmada no processo SEI."
+  },
+  "financial": {
+    "instrumentValueBRL": 4521941.37,
+    "stadiumPaymentBRL": 518432.07,
+    "stadiumPaymentDate": "2026-07-10",
+    "municipalRevenueCorroboratedBRL": 518432.07,
+    "totalJaguaquaraCriticalPeriodPaymentsBRL": 918432.07,
+    "otherKnownCriticalPeriodPaymentBRL": 400000,
+    "otherKnownInstrument": "18401.0001.26.0000276-2",
+    "otherKnownObject": "CONV 55/2026 - Mercado Municipal - implantação",
+    "separationRule": "O total municipal de R$ 918.432,07 não deve ser confundido com o caso do estádio. O núcleo deste pacote é exclusivamente o pagamento de R$ 518.432,07 do instrumento 21301.0001.26.0000298-1."
+  },
+  "chronology": [
+    {
+      "date": "2026-07-02",
+      "event": "Publicação do instrumento 21301.0001.26.0000298-1 registrada na base FIPLAN consolidada, vinculada ao objeto 'Construção de um Estádio' e ao Processo SEI 069.1475.2026.0002965-01.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "SRC-JAG-FIPLAN-PRESERVED"
+    },
+    {
+      "date": "2026-07-04",
+      "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+      "evidentiaryRole": "legal_milestone",
+      "sourceId": "LEGAL-TSE-23760-2026"
+    },
+    {
+      "date": "2026-07-10",
+      "event": "FIPLAN registra pagamento efetivado de R$ 518.432,07 no instrumento 21301.0001.26.0000298-1.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "CE-029-STADIUM-SLICE"
+    },
+    {
+      "date": "2026-10-06",
+      "event": "Portal municipal de receitas, atualizado em 06/10, identifica receita acumulada de R$ 518.432,07 como 'Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara'.",
+      "evidentiaryRole": "independent_municipal_corroboration",
+      "sourceId": "CE-057"
+    }
+  ],
+  "evidenceMatrix": [
+    {
+      "evidenceId": "CE-029",
+      "type": "municipal_financial_exposure_fact",
+      "assertion": "Jaguaquara teve R$ 918.432,07 em pagamentos de convênios estaduais no período crítico dentro do lote FIPLAN preservado.",
+      "whatItProves": "Exposição financeira municipal agregada no período crítico.",
+      "whatItDoesNotProve": "Não significa que os R$ 918.432,07 pertençam ao caso do estádio; R$ 400.000,00 referem-se a outro instrumento/objeto.",
+      "source": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "sourceManifest": "preservation/manifests/fiplan-defeso-2026.json",
+      "sourceArtifactSha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "paymentExtractSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+      "integrityStatus": "preserved_and_hashed"
+    },
+    {
+      "evidenceId": "CE-029-STADIUM-SLICE",
+      "type": "stadium_financial_fact",
+      "assertion": "Dentro do total de Jaguaquara, o instrumento 21301.0001.26.0000298-1 registra R$ 518.432,07 pagos em 10/07/2026 para o objeto 'Construção de um Estádio'.",
+      "whatItProves": "Valor, data, instrumento e objeto do pagamento específico analisado.",
+      "whatItDoesNotProve": "Não demonstra, sozinho, ausência de execução física anterior a 04/07, a parcela contratual correspondente ou a inexistência de exceção legal.",
+      "source": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "integrityStatus": "preserved_and_hashed"
+    },
+    {
+      "evidenceId": "CE-057",
+      "type": "municipal_revenue_linkage_fact",
+      "assertion": "O portal de receitas de Jaguaquara registra R$ 518.432,07 acumulados sob a rubrica 'Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara'.",
+      "whatItProves": "Corroboração independente, pelo próprio Município, do valor e do vínculo material entre a receita recebida e a construção do estádio.",
+      "whatItDoesNotProve": "Não identifica de forma suficiente, por si só, o órgão estadual convenente nem demonstra a data de início físico da obra.",
+      "source": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "integrityStatus": "official_municipal_source_live_snapshot_hash_pending"
+    },
+    {
+      "evidenceId": "CE-AGENCY-NUMBERING-CAUTION",
+      "type": "identity_boundary_fact",
+      "assertion": "A página pública da SUDESB lista seu Convênio 28/2026 de 2026 como obra em Ibititá, enquanto a receita municipal de Jaguaquara usa a rubrica 'Convênio Estadual 28/2026'.",
+      "whatItProves": "A numeração 28/2026 não pode ser atribuída automaticamente à SUDESB sem o processo/termo específico de Jaguaquara.",
+      "whatItDoesNotProve": "Não invalida a receita municipal nem afasta eventual participação da estrutura SETRE/SUDESB; apenas impede atribuição institucional prematura.",
+      "source": "SUDESB — índice público de convênios 2026 + Receita Municipal de Jaguaquara",
+      "sourceUrl": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "integrityStatus": "public_crosscheck"
+    }
+  ],
+  "agreementFacts": [
+    {
+      "fact": "A base FIPLAN identifica o instrumento 21301.0001.26.0000298-1, agência SETRE, objeto 'Construção de um Estádio', Processo SEI 069.1475.2026.0002965-01, publicado em 02/07/2026.",
+      "sourceId": "SRC-JAG-FIPLAN-PRESERVED"
+    },
+    {
+      "fact": "O valor do instrumento na base consolidada é R$ 4.521.941,37.",
+      "sourceId": "SRC-JAG-FIPLAN-PRESERVED"
+    },
+    {
+      "fact": "O pagamento de R$ 518.432,07 ocorreu em 10/07/2026.",
+      "sourceId": "CE-029-STADIUM-SLICE"
+    },
+    {
+      "fact": "O portal municipal registra exatamente R$ 518.432,07 como receita do 'Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara'.",
+      "sourceId": "CE-057"
+    },
+    {
+      "fact": "O total municipal de R$ 918.432,07 no lote crítico inclui outro pagamento de R$ 400.000,00 relativo ao Mercado Municipal e não deve ser agregado ao caso do estádio.",
+      "sourceId": "CE-029"
+    }
+  ],
+  "apparentIncompatibility": {
+    "status": "requires_investigation",
+    "statement": "O instrumento do estádio aparece publicado em 02/07, apenas dois dias antes do início do defeso, e o pagamento específico de R$ 518.432,07 foi efetivado em 10/07. A receita municipal confirma o mesmo valor e o mesmo objeto. Contudo, não foram localizados publicamente AIO/OS, contrato de execução, primeira medição, diário de obra ou outra prova objetiva de que a construção já estivesse fisicamente em andamento antes de 04/07. A proximidade temporal justifica a requisição dos processos administrativo, financeiro e de engenharia, mas a ausência pública desses documentos não prova sua inexistência.",
+    "legalConclusion": "none"
+  },
+  "lawfulExplanatoryHypothesesToTest": [
+    "A obra pode ter sido iniciada fisicamente antes de 04/07 com base em contratação, AIO/OS ou obrigação formal preexistente ainda não localizada publicamente.",
+    "O cronograma prefixado e o plano de trabalho podem demonstrar atendimento aos requisitos cumulativos da exceção ordinária.",
+    "Pode existir situação de emergência/calamidade especificamente vinculada ao objeto e formalmente utilizada como fundamento.",
+    "O pagamento de R$ 518.432,07 pode corresponder a etapa/parcela vinculada a execução já iniciada e medida antes do defeso; a documentação de engenharia deve confirmar.",
+    "A identificação 'Convênio Estadual 28/2026' pode pertencer a unidade/órgão distinto da numeração SUDESB; o termo específico deve esclarecer convenente, cláusulas e cronograma."
+  ],
+  "investigativeHypothesis": "Caso se confirme que o pagamento de R$ 518.432,07 constituiu transferência voluntária estadual ao Município durante o defeso e que a construção do estádio não estava fisicamente em andamento antes de 04/07 com obrigação formal preexistente e cronograma prefixado, nem havia outra exceção legal documentada, deverá ser apurada a incidência do art. 73, VI, a, da Lei 9.504/1997. Esta formulação é hipótese de investigação, não conclusão.",
+  "documentGaps": [
+    {
+      "priority": "P0",
+      "document": "Processo SEI integral 069.1475.2026.0002965-01",
+      "reason": "É a peça central para identificar convenente estadual, número formal do convênio, termo, plano, cronograma, pareceres e liberação."
+    },
+    {
+      "priority": "P0",
+      "document": "Termo de convênio/instrumento formal correspondente à rubrica municipal 'Convênio Estadual 28/2026'",
+      "reason": "Resolve a cautela de numeração e identifica corretamente órgão convenente, cláusulas e parcelas."
+    },
+    {
+      "priority": "P0",
+      "document": "Plano de Trabalho e cronograma físico-financeiro/prefixado",
+      "reason": "Permitem testar o requisito de cronograma e a etapa financiada pelos R$ 518.432,07."
+    },
+    {
+      "priority": "P0",
+      "document": "Contratação da empresa executora, adjudicação, homologação e contrato",
+      "reason": "Determinam quando surgiu a obrigação executiva concreta e quem poderia iniciar a obra."
+    },
+    {
+      "priority": "P0",
+      "document": "AIO/Ordem de Serviço",
+      "reason": "Define a autorização formal de início da obra e sua posição temporal frente a 04/07."
+    },
+    {
+      "priority": "P0",
+      "document": "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização",
+      "reason": "São as melhores provas objetivas para fixar a data de início físico da construção."
+    },
+    {
+      "priority": "P0",
+      "document": "Processo de liquidação/liberação do pagamento de R$ 518.432,07 e parecer jurídico-eleitoral",
+      "reason": "Esclarece o fundamento administrativo e legal adotado para liberar o recurso em 10/07."
+    },
+    {
+      "priority": "P1",
+      "document": "Histórico integral FIPLAN do instrumento 21301.0001.26.0000298-1",
+      "reason": "Permite identificar repasses anteriores, parcelas, NOBs e cronologia financeira completa."
+    },
+    {
+      "priority": "P1",
+      "document": "Extratos da conta específica do convênio estritamente no período necessário à apuração",
+      "reason": "Corroboram ingresso e aplicação dos R$ 518.432,07 sem ampliar desnecessariamente o escopo."
+    }
+  ],
+  "requestedDiligences": [
+    {
+      "recipient": "SETRE / unidade estadual responsável pelo Processo SEI 069.1475.2026.0002965-01",
+      "request": "Encaminhar íntegra do processo, termo formal do convênio, Plano de Trabalho, cronogramas, pareceres, AIO/OS, fiscalização, medições e documentação da liberação financeira."
+    },
+    {
+      "recipient": "SEFAZ/FIPLAN",
+      "request": "Certificar o histórico integral do instrumento 21301.0001.26.0000298-1, com todas as NOBs, parcelas, datas de emissão, liquidação, efetivação e identificação da natureza do pagamento de R$ 518.432,07."
+    },
+    {
+      "recipient": "Município de Jaguaquara",
+      "request": "Encaminhar termo do Convênio Estadual 28/2026 referido em sua receita, processo municipal de contratação da obra, contrato, AIO/OS, medições, diário de obra, ART/RRT e prestação de contas correspondente."
+    },
+    {
+      "recipient": "Órgão jurídico estadual competente",
+      "request": "Informar o fundamento jurídico-eleitoral aplicado à liberação de 10/07 e os documentos que demonstrariam eventual enquadramento nas exceções do art. 73, VI, a."
+    }
+  ],
+  "legalFramework": [
+    {
+      "id": "LEGAL-LEI-9504-ART73-VI-A",
+      "source": "Lei 9.504/1997, art. 73, VI, a",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9504compilado.htm",
+      "role": "Veda transferências voluntárias nos três meses anteriores ao pleito, ressalvadas as hipóteses legais."
+    },
+    {
+      "id": "LEGAL-TSE-23760-2026",
+      "source": "Resolução TSE 23.760/2026 — Calendário Eleitoral",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "role": "Fixa 04/07/2026 como marco do período vedado nas Eleições 2026."
+    },
+    {
+      "id": "LEGAL-TRANSFEREGOV-COM21-2026",
+      "source": "Comunicado Transferegov nº 21/2026",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "role": "Referência contemporânea que explicita obrigação formal, cronograma prefixado e execução física anterior ao defeso como requisitos cumulativos da exceção ordinária."
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "SRC-JAG-FIPLAN-PRESERVED",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "retrievedAt": "2026-10-06T01:09:27Z",
+      "sha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "preservation": "preserved_manifest_and_filtered_extracts"
+    },
+    {
+      "sourceId": "SRC-JAG-MUNICIPAL-REVENUE",
+      "publisher": "Prefeitura Municipal de Jaguaquara / Município Online",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "preservation": "live_official_municipal_source_snapshot_hash_pending"
+    },
+    {
+      "sourceId": "SRC-JAG-SUDESB-NUMBERING-CHECK",
+      "publisher": "SUDESB",
+      "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "preservation": "used_only_to_prevent_wrong_agency_number_attribution"
+    }
+  ],
+  "publicResearchExhaustion": {
+    "completedAt": "2026-10-07",
+    "status": "exhausted_open_sources_for_p0_documents",
+    "searchOutcome": "Foram confirmados o instrumento FIPLAN, valor, data, objeto e a receita municipal específica de R$ 518.432,07. Não foram localizados publicamente o termo formal do convênio de Jaguaquara, contratação executora, AIO/OS, primeira medição, diário de obra ou parecer de liberação.",
+    "boundary": "Ausência em busca pública não é prova de inexistência. Os documentos passam a ser objeto de requisição formal."
+  },
+  "protocolGate": {
+    "ready": false,
+    "minimumToClose": [
+      "Obter o Processo SEI integral 069.1475.2026.0002965-01 e identificar formalmente o convenente estadual.",
+      "Obter o termo do convênio referido municipalmente como 28/2026, Plano de Trabalho e cronograma prefixado.",
+      "Obter contratação, contrato, AIO/OS e primeira prova objetiva de execução física.",
+      "Obter processo/parecer que fundamentou a liberação de R$ 518.432,07 em 10/07.",
+      "Certificar histórico integral FIPLAN do instrumento."
+    ],
+    "recommendedUseNow": "As fontes públicas foram esgotadas para as peças P0. O pacote está pronto para integrar pedido formal de requisição/preservação, preservando a cautela sobre a numeração do convênio e sem afirmar irregularidade como fato consumado."
+  }
+}
