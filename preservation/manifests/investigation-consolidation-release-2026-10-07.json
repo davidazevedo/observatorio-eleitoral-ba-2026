@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "investigation-consolidation-2026-10-07",
+  "createdAt": "2026-10-07T12:20:00Z",
+  "scope": "Consolidação da investigação de transferências no período crítico, expansão territorial, evidências centrais, classificação P0, cockpit privado e publicação via Intel API.",
+  "releaseGates": {
+    "privateCockpit": "implemented",
+    "intelQueryApi": "implemented_existing",
+    "intelDatasetsApi": "implemented",
+    "p0SubstantiveClassification": "36/36",
+    "evidenceWaves": {
+      "wave01": 50,
+      "wave02": 4,
+      "wave03": 3,
+      "cumulative": 57
+    },
+    "cohort": {
+      "newMunicipalities": 69,
+      "totalPriorityUniverse": 77
+    },
+    "ireceTerritory": {
+      "selected": 20,
+      "total": 20
+    },
+    "productionMerge": "pending_at_manifest_creation",
+    "productionDeployment": "pending_at_manifest_creation"
+  },
+  "p0Classification": {
+    "total": 36,
+    "criticalInvestigation": 2,
+    "urgentDocumentGap": 2,
+    "preCutoffPhysicalExecutionCorroborated": 1,
+    "preCutoffExecutionIndicators": 6,
+    "preCutoffProcurementOnly": 17,
+    "postCutoffImplementationIndicators": 1,
+    "documentGap": 7
+  },
+  "criticalCases": [
+    "Lajedo do Tabocal",
+    "Belo Campo"
+  ],
+  "urgentCases": [
+    "Araçás",
+    "Jaguaquara"
+  ],
+  "intelApi": {
+    "queryEndpoint": "/api/intelligence/query",
+    "datasetsEndpoint": "/api/intelligence/datasets",
+    "auth": "Bearer token or x-intelligence-key; server compares SHA-256 against INTELLIGENCE_API_KEY_HASH",
+    "datasets": [
+      "cohort-69",
+      "p0-triage-36",
+      "p0-classification-36",
+      "p0-comida-no-prato-control",
+      "p0-infrastructure-control",
+      "irece-p0-deep-scan",
+      "p0-rural-market-gaps",
+      "central-evidence-wave-01",
+      "central-evidence-wave-02",
+      "central-evidence-wave-03"
+    ]
+  },
+  "evidenceBoundary": [
+    "57 evidências centrais não significam 57 ilícitos.",
+    "Votação eleitoral é critério de priorização amostral, nunca evidência de irregularidade.",
+    "Pagamento no período crítico não implica ilicitude; cada caso depende da exceção legal e da cadeia documental.",
+    "Não localizado em fonte pública não significa inexistente."
+  ],
+  "sourceIntegrity": {
+    "fiplanManifest": "preservation/manifests/fiplan-defeso-2026.json",
+    "centralEvidenceWave01": "preservation/manifests/central-evidence-wave-01-50.json",
+    "centralEvidenceWave02": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+    "centralEvidenceWave03": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+    "p0Classification": "data/investigation/p0-classification-coverage-36-2026-10-06.json"
+  },
+  "sourceBranch": "research/housing-defeso-batch-2026-10-06",
+  "productionBaseAtCreation": "0558005b99511ac1871b8b43f176e3e8c8f9d004",
+  "sourceHeadBeforeManifest": "1eeb621fd4db903bee53eaf88a4ca2968a05f96d"
+}
