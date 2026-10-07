@@ -5,8 +5,8 @@
   "purpose": "Pacote probatório interno para subsidiar eventual notícia de fato ou representação à Procuradoria Regional Eleitoral na Bahia (PRE-BA).",
   "municipality": "Lajedo do Tabocal",
   "state": "BA",
-  "status": "draft_evidence_package_v1",
-  "protocolReadiness": "pending_key_diligences",
+  "status": "public_source_exhausted_ready_for_diligence_request",
+  "protocolReadiness": "ready_for_diligence_request_not_final_protocol",
   "classification": "critical_investigation",
   "legalBoundary": "O pacote documenta fatos, uma aparente incompatibilidade temporal/documental e lacunas que justificam apuração. Não afirma, por si só, ocorrência de ilícito eleitoral, abuso, dolo ou desvio de finalidade.",
   "coreQuestion": "Se o repasse de R$ 49.946,15 efetuado em 06/07/2026, após o início do período vedado em 04/07/2026, estava coberto por alguma das exceções do art. 73, VI, a, da Lei 9.504/1997, apesar de o próprio Convênio SUDESB 32/2026 vedar atividade do plano antes do início do repasse e vedar o início do objeto antes da Autorização de Início de Obra.",
@@ -232,6 +232,12 @@
       "role": "Fixa 04/07/2026 como marco de início da vedação para as eleições de 2026."
     },
     {
+      "id": "LEGAL-TRANSFEREGOV-COM21-2026",
+      "source": "Comunicado Transferegov nº 21/2026",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "role": "Orientação contemporânea ao pleito de 2026 que explicita os requisitos cumulativos da exceção: obrigação formal preexistente, cronograma prefixado e execução física iniciada antes do defeso."
+    },
+    {
       "id": "LEGAL-AGU-AM01-2019",
       "source": "Parecer AM-01/2019/AGU",
       "url": "https://www.planalto.gov.br/ccivil_03/agu/pareceres/2019-2022/prc-am-01-2019.htm",
@@ -271,6 +277,12 @@
       "preservation": "official_identifier_verified_snapshot_hash_pending"
     }
   ],
+  "publicResearchExhaustion": {
+    "completedAt": "2026-10-07",
+    "status": "exhausted_open_sources_for_p0_documents",
+    "searchOutcome": "Não foram localizados publicamente, nas fontes indexadas consultadas, Plano de Trabalho integral, AIO/OS, primeira medição, parecer de liberação de 06/07 ou contrato anterior ao marco. A Concorrência 04/2026 permanece documentalmente publicada em 13/07 e vinculada ao Convênio 32/2026.",
+    "boundary": "Ausência em busca pública não é prova de inexistência. Os itens passam a ser objeto de requisição formal."
+  },
   "protocolGate": {
     "ready": false,
     "minimumToClose": [
@@ -280,6 +292,6 @@
       "Preservar publicação e errata do convênio.",
       "Preservar integralmente o registro PNCP e, se existente, contrato resultante."
     ],
-    "recommendedUseNow": "O material já sustenta pedido de preservação e requisição de documentos, mas o pacote deve permanecer como minuta investigativa até o fechamento das diligências P0."
+    "recommendedUseNow": "O esgotamento de fontes públicas foi concluído. O pacote está pronto para integrar uma notícia de fato como núcleo de pedido de requisição/preservação, mas ainda não deve apresentar a irregularidade como fato consumado nem ser marcado como protocolo final fechado."
   }
 }
