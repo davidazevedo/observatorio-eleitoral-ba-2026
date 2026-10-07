@@ -11,6 +11,8 @@ import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wav
 import p0ComidaNoPratoControl from '@/data/investigation/p0-comida-no-prato-control-2026-10-06.json';
 import p0InfrastructureControl from '@/data/investigation/p0-infrastructure-control-2026-10-06.json';
 import ireceP0DeepScan from '@/data/investigation/irece-p0-deep-scan-2026-10-06.json';
+import p0RuralMarketGaps from '@/data/investigation/p0-rural-market-gaps-2026-10-06.json';
+import p0ClassificationCoverage from '@/data/investigation/p0-classification-coverage-36-2026-10-06.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -349,5 +351,7 @@ export async function getPrivateDashboardData() {
     p0ComidaNoPratoControl,
     p0InfrastructureControl,
     ireceP0DeepScan,
+    p0RuralMarketGaps,
+    p0ClassificationCoverage,
   };
 }
