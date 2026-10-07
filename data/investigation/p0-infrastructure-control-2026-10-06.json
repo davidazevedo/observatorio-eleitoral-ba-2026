@@ -174,6 +174,127 @@
       "physicalExecution": [],
       "status": "pre_cutoff_procurement_only",
       "assessment": "A contratação da pavimentação aparece formalizada antes do marco. A SECOM também registrou, em abril, autorizações estaduais de pavimentação no município, mas esses atos não devem ser confundidos automaticamente com o objeto do Convênio 058/2025. Falta OS/AIO/medição específica."
+    },
+    {
+      "municipality": "Araci",
+      "fiplanInstruments": [
+        {
+          "instrument": "26401.0001.26.0000048-5",
+          "paymentDate": "2026-09-30",
+          "paidBRL": 261748.73,
+          "stateAgreement": "Convênio CONDER 029/2025",
+          "object": "Pavimentação em paralelepípedo com drenagem superficial nas Ruas 01 e 02, Povoado João Vieira",
+          "instrumentValueBRL": 533821.65
+        },
+        {
+          "instrument": "26401.0001.26.0000068-1",
+          "paymentDate": "2026-09-30",
+          "paidBRL": 234968.29,
+          "stateAgreement": "Convênio CONDER 034/2025",
+          "object": "Pavimentação em paralelepípedo com drenagem superficial nas Ruas 01 e 02, Povoado Barreira",
+          "instrumentValueBRL": 507289.05
+        }
+      ],
+      "fiplanInstrument": "26401.0001.26.0000048-5 + 26401.0001.26.0000068-1",
+      "stateAgreement": "Convênios CONDER 029/2025 e 034/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 496717.02,
+      "object": "Pavimentação nos povoados João Vieira e Barreira",
+      "procurement": {
+        "number": "CCRE011/2025",
+        "publicationDate": "2025-12-18",
+        "proposalSession": "2026-01-27",
+        "homologationDate": "2026-03-16",
+        "adjudicationDate": "2026-04-27",
+        "estimatedClusterBRL": 2103881.22,
+        "scope": "Convênios 029/2025, 030/2025, 031/2025 e 034/2025",
+        "sourceUrl": "https://diario.indap.org.br/?cidade=Araci&cidade_id=1853&estado=BA&estado_id=5&orgao=Prefeitura"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Os dois instrumentos FIPLAN foram identificados por correspondência exata de valor/objeto com os Convênios 029/2025 e 034/2025, ambos incluídos na CCRE011/2025 homologada antes de 04/07. Falta localizar contratos específicos, OS/AIO e medições para comprovar início físico."
+    },
+    {
+      "municipality": "Ubaíra",
+      "fiplanInstrument": "26401.0001.26.0000057-4",
+      "stateAgreement": "Convênio CONDER 035/2025",
+      "fiplanPaymentDate": "2026-08-14",
+      "fiplanPaidBRL": 182253.65,
+      "object": "Pavimentação em concreto armado na Rua da Linha da Sapucaia",
+      "procurement": {
+        "number": "Concorrência 002/2026",
+        "publicationDate": "2026-01-28",
+        "proposalSession": "2026-02-11",
+        "status": "homologado/finalizado no portal municipal",
+        "supplier": "LEAN LIGHT CONSTRUÇÕES LTDA",
+        "supplierCnpj": "28.018.301/0001-61",
+        "contractStart": "2026-04-29",
+        "contractedBRL": 225199.02,
+        "sourceUrl": "https://www.ubaira.ba.gov.br/site/licitacoes/transparencia"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação homologada e contrato derivado do mesmo objeto aparecem antes do marco. Ainda falta preservar o contrato primário e localizar OS/AIO ou medição anterior a 04/07."
+    },
+    {
+      "municipality": "Jiquiriçá",
+      "fiplanInstrument": "26401.0001.26.0000033-7",
+      "stateAgreement": "Convênio CONDER 56/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 413495.16,
+      "object": "Pavimentação em concreto armado e drenagem da Ladeira da Pindoba",
+      "procurement": {
+        "number": "CR-012/2025",
+        "publicationDate": "2025-12-24",
+        "proposalSession": "2026-02-05",
+        "estimatedBRL": 1096813.92,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/jiquirica/13764659000166-1-000165/2025/concorrencia-eletronica-edital-no-cr-0122025"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação do mesmo Convênio 56/2025 foi lançada meses antes de 04/07. Resultado, contrato e início físico ainda precisam ser localizados para fechar a exceção."
+    },
+    {
+      "municipality": "Ribeira do Pombal",
+      "fiplanInstrument": "26401.0001.26.0000036-1",
+      "stateAgreement": "Convênio CONDER 065/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 273552.84,
+      "object": "Pavimentação em paralelepípedo com drenagem no Bairro Juliana",
+      "procurement": {
+        "number": "CE003/2026",
+        "publicationDate": "2026-03-11",
+        "proposalSession": "2026-03-25",
+        "estimatedBRL": 534112.89,
+        "sourceUrl": "https://ribeiradopombal.ba.gov.br/2026/03/11/prefeitura-avanca-com-novo-processo-licitatorio-para-pavimentacao-e-drenagem-no-bairro-juliana/"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "O objeto e o Convênio 065/2025 estão inequivocamente ligados a licitação anterior ao marco. Faltam homologação, contrato, OS/AIO e medição para demonstrar execução física anterior a 04/07."
+    },
+    {
+      "municipality": "Paramirim",
+      "fiplanInstrument": "26401.0001.26.0000038-8",
+      "stateAgreement": "Convênio CONDER 054/2025",
+      "fiplanPaymentDate": "2026-08-27",
+      "fiplanPaidBRL": 213995.5,
+      "object": "Pavimentação em paralelepípedo com drenagem superficial da Rua Jovino Rodrigues da Silva",
+      "procurement": {
+        "number": "CCRE 002/2026",
+        "proposalSession": "2026-02-23",
+        "estimatedBRL": 379407.27,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacoes/orgao/municipio-de-paramirim/65085"
+      },
+      "physicalExecution": [
+        {
+          "date": "2026-07-10",
+          "type": "public_work_update",
+          "fact": "Prefeitura noticiou que a Rua Jovino Rodrigues da Silva estava sendo pavimentada nessa data; o registro confirma execução em julho, mas não prova início antes de 04/07.",
+          "sourceUrl": "https://paramirim.ba.gov.br/noticias/tem_pavimentacao_na_area-1759/estrutura/45"
+        }
+      ],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação ocorreu em fevereiro, mas a primeira comprovação pública de execução localizada nesta rodada é de 10/07, após o marco. O caso permanece aberto para contrato, OS/AIO e primeira medição; não interpretar a notícia de 10/07 como prova de início tardio."
     }
   ],
   "nextActions": [
@@ -182,9 +303,9 @@
     "Canarana: localizar OS/AIO e primeira medição; confirmar formalmente o vínculo do contrato C012105/2026 com o instrumento FIPLAN",
     "Rio Real: identificar primeiro o número do convênio estadual correspondente ao instrumento 26401.0001.26.0000217-8 e só então buscar contratação/OS/medição"
   ],
-  "updatedAt": "2026-10-07T06:20:00Z",
+  "updatedAt": "2026-10-07T06:45:00Z",
   "summary": {
-    "totalCases": 8,
+    "totalCases": 13,
     "physicalExecutionCorroborated": [
       "Brumado"
     ],
@@ -194,7 +315,12 @@
       "Ituaçu",
       "Aratuípe",
       "Tabocas do Brejo Velho",
-      "Sítio do Quinto"
+      "Sítio do Quinto",
+      "Araci",
+      "Ubaíra",
+      "Jiquiriçá",
+      "Ribeira do Pombal",
+      "Paramirim"
     ],
     "open": [
       "Rio Real"
