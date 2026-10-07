@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "packageId": "PREBA-02-BELO-CAMPO-2026",
+  "generatedDate": "2026-10-07",
+  "purpose": "Pacote probatório interno para subsidiar eventual notícia de fato ou representação à Procuradoria Regional Eleitoral na Bahia (PRE-BA).",
+  "municipality": "Belo Campo",
+  "state": "BA",
+  "status": "draft_evidence_package_v1",
+  "protocolReadiness": "pending_key_diligences",
+  "classification": "critical_investigation",
+  "legalBoundary": "O pacote documenta a cronologia do Convênio SEAGRI 01/2026, a realização do evento e o pagamento posterior ao início do defeso. Não afirma, por si só, ilícito eleitoral, abuso, dolo, desvio de finalidade ou que o repasse necessariamente se enquadre como transferência voluntária sujeita ao art. 73, VI, a.",
+  "coreQuestion": "Qual foi o fundamento jurídico e financeiro para a disponibilização, em 08/07/2026, dos R$ 200.000,00 de participação estadual previstos no Convênio SEAGRI 01/2026, considerando que a Cavalgada de Belo Campo já havia sido realizada em 07/06/2026 e que o período de vedação eleitoral começou em 04/07/2026?",
+  "identifiers": {
+    "agreement": "Convênio SEAGRI 01/2026",
+    "seiProcess": "010.9156.2025.0002545-71",
+    "fiplanInstrument": "10101.0001.26.0000079-3",
+    "fiplanBankOrder": "10101.0001.26.0001454-0",
+    "parliamentaryAmendment": "202535680003"
+  },
+  "financial": {
+    "agreementValueBRL": 290000,
+    "stateContributionBRL": 200000,
+    "municipalCounterpartBRL": 90000,
+    "criticalPeriodPaymentBRL": 200000,
+    "paymentDate": "2026-07-08"
+  },
+  "chronology": [
+    {
+      "date": "2026-06-02",
+      "event": "Assinatura do Convênio SEAGRI 01/2026 entre o Estado da Bahia/SEAGRI e o Município de Belo Campo.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "SRC-BELO-DOE-CONVENIO"
+    },
+    {
+      "date": "2026-06-03",
+      "event": "Publicação do resumo do Convênio 01/2026 no Diário Oficial do Estado, com objeto, valor, fonte e vigência.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "CE-054"
+    },
+    {
+      "date": "2026-06-03",
+      "event": "A Prefeitura anunciou oficialmente a realização da Cavalgada para 07/06 e informou apoio do Governo do Estado por meio da SEAGRI.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "SRC-BELO-PREFEITURA-PREVIA"
+    },
+    {
+      "date": "2026-06-07",
+      "event": "A Cavalgada - A Tradição do Vaqueiro foi realizada em Belo Campo.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "CE-053"
+    },
+    {
+      "date": "2026-06-10",
+      "event": "Notícia municipal posterior registrou a realização do evento, público aproximado de 11 mil pessoas e apoio da SEAGRI.",
+      "evidentiaryRole": "independent_municipal_corroboration",
+      "sourceId": "SRC-BELO-PREFEITURA-POS"
+    },
+    {
+      "date": "2026-07-04",
+      "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+      "evidentiaryRole": "legal_milestone",
+      "sourceId": "LEGAL-TSE-23760-2026"
+    },
+    {
+      "date": "2026-07-08",
+      "event": "FIPLAN registra pagamento efetivado de R$ 200.000,00 no instrumento 10101.0001.26.0000079-3, correspondente à participação estadual indicada no Convênio 01/2026.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "CE-019"
+    }
+  ],
+  "evidenceMatrix": [
+    {
+      "evidenceId": "CE-019",
+      "type": "financial_fact",
+      "assertion": "Pagamento de R$ 200.000,00 foi efetivado em 08/07/2026.",
+      "whatItProves": "Existência, valor e data do repasse no período posterior a 04/07.",
+      "whatItDoesNotProve": "Não prova que o fluxo seja juridicamente transferência voluntária sujeita ao art. 73, VI, a, nem prova ilegalidade ou finalidade eleitoral.",
+      "source": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "sourceManifest": "preservation/manifests/fiplan-defeso-2026.json",
+      "sourceArtifactSha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "paymentExtractSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+      "integrityStatus": "preserved_and_hashed"
+    },
+    {
+      "evidenceId": "CE-053",
+      "type": "object_completion_fact",
+      "assertion": "A Cavalgada financiada pelo Convênio SEAGRI 01/2026 foi realizada em 07/06/2026.",
+      "whatItProves": "O objeto principal publicamente identificado como o evento já havia ocorrido antes de 04/07 e antes do pagamento de 08/07.",
+      "whatItDoesNotProve": "Não demonstra quais obrigações contratuais acessórias permaneciam pendentes, nem a data de execução de cada despesa ou serviço individual do plano de trabalho.",
+      "source": "Prefeitura Municipal de Belo Campo",
+      "sourceUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "integrityStatus": "official_municipal_source_snapshot_hash_pending"
+    },
+    {
+      "evidenceId": "CE-054",
+      "type": "agreement_object_fact",
+      "assertion": "O Convênio SEAGRI 01/2026 destinou R$ 200.000,00 estaduais ao apoio da Cavalgada de Belo Campo, dentro de valor global de R$ 290.000,00.",
+      "whatItProves": "Vínculo entre Estado, Município, objeto do evento e valor da participação estadual; registra assinatura em 02/06 e vigência até 30/09.",
+      "whatItDoesNotProve": "Não contém, no resumo publicado, o plano de trabalho, cronograma financeiro detalhado, cláusulas de liberação ou a motivação jurídica específica do pagamento de 08/07.",
+      "source": "Diário Oficial do Estado da Bahia — resumo do Convênio 01/2026",
+      "sourceUrl": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+      "integrityStatus": "official_publication_text_corroborated_snapshot_hash_pending"
+    }
+  ],
+  "agreementFacts": [
+    {
+      "fact": "O Convênio 01/2026 foi assinado em 02/06/2026 e publicado em 03/06/2026.",
+      "sourceId": "CE-054"
+    },
+    {
+      "fact": "O objeto publicado é apoiar a realização da Cavalgada de Belo Campo - A Tradição do Vaqueiro.",
+      "sourceId": "CE-054"
+    },
+    {
+      "fact": "O valor global é R$ 290.000,00, sendo R$ 200.000,00 de participação estadual e R$ 90.000,00 de contrapartida municipal.",
+      "sourceId": "CE-054"
+    },
+    {
+      "fact": "A publicação identifica a fonte estadual como recurso de Emenda Parlamentar 202535680003 e a destinação como Transferência Especial da União - Deputado Federal Paulo Magalhães.",
+      "sourceId": "CE-054"
+    },
+    {
+      "fact": "O evento foi realizado em 07/06/2026, cerca de um mês antes do pagamento estadual de 08/07.",
+      "sourceId": "CE-053"
+    }
+  ],
+  "apparentIncompatibility": {
+    "status": "requires_investigation",
+    "statement": "A documentação pública mostra que o evento apoiado pelo Convênio 01/2026 foi concluído em 07/06, enquanto os R$ 200.000,00 de participação estadual foram disponibilizados em 08/07, já no período de defeso. Se o fluxo estadual ao Município for juridicamente uma transferência voluntária alcançada pelo art. 73, VI, a, a exceção ordinária exige obrigação formal preexistente, cronograma prefixado e serviço em andamento com execução física iniciada antes do defeso. Como o evento principal já havia terminado, o processo de pagamento deve esclarecer qual obrigação/serviço permanecia em andamento e qual fundamento legal autorizou a liberação.",
+    "legalConclusion": "none"
+  },
+  "lawfulExplanatoryHypothesesToTest": [
+    "O fluxo pode possuir natureza jurídica distinta de transferência voluntária estadual alcançada pelo art. 73, VI, a; a classificação deve ser demonstrada pelo processo e pelo parecer jurídico.",
+    "O plano de trabalho pode conter serviços ou obrigações materiais autônomas que permaneciam em execução após 07/06 e atendiam cumulativamente aos requisitos legais; isso precisa ser demonstrado documentalmente.",
+    "O pagamento de 08/07 pode corresponder a ressarcimento/liquidação de obrigação já executada, hipótese cuja compatibilidade com a vedação eleitoral precisa de fundamento jurídico formal específico.",
+    "A origem em transferência especial federal pode ter sido considerada relevante pela Administração; é necessário identificar se e como essa origem altera a natureza do repasse estadual ao Município.",
+    "Pode haver erro ou particularidade na data de disponibilização, liquidação, classificação do FIPLAN ou no vínculo entre a NOB e a participação estadual, exigindo certificação oficial."
+  ],
+  "investigativeHypothesis": "Caso se confirme que a disponibilização de R$ 200.000,00 em 08/07 constituiu transferência voluntária do Estado ao Município, e que não havia serviço em andamento com cronograma prefixado nem outra exceção legal aplicável, deverá ser apurada a incidência do art. 73, VI, a, da Lei 9.504/1997. Esta formulação é hipótese de investigação, não conclusão.",
+  "documentGaps": [
+    {
+      "priority": "P0",
+      "document": "Processo SEI integral 010.9156.2025.0002545-71",
+      "reason": "Permite verificar plano de trabalho, cronograma, cláusulas de liberação, pareceres e motivação do pagamento."
+    },
+    {
+      "priority": "P0",
+      "document": "Plano de Trabalho aprovado, cronograma de execução e cronograma de desembolso",
+      "reason": "Define exatamente quais serviços/etapas eram financiados e se algum permanecia em andamento em 04/07."
+    },
+    {
+      "priority": "P0",
+      "document": "Processo administrativo de liquidação/liberação dos R$ 200.000,00 em 08/07 e parecer jurídico eleitoral",
+      "reason": "Esclarece o enquadramento adotado pela SEAGRI para efetuar o repasse no período vedado."
+    },
+    {
+      "priority": "P0",
+      "document": "Prestação de contas parcial/final do Convênio 01/2026, notas fiscais, contratos e comprovantes de execução",
+      "reason": "Permite identificar quando cada serviço foi executado e se o valor estadual financiou despesas anteriores, posteriores ou ambas."
+    },
+    {
+      "priority": "P0",
+      "document": "Classificação formal da natureza jurídica do repasse Estado→Município",
+      "reason": "É indispensável confirmar se o fluxo é transferência voluntária para fins do art. 73, VI, a ou se há fundamento legal para tratamento diverso."
+    },
+    {
+      "priority": "P1",
+      "document": "Histórico integral FIPLAN do instrumento 10101.0001.26.0000079-3 e NOB 10101.0001.26.0001454-0",
+      "reason": "Confirma emissão, liquidação, disponibilização e eventual existência de lançamentos anteriores."
+    },
+    {
+      "priority": "P1",
+      "document": "Contratações municipais vinculadas à Cavalgada — artistas, estrutura, alimentação, premiação, logística e demais itens do plano",
+      "reason": "Ajuda a reconstruir a execução física e financeira do objeto e a separar obrigações concluídas de eventuais obrigações remanescentes."
+    }
+  ],
+  "requestedDiligences": [
+    {
+      "recipient": "SEAGRI / Governo do Estado da Bahia",
+      "request": "Encaminhar cópia integral do Processo SEI 010.9156.2025.0002545-71, incluindo Convênio completo, Plano de Trabalho, cronogramas, pareceres, processo de liquidação/pagamento de 08/07 e fundamento jurídico-eleitoral da liberação."
+    },
+    {
+      "recipient": "Município de Belo Campo",
+      "request": "Encaminhar prestação de contas do Convênio 01/2026 e as contratações, notas fiscais, ordens de fornecimento/serviço e comprovantes relativos às despesas custeadas pelo aporte estadual."
+    },
+    {
+      "recipient": "SEFAZ/FIPLAN",
+      "request": "Certificar o histórico integral do instrumento 10101.0001.26.0000079-3 e da NOB 10101.0001.26.0001454-0, discriminando emissão, liquidação, efetivação e natureza do pagamento."
+    },
+    {
+      "recipient": "SEAGRI / Assessoria Jurídica",
+      "request": "Informar a classificação jurídica do repasse Estado→Município para fins do art. 73, VI, a, inclusive a relevância atribuída à origem orçamentária vinculada à transferência especial federal."
+    }
+  ],
+  "legalFramework": [
+    {
+      "id": "LEGAL-LEI-9504-ART73-VI-A",
+      "source": "Lei 9.504/1997, art. 73, VI, a",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9504compilado.htm",
+      "role": "Norma que veda transferências voluntárias nos três meses anteriores ao pleito, ressalvadas as hipóteses legais."
+    },
+    {
+      "id": "LEGAL-TSE-23760-2026",
+      "source": "Resolução TSE 23.760/2026 — Calendário Eleitoral",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "role": "Fixa 04/07/2026 como marco do defeso para as Eleições 2026."
+    },
+    {
+      "id": "LEGAL-TRANSFEREGOV-COM21-2026",
+      "source": "Comunicado Transferegov nº 21/2026",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "role": "Orientação contemporânea ao pleito de 2026 que explicita os requisitos cumulativos para a exceção: obrigação formal preexistente, cronograma prefixado e execução física iniciada antes do defeso."
+    },
+    {
+      "id": "LEGAL-AGU-AM01-2019",
+      "source": "Parecer AM-01/2019/AGU",
+      "url": "https://www.presidencia.gov.br/ccivil_03/agu/pareceres/2019-2022/prc-am-01-2019.htm",
+      "role": "Referência interpretativa sobre obra ou serviço em andamento e início da execução física."
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "SRC-BELO-FIPLAN-PRESERVED",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "retrievedAt": "2026-10-06T01:09:27Z",
+      "sha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "preservation": "preserved_manifest_and_filtered_extracts"
+    },
+    {
+      "sourceId": "SRC-BELO-DOE-CONVENIO",
+      "publisher": "Diário Oficial do Estado da Bahia / SEAGRI",
+      "url": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+      "preservation": "publication_text_located_snapshot_hash_pending"
+    },
+    {
+      "sourceId": "SRC-BELO-PREFEITURA-PREVIA",
+      "publisher": "Prefeitura Municipal de Belo Campo",
+      "url": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-030620260948572561-Cavalgada-A-Tradi-o-do-Vaqueiro-movimenta-Belo-Campo-no-pr-ximo-domingo",
+      "preservation": "official_source_located_snapshot_hash_pending"
+    },
+    {
+      "sourceId": "SRC-BELO-PREFEITURA-POS",
+      "publisher": "Prefeitura Municipal de Belo Campo",
+      "url": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "preservation": "official_source_located_snapshot_hash_pending"
+    }
+  ],
+  "protocolGate": {
+    "ready": false,
+    "minimumToClose": [
+      "Obter o Processo SEI integral e o Plano de Trabalho/cronogramas.",
+      "Obter o processo/parecer que fundamentou a liberação de R$ 200 mil em 08/07.",
+      "Definir documentalmente a natureza jurídica do repasse Estado→Município para fins do art. 73, VI, a.",
+      "Obter a prestação de contas e identificar quais serviços/despesas foram efetivamente custeados pelo valor estadual.",
+      "Certificar o histórico integral FIPLAN/NOB."
+    ],
+    "recommendedUseNow": "O conjunto já sustenta pedido objetivo de requisição dos processos e esclarecimento jurídico do pagamento posterior ao evento, mas deve permanecer como pacote investigativo até o fechamento das diligências P0."
+  }
+}
