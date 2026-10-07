@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "packageId": "PREBA-01-LAJEDO-TABOCAL-2026",
+  "generatedDate": "2026-10-07",
+  "purpose": "Pacote probatório interno para subsidiar eventual notícia de fato ou representação à Procuradoria Regional Eleitoral na Bahia (PRE-BA).",
+  "municipality": "Lajedo do Tabocal",
+  "state": "BA",
+  "status": "draft_evidence_package_v1",
+  "protocolReadiness": "pending_key_diligences",
+  "classification": "critical_investigation",
+  "legalBoundary": "O pacote documenta fatos, uma aparente incompatibilidade temporal/documental e lacunas que justificam apuração. Não afirma, por si só, ocorrência de ilícito eleitoral, abuso, dolo ou desvio de finalidade.",
+  "coreQuestion": "Se o repasse de R$ 49.946,15 efetuado em 06/07/2026, após o início do período vedado em 04/07/2026, estava coberto por alguma das exceções do art. 73, VI, a, da Lei 9.504/1997, apesar de o próprio Convênio SUDESB 32/2026 vedar atividade do plano antes do início do repasse e vedar o início do objeto antes da Autorização de Início de Obra.",
+  "identifiers": {
+    "agreement": "Convênio SUDESB 32/2026",
+    "seiProcess": "069.1479.2026.0002857-54",
+    "seiDocument": "00142991035",
+    "seiCrc": "2842D758",
+    "fiplanInstrument": "21301.0001.26.0000299-1",
+    "fiplanBankOrder": "21301.0001.26.0002162-7",
+    "procurement": "Concorrência Eletrônica 04/2026",
+    "municipalProcess": "015/2026 - SEMINF",
+    "pncpControl": "16434441000131-1-000026/2026"
+  },
+  "financial": {
+    "agreementValueBRL": 3020421.46,
+    "firstInstallmentBRL": 49946.15,
+    "criticalPeriodPaymentBRL": 49946.15,
+    "paymentDate": "2026-07-06"
+  },
+  "chronology": [
+    {
+      "date": "2026-06-19",
+      "event": "Parecerista/Procuradoria da SUDESB assinou eletronicamente o termo.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "date": "2026-06-30",
+      "event": "Diretor-Geral da SUDESB e representante do Município assinaram eletronicamente o Convênio 32/2026.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "date": "2026-07-01",
+      "event": "Publicação do instrumento registrada na base investigativa consolidada; a eficácia do convênio dependia da publicação do extrato no DOE.",
+      "evidentiaryRole": "documented_fact_pending_primary_publication_preservation",
+      "sourceId": "SRC-LAJ-FIPLAN-PRESERVED",
+      "note": "A página oficial da SUDESB lista links de PUBLICAÇÃO e PUBLICAÇÃO ERRATA para o Convênio 32/2026. O arquivo específico de publicação/errata ainda deve ser preservado no pacote."
+    },
+    {
+      "date": "2026-07-04",
+      "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+      "evidentiaryRole": "legal_milestone",
+      "sourceId": "LEGAL-TSE-23760-2026"
+    },
+    {
+      "date": "2026-07-06",
+      "event": "FIPLAN registra pagamento efetivado de R$ 49.946,15 no instrumento 21301.0001.26.0000299-1, valor idêntico à primeira parcela do Convênio 32/2026.",
+      "evidentiaryRole": "documented_fact",
+      "sourceId": "CE-031"
+    },
+    {
+      "date": "2026-07-13",
+      "event": "Publicação da Concorrência Eletrônica 04/2026 para contratação da empresa executora da reforma do mesmo estádio/Convênio 32/2026, conforme registro PNCP consolidado.",
+      "evidentiaryRole": "documented_fact_pending_pncp_snapshot_hash",
+      "sourceId": "CE-052"
+    },
+    {
+      "date": "2026-07-27",
+      "event": "Data prevista para abertura/recebimento de propostas da Concorrência Eletrônica 04/2026.",
+      "evidentiaryRole": "procurement_milestone",
+      "sourceId": "SRC-LAJ-PNCP-CE04"
+    }
+  ],
+  "evidenceMatrix": [
+    {
+      "evidenceId": "CE-031",
+      "type": "financial_fact",
+      "assertion": "Pagamento de R$ 49.946,15 foi efetivado em 06/07/2026.",
+      "whatItProves": "Existência, valor e data do repasse no período posterior a 04/07.",
+      "whatItDoesNotProve": "Não prova ilegalidade, finalidade eleitoral, ausência de exceção legal ou ausência de execução física anterior.",
+      "source": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+      "sourceManifest": "preservation/manifests/fiplan-defeso-2026.json",
+      "sourceArtifactSha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "paymentExtractSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+      "integrityStatus": "preserved_and_hashed"
+    },
+    {
+      "evidenceId": "CE-051",
+      "type": "agreement_clause_fact",
+      "assertion": "O Convênio 32/2026 fixa R$ 49.946,15 como primeira parcela; veda atividade do plano antes do início do repasse; e veda iniciar o objeto antes de AIO, ressalvadas despesas preparatórias específicas.",
+      "whatItProves": "Regras contratuais do próprio instrumento sobre início das atividades, liberação da primeira parcela e autorização de início.",
+      "whatItDoesNotProve": "Não prova que a AIO não existiu, nem exclui por si só eventual enquadramento jurídico excepcional.",
+      "source": "SUDESB — Termo de Convênio 32/2026",
+      "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+      "seiVerificationCode": "00142991035",
+      "seiCrc": "2842D758",
+      "integrityStatus": "official_sei_verification_available_hash_pending_local_preservation"
+    },
+    {
+      "evidenceId": "CE-052",
+      "type": "post_payment_procurement_fact",
+      "assertion": "A Concorrência Eletrônica 04/2026 para o mesmo objeto foi publicada após o repasse, em 13/07/2026.",
+      "whatItProves": "A contratação pública identificada para execução integral do objeto aparece documentalmente depois de 04/07 e depois do pagamento de 06/07.",
+      "whatItDoesNotProve": "Não prova inexistência de contrato, execução ou solução juridicamente válida anterior que ainda não tenha sido localizada.",
+      "source": "Portal Nacional de Contratações Públicas — PNCP",
+      "sourceUrl": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+      "pncpControl": "16434441000131-1-000026/2026",
+      "integrityStatus": "official_identifier_known_snapshot_hash_pending"
+    }
+  ],
+  "agreementFacts": [
+    {
+      "fact": "O objeto é a reforma do Estádio Municipal de Lagedo do Tabocal e o plano de trabalho integra o convênio.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "fact": "O valor global do convênio é R$ 3.020.421,46, custeado pela SUDESB.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "fact": "O repasse foi previsto em 12 parcelas e a primeira parcela é R$ 49.946,15.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "fact": "O instrumento veda qualquer atividade do plano de trabalho antes do início do repasse financeiro.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "fact": "O instrumento veda iniciar a execução do objeto antes da emissão da Autorização de Início de Obra, exceto despesas preparatórias expressamente indicadas.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    },
+    {
+      "fact": "A eficácia do convênio é condicionada à publicação do extrato no Diário Oficial do Estado.",
+      "sourceId": "SRC-LAJ-SUDESB-TERM"
+    }
+  ],
+  "apparentIncompatibility": {
+    "status": "requires_investigation",
+    "statement": "A combinação entre primeira parcela paga em 06/07, vedação contratual de atividades antes do repasse, necessidade de AIO para iniciar o objeto e publicação da contratação executora em 13/07 torna documentalmente difícil demonstrar, apenas com o material público hoje localizado, que a obra já se encontrava em efetiva execução física antes de 04/07. A questão deve ser resolvida pela obtenção do processo integral, plano de trabalho, cronograma, AIO/OS, medições e fundamento jurídico do repasse.",
+    "legalConclusion": "none"
+  },
+  "lawfulExplanatoryHypothesesToTest": [
+    "Existência de AIO/OS e execução física válida anterior a 04/07 apoiada por contratação ou instrumento anterior ainda não localizado, cuja compatibilidade com o Convênio 32/2026 precise ser demonstrada.",
+    "Existência de situação de emergência ou calamidade pública objetiva e formalmente justificada e especificamente vinculada ao repasse/projeto.",
+    "Erro, retificação ou particularidade documental na data/natureza do pagamento, publicação ou identificação da parcela que altere a cronologia hoje consolidada.",
+    "Enquadramento jurídico documentado segundo o qual o fluxo financeiro não se caracterizaria como transferência voluntária sujeita à vedação; hipótese que exige fundamento formal específico.",
+    "Atividades anteriores limitadas às despesas preparatórias permitidas pelo termo; essa hipótese pode explicar atos prévios, mas deve ser confrontada com a exigência eleitoral de obra ou serviço em andamento quando invocada a exceção ordinária."
+  ],
+  "investigativeHypothesis": "Caso se confirme que o pagamento de 06/07 foi transferência voluntária estadual ao Município, sem emergência/calamidade especificamente justificada e sem efetivo início físico da obra antes de 04/07 com obrigação formal preexistente e cronograma prefixado, deverá ser apurada a incidência do art. 73, VI, a, da Lei 9.504/1997. Esta formulação é hipótese de investigação, não conclusão.",
+  "documentGaps": [
+    {
+      "priority": "P0",
+      "document": "Processo SEI integral 069.1479.2026.0002857-54",
+      "reason": "Permite verificar motivação, pareceres, plano, cronograma, liberação, fiscalização e eventuais justificativas eleitorais."
+    },
+    {
+      "priority": "P0",
+      "document": "Plano de Trabalho aprovado e cronograma físico-financeiro/cronograma prefixado",
+      "reason": "Documento incorporado ao convênio e indispensável para testar a exceção legal."
+    },
+    {
+      "priority": "P0",
+      "document": "Autorização de Início de Obra (AIO) e eventual Ordem de Serviço",
+      "reason": "O próprio termo condiciona o início do objeto à AIO; data e conteúdo são decisivos."
+    },
+    {
+      "priority": "P0",
+      "document": "Primeira medição, boletim de medição, diário de obra, relatório fotográfico e fiscalização de engenharia",
+      "reason": "Permitem determinar objetivamente a data de início da execução física."
+    },
+    {
+      "priority": "P0",
+      "document": "Processo administrativo que autorizou/liberou a primeira parcela em 06/07, inclusive parecer jurídico sobre o art. 73, VI, a",
+      "reason": "Esclarece o fundamento concreto adotado pelo Estado para liberar o recurso já no período vedado."
+    },
+    {
+      "priority": "P1",
+      "document": "Extrato de publicação do Convênio 32/2026 e respectiva errata, preservados integralmente",
+      "reason": "A página oficial da SUDESB aponta publicação e errata; é necessário conferir se a errata altera dado relevante da cronologia."
+    },
+    {
+      "priority": "P1",
+      "document": "Histórico integral de pagamentos do instrumento FIPLAN e NOB 21301.0001.26.0002162-7",
+      "reason": "Confirma a natureza da parcela, a ordem cronológica dos repasses e os atos de liquidação/pagamento."
+    },
+    {
+      "priority": "P1",
+      "document": "Processo municipal 015/2026-SEMINF / Concorrência Eletrônica 04/2026 completo",
+      "reason": "Deve conter DFD/ETP, projeto, pareceres, edital, atas, propostas, adjudicação, homologação e contrato."
+    },
+    {
+      "priority": "P1",
+      "document": "Contrato de execução, designações de gestor/fiscal, ART/RRT e CNO, se existentes",
+      "reason": "Consolidam quem executou e desde quando a obra poderia ter iniciado materialmente."
+    },
+    {
+      "priority": "P1",
+      "document": "Extratos da conta específica do convênio estritamente no período necessário à apuração",
+      "reason": "Permitem verificar ingresso e aplicação dos recursos sem extrapolar o objeto investigado."
+    }
+  ],
+  "requestedDiligences": [
+    {
+      "recipient": "SUDESB / Governo do Estado da Bahia",
+      "request": "Encaminhar cópia integral do Processo SEI 069.1479.2026.0002857-54, inclusive Plano de Trabalho, cronogramas, pareceres, AIO, fiscalização, atestes, processo da liberação de 06/07 e justificativa de enquadramento no período eleitoral."
+    },
+    {
+      "recipient": "Município de Lajedo do Tabocal",
+      "request": "Encaminhar íntegra do processo 015/2026-SEMINF/Concorrência 04/2026, contrato, OS, AIO recebida, diário de obra, medições, ART/RRT, CNO e registros que indiquem a data efetiva de início físico."
+    },
+    {
+      "recipient": "SEFAZ/FIPLAN",
+      "request": "Certificar o histórico integral do instrumento 21301.0001.26.0000299-1 e da NOB 21301.0001.26.0002162-7, qualificando natureza, data de emissão, liquidação, efetivação e identificação da parcela."
+    },
+    {
+      "recipient": "SUDESB / DOE Bahia",
+      "request": "Fornecer o extrato original de publicação do Convênio 32/2026 e a errata indicada no portal oficial, com respectivas datas."
+    }
+  ],
+  "legalFramework": [
+    {
+      "id": "LEGAL-LEI-9504-ART73-VI-A",
+      "source": "Lei 9.504/1997, art. 73, VI, a",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9504compilado.htm",
+      "role": "Norma que veda transferências voluntárias nos três meses anteriores ao pleito, ressalvadas as hipóteses legais."
+    },
+    {
+      "id": "LEGAL-TSE-23760-2026",
+      "source": "Resolução TSE 23.760/2026 — Calendário Eleitoral",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "role": "Fixa 04/07/2026 como marco de início da vedação para as eleições de 2026."
+    },
+    {
+      "id": "LEGAL-AGU-AM01-2019",
+      "source": "Parecer AM-01/2019/AGU",
+      "url": "https://www.planalto.gov.br/ccivil_03/agu/pareceres/2019-2022/prc-am-01-2019.htm",
+      "role": "Referência interpretativa que exige, para a exceção ordinária, início efetivo da execução física antes do defeso, além de obrigação formal e cronograma prefixado. Deve ser usada como orientação interpretativa, não como substituto da análise da PRE-BA."
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "SRC-LAJ-FIPLAN-PRESERVED",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "retrievedAt": "2026-10-06T01:09:27Z",
+      "sha256": "572fa0453af40bb7ea2b7e7569cc46de6934ec47a1ad0e3de4dd4caece99c12e",
+      "preservation": "preserved_manifest_and_filtered_extracts"
+    },
+    {
+      "sourceId": "SRC-LAJ-SUDESB-TERM",
+      "publisher": "SUDESB",
+      "url": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+      "verification": {
+        "seiDocument": "00142991035",
+        "crc": "2842D758"
+      },
+      "preservation": "official_source_verified_local_hash_pending"
+    },
+    {
+      "sourceId": "SRC-LAJ-SUDESB-INDEX",
+      "publisher": "SUDESB",
+      "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "preservation": "official_index_lists_term_publication_and_errata"
+    },
+    {
+      "sourceId": "SRC-LAJ-PNCP-CE04",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "url": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+      "control": "16434441000131-1-000026/2026",
+      "preservation": "official_identifier_verified_snapshot_hash_pending"
+    }
+  ],
+  "protocolGate": {
+    "ready": false,
+    "minimumToClose": [
+      "Obter Plano de Trabalho/cronograma prefixado.",
+      "Obter AIO/OS e primeira prova objetiva de execução física.",
+      "Obter processo/parecer que fundamentou o pagamento de 06/07.",
+      "Preservar publicação e errata do convênio.",
+      "Preservar integralmente o registro PNCP e, se existente, contrato resultante."
+    ],
+    "recommendedUseNow": "O material já sustenta pedido de preservação e requisição de documentos, mas o pacote deve permanecer como minuta investigativa até o fechamento das diligências P0."
+  }
+}
