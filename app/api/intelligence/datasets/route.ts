@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { verifyIntelligenceApiKey } from '@/lib/intelligence';
 
 import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-2026-10-06.json';
+import municipalityUniverse77 from '@/data/investigation/municipality-universe-77-2026-10-07.json';
 import p0Triage36 from '@/data/investigation/p0-triage-36-2026-10-06.json';
 import p0Classification36 from '@/data/investigation/p0-classification-coverage-36-2026-10-06.json';
 import p0ComidaNoPratoControl from '@/data/investigation/p0-comida-no-prato-control-2026-10-06.json';
@@ -15,6 +16,7 @@ import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wav
 export const runtime = 'nodejs';
 
 const datasets = {
+  'municipality-universe-77': municipalityUniverse77,
   'cohort-69': municipalityCohort69,
   'p0-triage-36': p0Triage36,
   'p0-classification-36': p0Classification36,
