@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { sourceCatalog } from '@/lib/content';
+import { investigationSummary } from '@/lib/investigation-summary';
 
 const official = (id: string) => sourceCatalog.find((s) => s.id === id)!;
 
@@ -111,11 +112,11 @@ export default function DossiePage() {
           </section>
 
           <section id="analitico" className="dossier-gate-section">
-            <div className="gate-visual" aria-hidden="true"><span>ANÁLISE</span><b>417</b><small>municípios no escopo</small></div>
+            <div className="gate-visual" aria-hidden="true"><span>ANÁLISE</span><b>{investigationSummary.priorityMunicipalities}</b><small>municípios no universo prioritário</small></div>
             <div>
               <p className="eyebrow">DOSSIÊ ANALÍTICO</p>
               <h2>A investigação vai além do que publicamos nesta página.</h2>
-              <p>A versão analítica reúne matriz municipal, níveis probatórios, critérios de priorização, trilhas de recursos, sinais de alerta, cruzamentos e limites metodológicos.</p>
+              <p>A versão analítica reúne hoje {investigationSummary.priorityMunicipalities} municípios no universo prioritário ({investigationSummary.housingCoreMunicipalities} núcleo + {investigationSummary.expansionMunicipalities} expansão), {investigationSummary.p0ClassifiedMunicipalities}/{investigationSummary.p0TotalMunicipalities} P0 classificados, {investigationSummary.centralEvidence} evidências centrais e cobertura {investigationSummary.ireceCoveredMunicipalities}/{investigationSummary.ireceOfficialMunicipalities} em Irecê. A Bahia inteira, com {investigationSummary.statewideMunicipalities} municípios, permanece como escopo estadual potencial.</p>
               <p className="gate-privacy">Para continuar, confirme seu e-mail. Ele será usado exclusivamente para autenticação e registro da consulta; não será associado a denúncias nem utilizado para marketing.</p>
               <Link className="button button-gold large" href="/dossie/acesso">Acessar Dossiê Analítico</Link>
             </div>

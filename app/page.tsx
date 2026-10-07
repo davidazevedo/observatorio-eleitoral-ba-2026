@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HeroEvidenceScene from '@/components/HeroEvidenceScene';
+import { investigationSummary } from '@/lib/investigation-summary';
 
 const timeline = [
   {
@@ -97,7 +98,7 @@ export default function Home() {
           </div>
           <div className="commitment-map">
             <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brazil_white_state_maps_-_Bahia.svg" alt="" aria-hidden="true" />
-            <strong>417</strong><span>municípios no escopo</span>
+            <strong>{investigationSummary.statewideMunicipalities}</strong><span>municípios na Bahia · {investigationSummary.priorityMunicipalities} no universo prioritário</span>
           </div>
         </div>
       </section>
@@ -176,9 +177,13 @@ export default function Home() {
           </div>
           <div>
             <p className="eyebrow light">O QUE JÁ FOI DOCUMENTADO</p>
-            <h2>417 municípios. Uma mesma pergunta: o dinheiro chegou como, quando e para quê?</h2>
-            <div className="map-metrics"><div><strong>417</strong><span>no escopo</span></div><div><strong>4</strong><span>registros públicos iniciais</span></div><div><strong>0</strong><span>relatos privados publicados automaticamente</span></div></div>
-            <p>As cores e estados do mapa representarão o estágio da apuração — nunca “culpa”. A expansão municipal será publicada gradualmente conforme documentos forem localizados e corroborados.</p>
+            <h2>{investigationSummary.priorityMunicipalities} municípios no universo prioritário. Uma mesma pergunta: o dinheiro chegou como, quando e para quê?</h2>
+            <div className="map-metrics">
+              <div><strong>{investigationSummary.priorityMunicipalities}</strong><span>universo prioritário</span></div>
+              <div><strong>{investigationSummary.p0ClassifiedMunicipalities}/{investigationSummary.p0TotalMunicipalities}</strong><span>P0 classificados</span></div>
+              <div><strong>{investigationSummary.centralEvidence}</strong><span>evidências centrais</span></div>
+            </div>
+            <p>Universo consolidado: {investigationSummary.housingCoreMunicipalities} municípios do núcleo original + {investigationSummary.expansionMunicipalities} da expansão. Em Irecê, a cobertura selecionada está em {investigationSummary.ireceCoveredMunicipalities}/{investigationSummary.ireceOfficialMunicipalities}. Os {investigationSummary.statewideMunicipalities} municípios da Bahia permanecem como escopo estadual potencial. Esses números descrevem cobertura investigativa e não indicam culpa ou irregularidade.</p>
             <Link className="button button-outline-light" href="/casos">Abrir registro público</Link>
           </div>
         </div>

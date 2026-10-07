@@ -7,6 +7,17 @@ export const metadata = {
 
 const entries = [
   {
+    date: '07/10/2026',
+    title: 'Universo investigativo consolidado em 77 municípios',
+    items: [
+      'Correção conceitual: 69 corresponde somente à coorte de expansão; o universo prioritário consolidado é 77 = 8 municípios do núcleo original + 69 da expansão.',
+      'P0 consolidado em 36/36 municípios classificados, com 57 evidências centrais preservadas nas Waves 01–03.',
+      'Cobertura selecionada do Território de Identidade de Irecê consolidada em 20/20 municípios.',
+      'Cockpit privado e Intel API passam a usar municipality-universe-77 como referência principal; cohort-69 permanece como dataset legado da expansão.',
+      'Portal público passa a distinguir 417 municípios no escopo estadual potencial de 77 municípios no universo prioritário atual.',
+    ],
+  },
+  {
     date: '05/10/2026',
     title: 'Nova arquitetura editorial e de acesso',
     items: [

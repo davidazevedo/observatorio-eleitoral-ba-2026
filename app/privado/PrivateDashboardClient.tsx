@@ -396,7 +396,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
-    { id: 'expansion', label: 'Consolidação 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
+    { id: 'expansion', label: 'Universo 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -497,7 +497,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <small>Esta é a visão operacional da expansão, evidências centrais, P0 e cobertura de Irecê.</small>
                   </div>
                   <div className="private-topbar-actions">
-                    <button type="button" onClick={()=>setTab('expansion')}>Abrir Consolidação 77</button>
+                    <button type="button" onClick={()=>setTab('expansion')}>Abrir Universo 77</button>
                     <button type="button" onClick={()=>setTab('api')}>Abrir Intel API</button>
                   </div>
                 </div>
@@ -509,7 +509,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                   <article><span>Críticos</span><strong>{data.p0ClassificationCoverage.counts.critical_investigation||0}</strong><small>Lajedo do Tabocal · Belo Campo</small></article>
                   <article><span>Urgentes</span><strong>{data.p0ClassificationCoverage.counts.urgent_document_gap||0}</strong><small>Araçás · Jaguaquara</small></article>
                 </div>
-                <p className="private-report-note">A classificação é investigativa e não equivale a conclusão de ilícito. Use <strong>Consolidação 77</strong> para abrir as matrizes completas e <strong>Intel API</strong> para consultar os datasets publicados.</p>
+                <p className="private-report-note">A classificação é investigativa e não equivale a conclusão de ilícito. Use <strong>Universo 77</strong> para abrir as matrizes completas e <strong>Intel API</strong> para consultar os datasets publicados.</p>
               </section>
 
               <section className="intel-metrics-grid">

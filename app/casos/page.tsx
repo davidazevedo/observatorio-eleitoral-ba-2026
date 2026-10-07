@@ -2,6 +2,7 @@ import Link from 'next/link';
 import CasesExplorer from './CasesExplorer';
 import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
+import { investigationSummary } from '@/lib/investigation-summary';
 
 export const metadata = {
   title: 'Casos e ocorrências | Observatório Eleitoral Bahia 2026',
@@ -9,7 +10,6 @@ export const metadata = {
     'Registro público filtrável de fatos, marcos normativos e ocorrências documentadas que integram a auditoria cidadã do Observatório Eleitoral Bahia 2026.',
 };
 
-const countBy = (value: string) => publicCases.filter((item) => item.status === value).length;
 
 export default function CasesPage() {
   return (
@@ -41,10 +41,10 @@ export default function CasesPage() {
       </section>
 
       <section className="container cases-stats" aria-label="Resumo do registro">
-        <article><span>REGISTRO PÚBLICO</span><strong>{publicCases.length}</strong><p>itens publicados nesta primeira versão</p></article>
-        <article><span>DOCUMENTO PRIMÁRIO</span><strong>{publicCases.filter((item) => item.evidenceLevel === 'L2').length}</strong><p>itens classificados como L2</p></article>
-        <article><span>PRIORIDADE</span><strong>{countBy('Prioridade de auditoria')}</strong><p>item atualmente priorizado para decomposição</p></article>
-        <article><span>RELATOS PRIVADOS</span><strong>0</strong><p>publicados automaticamente — a regra é zero</p></article>
+        <article><span>UNIVERSO PRIORITÁRIO</span><strong>{investigationSummary.priorityMunicipalities}</strong><p>{investigationSummary.housingCoreMunicipalities} núcleo + {investigationSummary.expansionMunicipalities} expansão</p></article>
+        <article><span>P0 CLASSIFICADOS</span><strong>{investigationSummary.p0ClassifiedMunicipalities}/{investigationSummary.p0TotalMunicipalities}</strong><p>{investigationSummary.p0ClassificationPercent}% da triagem substantiva</p></article>
+        <article><span>EVIDÊNCIAS CENTRAIS</span><strong>{investigationSummary.centralEvidence}</strong><p>fatos centrais auditáveis; não número de ilícitos</p></article>
+        <article><span>IRECÊ</span><strong>{investigationSummary.ireceCoveredMunicipalities}/{investigationSummary.ireceOfficialMunicipalities}</strong><p>cobertura territorial selecionada</p></article>
       </section>
 
       <section className="container cases-intro">
@@ -63,9 +63,9 @@ export default function CasesPage() {
 
       <section className="container cases-next">
         <div>
-          <p className="eyebrow">PRÓXIMA EXPANSÃO</p>
-          <h2>Do escopo estadual para os 417 municípios.</h2>
-          <p>A matriz será preenchida gradualmente com instrumento, pagamento, contrato, fornecedor, ordem de serviço, medição, execução física e fundamento de eventual exceção eleitoral.</p>
+          <p className="eyebrow">COBERTURA TERRITORIAL</p>
+          <h2>Do universo prioritário de {investigationSummary.priorityMunicipalities} para a matriz estadual de {investigationSummary.statewideMunicipalities} municípios.</h2>
+          <p>O recorte atual está consolidado em {investigationSummary.housingCoreMunicipalities} municípios do núcleo original + {investigationSummary.expansionMunicipalities} da expansão. A matriz estadual poderá ser preenchida gradualmente com instrumento, pagamento, contrato, fornecedor, ordem de serviço, medição, execução física e fundamento de eventual exceção eleitoral.</p>
         </div>
         <div className="actions">
           <Link className="button" href="/dossie#analitico">Conhecer o dossiê analítico</Link>
