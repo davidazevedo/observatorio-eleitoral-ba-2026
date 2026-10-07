@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "tse-prestacao-contas-eleitorais-2026-ba-crossmatch",
+  "generatedAt": "2026-10-06T18:37:00Z",
+  "publisher": "Tribunal Superior Eleitoral",
+  "catalogUrl": "https://dadosabertos.tse.jus.br/tl/dataset/prestacao-de-contas-eleitorais-2026",
+  "purpose": "Recorte Bahia utilizado para cruzamento exato de fornecedores públicos com fornecedores/prestadores em despesas eleitorais de candidatos e órgãos partidários.",
+  "sources": [
+    {
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_de_contas_eleitorais_candidatos_2026.zip",
+      "sha256": "57f9ddf54daf4b698960299f7e8f04157d4566d1a4c3a83c17759d51f2ca9769",
+      "size": 171026093,
+      "lastModified": "Tue, 06 Oct 2026 08:59:33 GMT",
+      "etag": "\"a31a6ad-65d2837a30ac8\""
+    },
+    {
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/despesa_documento_2026.zip",
+      "sha256": "95615970cf2a73346aa4e10277cf71235a39afc43d5ec9e5e0e09ec7cb6beb3e",
+      "size": 4904479,
+      "lastModified": "Sun, 04 Oct 2026 07:58:35 GMT",
+      "etag": "\"4ad61f-65cff21e0e0f6\""
+    },
+    {
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_de_contas_eleitorais_orgaos_partidarios_2026.zip",
+      "sha256": "7cd3f3c670e302ec1ae140ecb6431e0c902b3473e38135be57e6db424c43ceca",
+      "size": 13753554,
+      "lastModified": "Tue, 06 Oct 2026 08:59:32 GMT",
+      "etag": "\"d1dcd2-65d28379101a9\""
+    }
+  ],
+  "extracts": [
+    {
+      "path": "preservation/extracts/tse/despesas_contratadas_candidatos_2026_BA.csv.gz",
+      "rawSha256": "f2a2346aaec8a09da978e2e45f91a0d34344a7f2a20f6cc909dce8026c72195b",
+      "gzipSha256": "0dd07defc98bab9a4e6794916da1ef898c765dbb96d14bfbad73c58260f486e4",
+      "rows": 36459
+    },
+    {
+      "path": "preservation/extracts/tse/despesas_pagas_candidatos_2026_BA.csv.gz",
+      "rawSha256": "9af7e9f27a53827375843581986ce6134f28c3a300d7d241c9dc2712653b7bd1",
+      "gzipSha256": "566a1b2a6ea6af4dcb79d39597469ca3a57ce7542fe29bf291a9ce979bfce9a4",
+      "rows": 25798
+    },
+    {
+      "path": "preservation/extracts/tse/despesa_candidato_documento_2026_BA.csv.gz",
+      "rawSha256": "bbf8548e6965a4e07262db88f9b4df956c3ab3ec6665d1344b76f6be571b2839",
+      "gzipSha256": "487a9cf003a2f73268e2bfb0b81900424867fdd5f3eb883c85ad3a5710b0d2d5",
+      "rows": 2250
+    },
+    {
+      "path": "preservation/extracts/tse/despesas_contratadas_orgaos_partidarios_2026_BA.csv.gz",
+      "rawSha256": "4949bb086dd1b04069f8f3dd0543fd572f8b9a26795ca9ce6d371e96d47cdb6e",
+      "gzipSha256": "66f229889a4ad01045b7b9eb055b0fa25b9f9fa4945b810730c721bc23c687c0",
+      "rows": 660
+    },
+    {
+      "path": "preservation/extracts/tse/despesas_pagas_orgaos_partidarios_2026_BA.csv.gz",
+      "rawSha256": "3b94b89f801fb31a1ad2e0ff6199493a0fef495ddf91703067fe56fde776a68e",
+      "gzipSha256": "ae2d9c8273a23ad020957800197add52f3dabfb8754b765e214616465738a99d",
+      "rows": 237
+    },
+    {
+      "path": "preservation/extracts/tse/despesa_partido_documento_2026_BA.csv.gz",
+      "rawSha256": "e29ea67522cf4b9dc23241cb375770451c47fd27b311ae774de9631a3470e481",
+      "gzipSha256": "38a08bfb0a2e2081a0adc9b15afdb80d1c969ba69974c6f3ddc2e8976a9beeb0",
+      "rows": 1
+    }
+  ],
+  "query": {
+    "supplier": {
+      "name": "Nunes Engenharia Ltda",
+      "cnpj": "07.492.799/0001-20",
+      "normalizedCnpj": "07492799000120"
+    },
+    "method": "Busca exata pelo CNPJ normalizado (somente dígitos) e, em paralelo, pelo nome 'NUNES ENGENHARIA' em cada linha dos seis CSVs BA.",
+    "hits": 0,
+    "interpretation": "Nenhuma ocorrência foi localizada nos seis recortes BA do TSE 2026 consultados. Resultado negativo reduz a hipótese de sobreposição eleitoral direta desta empresa nas bases consultadas, mas não prova ausência de qualquer relação eleitoral fora desses arquivos ou em atualizações posteriores."
+  },
+  "caveats": [
+    "Os dados do TSE são atualizáveis; este manifesto certifica o snapshot baixado em 06/10/2026.",
+    "O resultado negativo deve ser reexecutado contra versões posteriores antes de encaminhamento institucional.",
+    "Ausência nesses arquivos não exclui relações societárias, doações por pessoas físicas relacionadas ou registros em outras UFs; esses cruzamentos exigem análise específica."
+  ]
+}

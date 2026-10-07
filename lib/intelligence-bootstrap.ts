@@ -16,7 +16,12 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     state:'BA', eventDate:'2026-07-04', caseIds:['OE-BA-0003'], tags:['art-73','transferencia-voluntaria','regra-auditoria'],
     evidenceLevel:'L3', analyticalConfidence:1, priority:'high', financial:{currency:'BRL'},
     entities:[{name:'Procuradoria Geral do Estado da Bahia',type:'public_body',role:'orientação jurídica oficial'}],
-    provenance:src('https://www.ba.gov.br/pge/perguntas-frequentes-faq','Perguntas Frequentes - FAQ','Procuradoria Geral do Estado da Bahia','2026-05-05')
+    provenance:src('https://www.ba.gov.br/pge/perguntas-frequentes-faq','Perguntas Frequentes - FAQ','Procuradoria Geral do Estado da Bahia','2026-05-05'),
+    notes:[
+      'Teste documental da exceção ordinária: instrumento formal anterior ao período vedado, execução física da obra/serviço já iniciada antes de 04/07/2026 e cronograma prefixado também anterior ao marco.',
+      'A orientação eleitoral da PGE-BA, citando o TSE no RO-El nº 176880 (Ac. 25/03/2021), registra que a mera publicação de convênio, ainda que acompanhada de cronograma, não basta para afastar a vedação se a obra não estiver fisicamente iniciada antes do período crítico.',
+      'Hipóteses de emergência ou calamidade pública devem ser verificadas separadamente mediante ato formal e aderência do objeto à situação excepcional.'
+    ]
   }),
   base({
     recordId:'BOOT-PACOTE-2026-06-11', kind:'research_finding', status:'verified',
@@ -60,39 +65,42 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
   })),
   base({
     recordId:'BOOT-LAJEDINHO-007-2026',kind:'research_finding',status:'corroborating',
-    title:'Lajedinho: R$ 1,17 milhão pago em 06/07; licitação das 50 moradias publicada em setembro',
-    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional estadual com Lajedinho. O portal oficial municipal registra, meses depois, a Concorrência 008/2026 para executar as mesmas 50 unidades, vinculada ao Convênio 007/2026. A combinação torna prioritária a obtenção da documentação da exceção legal e da eventual execução física anterior a 04/07; não prova, isoladamente, repasse irregular.',
+    title:'Lajedinho: R$ 1,17 milhão pago em 06/07; concorrência publicada em setembro e sessão retificada para 09/10',
+    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional estadual com Lajedinho. O portal oficial municipal registra, meses depois, a Concorrência 008/2026 para executar as mesmas 50 unidades, vinculada ao Convênio 007/2026. Em 22/09 o município publicou retificação porque o Anexo XXI — Cronograma Físico-Financeiro — não acompanhou a divulgação anterior e remarcou a entrega das propostas e a sessão para 09/10/2026. Assim, em 06/10 o procedimento permanecia aberto e ainda não era possível exigir fornecedor vencedor. A combinação segue prioritária para obtenção da documentação da exceção legal e da eventual execução física anterior a 04/07; não prova, isoladamente, repasse irregular.',
     municipality:'Lajedinho',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
     sourceIds:['dados-abertos-ba-convenios-parcerias','lajedinho-transparencia-licitacoes','pge-ba-eleicoes-2026'],
-    tags:['convenio-007-2026','habitacao','pagamento-06-07','licitacao-setembro','defeso-eleitoral','prioridade-documental'],
+    tags:['convenio-007-2026','habitacao','pagamento-06-07','licitacao-setembro','retificacao-22-09','sessao-09-10','defeso-eleitoral','prioridade-documental'],
     evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5877340.25},
+    raw:{procurementDate:'2026-09-11',procurementStatus:'em_andamento',procurementControl:'13810544000160-1-000098/2026',procurementValue:5877340.25,procurementDeadline:'2026-10-09',supplier:null,supplierCnpj:null,electoralCrossmatch:'not_applicable_no_supplier',electoralCrossmatchNote:'Procedimento retificado em 22/09, com sessão remarcada para 09/10/2026; em 06/10 ainda não havia obrigação temporal de existir vencedor homologado.'},
     entities:[{name:'Município de Lajedinho',type:'municipality',identifier:'CNPJ 13.810.544/0001-60',role:'convenente/contratante'}],
     provenance:src('https://transparencia.lajedinho.ba.gov.br/licitacoes','Portal da Transparência — Licitações 2026','Prefeitura Municipal de Lajedinho','2026-09-22','Concorrência 008/2026 / PNCP 13810544000160-1-000098/2026'),
-    notes:['FIPLAN: instrumento 26601.0001.26.0000007-1; celebrado em 19/06/2026; publicado em 20/06/2026; NOB 26601.0001.26.0000027-8; pagamento efetivado em 06/07/2026: R$ 1.170.000,00.','Portal municipal: Concorrência 008/2026 para executar 50 unidades vinculadas ao Convênio 007/2026, publicada em setembro.','Pergunta decisiva: qual exceção do art. 73, VI, a, fundamentou o pagamento de 06/07 e qual documento comprova obra/serviço fisicamente iniciado antes de 04/07 com cronograma prefixado?','Verificar se existia contratação ou execução anterior distinta antes de qualquer conclusão jurídica.']
+    notes:['FIPLAN: instrumento 26601.0001.26.0000007-1; celebrado em 19/06/2026; publicado em 20/06/2026; NOB 26601.0001.26.0000027-8; pagamento efetivado em 06/07/2026: R$ 1.170.000,00.','Portal municipal: Concorrência 008/2026 para executar 50 unidades vinculadas ao Convênio 007/2026, publicada em 11/09.','Retificação publicada em 22/09: inclusão do Anexo XXI — Cronograma Físico-Financeiro, que não acompanhou a divulgação anterior; propostas até 09/10 às 08:20 e abertura em 09/10 às 08:30. Em 06/10, portanto, o certame ainda estava em curso.','Pergunta decisiva: qual exceção do art. 73, VI, a, fundamentou o pagamento de 06/07 e qual documento comprova obra/serviço fisicamente iniciado antes de 04/07 com cronograma prefixado?','Verificar se existia contratação ou execução anterior distinta antes de qualquer conclusão jurídica.']
   }),
   base({
     recordId:'BOOT-CIPO-HAB-2026',kind:'research_finding',status:'corroborating',
-    title:'Cipó: R$ 1,17 milhão pago em 06/07; licitação das 50 moradias publicada apenas em agosto',
-    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Cipó. O aviso de licitação federal referente ao Convênio 009/2026 mostra que a contratação da empresa para construir as 50 unidades teve sessão marcada para 13/08/2026; a publicação no PNCP ocorreu em agosto. A sequência temporal exige documentação da exceção legal e não prova, por si só, irregularidade.',
+    title:'Cipó: R$ 1,17 milhão pago em 06/07; primeira concorrência anulada e objeto republicado em agosto',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Cipó. Para o mesmo objeto do Convênio 009/2026, foi localizada a Concorrência Eletrônica 007/2026, Processo 264/2026, publicada no PNCP em 03/08 e posteriormente marcada como anulada; em seguida o município republicou o objeto como Concorrência Eletrônica 009/2026, Processo 311/2026, controle PNCP 13808936000195-1-000063/2026, publicada em 24/08. A sequência pagamento → primeira licitação anulada → republicação posterior reforça a prioridade de obter a documentação da exceção legal, sem provar, isoladamente, irregularidade.',
     municipality:'Cipó',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
     sourceIds:['dados-abertos-ba-convenios-parcerias','dou-cipo-concorrencia-007-2026','pge-ba-eleicoes-2026'],
-    tags:['habitacao','convenio-009-2026','pagamento-06-07','licitacao-agosto','defeso-eleitoral'],
+    tags:['habitacao','convenio-009-2026','pagamento-06-07','licitacao-agosto','licitacao-anulada','republicacao','defeso-eleitoral'],
     evidenceLevel:'L3',analyticalConfidence:0.98,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5877340.25},
+    raw:{procurementDate:'2026-08-24',procurementStatus:'em_andamento',procurementControl:'13808936000195-1-000055/2026 (Conc. 007/2026, anulada) → 13808936000195-1-000063/2026 (Conc. 009/2026, republicada)',procurementValue:5877340.25,proposalsClosedAt:'2026-09-09T09:00:00-03:00',resultSearchCutoff:'2026-10-06T22:15:00-03:00',formalAnnulmentActLocated:false,resultLocated:false,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_applicable_no_supplier',electoralCrossmatchNote:'A primeira concorrência localizada para o objeto aparece anulada; a republicação de 24/08 teve propostas encerradas em 09/09 e seguia sem fornecedor/resultado oficial localizado até o corte de 06/10/2026.'},
     entities:[{name:'Município de Cipó',type:'municipality',identifier:'CNPJ 13.808.936/0001-95',role:'convenente/contratante'}],
     provenance:src('https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704','Aviso de Licitação — Concorrência Eletrônica nº 7/2026','Diário Oficial da União','2026-08-03','Processo Administrativo 264/2026 / Convênio 009/2026'),
-    notes:['FIPLAN: instrumento 26601.0001.26.0000002-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000032-4; R$ 1.170.000,00 efetivados em 06/07.','A contratação municipal da empresa executora das 50 unidades foi levada a licitação após o pagamento, com sessão inicialmente marcada para 13/08.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
+    notes:['FIPLAN: instrumento 26601.0001.26.0000002-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000032-4; R$ 1.170.000,00 efetivados em 06/07.','Primeira contratação localizada para o objeto: Concorrência Eletrônica 007/2026, Processo 264/2026, PNCP 13808936000195-1-000055/2026, publicada em 03/08, sessão em 13/08; fontes de monitoramento PNCP consultadas em 06/10 a classificavam como anulada.','Republicação: Concorrência Eletrônica 009/2026, Processo 311/2026, PNCP 13808936000195-1-000063/2026, publicação em 24/08, sessão em 09/09, valor estimado R$ 5.877.340,25; snapshot de 06/10 seguia sem resultado publicado.','A contratação municipal da empresa executora das 50 unidades foi levada a licitação após o pagamento, com uma primeira tentativa anulada e posterior republicação.','Verificar ato formal e motivo da anulação da 007/2026, eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
   }),
   base({
     recordId:'BOOT-ITABERABA-HAB-2026',kind:'research_finding',status:'corroborating',
     title:'Itaberaba: R$ 1,17 milhão pago em 06/07; aviso para contratar as 50 moradias publicado em 26/08',
-    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Itaberaba. O portal oficial municipal registra em 26/08/2026 o aviso da Concorrência Eletrônica nº 010/2026-FMAS para contratar empresa especializada para executar as 50 unidades habitacionais. A diferença temporal torna prioritária a comprovação dos requisitos da exceção legal, sem presumir irregularidade.',
+    summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio habitacional com Itaberaba. O portal oficial municipal registra em 26/08/2026 o aviso da Concorrência Eletrônica nº 010/2026-FMAS para contratar empresa especializada para executar as 50 unidades habitacionais. O PNCP recebeu duas publicações do mesmo processo/objeto/valor com 32 minutos de diferença: o controle 160 modela 1 serviço por R$ 5,85 milhões; o 161 modela 50 serviços de R$ 117 mil, preservando o total. A evidência é compatível com correção/republicação cadastral, mas o ato formal explicativo ainda não foi localizado. A diferença temporal em relação ao pagamento continua prioritária para comprovação dos requisitos da exceção legal, sem presumir irregularidade.',
     municipality:'Itaberaba',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
     sourceIds:['dados-abertos-ba-convenios-parcerias','itaberaba-licitacao-010-2026','pge-ba-eleicoes-2026'],
-    tags:['habitacao','pagamento-06-07','licitacao-26-08','defeso-eleitoral','prioridade-documental'],
+    tags:['habitacao','pagamento-06-07','licitacao-26-08','pncp-duplo-controle','possivel-correcao-cadastral','defeso-eleitoral','prioridade-documental'],
     evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
+    raw:{procurementDate:'2026-08-26',procurementStatus:'em_andamento',procurementControl:'13719646000175-1-000160/2026 → 13719646000175-1-000161/2026',procurementValue:5850000,pncpModelDifference:'160: quantidade 1 × R$ 5.850.000,00; 161: quantidade 50 × R$ 117.000,00; mesmo objeto e mesmo total',proposalsClosedAt:'2026-09-11T08:00:00-03:00',resultSearchCutoff:'2026-10-06T22:15:00-03:00',formalCorrectionActLocated:false,resultLocated:false,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_applicable_no_supplier',electoralCrossmatchNote:'Ambos os controles tiveram propostas encerradas em 11/09 e permaneciam sem resultado oficial localizado até o corte de 06/10/2026. A diferença cadastral sugere correção/republicação, mas ainda sem ato formal explicativo localizado.'},
     entities:[{name:'Município de Itaberaba',type:'municipality',identifier:'CNPJ 13.719.646/0001-75',role:'convenente/contratante'}],
     provenance:src('https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos','Publicações em Outros Veículos — Concorrência Eletrônica nº 010/2026-FMAS','Prefeitura Municipal de Itaberaba','2026-08-26','Concorrência Eletrônica 010/2026-FMAS'),
-    notes:['FIPLAN: instrumento 26601.0001.26.0000019-5; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000028-6; R$ 1.170.000,00 efetivados em 06/07.','Portal municipal: aviso de licitação para executar as 50 unidades publicado em 26/08, com sessão em 11/09.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
+    notes:['FIPLAN: instrumento 26601.0001.26.0000019-5; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000028-6; R$ 1.170.000,00 efetivados em 06/07.','PNCP 160: incluído em 26/08 às 11:18:47; item descrito como 1 serviço, valor unitário/total R$ 5.850.000,00; situação Em andamento; temResultado=false.','PNCP 161: incluído em 26/08 às 11:50:50; mesma descrição e total, porém quantidade 50 e valor unitário R$ 117.000,00; situação Em andamento; temResultado=false.','Fontes públicas derivadas do PNCP normalizam o processo como FMAS - 091/2026 / FMAS 091/2026. O intervalo de 32 minutos e a mudança 1×R$5,85 mi → 50×R$117 mil são compatíveis com correção cadastral/republicação, mas não constituem prova do motivo; localizar o ato formal de retificação/cancelamento do primeiro controle.','Portal municipal: aviso de licitação para executar as 50 unidades publicado em 26/08, com sessão em 11/09.','Verificar eventual execução anterior distinta, ordem de serviço, contratação prévia ou outra hipótese antes de concluir sobre a legalidade do repasse.']
   }),
   base({
     recordId:'BOOT-LAPAO-HAB-2026',kind:'research_finding',status:'corroborating',
@@ -102,6 +110,7 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     sourceIds:['dados-abertos-ba-convenios-parcerias','lapao-concorrencia-010-2026','pge-ba-eleicoes-2026'],
     tags:['habitacao','convenio-002-2026','pagamento-06-07','licitacao-31-07','defeso-eleitoral','prioridade-documental'],
     evidenceLevel:'L3',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5822160.50},
+    raw:{procurementDate:'2026-07-31',procurementStatus:'homologado',procurementControl:'Concorrência Eletrônica 010/2026',procurementValue:5822160.50,supplier:'Nunes Engenharia Ltda',supplierCnpj:'07.492.799/0001-20',electoralCrossmatch:'no_exact_match',electoralCrossmatchNote:'Busca exata no snapshot TSE/BA de 06/10/2026: zero ocorrências nos seis arquivos de despesas/documentos de candidatos e órgãos partidários.'},
     entities:[
       {name:'Município de Lapão',type:'municipality',identifier:'CNPJ 13.891.528/0001-40',role:'convenente/contratante'},
       {name:'Nunes Engenharia Ltda',type:'supplier',identifier:'CNPJ 07.492.799/0001-20',role:'empresa homologada para execução'}
@@ -117,15 +126,17 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     sourceIds:['dados-abertos-ba-convenios-parcerias','pncp-macajuba-000019-2026','pge-ba-eleicoes-2026'],
     tags:['habitacao','convenio-014-2026','pagamento-07-07','pncp-28-07','defeso-eleitoral','prioridade-documental'],
     evidenceLevel:'L3',analyticalConfidence:0.995,priority:'urgent',financial:{currency:'BRL',paid:1170000,contractValue:5849648.93},
+    raw:{procurementDate:'2026-07-28',procurementStatus:'em_andamento',procurementControl:'13810841000106-1-000019/2026',procurementValue:5849648.93,proposalsClosedAt:'2026-08-14T07:50:00-03:00',resultSearchCutoff:'2026-10-06T22:15:00-03:00',resultLocated:false,contractLocated:false,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_applicable_no_supplier',electoralCrossmatchNote:'O prazo de propostas encerrou em 14/08. Até o corte de 06/10/2026, não foi localizado resultado oficial, fornecedor, adjudicação, homologação ou contrato correspondente às 50 unidades nas fontes consultadas.'},
     entities:[{name:'Município de Macajuba',type:'municipality',identifier:'CNPJ 13.810.841/0001-06',role:'convenente/contratante'}],
     provenance:src('https://pncp.gov.br/app/editais/13810841000106/2026/19','PNCP — Concorrência Eletrônica nº 004/2026, Processo 254/2026','Portal Nacional de Contratações Públicas','2026-07-28','13810841000106-1-000019/2026'),
-    notes:['FIPLAN: instrumento 26601.0001.26.0000016-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000041-3; R$ 1.170.000,00 efetivados em 07/07.','PNCP: publicação em 28/07; valor estimado R$ 5.849.648,93; objeto das mesmas 50 unidades; fonte orçamentária inclui recurso estadual.','Resposta JSON original da API PNCP preservada em preservation/snapshots/pncp/macajuba-13810841000106-1-000019-2026.json, SHA-256 cb5448be3b497aef92689d853015d025cdf727d3bf2b09e3b787330dd8e32c4d.','Verificar eventual contratação/execução anterior distinta, ordem de serviço, medições e fundamento formal da exceção antes de conclusão jurídica.']
+    notes:['FIPLAN: instrumento 26601.0001.26.0000016-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000041-3; R$ 1.170.000,00 efetivados em 07/07.','Portal oficial municipal: Concorrência Eletrônica 004/2026, Processo 254/2026, publicada em 28/07, valor estimado R$ 5.849.648,93. Na coleta de 06/10 o lote permanecia “Em andamento”, sem vencedor exibido.','Snapshot HTML privado preservado: SHA-256 3e47e4a4e56d0651a1b9d72bdde44d31fa8e517eca14f08a909639fcb16002d9; certificado de manifesto dd277f5170dd8b9aa102afc3017082c023dbdbe3eedc708488cc300894bfd9e4.','PDF oficial do DOE municipal, edição 3.667 de 28/07, preservado: SHA-256 5e85249bc8ddbe41050fed0fb9ef424e9093daf31fe37897489fd8cde851617d.','Verificar eventual contratação/execução anterior distinta, ordem de serviço, medições e fundamento formal da exceção antes de conclusão jurídica.']
   }),
   base({
     recordId:'BOOT-BARRA-HAB-GAP-2026',kind:'research_finding',status:'triage',
     title:'Barra: pagamento de R$ 1,17 milhão em 07/07; concorrência correspondente às 50 unidades ainda não localizada no PNCP',
     summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 07/07/2026 no convênio estadual das 50 unidades de Barra. Consulta à API oficial do PNCP, CNPJ 13.880.703/0001-01, modalidade Concorrência Eletrônica, de 01/01 a 05/10/2026, retornou oito contratações e nenhuma com objeto habitacional correspondente. Isso é uma lacuna de pesquisa, não prova de ausência de contratação ou de irregularidade.',
     municipality:'Barra',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-07-07','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.90,priority:'high',financial:{currency:'BRL',paid:1170000},
+    raw:{procurementDate:null,procurementStatus:'nao_localizado',procurementControl:null,procurementValue:null,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_run',electoralCrossmatchNote:'Sem fornecedor estadual correspondente localizado; cruzamento eleitoral não aplicável nesta etapa.'},
     provenance:src('https://pncp.gov.br/','Consulta API PNCP por CNPJ e modalidade','Portal Nacional de Contratações Públicas','2026-10-05','CNPJ 13880703000101 / modalidade 4 / 20260101-20261005'),
     notes:['Instrumento FIPLAN 26601.0001.26.0000006-3; NOB 26601.0001.26.0000039-1.','Prosseguir no DOE, portal municipal, contratos, ordens de serviço e outras modalidades/sistemas de origem.']
   }),
@@ -134,6 +145,7 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     title:'Esplanada: pagamento de R$ 1,17 milhão em 06/07; concorrência correspondente às 50 unidades ainda não localizada no PNCP',
     summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio estadual das 50 unidades de Esplanada. Consulta à API oficial do PNCP, CNPJ 13.885.231/0001-71, modalidade Concorrência Eletrônica, de 01/01 a 05/10/2026, retornou quatorze contratações e nenhuma com objeto habitacional correspondente. Isso é uma lacuna de pesquisa, não prova de ausência de contratação ou de irregularidade.',
     municipality:'Esplanada',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-06-07','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.90,priority:'high',financial:{currency:'BRL',paid:1170000},
+    raw:{procurementDate:null,procurementStatus:'nao_localizado',procurementControl:null,procurementValue:null,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_run',electoralCrossmatchNote:'Sem fornecedor estadual correspondente localizado; cruzamento eleitoral não aplicável nesta etapa.'},
     provenance:src('https://pncp.gov.br/','Consulta API PNCP por CNPJ e modalidade','Portal Nacional de Contratações Públicas','2026-10-05','CNPJ 13885231000171 / modalidade 4 / 20260101-20261005'),
     notes:['Instrumento FIPLAN 26601.0001.26.0000009-8; NOB 26601.0001.26.0000034-0.','Existe outro projeto MCMV/PTS em Esplanada; não foi associado a este convênio estadual sem prova documental.','Prosseguir no DOE, portal municipal, contratos, ordens de serviço e outras modalidades/sistemas de origem.']
   }),
@@ -142,56 +154,28 @@ export const bootstrapIntelligenceRecords: IntelligenceRecord[] = [
     title:'Iraquara: pagamento de R$ 1,17 milhão em 06/07; concorrência estadual das 50 unidades ainda não localizada',
     summary:'O FIPLAN registra R$ 1,17 milhão efetivado em 06/07/2026 no convênio estadual das 50 unidades de Iraquara. A API oficial do PNCP localiza em 2026 uma concorrência habitacional para 20 unidades do MCMV FNHIS Sub 50, publicada em janeiro, mas esse é um projeto federal distinto. Não foi localizada até 05/10 uma Concorrência Eletrônica correspondente às 50 unidades estaduais. A ausência é uma lacuna de pesquisa, não prova de irregularidade.',
     municipality:'Iraquara',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],tags:['habitacao','pagamento-06-07','projeto-federal-distinto','pncp-lacuna','defeso-eleitoral'],evidenceLevel:'L1',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000},
+    raw:{procurementDate:null,procurementStatus:'nao_localizado',procurementControl:null,procurementValue:null,supplier:null,supplierCnpj:null,electoralCrossmatch:'not_run',electoralCrossmatchNote:'Projeto federal de 20 unidades foi excluído; fornecedor do convênio estadual de 50 unidades não localizado.'},
     provenance:src('https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3','Portal da Transparência — Editais de Licitação','Prefeitura Municipal de Iraquara','2026-10-05','CNPJ 13922596000129 / PNCP + portal municipal'),
     notes:['Instrumento FIPLAN 26601.0001.26.0000018-7; NOB 26601.0001.26.0000033-2.','Concorrência 001/2026 refere-se a 20 unidades federais FNHIS Sub 50 e foi explicitamente excluída do cruzamento estadual.','Prosseguir no DOE, contratos, ordens de serviço e publicações posteriores.']
   }),
   base({
-    recordId:'BOOT-GAP-BARRA-HAB-2026',kind:'research_finding',status:'triage',
-    title:'Barra: R$ 1,17 milhão pago em 07/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
-    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 07/07/2026 no convênio habitacional com Barra. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente a este convênio estadual. A ausência de localização é uma lacuna de pesquisa, não evidência de inexistência ou irregularidade.',
-    municipality:'Barra',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],
-    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
-    tags:['habitacao','pagamento-07-07','defeso-eleitoral','lacuna-contratacao'],
-    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
-    entities:[{name:'Município de Barra',type:'municipality',identifier:'CNPJ 13.880.703/0001-01',role:'convenente/recebedor'}],
-    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000006-3'),
-    notes:['FIPLAN: convênio 26601.0001.26.0000006-3; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000039-1; R$ 1.170.000,00 efetivados em 07/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: DOE municipal/estadual, PNCP por CNPJ do município, portal municipal, ordem de serviço e medições.']
-  }),
-  base({
-    recordId:'BOOT-GAP-ESPLANADA-HAB-2026',kind:'research_finding',status:'triage',
-    title:'Esplanada: R$ 1,17 milhão pago em 06/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
-    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional com Esplanada. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A lacuna exige aprofundamento e não autoriza inferência de irregularidade.',
-    municipality:'Esplanada',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
-    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
-    tags:['habitacao','pagamento-06-07','defeso-eleitoral','lacuna-contratacao'],
-    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
-    entities:[{name:'Município de Esplanada',type:'municipality',identifier:'CNPJ 13.885.231/0001-71',role:'convenente/recebedor'}],
-    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000009-8'),
-    notes:['FIPLAN: convênio 26601.0001.26.0000009-8; celebrado em 25/06; publicado em 27/06; NOB 26601.0001.26.0000034-0; R$ 1.170.000,00 efetivados em 06/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.885.231/0001-71, DOE, portal municipal, ordem de serviço e medições.']
-  }),
-  base({
-    recordId:'BOOT-GAP-IRAQUARA-HAB-2026',kind:'research_finding',status:'triage',
-    title:'Iraquara: R$ 1,17 milhão pago em 06/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
-    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 06/07/2026 no convênio habitacional com Iraquara. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A ausência de localização permanece como lacuna documental.',
-    municipality:'Iraquara',state:'BA',eventDate:'2026-07-06',caseIds:['OE-BA-0002','OE-BA-0003'],
-    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
-    tags:['habitacao','pagamento-06-07','defeso-eleitoral','lacuna-contratacao'],
-    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
-    entities:[{name:'Município de Iraquara',type:'municipality',identifier:'CNPJ 13.922.596/0001-29',role:'convenente/recebedor'}],
-    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000018-7'),
-    notes:['FIPLAN: convênio 26601.0001.26.0000018-7; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000033-2; R$ 1.170.000,00 efetivados em 06/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.922.596/0001-29, DOE, portal municipal, ordem de serviço e medições.']
-  }),
-  base({
-    recordId:'BOOT-GAP-MACAJUBA-HAB-2026',kind:'research_finding',status:'triage',
-    title:'Macajuba: R$ 1,17 milhão pago em 07/07; contratação correspondente ainda não localizada nas fontes pesquisadas',
-    summary:'O FIPLAN registra pagamento efetivado de R$ 1,17 milhão em 07/07/2026 no convênio habitacional com Macajuba. Em buscas dirigidas realizadas até 05/10/2026, ainda não foi localizado ato público inequívoco de contratação da empresa executora das 50 unidades correspondente ao convênio estadual. A lacuna será tratada como diligência, não como conclusão.',
-    municipality:'Macajuba',state:'BA',eventDate:'2026-07-07',caseIds:['OE-BA-0002','OE-BA-0003'],
-    sourceIds:['dados-abertos-ba-convenios-parcerias','pge-ba-eleicoes-2026'],
-    tags:['habitacao','pagamento-07-07','defeso-eleitoral','lacuna-contratacao'],
-    evidenceLevel:'L2',analyticalConfidence:0.95,priority:'high',financial:{currency:'BRL',paid:1170000,contractValue:5850000},
-    entities:[{name:'Município de Macajuba',type:'municipality',identifier:'CNPJ 13.810.841/0001-06',role:'convenente/recebedor'}],
-    provenance:src('https://dados.ba.gov.br/dataset/convenios-e-parcerias','Convênios e Parcerias','SEFAZ Bahia / FIPLAN','2026-10-05','26601.0001.26.0000016-0'),
-    notes:['FIPLAN: convênio 26601.0001.26.0000016-0; celebrado em 19/06; publicado em 20/06; NOB 26601.0001.26.0000041-3; R$ 1.170.000,00 efetivados em 07/07.','Busca dirigida até 05/10/2026 não localizou, com segurança, a contratação municipal correspondente às 50 unidades.','Próximo passo: PNCP pelo CNPJ 13.810.841/0001-06, DOE, portal municipal, ordem de serviço e medições.']
+    recordId:'BOOT-TSE-NUNES-CROSSMATCH-2026',kind:'electoral_account',status:'verified',
+    title:'TSE 2026/BA: nenhuma ocorrência direta de Nunes Engenharia nos seis recortes eleitorais consultados',
+    summary:'Busca exata pelo CNPJ 07.492.799/0001-20 e pelo nome NUNES ENGENHARIA nos recortes Bahia de despesas contratadas, despesas pagas e documentos fiscais de candidatos e órgãos partidários do TSE 2026 retornou zero ocorrências. O resultado reduz a hipótese de sobreposição eleitoral direta desta empresa nas bases consultadas, sem excluir relações por pessoas físicas, sociedades, outras UFs ou atualizações posteriores.',
+    municipality:'Lapão',state:'BA',eventDate:'2026-10-06',caseIds:['OE-BA-0003'],
+    sourceIds:['tse-prestacao-contas-2026-catalog'],
+    tags:['tse-crossmatch','fornecedor','resultado-negativo','lapao','nunes-engenharia'],
+    evidenceLevel:'L2',analyticalConfidence:1,priority:'low',financial:{currency:'BRL'},
+    entities:[{name:'Nunes Engenharia Ltda',type:'supplier',identifier:'CNPJ 07.492.799/0001-20',role:'fornecedor público cruzado com bases eleitorais'}],
+    provenance:src('https://dadosabertos.tse.jus.br/tl/dataset/prestacao-de-contas-eleitorais-2026','Prestação de Contas Eleitorais 2026','Tribunal Superior Eleitoral','2026-10-06','preservation/manifests/tse-2026-crossmatch.json'),
+    notes:[
+      'Arquivos consultados: despesas contratadas/pagas de candidatos BA, documentos fiscais de candidatos BA, despesas contratadas/pagas de órgãos partidários BA e documentos fiscais partidários BA.',
+      'Universo consultado: 36.459 despesas contratadas de candidatos; 25.798 pagamentos de candidatos; 2.250 documentos fiscais de candidatos; 660 despesas contratadas partidárias; 237 pagamentos partidários; 1 documento fiscal partidário.',
+      'Método: busca exata pelo CNPJ normalizado 07492799000120 e, em paralelo, pelo texto NUNES ENGENHARIA.',
+      'Resultado: 0 ocorrências nos seis arquivos do snapshot coletado em 06/10/2026.',
+      'Os seis recortes BA foram preservados em preservation/extracts/tse/; hashes e hashes dos ZIPs oficiais constam em preservation/manifests/tse-2026-crossmatch.json.',
+      'Reexecutar o cruzamento sobre versões posteriores do TSE antes de encaminhamento institucional.'
+    ]
   }),
   base({
     recordId:'BOOT-CONTROL-TUCANO',kind:'municipal_fact',status:'verified',

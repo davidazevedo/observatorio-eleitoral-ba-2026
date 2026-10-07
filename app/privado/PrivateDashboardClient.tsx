@@ -13,7 +13,25 @@ type SourceRow = {
 type EntityRow = { name: string; type: string; identifier?: string; mentions: number; roles: string[] };
 type RelationRow = { from: string; to: string; type: string; description?: string };
 type SourceArchiveRow = { sourceId:string; originalUrl:string; finalUrl:string; title?:string; publisher?:string; retrievedAt:string; httpStatus:number; contentType:string; size:number; sha256:string; etag?:string; lastModified?:string; rawBlobPath:string; manifestBlobPath:string; certificateSha256:string; certificateValid:boolean; notes?:string[] };
-type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; procurementDate:string|null; procurementStatus:string|null; procurementControl:string|null; procurementValue:number|null; supplier:string|null; supplierCnpj:string|null; electoralCrossmatch:string; electoralCrossmatchNote:string|null; sourceUrl:string|null };
+type HousingAuditRow = { municipality:string; paymentRecordId:string|null; paymentDate:string|null; paid:number; instrumentNumber:string|null; findingRecordId:string|null; findingTitle:string; evidenceLevel:string; priority:string; status:'corroborado'|'lacuna'|'triagem'; exceptionDocumented:boolean; exceptionStatus:'under_test'|'not_located'|'documented'; exceptionNote:string|null; instrumentPublishedAt:string|null; physicalExecutionStatus:'not_located'|'documented'; prefixedScheduleStatus:'not_located'|'documented'; procurementDate:string|null; procurementStatus:string|null; procurementControl:string|null; procurementValue:number|null; supplier:string|null; supplierCnpj:string|null; electoralCrossmatch:string; electoralCrossmatchNote:string|null; sourceUrl:string|null };
+type CohortMunicipality = { rank:number; name:string; state:string; priority:string; selectionReasons:string[]; territoryIrece:boolean; defesoPaymentExposureBRL:number; centralEvidenceQualified:boolean; centralEvidenceType:string|null; jeronimo2026ValidVotePct:number|null; jeronimoVoteSource:string|null; investigationStatus:string; legalConclusion:string };
+type CentralEvidenceItem = { id:string; municipality:string; title:string; type:string; status:string; amountBRL:number; sourceScope:string; evidenceReference?:string; caseGroup:string; legalConclusion:string; nextTest?:string[] };
+type MunicipalityCohort69 = { schemaVersion:number; cohortId:string; createdAt:string; methodology:{statement:string;existingCasesExcluded:string[];rules:string[];statewideJeronimo2026ValidVotePct:number;territoryIreceOfficialMunicipalityCount:number;newMunicipalityCount:number;newDefesoPaymentMunicipalities:number;newIreceMunicipalities:number;highVoteSupplementMunicipalities:number;overlaps:{ireceAndDefesoPayment:string[]}}; evidenceGoal:{waveTargetCentralEvidence:number;priorCentralEvidence:number;additionalQualifiedFiplanMunicipalFacts:number;minimumCentralEvidenceAfterClassification:number;countingRule:string}; municipalities:CohortMunicipality[] };
+type CentralEvidenceWave = { schemaVersion:number;manifestId:string;generatedAt:string;purpose:string;countingPolicy:string;counts:{total:number;housingCore:number;expansionFinancialFacts:number;expansionFinancialExposureBRL:number};legalBoundary:string;items:CentralEvidenceItem[] };
+type P0TriageRow = { municipality:string; instrument:string; agency:string; category:string; object:string; published:string; payment:string; paidBRL:number; instrumentValueBRL:number; publishedBeforeCutoff:boolean; daysPublicationBeforeCutoff:number; daysPaymentAfterCutoff:number; priority:string; flag:string };
+type P0Triage36 = { schemaVersion:number;batchId:string;generatedAt:string;cutoffDate:string;scope:{municipalities:number;instruments:number;defesoPaidBRL:number};methodology:{statement:string;legalTest:string[];boundary:string};summary:{instrumentsPublishedBeforeCutoff:number;instrumentsPublishedOnOrAfterCutoff:number;criticalMunicipalities:string[];urgentFocus:string[]};deepDiveFacts:Record<string,{status:string;assessment:string}>;instruments:P0TriageRow[] };
+type CentralEvidenceWave02 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;relationToPriorEvidence?:string;legalConclusion:string}>;boundary:string };
+type CentralEvidenceWave03 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;boundary?:string;legalConclusion:string}>;boundary:string };
+type ComidaControlCase = { municipality:string;fiplanInstrument:string;fiplanPaymentDate:string;fiplanPaidBRL:number;program:string;municipalAgreement:string;linkage:string;evidence:Array<{date:string;type:string;fact:string}>;status:string;assessment:string };
+type P0ComidaControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:ComidaControlCase[];nextActions:string[] };
+type InfrastructureControlCase = { municipality:string;fiplanInstrument:string;stateAgreement:string;fiplanPaymentDate:string;fiplanPaidBRL:number;object:string;procurement:Record<string,unknown>;physicalExecution:Array<{date:string;type:string;fact:string;sourceUrl?:string}>;status:string;assessment:string };
+type P0InfrastructureControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:InfrastructureControlCase[];nextActions:string[] };
+type IreceP0Case = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;paymentDate:string;paidBRL:number;object:string}>;paymentDate?:string;paidBRL?:number;object?:string;procurement?:string;contract?:string;supplierCnpj?:string;preCutoffContract:boolean|null;preCutoffPhysicalExecution:string;status:string;assessment:string;marketProcurement?:Record<string,unknown>;animalCenterProcurement?:Record<string,unknown> };
+type IreceP0DeepScan = { schemaVersion:number;batchId:string;generatedAt:string;territory:string;scope:{officialMunicipalities:number;p0Municipalities:string[];p0Count:number;remainingTerritorialTriage:number};methodology:{rule:string;chain:string};cases:IreceP0Case[];territoryNextActions:string[] };
+type RuralMarketGapCase = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;agreement:string;paymentDate:string;paidBRL:number;object:string}>;stateAgreement?:string;paymentDate?:string;paidBRL:number;instrumentValueBRL?:number;object?:string;linkage?:string;municipalRevenueCorroboration?:{sourceUrl:string;facts:string[]};procurement:string;contract:string;serviceOrder:string;measurement:string;status:string;assessment:string };
+type P0RuralMarketGaps = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;statusDefinition:string};cases:RuralMarketGapCase[] };
+type P0ClassificationCoverage = { schemaVersion:number;batchId:string;generatedAt:string;coverage:{classifiedMunicipalities:number;totalP0Municipalities:number;percent:number};counts:Record<string,number>;interpretation:Record<string,string>;municipalities:Array<{municipality:string;status:string;assessment:string}> };
+
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
   repositoryCommit:string; repositoryUrl:string;
@@ -56,9 +74,19 @@ type DashboardData = {
   sourceArchives: SourceArchiveRow[];
   gitPreservations: GitPreservationRow[];
   housingAudit: HousingAuditRow[];
+  municipalityCohort69: MunicipalityCohort69;
+  centralEvidenceWave01: CentralEvidenceWave;
+  p0Triage36: P0Triage36;
+  centralEvidenceWave02: CentralEvidenceWave02;
+  centralEvidenceWave03: CentralEvidenceWave03;
+  p0ComidaNoPratoControl: P0ComidaControl;
+  p0InfrastructureControl: P0InfrastructureControl;
+  ireceP0DeepScan: IreceP0DeepScan;
+  p0RuralMarketGaps: P0RuralMarketGaps;
+  p0ClassificationCoverage: P0ClassificationCoverage;
 };
 
-type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -153,6 +181,8 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [archiveCertFilter,setArchiveCertFilter]=useState('Todos');
   const [archiveTypeFilter,setArchiveTypeFilter]=useState('Todos');
   const [housingDocumentFilter,setHousingDocumentFilter]=useState('Todos');
+  const [housingProcurementStatus,setHousingProcurementStatus]=useState('Todos');
+  const [housingSupplierFilter,setHousingSupplierFilter]=useState('Todos');
   const [housingTseFilter,setHousingTseFilter]=useState('Todos');
 
   const municipalityOptions=useMemo(()=>Array.from(new Set([
@@ -251,11 +281,15 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     if(max!==null && Number.isFinite(max) && item.paid>max) return false;
     if(housingDocumentFilter==='Contratação localizada' && item.status!=='corroborado') return false;
     if(housingDocumentFilter==='Lacuna' && item.status!=='lacuna') return false;
+    if(housingProcurementStatus!=='Todos' && item.procurementStatus!==housingProcurementStatus) return false;
+    if(housingSupplierFilter==='Com fornecedor' && !item.supplier) return false;
+    if(housingSupplierFilter==='Sem fornecedor' && item.supplier) return false;
     if(housingTseFilter==='Sem match exato' && item.electoralCrossmatch!=='no_exact_match') return false;
-    if(housingTseFilter==='Pendente' && item.electoralCrossmatch==='no_exact_match') return false;
+    if(housingTseFilter==='Não aplicável ainda' && item.electoralCrossmatch!=='not_applicable_no_supplier') return false;
+    if(housingTseFilter==='Não executado' && item.electoralCrossmatch!=='not_run') return false;
     const q=normalized(globalQuery);
     return !q || normalized([item.municipality,item.findingTitle,item.instrumentNumber,item.procurementControl,item.procurementStatus,item.supplier,item.supplierCnpj,item.electoralCrossmatch,item.status,item.evidenceLevel,item.priority]).includes(q);
-  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery,housingDocumentFilter,housingTseFilter]);
+  }),[data.housingAudit,municipalityFilter,evidenceFilter,priorityFilter,statusFilter,dateFrom,dateTo,paymentFilter,minAmount,maxAmount,globalQuery,housingDocumentFilter,housingProcurementStatus,housingSupplierFilter,housingTseFilter]);
 
   const filteredEntities=useMemo(()=>{
     const map=new Map<string,EntityRow & {roles:string[]}>();
@@ -351,6 +385,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
+    { id: 'expansion', label: 'Coorte 69', count: data.municipalityCohort69.municipalities.length },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -584,8 +619,8 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Lacunas</span><strong>{visibleHousing.filter((item)=>item.status==='lacuna').length}</strong><small>contratação estadual correspondente ainda não localizada</small></article>
               </section>
               <section className="private-panel">
-                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → fornecedor → TSE → exceção</h2></div><div className="private-filters"><select value={housingDocumentFilter} onChange={(e)=>setHousingDocumentFilter(e.target.value)}><option>Todos</option><option>Contratação localizada</option><option>Lacuna</option></select><select value={housingTseFilter} onChange={(e)=>setHousingTseFilter(e.target.value)}><option>Todos</option><option>Sem match exato</option><option>Pendente</option></select></div></div>
-                <p className="private-report-note">“Corroborado” significa que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. “Sem match exato TSE” descreve somente os arquivos/versionamento consultados e não exclui outros vínculos. Nenhum estado equivale a conclusão de ilegalidade.</p>
+                <div className="private-panel-title submissions-heading"><div><p className="eyebrow">MATRIZ DE DILIGÊNCIA</p><h2>Pagamento → contratação → fornecedor → TSE → exceção</h2><small className="filter-result-count">{visibleHousing.length} caso(s) no recorte</small></div><div className="private-filters"><select value={housingDocumentFilter} onChange={(e)=>setHousingDocumentFilter(e.target.value)}><option>Todos</option><option>Contratação localizada</option><option>Lacuna</option></select><select value={housingProcurementStatus} onChange={(e)=>setHousingProcurementStatus(e.target.value)}><option>Todos</option><option value="em_andamento">Em andamento</option><option value="homologado">Homologado</option><option value="nao_localizado">Não localizado</option></select><select value={housingSupplierFilter} onChange={(e)=>setHousingSupplierFilter(e.target.value)}><option>Todos</option><option>Com fornecedor</option><option>Sem fornecedor</option></select><select value={housingTseFilter} onChange={(e)=>setHousingTseFilter(e.target.value)}><option>Todos</option><option>Sem match exato</option><option>Não aplicável ainda</option><option>Não executado</option></select></div></div>
+                <p className="private-report-note">“Corroborado” significa que foi localizada documentação de contratação posterior ao pagamento. “Lacuna” significa que a contratação correspondente ainda não foi localizada. Em “Exceção”, “em teste” indica hipótese jurídica documentalmente possível ainda sem vínculo específico comprovado; “não localizada” significa somente ausência de documentação nas fontes consultadas até o corte. “Sem match exato TSE” descreve apenas os arquivos/versionamento consultados. Nenhum estado equivale a conclusão de ilegalidade.</p>
                 <div className="housing-audit-table housing-audit-v2">
                   <div className="housing-audit-head"><span>Município</span><span>Pagamento</span><span>Contratação</span><span>Situação / referência</span><span>Fornecedor / TSE</span><span>Exceção</span></div>
                   {visibleHousing.map((item)=>(
@@ -594,10 +629,160 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                       <div><b>{money(item.paid)}</b><small>{item.paymentDate||'—'}</small>{item.instrumentNumber?<code>{item.instrumentNumber}</code>:null}</div>
                       <div><b>{item.procurementDate||'não localizada'}</b>{item.procurementValue?<small>{money(item.procurementValue)}</small>:null}</div>
                       <div><b className={item.status==='corroborado'?'housing-status-ok':item.status==='lacuna'?'housing-status-gap':'housing-status-triage'}>{item.status}</b><small>{item.procurementStatus||item.findingTitle}</small>{item.procurementControl?<code>{item.procurementControl}</code>:null}<span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span></div>
-                      <div>{item.supplier?<><strong>{item.supplier}</strong>{item.supplierCnpj?<code>{item.supplierCnpj}</code>:null}</>:<span>Fornecedor não consolidado</span>}{item.electoralCrossmatch==='no_exact_match'?<b className="housing-tse-none">TSE: sem match exato</b>:<b className="housing-tse-pending">TSE: pendente</b>}{item.electoralCrossmatchNote?<small>{item.electoralCrossmatchNote}</small>:null}</div>
-                      <span className="housing-exception-pending">{item.exceptionDocumented?'documentada':'pendente'}</span>
+                      <div>{item.supplier?<><strong>{item.supplier}</strong>{item.supplierCnpj?<code>{item.supplierCnpj}</code>:null}</>:<span>Fornecedor não consolidado</span>}{item.electoralCrossmatch==='no_exact_match'?<b className="housing-tse-none">TSE: sem match exato</b>:item.electoralCrossmatch==='not_applicable_no_supplier'?<b className="housing-tse-pending">TSE: aguarda fornecedor</b>:<b className="housing-tse-pending">TSE: não executado</b>}{item.electoralCrossmatchNote?<small>{item.electoralCrossmatchNote}</small>:null}</div>
+                      <div title={item.exceptionNote||undefined}><span className={item.exceptionStatus==='documented'?'housing-status-ok':'housing-exception-pending'}>{item.exceptionStatus==='documented'?'documentada':item.exceptionStatus==='under_test'?'em teste':'não localizada'}</span><small>R1 instrumento: {item.instrumentPublishedAt?`✓ ${item.instrumentPublishedAt}`:'não verificado'}</small><small>R2 execução física: {item.physicalExecutionStatus==='documented'?'✓ documentada':'não localizada'}</small><small>R3 cronograma: {item.prefixedScheduleStatus==='documented'?'✓ documentado':'não localizado'}</small></div>
                     </div>
                   ))}
+                </div>
+              </section>
+            </>
+          )}
+
+          {tab === 'expansion' && (
+            <>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">COBERTURA SUBSTANTIVA P0</p><h2>{data.p0ClassificationCoverage.coverage.classifiedMunicipalities}/{data.p0ClassificationCoverage.coverage.totalP0Municipalities} municípios classificados</h2><small>{data.p0ClassificationCoverage.coverage.percent}% da primeira fila financeira já recebeu disposição documental primária</small></div></div>
+                <p className="private-report-note">Classificação não equivale a culpa. O objetivo é separar casos críticos, controles com evidência prévia e lacunas reais antes de qualquer encaminhamento.</p>
+                <div className="intel-metric-grid">
+                  {Object.entries(data.p0ClassificationCoverage.counts).map(([status,count])=><article key={status}><span>{status.replaceAll('_',' ')}</span><strong>{count}</strong></article>)}
+                </div>
+              </section>
+
+              <section className="private-grid-three">
+                <article className="private-panel"><p className="eyebrow">EXPANSÃO TERRITORIAL</p><h2>{data.municipalityCohort69.methodology.newMunicipalityCount} novos municípios</h2><p className="private-report-note">A votação é critério de priorização da amostra, nunca evidência de irregularidade.</p></article>
+                <article className="private-panel"><p className="eyebrow">IRECÊ</p><h2>{data.municipalityCohort69.methodology.newIreceMunicipalities} novos + Lapão</h2><p className="private-report-note">Cobertura completa dos 20 municípios do Território de Identidade de Irecê.</p></article>
+                <article className="private-panel"><p className="eyebrow">EVIDÊNCIAS CENTRAIS</p><h2>{data.centralEvidenceWave03.counts.cumulativeCentralEvidence} itens</h2><p className="private-report-note">Wave 01: {data.centralEvidenceWave01.counts.total} · Wave 02: +{data.centralEvidenceWave02.counts.newEvidence} · Wave 03: +{data.centralEvidenceWave03.counts.newEvidence}.</p></article>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">COORTE DE PRIORIZAÇÃO</p><h2>69 municípios selecionados para a próxima onda</h2><small>{money(data.centralEvidenceWave01.counts.expansionFinancialExposureBRL)} em pagamentos FIPLAN já qualificados entre os 36 municípios com exposição financeira.</small></div></div>
+                <p className="private-report-note">{data.municipalityCohort69.methodology.statement} Referência estadual de Jerônimo em 2026: {data.municipalityCohort69.methodology.statewideJeronimo2026ValidVotePct.toFixed(2)}% dos votos válidos. Percentuais municipais só aparecem quando já verificados nesta coorte.</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Seleção</span><span>FIPLAN no defeso</span><span>Jerônimo 2026</span><span>Evidência central</span><span>Status</span></div>
+                  {data.municipalityCohort69.municipalities.map((item)=><div key={item.name}>
+                    <strong>{item.name}</strong>
+                    <div><b>{item.priority}</b><small>{item.territoryIrece?'Território Irecê':''}</small></div>
+                    <div>{item.defesoPaymentExposureBRL>0?<b>{money(item.defesoPaymentExposureBRL)}</b>:<span>sem fato financeiro classificado</span>}</div>
+                    <div>{item.jeronimo2026ValidVotePct!==null?<><b>{item.jeronimo2026ValidVotePct.toFixed(2)}%</b><small>votos válidos</small></>:<span>percentual pendente de ingestão</span>}</div>
+                    <div>{item.centralEvidenceQualified?<b className="housing-status-ok">qualificada</b>:<span className="housing-exception-pending">triagem</span>}</div>
+                    <div><small>{item.selectionReasons.map((reason)=>reason==='defeso_fiplan_payment'?'pagamento FIPLAN':reason==='territorio_irece'?'Irecê':'alta votação 2026').join(' · ')}</small></div>
+                  </div>)}
+                </div>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">TRIAGEM P0 · 36 MUNICÍPIOS</p><h2>Teste documental do marco de 04/07</h2><small>{data.p0Triage36.scope.instruments} instrumentos · {money(data.p0Triage36.scope.defesoPaidBRL)} pagos no período crítico</small></div></div>
+                <p className="private-report-note">{data.p0Triage36.methodology.statement} Resultado R1: {data.p0Triage36.summary.instrumentsPublishedBeforeCutoff}/{data.p0Triage36.scope.instruments} instrumentos publicados antes do marco.</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Instrumento</span><span>Publicação</span><span>Pagamento</span><span>Valor no defeso</span><span>Prioridade</span></div>
+                  {data.p0Triage36.instruments.map((item)=><div key={item.instrument}>
+                    <strong>{item.municipality}</strong>
+                    <div><code>{item.instrument}</code><small>{item.agency} · {item.category}</small></div>
+                    <div><b>{item.published}</b><small>{item.daysPublicationBeforeCutoff} dia(s) antes de 04/07</small></div>
+                    <div><b>{item.payment}</b><small>{item.daysPaymentAfterCutoff} dia(s) após 04/07</small></div>
+                    <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
+                    <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
+                  </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">LACUNAS · MERCADOS / INFRA RURAL</p><h2>Últimos P0 sem cadeia operacional fechada</h2><small>{data.p0RuralMarketGaps.cases.length} casos classificados como lacuna documental</small></div></div>
+                <p className="private-report-note">{data.p0RuralMarketGaps.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Pagamento</span><span>Objeto / convênio</span><span>Contratação</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0RuralMarketGaps.cases.map((item)=>{
+                    const inst=item.fiplanInstrument || (item.fiplanInstruments||[]).map((row)=>row.instrument).join(' · ');
+                    const obj=item.object || (item.fiplanInstruments||[]).map((row)=>row.agreement+' · '+row.object).join(' | ');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{money(item.paidBRL)}</b><code>{inst||'—'}</code></div>
+                      <div><small>{obj||item.linkage||'—'}</small></div>
+                      <div><b>{item.procurement==='not_located_inequivocally'||item.procurement==='not_located_inequivocally_for_2025_agreements'?'não localizada com segurança':item.procurement}</b></div>
+                      <div><b className="housing-status-gap">{item.status.replaceAll('_',' ')}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">IRECÊ · P0</p><h2>Deep scan dos municípios com pagamento no defeso</h2><small>{data.ireceP0DeepScan.scope.p0Count} P0 de {data.ireceP0DeepScan.scope.officialMunicipalities} municípios do território</small></div></div>
+                <p className="private-report-note">{data.ireceP0DeepScan.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Pagamento / instrumento</span><span>Contratação prévia</span><span>Execução prévia</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.ireceP0DeepScan.cases.map((item)=>{
+                    const paid=item.paidBRL ?? (item.fiplanInstruments||[]).reduce((sum,row)=>sum+row.paidBRL,0);
+                    const instruments=item.fiplanInstrument || (item.fiplanInstruments||[]).map((row)=>row.instrument).join(' · ');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{money(paid||0)}</b><code>{instruments||'—'}</code></div>
+                      <div><b>{item.preCutoffContract===true?'sim':item.preCutoffContract===false?'não':'não fechado'}</b></div>
+                      <div><b>{item.preCutoffPhysicalExecution==='not_located'?'não localizada':item.preCutoffPhysicalExecution}</b></div>
+                      <div><b className={item.status.includes('high_priority')?'housing-status-gap':item.status.includes('pre_cutoff')?'housing-status-ok':'housing-exception-pending'}>{item.status.replaceAll('_',' ')}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">CONTROLE · OBRAS DE INFRAESTRUTURA</p><h2>Execução física antes de 04/07 versus contratação apenas iniciada</h2><small>{data.p0InfrastructureControl.cases.length} casos estruturados</small></div></div>
+                <p className="private-report-note">{data.p0InfrastructureControl.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Convênio / instrumento</span><span>Pagamento</span><span>Execução prévia</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0InfrastructureControl.cases.map((item)=><div key={item.municipality}>
+                    <strong>{item.municipality}</strong>
+                    <div><b>{item.stateAgreement}</b><code>{item.fiplanInstrument}</code></div>
+                    <div><b>{money(item.fiplanPaidBRL)}</b><small>{item.fiplanPaymentDate}</small></div>
+                    <div><b>{item.physicalExecution.length} indicador(es)</b><small>{item.physicalExecution.map((e)=>`${e.date} · ${e.type}`).join(' | ')||'não localizada'}</small></div>
+                    <div><b className={item.status==='pre_cutoff_physical_execution_corroborated'?'housing-status-ok':'housing-exception-pending'}>{item.status==='pre_cutoff_physical_execution_corroborated'?'execução pré-04/07 corroborada':'contratação prévia; execução aberta'}</b></div>
+                    <div><small>{item.assessment}</small></div>
+                  </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">GRUPO DE CONTROLE · COMIDA NO PRATO</p><h2>Separação entre execução prévia e implantação tardia</h2><small>{data.p0ComidaNoPratoControl.cases.length} municípios já classificados neste cluster</small></div></div>
+                <p className="private-report-note">{data.p0ComidaNoPratoControl.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Convênio</span><span>Pagamento</span><span>Indicadores pré-04/07</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0ComidaNoPratoControl.cases.map((item)=>{
+                    const pre=item.evidence.filter((e)=>e.date<'2026-07-04');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{item.municipalAgreement}</b><code>{item.fiplanInstrument}</code><small>vínculo: {item.linkage}</small></div>
+                      <div><b>{money(item.fiplanPaidBRL)}</b><small>{item.fiplanPaymentDate}</small></div>
+                      <div><b>{pre.length} ato(s)</b><small>{pre.map((e)=>`${e.date} · ${e.type}`).join(' | ')||'nenhum localizado'}</small></div>
+                      <div><b className={item.status==='pre_cutoff_execution_indicators'?'housing-status-ok':item.status==='post_cutoff_implementation_indicators'?'housing-status-gap':'housing-exception-pending'}>{item.status==='pre_cutoff_execution_indicators'?'execução prévia plausível':item.status==='pre_cutoff_procurement_only'?'atos prévios; execução aberta':item.status==='post_cutoff_implementation_indicators'?'implantação posterior localizada':'vínculo pendente'}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">WAVE 03 · ARAÇÁS / JAGUAQUARA</p><h2>Novos elos documentais da triagem P0</h2><small>Total acumulado: {data.centralEvidenceWave03.counts.cumulativeCentralEvidence}</small></div></div>
+                <p className="private-report-note">{data.centralEvidenceWave03.boundary}</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Fonte</span><span>Fato</span></div>
+                  {data.centralEvidenceWave03.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><span>{item.source}</span><span>{item.title}</span></div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">WAVE 02 · ACHADOS CRÍTICOS</p><h2>Novas evidências centrais independentes</h2><small>Total acumulado: {data.centralEvidenceWave02.counts.cumulativeCentralEvidence}</small></div></div>
+                <p className="private-report-note">{data.centralEvidenceWave02.boundary}</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Fonte</span><span>Fato</span></div>
+                  {data.centralEvidenceWave02.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><span>{item.source}</span><span>{item.title}</span></div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">REGISTRO PROBATÓRIO</p><h2>Primeira leva de 50 evidências centrais</h2></div></div>
+                <p className="private-report-note">{data.centralEvidenceWave01.countingPolicy}</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Valor</span><span>Fato</span></div>
+                  {data.centralEvidenceWave01.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><b>{money(item.amountBRL)}</b><span>{item.title}</span></div>)}
                 </div>
               </section>
             </>
@@ -721,6 +906,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <div className="api-endpoints">
                 <div><span>POST</span><code>/api/intelligence/ingest</code><p>Ingere um registro ou lote de até 100 registros.</p></div>
                 <div><span>GET</span><code>/api/intelligence/query</code><p>Consulta registros por kind, município, status, nível, caso ou texto.</p></div>
+                <div><span>GET</span><code>/api/intelligence/datasets</code><p>Lista datasets investigativos consolidados. Use <code>?name=...</code> para obter um conjunto específico.</p></div>
               </div>
               <h3>Tipos aceitos</h3>
               <div className="intel-chip-list">{['complaint','public_source','research_finding','financial_record','electoral_account','entity','relationship','municipal_fact','legal_reference'].map((item)=><span key={item}>{item}</span>)}</div>
@@ -732,7 +918,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Datasets publicados: <code>cohort-69</code>, <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência e matrizes de controle.</p>
             </section>
           )}
         </main>

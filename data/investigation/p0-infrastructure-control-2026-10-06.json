@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "batchId": "p0-infrastructure-control-2026-10-06",
+  "generatedAt": "2026-10-07T05:25:00Z",
+  "purpose": "Comparar obras de infraestrutura com pagamento no período crítico para separar casos com execução física pré-04/07 corroborada daqueles em que apenas a contratação anterior ao marco foi localizada.",
+  "methodology": {
+    "rule": "Contratação anterior ao marco não equivale a execução física. A classificação favorável à exceção ordinária exige ao menos indicador documental de início material da obra antes de 04/07, preferencialmente OS/AIO, CNO, medição, vistoria ou documento equivalente.",
+    "states": {
+      "pre_cutoff_physical_execution_corroborated": "há evidência documental independente de início físico anterior a 04/07; caso deve ser rebaixado na fila de risco, sem dispensar cronograma e processo de liberação",
+      "pre_cutoff_procurement_only": "licitação/contratação começou antes de 04/07, mas a execução física prévia ainda não foi comprovada",
+      "open": "a cadeia contratação→OS→execução ainda não foi fechada"
+    }
+  },
+  "cases": [
+    {
+      "municipality": "Brumado",
+      "fiplanInstrument": "26401.0001.26.0000131-7",
+      "stateAgreement": "Convênio CONDER 039/2026",
+      "fiplanPaymentDate": "2026-09-23",
+      "fiplanPaidBRL": 2035388.31,
+      "object": "Requalificação/pavimentação asfáltica e drenagem da Avenida Agnelo dos Santos Azevedo",
+      "procurement": {
+        "number": "Concorrência Eletrônica 015/2026",
+        "supplier": "TECPLAN TERRAPLENAGEM LTDA",
+        "supplierCnpj": "09.206.625/0001-89",
+        "homologationDate": "2026-04-10",
+        "contract": "Contrato 0246/2026",
+        "contractDate": "2026-04-10",
+        "contractedBRL": 5799889.63
+      },
+      "physicalExecution": [
+        {
+          "date": "2026-05-12",
+          "type": "service_order",
+          "fact": "Prefeitura de Brumado noticiou autorização da ordem de serviço para a obra, com visita técnica acompanhada de fiscal da CONDER.",
+          "sourceUrl": "https://www.brumado.ba.gov.br/noticias/559-2026/05/15/prefeito-fabricio-abrantes-autoriza-ordem-de-servico-para-requalificacao-da-avenida-agnelo-dos-santos-azevedo"
+        },
+        {
+          "date": "2026-05-11",
+          "type": "cno_start",
+          "fact": "Registro CNO localizado em fonte derivada da Receita aponta início da obra em 11/05/2026; usar como corroboração e preservar fonte primária quando possível."
+        }
+      ],
+      "status": "pre_cutoff_physical_execution_corroborated",
+      "assessment": "A obra tem contratação, ordem de serviço e indicador de início físico quase dois meses antes de 04/07. Este caso não deve ser priorizado como suspeita de transferência vedada; serve como controle favorável à exceção ordinária. Permanecem úteis o cronograma original, primeira medição e processo de liberação da parcela de setembro."
+    },
+    {
+      "municipality": "Remanso",
+      "fiplanInstrument": "26401.0001.26.0000150-3",
+      "stateAgreement": "Convênio CONDER 053/2026",
+      "fiplanPaymentDate": "2026-08-27",
+      "fiplanPaidBRL": 1623948.12,
+      "object": "Pavimentação asfáltica em CBUQ sobre paralelepípedos com drenagem superficial",
+      "procurement": {
+        "number": "Concorrência Eletrônica 006/2026",
+        "pncpControl": "13909247000177-1-000078/2026",
+        "publicationDate": "2026-04-30",
+        "proposalSession": "2026-05-18",
+        "estimatedBRL": 5482543.98,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/remanso/13909247000177-1-000078/2026/concorrencia-eletronica-edital-no-0062026"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação foi lançada e teve sessão antes de 04/07, mas não foi localizada nesta rodada homologação, contrato, OS/AIO ou medição inequívoca do Convênio 053/2026. O caso permanece em diligência média; não subir nem rebaixar definitivamente sem fechar a execução material."
+    },
+    {
+      "municipality": "Canarana",
+      "fiplanInstrument": "26401.0001.26.0000156-2",
+      "stateAgreement": "Convênio estadual/CONDER — número ainda a preservar em fonte primária",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 820084.88,
+      "object": "Pavimentação em piso intertravado com drenagem superficial em vias do município",
+      "procurement": {
+        "number": "Concorrência Eletrônica 006/2026",
+        "process": "021604/2026",
+        "homologationDate": "2026-05-15",
+        "supplier": "A.M. DA SILVA CONSTRUÇÃO CIVIL LTDA-ME",
+        "supplierCnpj": "08.777.139/0001-58",
+        "contract": "C012105/2026",
+        "contractDate": "2026-05-21",
+        "contractedBRL": 2086737.78,
+        "sourceUrl": "https://canarana.ba.gov.br/transparencia/licitacoes/"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação, homologação e contrato foram formalizados antes de 04/07, o que reduz a anomalia temporal. Ainda não foi localizada OS/AIO, medição ou prova inequívoca de execução física anterior ao marco. Confirmar também o vínculo documental exato entre a CE 006/2026/Contrato C012105/2026 e o instrumento FIPLAN estadual."
+    },
+    {
+      "municipality": "Rio Real",
+      "fiplanInstrument": "26401.0001.26.0000217-8",
+      "stateAgreement": "não identificado inequivocamente nesta rodada",
+      "fiplanPaymentDate": "2026-09-01",
+      "fiplanPaidBRL": 817461.02,
+      "object": "Pavimentação asfáltica sobre pavimento existente com drenagem superficial em vias da sede",
+      "procurement": {},
+      "physicalExecution": [],
+      "status": "open",
+      "assessment": "Foram localizadas várias obras de pavimentação municipais em 2026, inclusive contratos financiados por repasses federais, mas nenhuma foi vinculada com segurança ao instrumento estadual 26401.0001.26.0000217-8. Não cruzar fornecedor, contrato ou execução até localizar o convênio estadual/objeto correspondente em fonte primária."
+    },
+    {
+      "municipality": "Ituaçu",
+      "fiplanInstrument": "26401.0001.26.0000035-3",
+      "stateAgreement": "Convênio CONDER 051/2025",
+      "fiplanPaymentDate": "2026-08-14",
+      "fiplanPaidBRL": 845033.5,
+      "object": "Ampliação do Balneário da Lagoa da Gruta da Mangabeira",
+      "procurement": {
+        "number": "Concorrência Eletrônica 001/2026",
+        "process": "008/2026",
+        "publicationDate": "2026-02-04",
+        "contract": "069/2026",
+        "contractDate": "2026-03-04",
+        "supplier": "CONSTRUTORA DORATA LTDA",
+        "supplierCnpj": "17.060.037/0001-08",
+        "contractedBRL": 3085000,
+        "sourceUrl": "https://doem.org.br/ba/ituacu/editais?page=3"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "O contrato da obra foi assinado em 04/03, quatro meses antes do marco. A exceção ordinária torna-se plausível, mas ainda requer OS/AIO, primeira medição ou outro indicador de execução física anterior a 04/07."
+    },
+    {
+      "municipality": "Aratuípe",
+      "fiplanInstrument": "26401.0001.26.0000147-3",
+      "stateAgreement": "Convênio CONDER 024/2026",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 574446.41,
+      "object": "Pavimentação asfáltica sobre paralelepípedo com drenagem superficial de vias na sede",
+      "procurement": {
+        "number": "Concorrência Eletrônica 90007/2026",
+        "publicationDate": "2026-05-04",
+        "proposalSession": "2026-05-20",
+        "estimatedBRL": 1233263.5,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacoes/cidade/aratuipe/2902302?kw%5B0%5D=asfalto"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A licitação do exato Convênio CONDER 024/2026 e valor global do instrumento estava em curso antes de 04/07. Localizar homologação, contrato, OS/AIO e medição para definir se a obra já estava materialmente em execução."
+    },
+    {
+      "municipality": "Tabocas do Brejo Velho",
+      "fiplanInstrument": "26401.0002.26.0000014-8",
+      "stateAgreement": "Convênio CONDER 022/2025",
+      "fiplanPaymentDate": "2026-08-28",
+      "fiplanPaidBRL": 1452398.81,
+      "object": "Pavimentação asfáltica em TSD na Comunidade de Várzea Cumprida",
+      "procurement": {
+        "number": "Concorrência Eletrônica 006/2025",
+        "process": "106/2025",
+        "contract": "008/2026",
+        "contractDate": "2026-02-04",
+        "supplier": "CONSTRUTORA IMOBILIARIA COPACABANA LTDA",
+        "supplierCnpj": "55.708.878/0001-78",
+        "contractedBRL": 2962472.77,
+        "sourceUrl": "https://tabocasdobrejovelho.ba.portaliop.org.br/wp-content/uploads/2026/02/EXTRATO-DE-CONTRATO-No-0082026-CONSTRUTORA-COPACABANA-PAVIMENTACAO-VARZEA-CUMPRIDA.pdf"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Contrato do mesmo objeto e Convênio 022/2025 assinado em fevereiro. A transferência de agosto tem forte possibilidade de ser parcela de obra preexistente, mas execução física pré-04/07 ainda deve ser provada por OS/medição."
+    },
+    {
+      "municipality": "Sítio do Quinto",
+      "fiplanInstrument": "26401.0001.26.0000082-5",
+      "stateAgreement": "Convênio CONDER 058/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 1092504.11,
+      "object": "Pavimentação em paralelepípedo com drenagem superficial de vias no Centro",
+      "procurement": {
+        "number": "Concorrência Eletrônica 002/2026",
+        "contract": "197/2026",
+        "contractPublicationDate": "2026-03-04",
+        "sourceUrl": "https://www.sitiodoquinto.ba.gov.br/Site/PublicacoesOutrosVeiculos"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação da pavimentação aparece formalizada antes do marco. A SECOM também registrou, em abril, autorizações estaduais de pavimentação no município, mas esses atos não devem ser confundidos automaticamente com o objeto do Convênio 058/2025. Falta OS/AIO/medição específica."
+    },
+    {
+      "municipality": "Araci",
+      "fiplanInstruments": [
+        {
+          "instrument": "26401.0001.26.0000048-5",
+          "paymentDate": "2026-09-30",
+          "paidBRL": 261748.73,
+          "stateAgreement": "Convênio CONDER 029/2025",
+          "object": "Pavimentação em paralelepípedo com drenagem superficial nas Ruas 01 e 02, Povoado João Vieira",
+          "instrumentValueBRL": 533821.65
+        },
+        {
+          "instrument": "26401.0001.26.0000068-1",
+          "paymentDate": "2026-09-30",
+          "paidBRL": 234968.29,
+          "stateAgreement": "Convênio CONDER 034/2025",
+          "object": "Pavimentação em paralelepípedo com drenagem superficial nas Ruas 01 e 02, Povoado Barreira",
+          "instrumentValueBRL": 507289.05
+        }
+      ],
+      "fiplanInstrument": "26401.0001.26.0000048-5 + 26401.0001.26.0000068-1",
+      "stateAgreement": "Convênios CONDER 029/2025 e 034/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 496717.02,
+      "object": "Pavimentação nos povoados João Vieira e Barreira",
+      "procurement": {
+        "number": "CCRE011/2025",
+        "publicationDate": "2025-12-18",
+        "proposalSession": "2026-01-27",
+        "homologationDate": "2026-03-16",
+        "adjudicationDate": "2026-04-27",
+        "estimatedClusterBRL": 2103881.22,
+        "scope": "Convênios 029/2025, 030/2025, 031/2025 e 034/2025",
+        "sourceUrl": "https://diario.indap.org.br/?cidade=Araci&cidade_id=1853&estado=BA&estado_id=5&orgao=Prefeitura"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Os dois instrumentos FIPLAN foram identificados por correspondência exata de valor/objeto com os Convênios 029/2025 e 034/2025, ambos incluídos na CCRE011/2025 homologada antes de 04/07. Falta localizar contratos específicos, OS/AIO e medições para comprovar início físico."
+    },
+    {
+      "municipality": "Ubaíra",
+      "fiplanInstrument": "26401.0001.26.0000057-4",
+      "stateAgreement": "Convênio CONDER 035/2025",
+      "fiplanPaymentDate": "2026-08-14",
+      "fiplanPaidBRL": 182253.65,
+      "object": "Pavimentação em concreto armado na Rua da Linha da Sapucaia",
+      "procurement": {
+        "number": "Concorrência 002/2026",
+        "publicationDate": "2026-01-28",
+        "proposalSession": "2026-02-11",
+        "status": "homologado/finalizado no portal municipal",
+        "supplier": "LEAN LIGHT CONSTRUÇÕES LTDA",
+        "supplierCnpj": "28.018.301/0001-61",
+        "contractStart": "2026-04-29",
+        "contractedBRL": 225199.02,
+        "sourceUrl": "https://www.ubaira.ba.gov.br/site/licitacoes/transparencia"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação homologada e contrato derivado do mesmo objeto aparecem antes do marco. Ainda falta preservar o contrato primário e localizar OS/AIO ou medição anterior a 04/07."
+    },
+    {
+      "municipality": "Jiquiriçá",
+      "fiplanInstrument": "26401.0001.26.0000033-7",
+      "stateAgreement": "Convênio CONDER 56/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 413495.16,
+      "object": "Pavimentação em concreto armado e drenagem da Ladeira da Pindoba",
+      "procurement": {
+        "number": "CR-012/2025",
+        "publicationDate": "2025-12-24",
+        "proposalSession": "2026-02-05",
+        "estimatedBRL": 1096813.92,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/jiquirica/13764659000166-1-000165/2025/concorrencia-eletronica-edital-no-cr-0122025"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação do mesmo Convênio 56/2025 foi lançada meses antes de 04/07. Resultado, contrato e início físico ainda precisam ser localizados para fechar a exceção."
+    },
+    {
+      "municipality": "Ribeira do Pombal",
+      "fiplanInstrument": "26401.0001.26.0000036-1",
+      "stateAgreement": "Convênio CONDER 065/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 273552.84,
+      "object": "Pavimentação em paralelepípedo com drenagem no Bairro Juliana",
+      "procurement": {
+        "number": "CE003/2026",
+        "publicationDate": "2026-03-11",
+        "proposalSession": "2026-03-25",
+        "estimatedBRL": 534112.89,
+        "sourceUrl": "https://ribeiradopombal.ba.gov.br/2026/03/11/prefeitura-avanca-com-novo-processo-licitatorio-para-pavimentacao-e-drenagem-no-bairro-juliana/"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "O objeto e o Convênio 065/2025 estão inequivocamente ligados a licitação anterior ao marco. Faltam homologação, contrato, OS/AIO e medição para demonstrar execução física anterior a 04/07."
+    },
+    {
+      "municipality": "Paramirim",
+      "fiplanInstrument": "26401.0001.26.0000038-8",
+      "stateAgreement": "Convênio CONDER 054/2025",
+      "fiplanPaymentDate": "2026-08-27",
+      "fiplanPaidBRL": 213995.5,
+      "object": "Pavimentação em paralelepípedo com drenagem superficial da Rua Jovino Rodrigues da Silva",
+      "procurement": {
+        "number": "CCRE 002/2026",
+        "proposalSession": "2026-02-23",
+        "estimatedBRL": 379407.27,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacoes/orgao/municipio-de-paramirim/65085"
+      },
+      "physicalExecution": [
+        {
+          "date": "2026-07-10",
+          "type": "public_work_update",
+          "fact": "Prefeitura noticiou que a Rua Jovino Rodrigues da Silva estava sendo pavimentada nessa data; o registro confirma execução em julho, mas não prova início antes de 04/07.",
+          "sourceUrl": "https://paramirim.ba.gov.br/noticias/tem_pavimentacao_na_area-1759/estrutura/45"
+        }
+      ],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação ocorreu em fevereiro, mas a primeira comprovação pública de execução localizada nesta rodada é de 10/07, após o marco. O caso permanece aberto para contrato, OS/AIO e primeira medição; não interpretar a notícia de 10/07 como prova de início tardio."
+    },
+    {
+      "municipality": "Uauá",
+      "fiplanInstrument": "26401.0001.26.0000084-1",
+      "stateAgreement": "Convênio CONDER 057/2025",
+      "fiplanPaymentDate": "2026-08-14",
+      "fiplanPaidBRL": 151469.16,
+      "object": "Pavimentação em paralelepípedo com drenagem superficial em ruas do Povoado Sítio dos Loiolas",
+      "procurement": {
+        "number": "Concorrência 002/2026",
+        "publicationDate": "2026-03-11",
+        "estimatedBRL": 384591.63,
+        "agreementGlobalBRL": 384591.66,
+        "stateContributionBRL": 300000,
+        "municipalCounterpartBRL": 84591.66,
+        "sourceUrl": "https://www.escavador.com/diarios/6195233/DOEBA/P/2026-01-13?page=94"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "O Convênio 057/2025 fecha por objeto e composição financeira com o instrumento FIPLAN; a concorrência correspondente ocorreu antes de 04/07. Falta resultado/contrato, OS/AIO e medição para comprovar execução física."
+    },
+    {
+      "municipality": "Antônio Cardoso",
+      "fiplanInstrument": "18401.0001.26.0000252-5",
+      "stateAgreement": "Convênio CAR 0054/2026",
+      "fiplanPaymentDate": "2026-08-21",
+      "fiplanPaidBRL": 150000,
+      "object": "Reforma e ampliação do Mercado do Povoado Santo Estevão Velho",
+      "procurement": {
+        "number": "Concorrência Eletrônica 005/2026",
+        "process": "087/2026",
+        "publicationDate": "2026-05-19",
+        "proposalSession": "2026-06-02",
+        "estimatedBRL": 1527815.47,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/antonio-cardoso/13607494000119-1-000015/2026/edital-n-005-2026"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação é expressamente vinculada ao Convênio CAR 0054/2026 e ocorreu antes do marco. Resultado, contrato, OS/AIO e primeira medição ainda precisam ser localizados."
+    },
+    {
+      "municipality": "Planaltino",
+      "fiplanInstrument": "26401.0001.26.0000061-2",
+      "stateAgreement": "Convênio CONDER 043/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 615333.54,
+      "object": "Pavimentação em paralelepípedos de vias do Bairro Morumbi — Etapa 3",
+      "procurement": {
+        "number": "Concorrência Pública 002/2026",
+        "publicationDate": "2026-01-13",
+        "proposalSession": "2026-01-28",
+        "agreement": "043/2025/CONDER",
+        "sourceUrl": "https://www.escavador.com/diarios/6195233/DOEBA/P/2026-01-13?page=94"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Foi corrigida a identificação: o instrumento FIPLAN de R$ 1.210.686,37 corresponde ao Convênio 043/2025, Etapa 3 do Bairro Morumbi, e não ao Convênio 053/2025/Etapa 2. A licitação correta foi localizada em janeiro. Faltam resultado, contrato, OS/AIO e medição."
+    }
+  ],
+  "nextActions": [
+    "Brumado: preservar contrato 0246/2026, OS/AIO, CNO primário e primeira medição; depois classificar a exceção ordinária como documentada ou quase documentada",
+    "Remanso: localizar resultado/homologação da CE 006/2026, contrato, OS/AIO e primeira medição antes de 04/07",
+    "Canarana: localizar OS/AIO e primeira medição; confirmar formalmente o vínculo do contrato C012105/2026 com o instrumento FIPLAN",
+    "Rio Real: identificar primeiro o número do convênio estadual correspondente ao instrumento 26401.0001.26.0000217-8 e só então buscar contratação/OS/medição"
+  ],
+  "updatedAt": "2026-10-07T07:05:00Z",
+  "summary": {
+    "totalCases": 16,
+    "physicalExecutionCorroborated": [
+      "Brumado"
+    ],
+    "preCutoffProcurementOnly": [
+      "Remanso",
+      "Canarana",
+      "Ituaçu",
+      "Aratuípe",
+      "Tabocas do Brejo Velho",
+      "Sítio do Quinto",
+      "Araci",
+      "Ubaíra",
+      "Jiquiriçá",
+      "Ribeira do Pombal",
+      "Paramirim",
+      "Uauá",
+      "Antônio Cardoso",
+      "Planaltino"
+    ],
+    "open": [
+      "Rio Real"
+    ]
+  }
+}

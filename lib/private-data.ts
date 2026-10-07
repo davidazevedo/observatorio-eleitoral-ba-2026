@@ -3,6 +3,16 @@ import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
 import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-archive';
 import fiplanPreservation from '@/preservation/manifests/fiplan-defeso-2026.json';
+import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-2026-10-06.json';
+import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
+import p0Triage36 from '@/data/investigation/p0-triage-36-2026-10-06.json';
+import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wave-02-critical-p0.json';
+import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json';
+import p0ComidaNoPratoControl from '@/data/investigation/p0-comida-no-prato-control-2026-10-06.json';
+import p0InfrastructureControl from '@/data/investigation/p0-infrastructure-control-2026-10-06.json';
+import ireceP0DeepScan from '@/data/investigation/irece-p0-deep-scan-2026-10-06.json';
+import p0RuralMarketGaps from '@/data/investigation/p0-rural-market-gaps-2026-10-06.json';
+import p0ClassificationCoverage from '@/data/investigation/p0-classification-coverage-36-2026-10-06.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -181,6 +191,16 @@ export async function getPrivateDashboardData() {
   const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
   const finance = financialTotals(intelligence);
   const housingTargets = ['Barra','Cipó','Esplanada','Iraquara','Itaberaba','Lajedinho','Lapão','Macajuba'];
+  const housingExceptionTest: Record<string,{status:'under_test'|'not_located'|'documented';note:string;instrumentPublishedAt:string;physicalExecution:'not_located'|'documented';prefixedSchedule:'not_located'|'documented'}> = {
+    Barra:{status:'under_test',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 075/2026, homologado pelo Decreto Estadual 24.408/2026); vínculo específico do convênio habitacional com a emergência ainda não localizado.'},
+    Cipó:{status:'under_test',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 065/2026); vínculo específico do Convênio 009/2026/50 moradias com a emergência ainda não localizado.'},
+    Esplanada:{status:'not_located',instrumentPublishedAt:'2026-06-27',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Iraquara:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico para as 50 unidades estaduais.'},
+    Itaberaba:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Lajedinho:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Lapão:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Macajuba:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+  };
   const housingAudit = housingTargets.map((municipality) => {
     const payment = intelligence.find((item) => item.kind === 'financial_record' && item.municipality === municipality && (item.tags || []).includes('habitação'));
     const analytical = intelligence
@@ -201,7 +221,12 @@ export async function getPrivateDashboardData() {
       evidenceLevel: analytical?.evidenceLevel || payment?.evidenceLevel || 'L1',
       priority: analytical?.priority || payment?.priority || 'medium',
       status: (gap ? 'lacuna' : analytical ? 'corroborado' : 'triagem') as 'lacuna' | 'corroborado' | 'triagem',
-      exceptionDocumented: false,
+      exceptionDocumented: housingExceptionTest[municipality]?.status === 'documented',
+      exceptionStatus: housingExceptionTest[municipality]?.status || 'not_located',
+      exceptionNote: housingExceptionTest[municipality]?.note || null,
+      instrumentPublishedAt: housingExceptionTest[municipality]?.instrumentPublishedAt || null,
+      physicalExecutionStatus: housingExceptionTest[municipality]?.physicalExecution || 'not_located',
+      prefixedScheduleStatus: housingExceptionTest[municipality]?.prefixedSchedule || 'not_located',
       procurementDate: rawString('procurementDate'),
       procurementStatus: rawString('procurementStatus'),
       procurementControl: rawString('procurementControl'),
@@ -318,5 +343,15 @@ export async function getPrivateDashboardData() {
     sourceArchives: sourceArchivesWithVerification,
     gitPreservations,
     housingAudit,
+    municipalityCohort69,
+    centralEvidenceWave01,
+    p0Triage36,
+    centralEvidenceWave02,
+    centralEvidenceWave03,
+    p0ComidaNoPratoControl,
+    p0InfrastructureControl,
+    ireceP0DeepScan,
+    p0RuralMarketGaps,
+    p0ClassificationCoverage,
   };
 }
