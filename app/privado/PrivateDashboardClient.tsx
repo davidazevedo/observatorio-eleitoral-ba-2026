@@ -28,6 +28,9 @@ type InfrastructureControlCase = { municipality:string;fiplanInstrument:string;s
 type P0InfrastructureControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:InfrastructureControlCase[];nextActions:string[] };
 type IreceP0Case = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;paymentDate:string;paidBRL:number;object:string}>;paymentDate?:string;paidBRL?:number;object?:string;procurement?:string;contract?:string;supplierCnpj?:string;preCutoffContract:boolean|null;preCutoffPhysicalExecution:string;status:string;assessment:string;marketProcurement?:Record<string,unknown>;animalCenterProcurement?:Record<string,unknown> };
 type IreceP0DeepScan = { schemaVersion:number;batchId:string;generatedAt:string;territory:string;scope:{officialMunicipalities:number;p0Municipalities:string[];p0Count:number;remainingTerritorialTriage:number};methodology:{rule:string;chain:string};cases:IreceP0Case[];territoryNextActions:string[] };
+type RuralMarketGapCase = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;agreement:string;paymentDate:string;paidBRL:number;object:string}>;stateAgreement?:string;paymentDate?:string;paidBRL:number;instrumentValueBRL?:number;object?:string;linkage?:string;municipalRevenueCorroboration?:{sourceUrl:string;facts:string[]};procurement:string;contract:string;serviceOrder:string;measurement:string;status:string;assessment:string };
+type P0RuralMarketGaps = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;statusDefinition:string};cases:RuralMarketGapCase[] };
+type P0ClassificationCoverage = { schemaVersion:number;batchId:string;generatedAt:string;coverage:{classifiedMunicipalities:number;totalP0Municipalities:number;percent:number};counts:Record<string,number>;interpretation:Record<string,string>;municipalities:Array<{municipality:string;status:string;assessment:string}> };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -79,6 +82,8 @@ type DashboardData = {
   p0ComidaNoPratoControl: P0ComidaControl;
   p0InfrastructureControl: P0InfrastructureControl;
   ireceP0DeepScan: IreceP0DeepScan;
+  p0RuralMarketGaps: P0RuralMarketGaps;
+  p0ClassificationCoverage: P0ClassificationCoverage;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -635,6 +640,14 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'expansion' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">COBERTURA SUBSTANTIVA P0</p><h2>{data.p0ClassificationCoverage.coverage.classifiedMunicipalities}/{data.p0ClassificationCoverage.coverage.totalP0Municipalities} municípios classificados</h2><small>{data.p0ClassificationCoverage.coverage.percent}% da primeira fila financeira já recebeu disposição documental primária</small></div></div>
+                <p className="private-report-note">Classificação não equivale a culpa. O objetivo é separar casos críticos, controles com evidência prévia e lacunas reais antes de qualquer encaminhamento.</p>
+                <div className="intel-metric-grid">
+                  {Object.entries(data.p0ClassificationCoverage.counts).map(([status,count])=><article key={status}><span>{status.replaceAll('_',' ')}</span><strong>{count}</strong></article>)}
+                </div>
+              </section>
+
               <section className="private-grid-three">
                 <article className="private-panel"><p className="eyebrow">EXPANSÃO TERRITORIAL</p><h2>{data.municipalityCohort69.methodology.newMunicipalityCount} novos municípios</h2><p className="private-report-note">A votação é critério de priorização da amostra, nunca evidência de irregularidade.</p></article>
                 <article className="private-panel"><p className="eyebrow">IRECÊ</p><h2>{data.municipalityCohort69.methodology.newIreceMunicipalities} novos + Lapão</h2><p className="private-report-note">Cobertura completa dos 20 municípios do Território de Identidade de Irecê.</p></article>
@@ -668,6 +681,26 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
                     <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
                   </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">LACUNAS · MERCADOS / INFRA RURAL</p><h2>Últimos P0 sem cadeia operacional fechada</h2><small>{data.p0RuralMarketGaps.cases.length} casos classificados como lacuna documental</small></div></div>
+                <p className="private-report-note">{data.p0RuralMarketGaps.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Pagamento</span><span>Objeto / convênio</span><span>Contratação</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0RuralMarketGaps.cases.map((item)=>{
+                    const inst=item.fiplanInstrument || (item.fiplanInstruments||[]).map((row)=>row.instrument).join(' · ');
+                    const obj=item.object || (item.fiplanInstruments||[]).map((row)=>row.agreement+' · '+row.object).join(' | ');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{money(item.paidBRL)}</b><code>{inst||'—'}</code></div>
+                      <div><small>{obj||item.linkage||'—'}</small></div>
+                      <div><b>{item.procurement==='not_located_inequivocally'||item.procurement==='not_located_inequivocally_for_2025_agreements'?'não localizada com segurança':item.procurement}</b></div>
+                      <div><b className="housing-status-gap">{item.status.replaceAll('_',' ')}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
                 </div>
               </section>
 
