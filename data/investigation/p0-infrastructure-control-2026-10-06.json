@@ -295,6 +295,63 @@
       ],
       "status": "pre_cutoff_procurement_only",
       "assessment": "Licitação ocorreu em fevereiro, mas a primeira comprovação pública de execução localizada nesta rodada é de 10/07, após o marco. O caso permanece aberto para contrato, OS/AIO e primeira medição; não interpretar a notícia de 10/07 como prova de início tardio."
+    },
+    {
+      "municipality": "Uauá",
+      "fiplanInstrument": "26401.0001.26.0000084-1",
+      "stateAgreement": "Convênio CONDER 057/2025",
+      "fiplanPaymentDate": "2026-08-14",
+      "fiplanPaidBRL": 151469.16,
+      "object": "Pavimentação em paralelepípedo com drenagem superficial em ruas do Povoado Sítio dos Loiolas",
+      "procurement": {
+        "number": "Concorrência 002/2026",
+        "publicationDate": "2026-03-11",
+        "estimatedBRL": 384591.63,
+        "agreementGlobalBRL": 384591.66,
+        "stateContributionBRL": 300000,
+        "municipalCounterpartBRL": 84591.66,
+        "sourceUrl": "https://www.escavador.com/diarios/6195233/DOEBA/P/2026-01-13?page=94"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "O Convênio 057/2025 fecha por objeto e composição financeira com o instrumento FIPLAN; a concorrência correspondente ocorreu antes de 04/07. Falta resultado/contrato, OS/AIO e medição para comprovar execução física."
+    },
+    {
+      "municipality": "Antônio Cardoso",
+      "fiplanInstrument": "18401.0001.26.0000252-5",
+      "stateAgreement": "Convênio CAR 0054/2026",
+      "fiplanPaymentDate": "2026-08-21",
+      "fiplanPaidBRL": 150000,
+      "object": "Reforma e ampliação do Mercado do Povoado Santo Estevão Velho",
+      "procurement": {
+        "number": "Concorrência Eletrônica 005/2026",
+        "process": "087/2026",
+        "publicationDate": "2026-05-19",
+        "proposalSession": "2026-06-02",
+        "estimatedBRL": 1527815.47,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/antonio-cardoso/13607494000119-1-000015/2026/edital-n-005-2026"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação é expressamente vinculada ao Convênio CAR 0054/2026 e ocorreu antes do marco. Resultado, contrato, OS/AIO e primeira medição ainda precisam ser localizados."
+    },
+    {
+      "municipality": "Planaltino",
+      "fiplanInstrument": "26401.0001.26.0000061-2",
+      "stateAgreement": "Convênio CONDER 043/2025",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 615333.54,
+      "object": "Pavimentação em paralelepípedos de vias do Bairro Morumbi — Etapa 3",
+      "procurement": {
+        "number": "Concorrência Pública 002/2026",
+        "publicationDate": "2026-01-13",
+        "proposalSession": "2026-01-28",
+        "agreement": "043/2025/CONDER",
+        "sourceUrl": "https://www.escavador.com/diarios/6195233/DOEBA/P/2026-01-13?page=94"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Foi corrigida a identificação: o instrumento FIPLAN de R$ 1.210.686,37 corresponde ao Convênio 043/2025, Etapa 3 do Bairro Morumbi, e não ao Convênio 053/2025/Etapa 2. A licitação correta foi localizada em janeiro. Faltam resultado, contrato, OS/AIO e medição."
     }
   ],
   "nextActions": [
@@ -303,9 +360,9 @@
     "Canarana: localizar OS/AIO e primeira medição; confirmar formalmente o vínculo do contrato C012105/2026 com o instrumento FIPLAN",
     "Rio Real: identificar primeiro o número do convênio estadual correspondente ao instrumento 26401.0001.26.0000217-8 e só então buscar contratação/OS/medição"
   ],
-  "updatedAt": "2026-10-07T06:45:00Z",
+  "updatedAt": "2026-10-07T07:05:00Z",
   "summary": {
-    "totalCases": 13,
+    "totalCases": 16,
     "physicalExecutionCorroborated": [
       "Brumado"
     ],
@@ -320,7 +377,10 @@
       "Ubaíra",
       "Jiquiriçá",
       "Ribeira do Pombal",
-      "Paramirim"
+      "Paramirim",
+      "Uauá",
+      "Antônio Cardoso",
+      "Planaltino"
     ],
     "open": [
       "Rio Real"
