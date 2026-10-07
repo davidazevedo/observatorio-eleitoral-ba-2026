@@ -105,4 +105,27 @@ export const tseBatchRecords:IntelligenceRecord[]=[{
   raw:{queryType:'exact_cnpj',query:'07492799000120',matchCount:0,scope:'BA',snapshotDate:'2026-10-06',manifest:'preservation/manifests/tse-ba-2026-2026-10-06.json'}
 }];
 
-export const intelligenceBatch20261006=[...housingBatchRecords,...tseBatchRecords];
+export const exceptionBatchRecords:IntelligenceRecord[]=[
+  {
+    schemaVersion:1,recordId:'BOOT-CIPO-EMERGENCY-2026',kind:'municipal_fact',status:'verified',
+    title:'Cipó: situação de emergência por chuvas vigente na data do pagamento habitacional',
+    summary:'O Decreto Municipal 065/2026, de 01/03/2026, declarou situação de emergência por chuvas intensas por 180 dias. A vigência alcançava 06/07/2026. O achado abre uma hipótese de exceção eleitoral, mas não demonstra que o Convênio 009/2026 das 50 moradias foi celebrado ou pago para atendimento dessa emergência.',
+    municipality:'Cipó',state:'BA',eventDate:'2026-03-01',collectedAt,caseIds:['OE-BA-0003'],tags:['emergencia','chuvas','decreto-065-2026','teste-excecao','habitacao'],
+    evidenceLevel:'L3',analyticalConfidence:1,priority:'urgent',financial:{currency:'BRL'},
+    entities:[{name:'Município de Cipó',type:'municipality',identifier:'CNPJ 13.808.936/0001-95',role:'ente em situação de emergência'}],
+    provenance:{sourceUrl:'https://cipo.ba.gov.br/wp-includes/ExternalApps/downloader.php?hurl=aHR0cDovL2RvZW0ub3JnLmJyL2JhL2NpcG8vYXJxdWl2b3MvZG93bmxvYWQvZDcxODBjMWYzNTkxMmY2ZmI2MDM1MjU5ODQ2MGZhOGEvZjVjODNmZTNkNDNhYWNmN2Y5NzIxOWVhZGVlYTA2YjgucGRm',sourceTitle:'Decreto Municipal nº 065/2026',publisher:'Prefeitura Municipal de Cipó',sourceDate:'2026-03-01',retrievedAt:collectedAt,externalId:'DECRETO-065-2026-CIPO',collector:'housing-exception-test-2026-10-06',method:'web_research'},
+    notes:['O decreto autoriza medidas de resposta, recuperação e reconstrução e contratações emergenciais destinadas ao atendimento da situação excepcional.','Não foi localizado, até o corte, documento que vincule especificamente o Convênio 009/2026/50 moradias ao Decreto 065/2026.','Outras contratações municipais localizadas para assistência às famílias afetadas pelas chuvas mencionam expressamente o Decreto 065/2026, contraste que reforça a necessidade de verificar o processo específico do convênio habitacional.']
+  },
+  {
+    schemaVersion:1,recordId:'BOOT-BARRA-EMERGENCY-2026',kind:'municipal_fact',status:'verified',
+    title:'Barra: situação de emergência por chuvas vigente na data do pagamento habitacional',
+    summary:'O Decreto Estadual 24.408/2026 homologou o Decreto Municipal 075/2026, de 25/02/2026, que declarou situação de emergência em Barra por chuvas intensas por 180 dias. A vigência alcançava 07/07/2026. O achado abre uma hipótese de exceção eleitoral, mas não demonstra vínculo do repasse das 50 moradias com a resposta à emergência.',
+    municipality:'Barra',state:'BA',eventDate:'2026-02-25',collectedAt,caseIds:['OE-BA-0003'],tags:['emergencia','chuvas','decreto-075-2026','decreto-estadual-24408-2026','teste-excecao','habitacao'],
+    evidenceLevel:'L3',analyticalConfidence:1,priority:'urgent',financial:{currency:'BRL'},
+    entities:[{name:'Município de Barra',type:'municipality',identifier:'CNPJ 13.880.703/0001-01',role:'ente em situação de emergência'}],
+    provenance:{sourceUrl:'https://www.escavador.com/diarios/6228221/DOEBA/P/2026-03-05?page=8',sourceTitle:'Decreto Estadual nº 24.408/2026 — homologação da situação de emergência de Barra',publisher:'Diário Oficial do Estado da Bahia',sourceDate:'2026-03-05',retrievedAt:collectedAt,externalId:'DECRETO-24408-2026-BA',collector:'housing-exception-test-2026-10-06',method:'web_research'},
+    notes:['O decreto estadual registra prazo de 180 dias e retroação dos efeitos a 25/02/2026.','A SECOM Bahia também listou Barra entre os municípios em situação de emergência por chuvas em 04/03/2026.','Não foi localizado, até o corte, documento que vincule especificamente o repasse habitacional estadual das 50 unidades ao atendimento da emergência.']
+  }
+];
+
+export const intelligenceBatch20261006=[...housingBatchRecords,...tseBatchRecords,...exceptionBatchRecords];
