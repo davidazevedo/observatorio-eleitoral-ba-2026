@@ -10,6 +10,7 @@ import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wav
 import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json';
 import p0ComidaNoPratoControl from '@/data/investigation/p0-comida-no-prato-control-2026-10-06.json';
 import p0InfrastructureControl from '@/data/investigation/p0-infrastructure-control-2026-10-06.json';
+import ireceP0DeepScan from '@/data/investigation/irece-p0-deep-scan-2026-10-06.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -347,5 +348,6 @@ export async function getPrivateDashboardData() {
     centralEvidenceWave03,
     p0ComidaNoPratoControl,
     p0InfrastructureControl,
+    ireceP0DeepScan,
   };
 }
