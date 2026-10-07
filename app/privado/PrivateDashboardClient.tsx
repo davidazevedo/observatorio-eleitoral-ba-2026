@@ -17,6 +17,8 @@ type HousingAuditRow = { municipality:string; paymentRecordId:string|null; payme
 type CohortMunicipality = { rank:number; name:string; state:string; priority:string; selectionReasons:string[]; territoryIrece:boolean; defesoPaymentExposureBRL:number; centralEvidenceQualified:boolean; centralEvidenceType:string|null; jeronimo2026ValidVotePct:number|null; jeronimoVoteSource:string|null; investigationStatus:string; legalConclusion:string };
 type CentralEvidenceItem = { id:string; municipality:string; title:string; type:string; status:string; amountBRL:number; sourceScope:string; evidenceReference?:string; caseGroup:string; legalConclusion:string; nextTest?:string[] };
 type MunicipalityCohort69 = { schemaVersion:number; cohortId:string; createdAt:string; methodology:{statement:string;existingCasesExcluded:string[];rules:string[];statewideJeronimo2026ValidVotePct:number;territoryIreceOfficialMunicipalityCount:number;newMunicipalityCount:number;newDefesoPaymentMunicipalities:number;newIreceMunicipalities:number;highVoteSupplementMunicipalities:number;overlaps:{ireceAndDefesoPayment:string[]}}; evidenceGoal:{waveTargetCentralEvidence:number;priorCentralEvidence:number;additionalQualifiedFiplanMunicipalFacts:number;minimumCentralEvidenceAfterClassification:number;countingRule:string}; municipalities:CohortMunicipality[] };
+type PriorityUniverseMunicipality = CohortMunicipality & { sourceGroup:'housing_core'|'expansion_69' };
+type MunicipalityUniverse77 = { schemaVersion:number;universeId:string;createdAt:string;methodology:{statement:string;legacyExpansionDataset:string;housingCoreMunicipalities:string[]};counts:{totalMunicipalities:number;housingCore:number;expansionMunicipalities:number;expansionP0Municipalities:number;territoryIreceMunicipalities:number;cumulativeCentralEvidence:number};municipalities:PriorityUniverseMunicipality[] };
 type CentralEvidenceWave = { schemaVersion:number;manifestId:string;generatedAt:string;purpose:string;countingPolicy:string;counts:{total:number;housingCore:number;expansionFinancialFacts:number;expansionFinancialExposureBRL:number};legalBoundary:string;items:CentralEvidenceItem[] };
 type P0TriageRow = { municipality:string; instrument:string; agency:string; category:string; object:string; published:string; payment:string; paidBRL:number; instrumentValueBRL:number; publishedBeforeCutoff:boolean; daysPublicationBeforeCutoff:number; daysPaymentAfterCutoff:number; priority:string; flag:string };
 type P0Triage36 = { schemaVersion:number;batchId:string;generatedAt:string;cutoffDate:string;scope:{municipalities:number;instruments:number;defesoPaidBRL:number};methodology:{statement:string;legalTest:string[];boundary:string};summary:{instrumentsPublishedBeforeCutoff:number;instrumentsPublishedOnOrAfterCutoff:number;criticalMunicipalities:string[];urgentFocus:string[]};deepDiveFacts:Record<string,{status:string;assessment:string}>;instruments:P0TriageRow[] };
@@ -75,6 +77,7 @@ type DashboardData = {
   gitPreservations: GitPreservationRow[];
   housingAudit: HousingAuditRow[];
   municipalityCohort69: MunicipalityCohort69;
+  municipalityUniverse77: MunicipalityUniverse77;
   centralEvidenceWave01: CentralEvidenceWave;
   p0Triage36: P0Triage36;
   centralEvidenceWave02: CentralEvidenceWave02;
@@ -186,9 +189,10 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [housingTseFilter,setHousingTseFilter]=useState('Todos');
 
   const municipalityOptions=useMemo(()=>Array.from(new Set([
+    ...data.municipalityUniverse77.municipalities.map((item)=>item.name),
     ...data.intelligence.map((item)=>item.municipality||''),
     ...data.submissions.map((item)=>item.municipality||''),
-  ].filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence,data.submissions]);
+  ].filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.municipalityUniverse77,data.intelligence,data.submissions]);
 
   const publisherOptions=useMemo(()=>Array.from(new Set(data.intelligence.map((item)=>item.provenance?.publisher||'').filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.intelligence]);
   const submissionCategoryOptions=useMemo(()=>Array.from(new Set(data.submissions.map((item)=>item.category).filter(Boolean))).sort((a,b)=>a.localeCompare(b,'pt-BR')),[data.submissions]);
@@ -341,6 +345,13 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     return Array.from(counts.entries()).map(([label,count])=>({label,count})).sort((a,b)=>b.count-a.count||a.label.localeCompare(b.label,'pt-BR'));
   },[filteredIntelligence,visibleSubmissions]);
 
+  const priorityUniverseMunicipalities=useMemo(()=>{
+    const counts=new Map(filteredMunicipalities.map((item)=>[item.label,item.count]));
+    return data.municipalityUniverse77.municipalities
+      .map((item)=>({...item,count:counts.get(item.name)||0}))
+      .sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+  },[data.municipalityUniverse77,filteredMunicipalities]);
+
   const filteredFinance=useMemo(()=>financialTotalsFor(filteredIntelligence),[filteredIntelligence]);
 
   const filteredQueue=useMemo(()=>filteredIntelligence.filter((item)=>['ingested','triage','corroborating'].includes(item.status)).slice(0,50),[filteredIntelligence]);
@@ -385,7 +396,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
-    { id: 'expansion', label: 'Coorte 69', count: data.municipalityCohort69.municipalities.length },
+    { id: 'expansion', label: 'Universo 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -483,7 +494,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <article><span>Registros Intel</span><strong>{data.metrics.intelligenceRecords}</strong><small>{data.metrics.researchFindings} achados analíticos</small></article>
                 <article><span>Fontes</span><strong>{data.metrics.sourceInventory}</strong><small>catálogo + fontes de pesquisa + ingeridas</small></article>
                 <article><span>Snapshots</span><strong>{data.metrics.archivedSources + data.metrics.versionedDatasets}</strong><small>Blob privado + datasets versionados no Git</small></article>
-                <article><span>Municípios</span><strong>{data.metrics.municipalities}</strong><small>presentes em denúncias ou inteligência</small></article>
+                <article><span>Municípios no radar</span><strong>{data.municipalityUniverse77.counts.totalMunicipalities}</strong><small>{data.municipalityUniverse77.counts.housingCore} núcleo + {data.municipalityUniverse77.counts.expansionMunicipalities} expansão</small></article>
                 <article><span>Entidades</span><strong>{data.metrics.entities}</strong><small>pessoas, empresas, órgãos e fornecedores</small></article>
                 <article><span>Relações</span><strong>{data.metrics.relationships}</strong><small>vínculos registrados para análise</small></article>
                 <article><span>Fila prioritária</span><strong>{data.metrics.highPriority}</strong><small>itens high/urgent em apuração</small></article>
@@ -649,22 +660,22 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               </section>
 
               <section className="private-grid-three">
-                <article className="private-panel"><p className="eyebrow">EXPANSÃO TERRITORIAL</p><h2>{data.municipalityCohort69.methodology.newMunicipalityCount} novos municípios</h2><p className="private-report-note">A votação é critério de priorização da amostra, nunca evidência de irregularidade.</p></article>
+                <article className="private-panel"><p className="eyebrow">UNIVERSO CONSOLIDADO</p><h2>{data.municipalityUniverse77.counts.totalMunicipalities} municípios</h2><p className="private-report-note">{data.municipalityUniverse77.counts.housingCore} do núcleo original + {data.municipalityUniverse77.counts.expansionMunicipalities} novos. A votação é apenas critério de priorização, nunca evidência de irregularidade.</p></article>
                 <article className="private-panel"><p className="eyebrow">IRECÊ</p><h2>{data.municipalityCohort69.methodology.newIreceMunicipalities} novos + Lapão</h2><p className="private-report-note">Cobertura completa dos 20 municípios do Território de Identidade de Irecê.</p></article>
                 <article className="private-panel"><p className="eyebrow">EVIDÊNCIAS CENTRAIS</p><h2>{data.centralEvidenceWave03.counts.cumulativeCentralEvidence} itens</h2><p className="private-report-note">Wave 01: {data.centralEvidenceWave01.counts.total} · Wave 02: +{data.centralEvidenceWave02.counts.newEvidence} · Wave 03: +{data.centralEvidenceWave03.counts.newEvidence}.</p></article>
               </section>
               <section className="private-panel">
-                <div className="private-panel-title"><div><p className="eyebrow">COORTE DE PRIORIZAÇÃO</p><h2>69 municípios selecionados para a próxima onda</h2><small>{money(data.centralEvidenceWave01.counts.expansionFinancialExposureBRL)} em pagamentos FIPLAN já qualificados entre os 36 municípios com exposição financeira.</small></div></div>
-                <p className="private-report-note">{data.municipalityCohort69.methodology.statement} Referência estadual de Jerônimo em 2026: {data.municipalityCohort69.methodology.statewideJeronimo2026ValidVotePct.toFixed(2)}% dos votos válidos. Percentuais municipais só aparecem quando já verificados nesta coorte.</p>
+                <div className="private-panel-title"><div><p className="eyebrow">UNIVERSO DE PRIORIZAÇÃO</p><h2>77 municípios no radar</h2><small>8 do núcleo habitacional + 69 da expansão · {money(data.centralEvidenceWave01.counts.expansionFinancialExposureBRL)} em pagamentos FIPLAN qualificados na expansão P0.</small></div></div>
+                <p className="private-report-note">{data.municipalityUniverse77.methodology.statement} A antiga coorte de 69 permanece como recorte de expansão e não deve ser confundida com o total consolidado.</p>
                 <div className="housing-audit-table housing-audit-v2">
                   <div className="housing-audit-head"><span>Município</span><span>Seleção</span><span>FIPLAN no defeso</span><span>Jerônimo 2026</span><span>Evidência central</span><span>Status</span></div>
-                  {data.municipalityCohort69.municipalities.map((item)=><div key={item.name}>
+                  {data.municipalityUniverse77.municipalities.map((item)=><div key={item.name}>
                     <strong>{item.name}</strong>
                     <div><b>{item.priority}</b><small>{item.territoryIrece?'Território Irecê':''}</small></div>
                     <div>{item.defesoPaymentExposureBRL>0?<b>{money(item.defesoPaymentExposureBRL)}</b>:<span>sem fato financeiro classificado</span>}</div>
                     <div>{item.jeronimo2026ValidVotePct!==null?<><b>{item.jeronimo2026ValidVotePct.toFixed(2)}%</b><small>votos válidos</small></>:<span>percentual pendente de ingestão</span>}</div>
                     <div>{item.centralEvidenceQualified?<b className="housing-status-ok">qualificada</b>:<span className="housing-exception-pending">triagem</span>}</div>
-                    <div><small>{item.selectionReasons.map((reason)=>reason==='defeso_fiplan_payment'?'pagamento FIPLAN':reason==='territorio_irece'?'Irecê':'alta votação 2026').join(' · ')}</small></div>
+                    <div><small>{item.selectionReasons.map((reason)=>reason==='housing_core'?'núcleo habitacional':reason==='defeso_fiplan_payment'?'pagamento FIPLAN':reason==='territorio_irece'?'Irecê':reason==='high_jeronimo_vote_2026'?'alta votação 2026':reason).join(' · ')}</small></div>
                   </div>)}
                 </div>
               </section>
@@ -810,13 +821,13 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'municipalities' && (
             <section className="private-grid-two">
               <article className="private-panel">
-                <div className="private-panel-title"><div><p className="eyebrow">COBERTURA TERRITORIAL</p><h2>Municípios na base</h2></div></div>
-                <div className="intel-municipality-list">{filteredMunicipalities.map((item,index)=><div key={item.label}><span>{String(index+1).padStart(2,'0')}</span><strong>{item.label}</strong><b>{item.count}</b></div>)}</div>
+                <div className="private-panel-title"><div><p className="eyebrow">UNIVERSO PRIORITÁRIO</p><h2>{data.municipalityUniverse77.counts.totalMunicipalities} municípios no radar</h2></div></div>
+                <div className="intel-municipality-list">{priorityUniverseMunicipalities.map((item,index)=><div key={item.name}><span>{String(index+1).padStart(2,'0')}</span><strong>{item.name}</strong><b>{item.count}</b></div>)}</div>
               </article>
               <article className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">OBJETIVO</p><h2>Matriz dos 417 municípios</h2></div></div>
-                <div className="intel-coverage-number"><strong>{filteredMunicipalities.length}</strong><span>no recorte analítico atual</span><i>{Math.round((filteredMunicipalities.length/417)*100)}%</i></div>
-                <p className="private-report-note">O número indica cobertura de dados, não suspeita nem irregularidade. A meta é completar a matriz de origem → transferência → contratação → execução → contexto.</p>
+                <div className="intel-coverage-number"><strong>{data.municipalityUniverse77.counts.totalMunicipalities}</strong><span>no universo prioritário consolidado</span><i>{Math.round((data.municipalityUniverse77.counts.totalMunicipalities/417)*100)}%</i></div>
+                <p className="private-report-note">São 8 municípios do núcleo habitacional original e 69 da expansão. O número indica cobertura investigativa, não suspeita nem irregularidade.</p>
               </article>
             </section>
           )}
@@ -918,7 +929,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Datasets publicados: <code>cohort-69</code>, <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência e matrizes de controle.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência e matrizes de controle.</p>
             </section>
           )}
         </main>
