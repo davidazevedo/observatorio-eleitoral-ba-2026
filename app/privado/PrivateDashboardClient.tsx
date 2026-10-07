@@ -396,7 +396,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
-    { id: 'expansion', label: 'Universo 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
+    { id: 'expansion', label: 'Consolidação 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -489,6 +489,29 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'overview' && (
             <>
+              <section className="private-panel" style={{border:'1px solid rgba(224,184,92,.5)'}}>
+                <div className="private-panel-title">
+                  <div>
+                    <p className="eyebrow">CONSOLIDAÇÃO INVESTIGATIVA · 07/10/2026</p>
+                    <h2>Os dados consolidados já estão disponíveis no cockpit.</h2>
+                    <small>Esta é a visão operacional da expansão, evidências centrais, P0 e cobertura de Irecê.</small>
+                  </div>
+                  <div className="private-topbar-actions">
+                    <button type="button" onClick={()=>setTab('expansion')}>Abrir Consolidação 77</button>
+                    <button type="button" onClick={()=>setTab('api')}>Abrir Intel API</button>
+                  </div>
+                </div>
+                <div className="intel-metrics-grid">
+                  <article><span>Municípios no radar</span><strong>{data.municipalityUniverse77.counts.totalMunicipalities}</strong><small>8 núcleo + 69 expansão</small></article>
+                  <article><span>P0 classificados</span><strong>{data.p0ClassificationCoverage.coverage.classifiedMunicipalities}/{data.p0ClassificationCoverage.coverage.totalP0Municipalities}</strong><small>{data.p0ClassificationCoverage.coverage.percent}% da fila financeira</small></article>
+                  <article><span>Evidências centrais</span><strong>{data.centralEvidenceWave03.counts.cumulativeCentralEvidence}</strong><small>50 + {data.centralEvidenceWave02.counts.newEvidence} + {data.centralEvidenceWave03.counts.newEvidence}</small></article>
+                  <article><span>Território de Irecê</span><strong>20/20</strong><small>cobertura territorial selecionada</small></article>
+                  <article><span>Críticos</span><strong>{data.p0ClassificationCoverage.counts.critical_investigation||0}</strong><small>Lajedo do Tabocal · Belo Campo</small></article>
+                  <article><span>Urgentes</span><strong>{data.p0ClassificationCoverage.counts.urgent_document_gap||0}</strong><small>Araçás · Jaguaquara</small></article>
+                </div>
+                <p className="private-report-note">A classificação é investigativa e não equivale a conclusão de ilícito. Use <strong>Consolidação 77</strong> para abrir as matrizes completas e <strong>Intel API</strong> para consultar os datasets publicados.</p>
+              </section>
+
               <section className="intel-metrics-grid">
                 <article><span>Denúncias</span><strong>{data.metrics.submissions}</strong><small>{data.metrics.anonymous} sem identificação · {data.metrics.identified} identificadas</small></article>
                 <article><span>Registros Intel</span><strong>{data.metrics.intelligenceRecords}</strong><small>{data.metrics.researchFindings} achados analíticos</small></article>
