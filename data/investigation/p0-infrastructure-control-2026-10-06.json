@@ -62,11 +62,47 @@
       "physicalExecution": [],
       "status": "pre_cutoff_procurement_only",
       "assessment": "A contratação foi lançada e teve sessão antes de 04/07, mas não foi localizada nesta rodada homologação, contrato, OS/AIO ou medição inequívoca do Convênio 053/2026. O caso permanece em diligência média; não subir nem rebaixar definitivamente sem fechar a execução material."
+    },
+    {
+      "municipality": "Canarana",
+      "fiplanInstrument": "26401.0001.26.0000156-2",
+      "stateAgreement": "Convênio estadual/CONDER — número ainda a preservar em fonte primária",
+      "fiplanPaymentDate": "2026-09-30",
+      "fiplanPaidBRL": 820084.88,
+      "object": "Pavimentação em piso intertravado com drenagem superficial em vias do município",
+      "procurement": {
+        "number": "Concorrência Eletrônica 006/2026",
+        "process": "021604/2026",
+        "homologationDate": "2026-05-15",
+        "supplier": "A.M. DA SILVA CONSTRUÇÃO CIVIL LTDA-ME",
+        "supplierCnpj": "08.777.139/0001-58",
+        "contract": "C012105/2026",
+        "contractDate": "2026-05-21",
+        "contractedBRL": 2086737.78,
+        "sourceUrl": "https://canarana.ba.gov.br/transparencia/licitacoes/"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação, homologação e contrato foram formalizados antes de 04/07, o que reduz a anomalia temporal. Ainda não foi localizada OS/AIO, medição ou prova inequívoca de execução física anterior ao marco. Confirmar também o vínculo documental exato entre a CE 006/2026/Contrato C012105/2026 e o instrumento FIPLAN estadual."
+    },
+    {
+      "municipality": "Rio Real",
+      "fiplanInstrument": "26401.0001.26.0000217-8",
+      "stateAgreement": "não identificado inequivocamente nesta rodada",
+      "fiplanPaymentDate": "2026-09-01",
+      "fiplanPaidBRL": 817461.02,
+      "object": "Pavimentação asfáltica sobre pavimento existente com drenagem superficial em vias da sede",
+      "procurement": {},
+      "physicalExecution": [],
+      "status": "open",
+      "assessment": "Foram localizadas várias obras de pavimentação municipais em 2026, inclusive contratos financiados por repasses federais, mas nenhuma foi vinculada com segurança ao instrumento estadual 26401.0001.26.0000217-8. Não cruzar fornecedor, contrato ou execução até localizar o convênio estadual/objeto correspondente em fonte primária."
     }
   ],
   "nextActions": [
     "Brumado: preservar contrato 0246/2026, OS/AIO, CNO primário e primeira medição; depois classificar a exceção ordinária como documentada ou quase documentada",
     "Remanso: localizar resultado/homologação da CE 006/2026, contrato, OS/AIO e primeira medição antes de 04/07",
-    "Aplicar o mesmo padrão a Canarana e Rio Real"
-  ]
+    "Canarana: localizar OS/AIO e primeira medição; confirmar formalmente o vínculo do contrato C012105/2026 com o instrumento FIPLAN",
+    "Rio Real: identificar primeiro o número do convênio estadual correspondente ao instrumento 26401.0001.26.0000217-8 e só então buscar contratação/OS/medição"
+  ],
+  "updatedAt": "2026-10-07T05:40:00Z"
 }
