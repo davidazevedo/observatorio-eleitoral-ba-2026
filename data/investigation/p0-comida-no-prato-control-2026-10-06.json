@@ -193,6 +193,86 @@
       ],
       "status": "pre_cutoff_execution_indicators",
       "assessment": "Foi localizada contratação operacional do próprio Comida no Prato em 15/05, antes de 04/07. O Decreto 110/2026 de setembro regulamenta a gestão, mas não marca necessariamente o início material do projeto. O caso passa a favorecer a hipótese de execução prévia, ainda dependendo do vínculo exato com o Convênio 62/2026/FIPLAN, cronograma e processo de liberação."
+    },
+    {
+      "municipality": "Queimadas",
+      "fiplanInstrument": "14101.0005.26.0000091-4",
+      "fiplanPaymentDate": "2026-09-15",
+      "fiplanPaidBRL": 59950,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 59/2026",
+      "linkage": "probable_strong",
+      "evidence": [
+        {
+          "date": "2026-05-20",
+          "type": "procurement",
+          "fact": "Aviso de contratação para gêneros alimentícios do Projeto Comida no Prato foi publicado antes do marco eleitoral."
+        },
+        {
+          "date": "2026-06-30",
+          "type": "contract",
+          "fact": "Contratos de fornecimento do projeto aparecem com vigência iniciada em 30/06/2026."
+        },
+        {
+          "date": "2026-07-01",
+          "type": "contract",
+          "fact": "Outros contratos do mesmo processo aparecem com vigência a partir de 01/07/2026."
+        }
+      ],
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Há atos de contratação e vigência operacional iniciados antes de 04/07. O caso passa a favorecer a hipótese de execução prévia, embora o plano de trabalho, cronograma e o vínculo integral entre Convênio 59/2026 e o instrumento FIPLAN ainda devam ser preservados em fonte primária."
+    },
+    {
+      "municipality": "Teodoro Sampaio",
+      "fiplanInstrument": "14101.0005.26.0000135-1",
+      "fiplanPaymentDate": "2026-09-18",
+      "fiplanPaidBRL": 66721.25,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "número estadual a fechar",
+      "linkage": "program_confirmed_in_municipal_contracts",
+      "evidence": [
+        {
+          "date": "2026-05-08",
+          "type": "contract",
+          "fact": "Contrato 098/2026, R$ 24.695,55, para eletrodomésticos e utensílios destinados à Cozinha Comunitária e às metas do Comida no Prato."
+        },
+        {
+          "date": "2026-06-11",
+          "type": "procurement",
+          "fact": "Processo de contratação de gêneros alimentícios do projeto foi aberto antes de 04/07."
+        },
+        {
+          "date": "2026-06-16",
+          "type": "procurement_result",
+          "fact": "Homologação/ratificação da contratação de alimentos ocorreu ainda em junho."
+        }
+      ],
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Há estruturação material e contratação do próprio projeto antes de 04/07. O pagamento de setembro deve ser tratado como potencialmente compatível com execução prévia, condicionado ao fechamento do convênio estadual exato, cronograma e processo de liberação."
+    },
+    {
+      "municipality": "Dom Basílio",
+      "fiplanInstrument": "14101.0005.26.0000039-6",
+      "fiplanPaymentDate": "2026-09-18",
+      "fiplanPaidBRL": 59950,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "a confirmar",
+      "linkage": "program_allocation_confirmed_statewide",
+      "evidence": [],
+      "status": "linkage_pending",
+      "assessment": "A alocação municipal no Comida no Prato é corroborada em material estadual, mas a cadeia municipal de implantação/contratação ligada ao instrumento FIPLAN ainda não foi localizada. Não inferir ausência de execução; manter em diligência documental."
+    },
+    {
+      "municipality": "Sento Sé",
+      "fiplanInstrument": "14101.0005.26.0000029-9",
+      "fiplanPaymentDate": "2026-09-15",
+      "fiplanPaidBRL": 132338.45,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "a confirmar",
+      "linkage": "program_allocation_confirmed_statewide",
+      "evidence": [],
+      "status": "linkage_pending",
+      "assessment": "Material estadual confirma a previsão de duas cozinhas no município, mas ainda não foi fechada a cadeia municipal de contratação/operação correspondente ao instrumento FIPLAN. Manter como lacuna de execução, não como caso de irregularidade."
     }
   ],
   "nextActions": [
@@ -201,5 +281,27 @@
     "procurar notas de fornecimento, atestes, produção de refeições e pagamentos municipais anteriores a 04/07",
     "rebaixar casos documentalmente explicados e elevar apenas os casos em que a cadeia prévia permaneça ausente após busca definida"
   ],
-  "updatedAt": "2026-10-07T05:10:00Z"
+  "updatedAt": "2026-10-07T06:55:00Z",
+  "summary": {
+    "totalCases": 11,
+    "preCutoffExecutionIndicators": [
+      "Macarani",
+      "Serra do Ramalho",
+      "Eunápolis",
+      "Maetinga",
+      "Queimadas",
+      "Teodoro Sampaio"
+    ],
+    "preCutoffProcurementOnly": [
+      "Candeal",
+      "Santa Bárbara"
+    ],
+    "postCutoffImplementationIndicators": [
+      "Pindobaçu"
+    ],
+    "linkagePending": [
+      "Dom Basílio",
+      "Sento Sé"
+    ]
+  }
 }
