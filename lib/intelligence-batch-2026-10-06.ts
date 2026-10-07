@@ -149,7 +149,8 @@ export const p0ExpansionFindings:IntelligenceRecord[]=[
     entities:[{name:'Município de Belo Campo',type:'municipality',identifier:'CNPJ 14.237.333/0001-43',role:'convenente/recebedor'},{name:'Secretaria da Agricultura da Bahia - SEAGRI',type:'public_body',role:'concedente'}],
     provenance:{sourceUrl:'https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a',sourceTitle:'Cavalgada – A Tradição do Vaqueiro reúne cerca de 11 mil pessoas',publisher:'Prefeitura Municipal de Belo Campo',sourceDate:'2026-06-10',retrievedAt:collectedAt,externalId:'CONVENIO-SEAGRI-01-2026',collector:'p0-expansion-2026-10-06',method:'web_research'},
     notes:['DOE 03/06/2026: Convênio SEAGRI 01/2026, Processo 010.9156.2025.0002545-71, R$ 200 mil de participação estadual, objeto apoio à Cavalgada.','Prefeitura: evento realizado em 07/06/2026.','FIPLAN: instrumento 10101.0001.26.0000079-3; NOB 10101.0001.26.0001454-0; R$ 200.000,00 pagos em 08/07.','Requisitar processo de pagamento e parecer que definiu o enquadramento eleitoral; evento concluído antes do início do defeso não deve ser automaticamente equiparado a serviço em andamento.'],
-    raw:{instrument:'10101.0001.26.0000079-3',bankOrder:'10101.0001.26.0001454-0',agreement:'SEAGRI 01/2026',eventDate:'2026-06-07',paymentDate:'2026-07-08',stateContribution:200000,exceptionAssessment:'post_completion_transfer_requires_legal_basis'},
+    raw:{instrument:'10101.0001.26.0000079-3',bankOrder:'10101.0001.26.0001454-0',agreement:'SEAGRI 01/2026',eventDate:'2026-06-07',paymentDate:'2026-07-08',stateContribution:200000,exceptionAssessment:'post_completion_transfer_requires_legal_basis'}
+  },
   {
     schemaVersion:1,recordId:'P0-ARACAS-ARENINHA-DEFESO-2026',kind:'research_finding',status:'corroborating',
     title:'Araçás: convênio veda atividade antes do repasse; contratação da Areninha publicada em 10/07',
@@ -171,7 +172,6 @@ export const p0ExpansionFindings:IntelligenceRecord[]=[
     provenance:{sourceUrl:'https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita',sourceTitle:'Receita — Convênio Estadual 28/2026 — Construção de Estádio Município de Jaguaquara',publisher:'Prefeitura Municipal de Jaguaquara / Município Online',sourceDate:'2026-09-30',retrievedAt:collectedAt,externalId:'242299011000',collector:'p0-expansion-2026-10-06',method:'web_research'},
     notes:['FIPLAN: instrumento 21301.0001.26.0000298-1; celebrado em 30/06; publicado em 02/07; R$ 518.432,07 pagos em 10/07.','Portal municipal de receitas: rubrica específica Convênio Estadual 28/2026 — Construção de Estádio Município de Jaguaquara — arrecadação acumulada R$ 518.432,07.','Não confundir com o antigo Convênio SUDESB 32/2022 de reforma do Estádio Menandro Minahim nem com outros convênios/obras municipais.','Contratação, AIO/OS e medição do Convênio 28/2026 ainda não localizadas de forma inequívoca.'],
     raw:{instrument:'21301.0001.26.0000298-1',municipalAgreementLabel:'28/2026',paymentDate:'2026-07-10',fiplanPaid:518432.07,municipalAccumulatedRevenue:518432.07,procurementLocated:false,serviceOrderLocated:false,measurementLocated:false,exceptionAssessment:'requires_pre_cutoff_execution_evidence'}
-  }
   }
 ];
 
