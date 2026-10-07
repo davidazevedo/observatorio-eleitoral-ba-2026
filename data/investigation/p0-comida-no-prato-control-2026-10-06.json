@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "batchId": "p0-comida-no-prato-control-2026-10-06",
+  "generatedAt": "2026-10-07T04:55:00Z",
+  "purpose": "Usar municípios do Projeto Comida no Prato como grupo de controle documental para distinguir pagamentos no período crítico com execução prévia corroborada daqueles cuja implantação pública só aparece depois do marco.",
+  "methodology": {
+    "rule": "O pertencimento ao programa e a existência de pagamento no defeso não implicam suspeita. A classificação depende da cronologia documental da execução.",
+    "states": {
+      "pre_cutoff_execution_indicators": "há contratos/atos materiais do próprio projeto anteriores a 04/07, o que favorece a hipótese de obrigação/serviço em andamento; cronograma e processo de liberação ainda devem ser verificados",
+      "pre_cutoff_procurement_only": "há planejamento/licitação anterior ao marco, mas ainda não prova inequívoca de execução material",
+      "post_cutoff_implementation_indicators": "os primeiros atos de implantação localizados são posteriores ao marco; requer busca reforçada por atos anteriores antes de qualquer conclusão",
+      "linkage_pending": "programa identificado no município, mas vínculo exato com o instrumento FIPLAN ainda não está suficientemente fechado"
+    }
+  },
+  "cases": [
+    {
+      "municipality": "Macarani",
+      "fiplanInstrument": "14101.0005.26.0000028-0",
+      "fiplanPaymentDate": "2026-07-15",
+      "fiplanPaidBRL": 62450,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 004/2026",
+      "linkage": "strong",
+      "evidence": [
+        {
+          "date": "2026-03-24",
+          "type": "planning",
+          "fact": "Termo de referência municipal para equipamentos da Cozinha Comunitária do Convênio 004/2026."
+        },
+        {
+          "date": "2026-04-01",
+          "type": "contract",
+          "fact": "Dispensa autorizada para equipamentos do projeto; vigência iniciada em 01/04/2026; R$ 37.650,00."
+        },
+        {
+          "date": "2026-06-15",
+          "type": "contract",
+          "fact": "Contrato 061501/2026 para gêneros alimentícios do Convênio 004/2026; vigência iniciada em 15/06/2026; R$ 109.600,30."
+        }
+      ],
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Há atos contratuais materiais do próprio projeto antes de 04/07. O caso deve permanecer como controle favorável à possível exceção, condicionado à obtenção do plano de trabalho, cronograma e processo que autorizou a parcela de 15/07."
+    },
+    {
+      "municipality": "Serra do Ramalho",
+      "fiplanInstrument": "14101.0005.26.0000109-0",
+      "fiplanPaymentDate": "2026-09-02",
+      "fiplanPaidBRL": 192561.75,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 067/2026",
+      "linkage": "probable_strong",
+      "evidence": [
+        {
+          "date": "2026-05-21",
+          "type": "procurement",
+          "fact": "Pregão eletrônico para gêneros alimentícios do Convênio 067/2026 divulgado antes do marco."
+        },
+        {
+          "date": "2026-06-01",
+          "type": "contract",
+          "fact": "Contratos com associações da agricultura familiar para gêneros alimentícios do projeto."
+        },
+        {
+          "date": "2026-06-02",
+          "type": "contract",
+          "fact": "Contratos para equipamentos, alimentos, limpeza/insumos e gás vinculados ao Convênio 067/2026."
+        }
+      ],
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Há contratação operacional robusta antes de 04/07. A hipótese de serviço/projeto em andamento é documentalmente plausível; resta fechar a identidade exata com o instrumento FIPLAN, cronograma e a autorização do pagamento de setembro."
+    },
+    {
+      "municipality": "Eunápolis",
+      "fiplanInstrument": "14101.0005.26.0000043-4",
+      "fiplanPaymentDate": "2026-09-29",
+      "fiplanPaidBRL": 246045.75,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 002/2026",
+      "linkage": "probable_strong",
+      "evidence": [
+        {
+          "date": "2026-04-28",
+          "type": "procurement",
+          "fact": "PE016-2026 publicado para equipamentos, insumos e gêneros do Comida no Prato, conforme Convênio 002/2026."
+        },
+        {
+          "date": "2026-05-27",
+          "type": "procurement_result",
+          "fact": "Homologação do PE016 publicada, com ajuste posterior em junho."
+        },
+        {
+          "date": "2026-06-09",
+          "type": "direct_procurement",
+          "fact": "Contratação direta para itens fracassados do processo anterior, ainda antes do marco."
+        }
+      ],
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "A cadeia de implantação municipal é anterior a 04/07. O caso serve como controle, mas a vinculação integral entre o Convênio 002/2026 e o identificador FIPLAN deve ser preservada em fonte primária antes de fechar a exceção."
+    },
+    {
+      "municipality": "Candeal",
+      "fiplanInstrument": "14101.0005.26.0000081-7",
+      "fiplanPaymentDate": "2026-09-15",
+      "fiplanPaidBRL": 59950,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 42/2026",
+      "linkage": "strong",
+      "evidence": [
+        {
+          "date": "2026-05-27",
+          "type": "planning",
+          "fact": "Termo de referência e aviso de credenciamento para gêneros alimentícios vinculados expressamente ao Convênio 42/2026."
+        },
+        {
+          "date": "2026-06-01",
+          "type": "procurement",
+          "fact": "Início previsto do recebimento de documentação do credenciamento."
+        },
+        {
+          "date": "2026-06-26",
+          "type": "institutional",
+          "fact": "Lei municipal denomina a Cozinha Comunitária de Candeal, evidenciando estrutura institucional antes do marco."
+        }
+      ],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Há implantação administrativa anterior a 04/07, mas ainda não foi localizado contrato/fornecimento ou outra prova material suficiente para afirmar que o serviço já estava em execução física."
+    },
+    {
+      "municipality": "Santa Bárbara",
+      "fiplanInstrument": "14101.0005.26.0000054-1",
+      "fiplanPaymentDate": "2026-09-15",
+      "fiplanPaidBRL": 119900,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 024/2026",
+      "linkage": "probable_strong",
+      "evidence": [
+        {
+          "date": "2026-06-01",
+          "type": "procurement",
+          "fact": "Aviso de chamada pública para gêneros alimentícios do Convênio 024/2026."
+        },
+        {
+          "date": "2026-06-18",
+          "type": "procurement",
+          "fact": "Atos de contratação e gestão da cozinha comunitária publicados antes do marco."
+        },
+        {
+          "date": "2026-07-09",
+          "type": "result",
+          "fact": "Ata de registro de preços do projeto publicada após o marco."
+        }
+      ],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Há procedimentos anteriores a 04/07, mas a execução material do objeto antes do marco ainda precisa ser comprovada."
+    },
+    {
+      "municipality": "Pindobaçu",
+      "fiplanInstrument": "14101.0005.26.0000148-1",
+      "fiplanPaymentDate": "2026-09-18",
+      "fiplanPaidBRL": 63187.25,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 052/2026",
+      "linkage": "probable",
+      "evidence": [
+        {
+          "date": "2026-07-16",
+          "type": "contract",
+          "fact": "Contratos 304/2026 e 305/2026 para utensílios/equipamentos destinados à implantação da Cozinha Comunitária do Convênio 052/2026."
+        }
+      ],
+      "status": "post_cutoff_implementation_indicators",
+      "assessment": "Os atos de implantação localizados nesta rodada surgem após 04/07. É prioridade procurar planejamento, contratos, fornecimento ou funcionamento anterior ao marco antes de qualquer inferência jurídica."
+    },
+    {
+      "municipality": "Maetinga",
+      "fiplanInstrument": "14101.0005.26.0000104-1",
+      "fiplanPaymentDate": "2026-08-20",
+      "fiplanPaidBRL": 63259.5,
+      "program": "Projeto Comida no Prato / Bahia Sem Fome",
+      "municipalAgreement": "Convênio 62/2026",
+      "linkage": "probable",
+      "evidence": [
+        {
+          "date": "2026-09-02",
+          "type": "regulation",
+          "fact": "Decreto Municipal 110/2026 regulamentou coordenação, execução operacional, gestão financeira e prestação de contas do projeto no âmbito do Convênio 62/2026."
+        }
+      ],
+      "status": "post_cutoff_implementation_indicators",
+      "assessment": "A regulamentação operacional encontrada é posterior inclusive ao pagamento FIPLAN de 20/08. Isso não prova que a cozinha não funcionava antes; torna prioritária a busca por atos operacionais anteriores, contratos, produção de refeições e cronograma."
+    }
+  ],
+  "nextActions": [
+    "obter plano de trabalho e cronograma de desembolso de cada convênio",
+    "confirmar vínculo nominal do convênio municipal com o identificador FIPLAN nos casos marcados probable/probable_strong",
+    "procurar notas de fornecimento, atestes, produção de refeições e pagamentos municipais anteriores a 04/07",
+    "rebaixar casos documentalmente explicados e elevar apenas os casos em que a cadeia prévia permaneça ausente após busca definida"
+  ]
+}
