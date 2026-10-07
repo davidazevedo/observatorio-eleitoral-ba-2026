@@ -190,6 +190,10 @@ export async function getPrivateDashboardData() {
     .filter((item) => ['ingested','triage','corroborating'].includes(item.status))
     .sort((a,b) => priorityWeight(b.priority) - priorityWeight(a.priority) || b.collectedAt.localeCompare(a.collectedAt));
   const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
+  const dynamicIntelligence = intelligence.filter((item) => item.recordOrigin === 'ingested');
+  const reviewedIntelligence = dynamicIntelligence.filter((item) => (item.review?.reviewCount || 0) > 0);
+  const promotedIntelligence = dynamicIntelligence.filter((item) => item.review?.workflowState === 'promoted');
+  const triagePendingIntelligence = dynamicIntelligence.filter((item) => !item.review || ['new','analyzing'].includes(item.review.workflowState));
   const finance = financialTotals(intelligence);
   const housingTargets = ['Barra','Cipó','Esplanada','Iraquara','Itaberaba','Lajedinho','Lapão','Macajuba'];
   const housingExceptionTest: Record<string,{status:'under_test'|'not_located'|'documented';note:string;instrumentPublishedAt:string;physicalExecution:'not_located'|'documented';prefixedSchedule:'not_located'|'documented'}> = {
@@ -302,6 +306,10 @@ export async function getPrivateDashboardData() {
       entities: entities.length,
       relationships: relationships.length + relationshipRecords.length,
       highPriority: highPriority.length,
+      dynamicIntelligence: dynamicIntelligence.length,
+      reviewedIntelligence: reviewedIntelligence.length,
+      promotedIntelligence: promotedIntelligence.length,
+      triagePendingIntelligence: triagePendingIntelligence.length,
       withEvidence,
       withEventDate,
       missingReferencedEvidence: missingReferencedEvidence.length,
