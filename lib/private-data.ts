@@ -17,6 +17,7 @@ import p0ClassificationCoverage from '@/data/investigation/p0-classification-cov
 import prebaPackagesIndex from '@/data/investigation/preba-packages-index-2026-10-07.json';
 import prebaLajedoPackage from '@/data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json';
 import prebaBeloCampoPackage from '@/data/investigation/preba-package-02-belo-campo-2026-10-07.json';
+import prebaAracasPackage from '@/data/investigation/preba-package-03-aracas-2026-10-07.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -369,5 +370,6 @@ export async function getPrivateDashboardData() {
     prebaPackagesIndex,
     prebaLajedoPackage,
     prebaBeloCampoPackage,
+    prebaAracasPackage,
   };
 }
