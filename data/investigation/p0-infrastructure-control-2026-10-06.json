@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "batchId": "p0-infrastructure-control-2026-10-06",
+  "generatedAt": "2026-10-07T05:25:00Z",
+  "purpose": "Comparar obras de infraestrutura com pagamento no período crítico para separar casos com execução física pré-04/07 corroborada daqueles em que apenas a contratação anterior ao marco foi localizada.",
+  "methodology": {
+    "rule": "Contratação anterior ao marco não equivale a execução física. A classificação favorável à exceção ordinária exige ao menos indicador documental de início material da obra antes de 04/07, preferencialmente OS/AIO, CNO, medição, vistoria ou documento equivalente.",
+    "states": {
+      "pre_cutoff_physical_execution_corroborated": "há evidência documental independente de início físico anterior a 04/07; caso deve ser rebaixado na fila de risco, sem dispensar cronograma e processo de liberação",
+      "pre_cutoff_procurement_only": "licitação/contratação começou antes de 04/07, mas a execução física prévia ainda não foi comprovada",
+      "open": "a cadeia contratação→OS→execução ainda não foi fechada"
+    }
+  },
+  "cases": [
+    {
+      "municipality": "Brumado",
+      "fiplanInstrument": "26401.0001.26.0000131-7",
+      "stateAgreement": "Convênio CONDER 039/2026",
+      "fiplanPaymentDate": "2026-09-23",
+      "fiplanPaidBRL": 2035388.31,
+      "object": "Requalificação/pavimentação asfáltica e drenagem da Avenida Agnelo dos Santos Azevedo",
+      "procurement": {
+        "number": "Concorrência Eletrônica 015/2026",
+        "supplier": "TECPLAN TERRAPLENAGEM LTDA",
+        "supplierCnpj": "09.206.625/0001-89",
+        "homologationDate": "2026-04-10",
+        "contract": "Contrato 0246/2026",
+        "contractDate": "2026-04-10",
+        "contractedBRL": 5799889.63
+      },
+      "physicalExecution": [
+        {
+          "date": "2026-05-12",
+          "type": "service_order",
+          "fact": "Prefeitura de Brumado noticiou autorização da ordem de serviço para a obra, com visita técnica acompanhada de fiscal da CONDER.",
+          "sourceUrl": "https://www.brumado.ba.gov.br/noticias/559-2026/05/15/prefeito-fabricio-abrantes-autoriza-ordem-de-servico-para-requalificacao-da-avenida-agnelo-dos-santos-azevedo"
+        },
+        {
+          "date": "2026-05-11",
+          "type": "cno_start",
+          "fact": "Registro CNO localizado em fonte derivada da Receita aponta início da obra em 11/05/2026; usar como corroboração e preservar fonte primária quando possível."
+        }
+      ],
+      "status": "pre_cutoff_physical_execution_corroborated",
+      "assessment": "A obra tem contratação, ordem de serviço e indicador de início físico quase dois meses antes de 04/07. Este caso não deve ser priorizado como suspeita de transferência vedada; serve como controle favorável à exceção ordinária. Permanecem úteis o cronograma original, primeira medição e processo de liberação da parcela de setembro."
+    },
+    {
+      "municipality": "Remanso",
+      "fiplanInstrument": "26401.0001.26.0000150-3",
+      "stateAgreement": "Convênio CONDER 053/2026",
+      "fiplanPaymentDate": "2026-08-27",
+      "fiplanPaidBRL": 1623948.12,
+      "object": "Pavimentação asfáltica em CBUQ sobre paralelepípedos com drenagem superficial",
+      "procurement": {
+        "number": "Concorrência Eletrônica 006/2026",
+        "pncpControl": "13909247000177-1-000078/2026",
+        "publicationDate": "2026-04-30",
+        "proposalSession": "2026-05-18",
+        "estimatedBRL": 5482543.98,
+        "sourceUrl": "https://buscarlicitacao.com.br/licitacao/ba/remanso/13909247000177-1-000078/2026/concorrencia-eletronica-edital-no-0062026"
+      },
+      "physicalExecution": [],
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "A contratação foi lançada e teve sessão antes de 04/07, mas não foi localizada nesta rodada homologação, contrato, OS/AIO ou medição inequívoca do Convênio 053/2026. O caso permanece em diligência média; não subir nem rebaixar definitivamente sem fechar a execução material."
+    }
+  ],
+  "nextActions": [
+    "Brumado: preservar contrato 0246/2026, OS/AIO, CNO primário e primeira medição; depois classificar a exceção ordinária como documentada ou quase documentada",
+    "Remanso: localizar resultado/homologação da CE 006/2026, contrato, OS/AIO e primeira medição antes de 04/07",
+    "Aplicar o mesmo padrão a Canarana e Rio Real"
+  ]
+}
