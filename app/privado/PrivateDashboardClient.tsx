@@ -1055,6 +1055,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <div><span>POST</span><code>/api/intelligence/ingest</code><p>Ingere um registro ou lote de até 100 registros.</p></div>
                 <div><span>GET</span><code>/api/intelligence/query</code><p>Consulta registros por kind, município, status, nível, caso ou texto.</p></div>
                 <div><span>GET</span><code>/api/intelligence/datasets</code><p>Lista datasets investigativos consolidados. Use <code>?name=...</code> para obter um conjunto específico.</p></div>
+                <div><span>POST</span><code>/api/private/intelligence-review</code><p>Registra decisão humana append-only da triagem; exige sessão administrativa do cockpit.</p></div>
               </div>
               <h3>Tipos aceitos</h3>
               <div className="intel-chip-list">{['complaint','public_source','research_finding','financial_record','electoral_account','entity','relationship','municipal_fact','legal_reference'].map((item)=><span key={item}>{item}</span>)}</div>
