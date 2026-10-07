@@ -12,6 +12,8 @@ import p0RuralMarketGaps from '@/data/investigation/p0-rural-market-gaps-2026-10
 import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
 import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wave-02-critical-p0.json';
 import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json';
+import prebaPackagesIndex from '@/data/investigation/preba-packages-index-2026-10-07.json';
+import prebaLajedoPackage from '@/data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json';
 
 export const runtime = 'nodejs';
 
@@ -27,6 +29,8 @@ const datasets = {
   'central-evidence-wave-01': centralEvidenceWave01,
   'central-evidence-wave-02': centralEvidenceWave02,
   'central-evidence-wave-03': centralEvidenceWave03,
+  'preba-priority-packages': prebaPackagesIndex,
+  'preba-package-01-lajedo-do-tabocal': prebaLajedoPackage,
 } as const;
 
 type DatasetName = keyof typeof datasets;
