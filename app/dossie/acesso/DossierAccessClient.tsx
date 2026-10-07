@@ -3,7 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function DossierAccessClient() {
+export default function DossierAccessClient({ nextPath = '/dossie/analise' }: { nextPath?: string }) {
   const router = useRouter();
   const [phase, setPhase] = useState<'email' | 'code'>('email');
   const [email, setEmail] = useState('');
@@ -43,7 +43,7 @@ export default function DossierAccessClient() {
       const response = await fetch('/api/dossie/verify-code', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email, code, next: nextPath }),
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error || 'Código inválido ou expirado.');
@@ -61,10 +61,10 @@ export default function DossierAccessClient() {
       {phase === 'email' ? (
         <>
           <span className="access-lock" aria-hidden="true">⌁</span>
-          <p className="eyebrow">ACESSO AO DOSSIÊ ANALÍTICO</p>
+          <p className="eyebrow">ACESSO À ÁREA VERIFICADA</p>
           <h1>Confirme seu e-mail para continuar.</h1>
           <p className="access-intro">
-            O endereço será usado exclusivamente para autenticar o acesso e registrar a data da consulta. Ele não será associado automaticamente a denúncias e não será usado para marketing.
+            O endereço será usado exclusivamente para autenticar o acesso ao conteúdo reservado e registrar a data da consulta. Ele não será associado automaticamente a denúncias e não será usado para marketing.
           </p>
           <form onSubmit={requestCode}>
             <label>E-mail

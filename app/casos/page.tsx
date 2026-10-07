@@ -1,17 +1,27 @@
+import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import CasesExplorer from './CasesExplorer';
 import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
 import { investigationSummary } from '@/lib/investigation-summary';
+import { DOSSIER_COOKIE, verifyDossierSession } from '@/lib/dossier-auth';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export const metadata = {
   title: 'Casos e ocorrências | Observatório Eleitoral Bahia 2026',
   description:
-    'Registro público filtrável de fatos, marcos normativos e ocorrências documentadas que integram a auditoria cidadã do Observatório Eleitoral Bahia 2026.',
+    'Registro verificado de fatos, marcos normativos e ocorrências documentadas que integram a auditoria cidadã do Observatório Eleitoral Bahia 2026.',
+  robots: { index: false, follow: false, nocache: true },
 };
 
 
-export default function CasesPage() {
+export default async function CasesPage() {
+  const store = await cookies();
+  const token = store.get(DOSSIER_COOKIE)?.value || '';
+  if (!verifyDossierSession(token)) redirect('/dossie/acesso?next=%2Fcasos');
+
   return (
     <main className="cases-page">
       <header className="site-header political-header">
@@ -26,16 +36,16 @@ export default function CasesPage() {
             <Link href="/fontes">Fontes</Link>
             <Link href="/privacidade">Privacidade</Link>
           </nav>
-          <Link className="button compact political-cta" href="/enviar">Enviar evidência</Link>
+          <form action="/api/dossie/logout" method="post"><button className="button compact analysis-logout">Encerrar acesso</button></form>
         </div>
       </header>
 
       <section className="cases-hero">
         <div className="container">
-          <p className="eyebrow light">REGISTRO PÚBLICO · AUDITORIA CIDADÃ</p>
+          <p className="eyebrow light">REGISTRO VERIFICADO · AUDITORIA CIDADÃ</p>
           <h1>Casos, marcos e ocorrências<br/><em>que podem ser conferidos.</em></h1>
           <p>
-            Este registro não é uma lista de acusados. É uma fila pública de fatos documentados, referências normativas e prioridades de auditoria que qualquer pessoa pode conferir nas fontes associadas.
+            Este registro não é uma lista de acusados. É uma fila verificada de fatos documentados, referências normativas e prioridades de auditoria que qualquer pessoa pode conferir nas fontes associadas.
           </p>
         </div>
       </section>

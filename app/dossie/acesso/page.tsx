@@ -1,12 +1,17 @@
 import Link from 'next/link';
 import DossierAccessClient from './DossierAccessClient';
+import { safeVerifiedAccessPath } from '@/lib/dossier-auth';
 
 export const metadata = {
   title: 'Acesso ao Dossiê Analítico | Observatório Eleitoral Bahia 2026',
   robots: { index: false, follow: false, nocache: true },
 };
 
-export default function DossierAccessPage() {
+export default async function DossierAccessPage({ searchParams }: { searchParams: Promise<{ next?: string | string[] }> }) {
+  const params = await searchParams;
+  const nextValue = Array.isArray(params.next) ? params.next[0] : params.next;
+  const nextPath = safeVerifiedAccessPath(nextValue);
+
   return (
     <main className="dossier-access-page">
       <header className="site-header political-header">
@@ -20,9 +25,9 @@ export default function DossierAccessPage() {
       </header>
       <section className="container dossier-access-layout">
         <div className="access-context">
-          <p className="eyebrow light">DOSSIÊ ANALÍTICO · ACESSO CONTROLADO</p>
-          <h2>A investigação vai além do que publicamos na página aberta.</h2>
-          <p>A versão analítica reúne a matriz municipal, critérios de priorização, metodologia probatória, trilhas de recursos, sinais de alerta, cruzamentos e notas de apuração.</p>
+          <p className="eyebrow light">CONTEÚDO RESERVADO · ACESSO CONTROLADO</p>
+          <h2>Uma única verificação libera a área reservada por 12 horas.</h2>
+          <p>A mesma sessão verificada dá acesso ao Dossiê Analítico, Casos e Atualizações reservadas. Após a confirmação, você será levado à página solicitada.</p>
           <ul>
             <li>controle de acesso separado do canal de denúncias;</li>
             <li>e-mail usado apenas para autenticação;</li>
@@ -30,7 +35,7 @@ export default function DossierAccessPage() {
             <li>sessão protegida e com expiração.</li>
           </ul>
         </div>
-        <DossierAccessClient />
+        <DossierAccessClient nextPath={nextPath} />
       </section>
     </main>
   );

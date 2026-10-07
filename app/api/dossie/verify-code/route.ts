@@ -5,6 +5,7 @@ import {
   DOSSIER_COOKIE,
   DOSSIER_SESSION_SECONDS,
   normalizeEmail,
+  safeVerifiedAccessPath,
   validEmail,
   verifyOtp,
   writeDossierAccessLog,
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const email = normalizeEmail(body?.email);
     const code = typeof body?.code === 'string' ? body.code.replace(/\D/g, '').slice(0, 6) : '';
+    const nextPath = safeVerifiedAccessPath(body?.next);
 
     if (!validEmail(email) || !/^\d{6}$/.test(code)) {
       return NextResponse.json({ error: 'Código inválido ou expirado.' }, { status: 401 });
@@ -29,7 +31,7 @@ export async function POST(request: Request) {
     }
 
     await writeDossierAccessLog(result.email);
-    const response = NextResponse.json({ ok: true, redirect: '/dossie/analise' }, { headers: { 'cache-control': 'no-store' } });
+    const response = NextResponse.json({ ok: true, redirect: nextPath }, { headers: { 'cache-control': 'no-store' } });
     response.cookies.set(DOSSIER_COOKIE, createDossierSession(result.emailHash), {
       httpOnly: true,
       secure: true,

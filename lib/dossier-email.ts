@@ -21,7 +21,7 @@ export async function sendDossierOtpEmail(email: string, code: string) {
         <div style="max-width:560px;margin:32px auto;background:#fff;padding:36px;border-top:6px solid #173d33">
           <div style="font-size:12px;letter-spacing:.12em;color:#6d765f">OBSERVATÓRIO ELEITORAL BAHIA 2026</div>
           <h1 style="font-size:26px;margin:22px 0 8px">Seu código de acesso</h1>
-          <p>Você solicitou acesso ao Dossiê Analítico.</p>
+          <p>Você solicitou acesso à área verificada do Observatório.</p>
           <div style="font-size:38px;font-weight:700;letter-spacing:.16em;margin:28px 0;color:#8b652e">${code.slice(0,3)} ${code.slice(3)}</div>
           <p>Este código expira em <strong>10 minutos</strong>.</p>
           <p style="color:#68736d;font-size:13px">Se você não fez esta solicitação, ignore esta mensagem. O endereço utilizado aqui serve somente para autenticar o dossiê e não será inscrito automaticamente em mailing.</p>
@@ -29,7 +29,7 @@ export async function sendDossierOtpEmail(email: string, code: string) {
           <p style="font-size:12px;color:#68736d">Idealização e coordenação: <strong>David Pereira de Azevedo</strong></p>
         </div>
       </body></html>`,
-      text: `Observatório Eleitoral Bahia 2026\n\nSeu código de acesso ao Dossiê Analítico: ${code}\n\nO código expira em 10 minutos. Se você não solicitou este acesso, ignore a mensagem.\n\nIdealização e coordenação: David Pereira de Azevedo`,
+      text: `Observatório Eleitoral Bahia 2026\n\nSeu código de acesso à área verificada: ${code}\n\nO código expira em 10 minutos. Se você não solicitou este acesso, ignore a mensagem.\n\nIdealização e coordenação: David Pereira de Azevedo`,
     }),
   });
 

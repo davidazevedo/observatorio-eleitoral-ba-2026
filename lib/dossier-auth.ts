@@ -7,7 +7,15 @@ export const OTP_TTL_MS = 10 * 60 * 1000;
 export const OTP_RESEND_MS = 60 * 1000;
 export const OTP_MAX_ATTEMPTS = 5;
 export const OTP_MAX_REQUESTS_PER_HOUR = 5;
-export const DOSSIER_NOTICE_VERSION = '2026-10-05-v1';
+export const DOSSIER_NOTICE_VERSION = '2026-10-07-v2';
+
+const VERIFIED_ACCESS_PATHS = new Set(['/dossie/analise', '/casos', '/atualizacoes']);
+
+export function safeVerifiedAccessPath(value: unknown) {
+  if (typeof value !== 'string') return '/dossie/analise';
+  const path = value.trim();
+  return VERIFIED_ACCESS_PATHS.has(path) ? path : '/dossie/analise';
+}
 
 type OtpRecord = {
   emailHash: string;
@@ -271,7 +279,7 @@ export async function writeDossierAccessLog(email: string) {
     emailHash: eh,
     accessedAt: now.toISOString(),
     privacyNoticeVersion: DOSSIER_NOTICE_VERSION,
-    purpose: 'controle_de_acesso_dossie',
+    purpose: 'controle_de_acesso_area_verificada',
     marketing: false,
     retentionUntil: retention.toISOString(),
   };

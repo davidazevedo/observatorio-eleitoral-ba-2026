@@ -1,8 +1,14 @@
+import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { DOSSIER_COOKIE, verifyDossierSession } from '@/lib/dossier-auth';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export const metadata = {
   title: 'Atualizações | Observatório Eleitoral Bahia 2026',
-  description: 'Histórico público de mudanças editoriais, técnicas e metodológicas do Observatório Eleitoral Bahia 2026.',
+  description: 'Histórico verificado de mudanças editoriais, técnicas e metodológicas do Observatório Eleitoral Bahia 2026.',
+  robots: { index: false, follow: false, nocache: true },
 };
 
 const entries = [
@@ -50,22 +56,26 @@ const entries = [
   },
 ];
 
-export default function UpdatesPage() {
+export default async function UpdatesPage() {
+  const store = await cookies();
+  const token = store.get(DOSSIER_COOKIE)?.value || '';
+  if (!verifyDossierSession(token)) redirect('/dossie/acesso?next=%2Fatualizacoes');
+
   return (
     <main className="complaint-page">
       <header className="site-header political-header">
         <div className="container header-inner">
           <Link className="brand political-brand" href="/"><span className="brand-mark">OE</span><span className="brand-copy">Observatório Eleitoral<br/><small>Bahia 2026</small></span></Link>
           <nav className="nav"><Link href="/denuncia">A denúncia</Link><Link href="/casos">Casos</Link><Link href="/fontes">Fontes</Link><Link href="/correcoes">Correções</Link></nav>
-          <Link className="button compact political-cta" href="/enviar">Enviar evidência</Link>
+          <form action="/api/dossie/logout" method="post"><button className="button compact analysis-logout">Encerrar acesso</button></form>
         </div>
       </header>
 
       <section className="dossier-public-hero">
         <div className="container">
-          <p className="eyebrow light">TRANSPARÊNCIA EDITORIAL</p>
+          <p className="eyebrow light">HISTÓRICO VERIFICADO</p>
           <h1>O portal também precisa deixar <em>rastros das próprias mudanças.</em></h1>
-          <p>Este histórico registra alterações relevantes de conteúdo, método, arquitetura, segurança e classificação probatória.</p>
+          <p>Esta área reservada registra alterações relevantes de conteúdo, método, arquitetura, segurança e classificação probatória.</p>
         </div>
       </section>
 
