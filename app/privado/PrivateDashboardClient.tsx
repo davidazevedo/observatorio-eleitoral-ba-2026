@@ -18,6 +18,8 @@ type CohortMunicipality = { rank:number; name:string; state:string; priority:str
 type CentralEvidenceItem = { id:string; municipality:string; title:string; type:string; status:string; amountBRL:number; sourceScope:string; evidenceReference?:string; caseGroup:string; legalConclusion:string; nextTest?:string[] };
 type MunicipalityCohort69 = { schemaVersion:number; cohortId:string; createdAt:string; methodology:{statement:string;existingCasesExcluded:string[];rules:string[];statewideJeronimo2026ValidVotePct:number;territoryIreceOfficialMunicipalityCount:number;newMunicipalityCount:number;newDefesoPaymentMunicipalities:number;newIreceMunicipalities:number;highVoteSupplementMunicipalities:number;overlaps:{ireceAndDefesoPayment:string[]}}; evidenceGoal:{waveTargetCentralEvidence:number;priorCentralEvidence:number;additionalQualifiedFiplanMunicipalFacts:number;minimumCentralEvidenceAfterClassification:number;countingRule:string}; municipalities:CohortMunicipality[] };
 type CentralEvidenceWave = { schemaVersion:number;manifestId:string;generatedAt:string;purpose:string;countingPolicy:string;counts:{total:number;housingCore:number;expansionFinancialFacts:number;expansionFinancialExposureBRL:number};legalBoundary:string;items:CentralEvidenceItem[] };
+type P0TriageRow = { municipality:string; instrument:string; agency:string; category:string; object:string; published:string; payment:string; paidBRL:number; instrumentValueBRL:number; publishedBeforeCutoff:boolean; daysPublicationBeforeCutoff:number; daysPaymentAfterCutoff:number; priority:string; flag:string };
+type P0Triage36 = { schemaVersion:number;batchId:string;generatedAt:string;cutoffDate:string;scope:{municipalities:number;instruments:number;defesoPaidBRL:number};methodology:{statement:string;legalTest:string[];boundary:string};summary:{instrumentsPublishedBeforeCutoff:number;instrumentsPublishedOnOrAfterCutoff:number;criticalMunicipalities:string[];urgentFocus:string[]};deepDiveFacts:Record<string,{status:string;assessment:string}>;instruments:P0TriageRow[] };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -63,6 +65,7 @@ type DashboardData = {
   housingAudit: HousingAuditRow[];
   municipalityCohort69: MunicipalityCohort69;
   centralEvidenceWave01: CentralEvidenceWave;
+  p0Triage36: P0Triage36;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -639,6 +642,22 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                   </div>)}
                 </div>
               </section>
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">TRIAGEM P0 · 36 MUNICÍPIOS</p><h2>Teste documental do marco de 04/07</h2><small>{data.p0Triage36.scope.instruments} instrumentos · {money(data.p0Triage36.scope.defesoPaidBRL)} pagos no período crítico</small></div></div>
+                <p className="private-report-note">{data.p0Triage36.methodology.statement} Resultado R1: {data.p0Triage36.summary.instrumentsPublishedBeforeCutoff}/{data.p0Triage36.scope.instruments} instrumentos publicados antes do marco.</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Instrumento</span><span>Publicação</span><span>Pagamento</span><span>Valor no defeso</span><span>Prioridade</span></div>
+                  {data.p0Triage36.instruments.map((item)=><div key={item.instrument}>
+                    <strong>{item.municipality}</strong>
+                    <div><code>{item.instrument}</code><small>{item.agency} · {item.category}</small></div>
+                    <div><b>{item.published}</b><small>{item.daysPublicationBeforeCutoff} dia(s) antes de 04/07</small></div>
+                    <div><b>{item.payment}</b><small>{item.daysPaymentAfterCutoff} dia(s) após 04/07</small></div>
+                    <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
+                    <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
+                  </div>)}
+                </div>
+              </section>
+
               <section className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">REGISTRO PROBATÓRIO</p><h2>Primeira leva de 50 evidências centrais</h2></div></div>
                 <p className="private-report-note">{data.centralEvidenceWave01.countingPolicy}</p>
