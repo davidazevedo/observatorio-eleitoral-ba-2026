@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "indexId": "preba-priority-packages-2026-10-07",
+  "generatedDate": "2026-10-07",
+  "purpose": "Controle dos primeiros pacotes probatórios prioritários destinados a subsidiar eventual notícia de fato ou representação à PRE-BA.",
+  "methodologicalBoundary": "Pacote não equivale a acusação ou conclusão de ilícito. Cada caso deve separar fatos documentados, aparente incompatibilidade, hipóteses lícitas, lacunas e diligências.",
+  "packages": [
+    {
+      "order": 1,
+      "packageId": "PREBA-01-LAJEDO-TABOCAL-2026",
+      "municipality": "Lajedo do Tabocal",
+      "priority": "critical",
+      "status": "draft_v1_pending_p0_diligences",
+      "structuredData": "data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json",
+      "humanReadable": "docs/PREBA_01_LAJEDO_DO_TABOCAL.md",
+      "coreEvidence": ["CE-031", "CE-051", "CE-052"],
+      "protocolReady": false,
+      "mainBlockers": [
+        "Plano de Trabalho e cronograma prefixado",
+        "AIO/OS e prova objetiva de início físico",
+        "fundamento administrativo/jurídico do pagamento de 06/07",
+        "publicação e errata preservadas",
+        "processo municipal/PNCP completo e contrato resultante"
+      ]
+    },
+    {
+      "order": 2,
+      "packageId": "PREBA-02-BELO-CAMPO-2026",
+      "municipality": "Belo Campo",
+      "priority": "critical",
+      "status": "queued",
+      "protocolReady": false,
+      "focus": "evento realizado em 07/06 e participação estadual de R$ 200 mil paga em 08/07; obter fundamento administrativo e jurídico do repasse posterior ao evento"
+    },
+    {
+      "order": 3,
+      "packageId": "PREBA-03-ARACAS-2026",
+      "municipality": "Araçás",
+      "priority": "urgent",
+      "status": "queued",
+      "protocolReady": false,
+      "focus": "termo com vedação pré-repasse/AIO, contratação publicada em 10/07 e necessidade de histórico integral dos repasses"
+    },
+    {
+      "order": 4,
+      "packageId": "PREBA-04-JAGUAQUARA-2026",
+      "municipality": "Jaguaquara",
+      "priority": "urgent",
+      "status": "queued",
+      "protocolReady": false,
+      "focus": "R$ 518.432,07 confirmados por FIPLAN e receita municipal; localizar OS/AIO/medição e execução física anterior a 04/07"
+    }
+  ]
+}
