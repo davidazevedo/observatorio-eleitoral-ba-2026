@@ -38,6 +38,8 @@ type PrebaLajedoPackage = { schemaVersion:number;packageId:string;generatedDate:
 type PrebaBeloCampoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;stateContributionBRL:number;municipalCounterpartBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaAracasPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;locatedCriticalPeriodPaymentBRL:number;locatedPaymentDate:string;paymentMatchesFirstInstallment:boolean};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaJaguaquaraPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{instrumentValueBRL:number;stadiumPaymentBRL:number;stadiumPaymentDate:string;municipalRevenueCorroboratedBRL:number;totalJaguaquaraCriticalPeriodPaymentsBRL:number;otherKnownCriticalPeriodPaymentBRL:number;separationRule:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
+type PrebaFinalRepresentation = { schemaVersion:number;representationId:string;generatedDate:string;destination:string;documentType:string;title:string;protocolReadiness:{readyAsNewsOfFactForDiligence:boolean;readyAsDefinitiveAccusation:boolean;reason:string};scope:{priorityUniverseMunicipalities:number;p0Classified:number;p0CoveragePercent:number;centralVersionedEvidence:number;priorityPackages:number;municipalities:string[]};legalBoundary:string;executiveSummary:string;cases:Array<{order:number;packageId:string;municipality:string;priority:string;question:string;coreEvidence:string[];status:string;mainDiligence:string}>;requestedMeasures:string[];finalReviewChecklist:string[] };
+type PrebaFinalAnnexIndex = { schemaVersion:number;indexId:string;representationId:string;generatedDate:string;annexes:Array<{order:number;id:string;title:string;path:string;humanReadable?:string;purpose:string}>;protocolFolderOrder:string[];finalGate:{readyForNewsOfFactProtocol:boolean;pendingBeforeDefinitiveAccusation:string[]} };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -98,6 +100,8 @@ type DashboardData = {
   prebaBeloCampoPackage: PrebaBeloCampoPackage;
   prebaAracasPackage: PrebaAracasPackage;
   prebaJaguaquaraPackage: PrebaJaguaquaraPackage;
+  prebaFinalRepresentation: PrebaFinalRepresentation;
+  prebaFinalAnnexIndex: PrebaFinalAnnexIndex;
 };
 
 type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -950,10 +954,44 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'preba' && (
             <>
               <section className="intel-metrics-grid">
-                <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}</strong><small>2 críticos · 2 urgentes</small></article>
-                <article><span>Pacotes estruturados</span><strong>4/4</strong><small>fila prioritária integralmente estruturada</small></article>
-                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length + data.prebaBeloCampoPackage.evidenceMatrix.length + data.prebaAracasPackage.evidenceMatrix.length + data.prebaJaguaquaraPackage.evidenceMatrix.length}</strong><small>elos e cautelas probatórias dos quatro pacotes</small></article>
-                <article><span>Pronto para requisição</span><strong>3</strong><small>Lajedo, Araçás e Jaguaquara</small></article>
+                <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}/4</strong><small>2 críticos · 2 urgentes</small></article>
+                <article><span>Peça consolidada</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'PRONTA':'PENDENTE'}</strong><small>notícia de fato para diligências</small></article>
+                <article><span>Anexos indexados</span><strong>{data.prebaFinalAnnexIndex.annexes.length}</strong><small>ordem de protocolo definida</small></article>
+                <article><span>Acusação definitiva</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsDefinitiveAccusation?'SIM':'NÃO'}</strong><small>depende das diligências requisitadas</small></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">ETAPA 7 · PEÇA CONSOLIDADA</p><h2>{data.prebaFinalRepresentation.title}</h2><small>{data.prebaFinalRepresentation.destination}</small></div>
+                  <span className={data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'housing-status-ok':'housing-exception-pending'}>{data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'PRONTA PARA PROTOCOLO':'PENDENTE'}</span>
+                </div>
+                <p>{data.prebaFinalRepresentation.executiveSummary}</p>
+                <p className="private-report-note"><strong>Limite jurídico:</strong> {data.prebaFinalRepresentation.legalBoundary}</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Universo prioritário</span><strong>{data.prebaFinalRepresentation.scope.priorityUniverseMunicipalities}</strong><small>municípios</small></article>
+                  <article><span>P0 classificados</span><strong>{data.prebaFinalRepresentation.scope.p0Classified}/{data.prebaFinalRepresentation.scope.p0Classified}</strong><small>{data.prebaFinalRepresentation.scope.p0CoveragePercent}%</small></article>
+                  <article><span>Evidências centrais</span><strong>{data.prebaFinalRepresentation.scope.centralVersionedEvidence}</strong><small>fatos auditáveis, não ilícitos</small></article>
+                  <article><span>Núcleos da peça</span><strong>{data.prebaFinalRepresentation.scope.priorityPackages}</strong><small>{data.prebaFinalRepresentation.scope.municipalities.join(' · ')}</small></article>
+                </div>
+                <div className="private-grid-two" style={{marginTop:'18px'}}>
+                  <article className="private-panel">
+                    <div className="private-panel-title"><div><p className="eyebrow">PEDIDOS</p><h2>Diligências requeridas</h2></div></div>
+                    <ol>{data.prebaFinalRepresentation.requestedMeasures.map((item)=><li key={item}>{item}</li>)}</ol>
+                  </article>
+                  <article className="private-panel">
+                    <div className="private-panel-title"><div><p className="eyebrow">GATE FINAL</p><h2>Antes do protocolo</h2></div></div>
+                    <ul>{data.prebaFinalRepresentation.finalReviewChecklist.map((item)=><li key={item}>{item}</li>)}</ul>
+                    <p className="private-report-note">{data.prebaFinalRepresentation.protocolReadiness.reason}</p>
+                  </article>
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">ÍNDICE FINAL</p><h2>{data.prebaFinalAnnexIndex.annexes.length} anexos para protocolo</h2><small>{data.prebaFinalAnnexIndex.finalGate.readyForNewsOfFactProtocol?'Gate de notícia de fato: pronto':'Gate pendente'}</small></div></div>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>#</span><span>Anexo</span><span>Finalidade</span><span>Arquivo</span><span>Humano</span></div>
+                  {data.prebaFinalAnnexIndex.annexes.map((item)=><div key={item.id}><strong>{String(item.order).padStart(2,'0')}</strong><span>{item.title}</span><small>{item.purpose}</small><code>{item.path}</code><small>{item.humanReadable||'—'}</small></div>)}
+                </div>
               </section>
 
               <section className="private-panel">
@@ -1231,7 +1269,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle e os datasets <code>preba-priority-packages</code>, <code>preba-package-01-lajedo-do-tabocal</code>, <code>preba-package-02-belo-campo</code> e <code>preba-package-03-aracas</code> e <code>preba-package-04-jaguaquara</code>.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle, os quatro pacotes PRE-BA e os datasets finais <code>preba-final-representation</code> e <code>preba-final-annex-index</code>.</p>
             </section>
           )}
         </main>
