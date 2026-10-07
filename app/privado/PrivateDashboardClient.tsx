@@ -33,6 +33,8 @@ type IreceP0DeepScan = { schemaVersion:number;batchId:string;generatedAt:string;
 type RuralMarketGapCase = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;agreement:string;paymentDate:string;paidBRL:number;object:string}>;stateAgreement?:string;paymentDate?:string;paidBRL:number;instrumentValueBRL?:number;object?:string;linkage?:string;municipalRevenueCorroboration?:{sourceUrl:string;facts:string[]};procurement:string;contract:string;serviceOrder:string;measurement:string;status:string;assessment:string };
 type P0RuralMarketGaps = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;statusDefinition:string};cases:RuralMarketGapCase[] };
 type P0ClassificationCoverage = { schemaVersion:number;batchId:string;generatedAt:string;coverage:{classifiedMunicipalities:number;totalP0Municipalities:number;percent:number};counts:Record<string,number>;interpretation:Record<string,string>;municipalities:Array<{municipality:string;status:string;assessment:string}> };
+type PrebaPackageIndex = { schemaVersion:number;indexId:string;generatedDate:string;purpose:string;methodologicalBoundary:string;packages:Array<{order:number;packageId:string;municipality:string;priority:string;status:string;protocolReady:boolean;structuredData?:string;humanReadable?:string;coreEvidence?:string[];mainBlockers?:string[];focus?:string}> };
+type PrebaLajedoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -88,9 +90,11 @@ type DashboardData = {
   ireceP0DeepScan: IreceP0DeepScan;
   p0RuralMarketGaps: P0RuralMarketGaps;
   p0ClassificationCoverage: P0ClassificationCoverage;
+  prebaPackagesIndex: PrebaPackageIndex;
+  prebaLajedoPackage: PrebaLajedoPackage;
 };
 
-type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -453,6 +457,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
     { id: 'expansion', label: 'Universo 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
+    { id: 'preba', label: 'Pacotes PRE-BA', count: data.prebaPackagesIndex.packages.length },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -931,6 +936,71 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <div className="intel-entity-table">
                   <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Valor</span><span>Fato</span></div>
                   {data.centralEvidenceWave01.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><b>{money(item.amountBRL)}</b><span>{item.title}</span></div>)}
+                </div>
+              </section>
+            </>
+          )}
+
+          {tab === 'preba' && (
+            <>
+              <section className="intel-metrics-grid">
+                <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}</strong><small>2 críticos · 2 urgentes</small></article>
+                <article><span>Pacote estruturado</span><strong>1/4</strong><small>Lajedo do Tabocal · v1</small></article>
+                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length}</strong><small>CE-031 · CE-051 · CE-052</small></article>
+                <article><span>Pronto para protocolo</span><strong>{data.prebaLajedoPackage.protocolGate.ready?'SIM':'NÃO'}</strong><small>diligências P0 ainda abertas</small></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">FILA DE FECHAMENTO PROBATÓRIO</p><h2>Pacotes prioritários para PRE-BA</h2><small>{data.prebaPackagesIndex.methodologicalBoundary}</small></div></div>
+                <div className="intel-record-list">
+                  {data.prebaPackagesIndex.packages.map((item)=><article className="intel-record" key={item.packageId}>
+                    <div className="intel-record-body">
+                      <div style={{display:'flex',justifyContent:'space-between',gap:'12px',alignItems:'flex-start',flexWrap:'wrap'}}>
+                        <div><span className={priorityClass(item.priority==='critical'?'urgent':item.priority)}>{item.priority}</span><h3 style={{margin:'8px 0 4px'}}>{String(item.order).padStart(2,'0')} · {item.municipality}</h3><code>{item.packageId}</code></div>
+                        <b className={item.protocolReady?'housing-status-ok':'housing-exception-pending'}>{item.protocolReady?'pronto para protocolo':item.status.replaceAll('_',' ')}</b>
+                      </div>
+                      {item.coreEvidence?.length?<div className="intel-chip-list">{item.coreEvidence.map((e)=><span key={e}>{e}</span>)}</div>:null}
+                      {item.focus?<p>{item.focus}</p>:null}
+                      {item.mainBlockers?.length?<div className="private-text-block"><small>BLOQUEADORES</small><ul>{item.mainBlockers.map((b)=><li key={b}>{b}</li>)}</ul></div>:null}
+                    </div>
+                  </article>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">PREBA-01 · LAJEDO DO TABOCAL</p><h2>Pacote probatório v1</h2><small>{data.prebaLajedoPackage.legalBoundary}</small></div><span className="housing-exception-pending">diligências P0</span></div>
+                <p><strong>Questão central:</strong> {data.prebaLajedoPackage.coreQuestion}</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Convênio</span><strong>{money(data.prebaLajedoPackage.financial.agreementValueBRL)}</strong><small>valor global</small></article>
+                  <article><span>1ª parcela</span><strong>{money(data.prebaLajedoPackage.financial.firstInstallmentBRL)}</strong><small>valor previsto no termo</small></article>
+                  <article><span>Pagamento</span><strong>{money(data.prebaLajedoPackage.financial.criticalPeriodPaymentBRL)}</strong><small>{data.prebaLajedoPackage.financial.paymentDate}</small></article>
+                  <article><span>Classificação</span><strong>CRÍTICA</strong><small>necessidade de apuração, não conclusão</small></article>
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">CRONOLOGIA</p><h2>Sequência documental reproduzível</h2></div></div>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>Data</span><span>Evento</span><span>Papel</span><span>Fonte</span><span>Observação</span></div>
+                  {data.prebaLajedoPackage.chronology.map((item,index)=><div key={item.date+index}><strong>{item.date}</strong><span>{item.event}</span><code>{item.evidentiaryRole}</code><span>{item.sourceId}</span><small>{item.note||'—'}</small></div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">MATRIZ PROBATÓRIA</p><h2>O que cada evidência prova — e o que não prova</h2></div></div>
+                <div className="intel-record-list">{data.prebaLajedoPackage.evidenceMatrix.map((item)=><article className="intel-record" key={item.evidenceId}><div className="intel-record-body"><div style={{display:'flex',justifyContent:'space-between',gap:'10px'}}><h3>{item.evidenceId} · {item.type}</h3><code>{item.integrityStatus}</code></div><p><strong>Fato:</strong> {item.assertion}</p><p><strong>Prova:</strong> {item.whatItProves}</p><p className="private-report-note"><strong>Limite:</strong> {item.whatItDoesNotProve}</p><small>{item.source}</small></div></article>)}</div>
+              </section>
+
+              <section className="private-grid-two">
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">APARENTE INCOMPATIBILIDADE</p><h2>Questão a investigar</h2></div></div><p>{data.prebaLajedoPackage.apparentIncompatibility.statement}</p><p className="private-report-note">Conclusão jurídica atual: <strong>nenhuma</strong>. O estado é {data.prebaLajedoPackage.apparentIncompatibility.status.replaceAll('_',' ')}.</p></article>
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">GATE DE PROTOCOLO</p><h2>O que falta fechar</h2></div></div><ul>{data.prebaLajedoPackage.protocolGate.minimumToClose.map((item)=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{data.prebaLajedoPackage.protocolGate.recommendedUseNow}</p></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">DILIGÊNCIAS</p><h2>Documentos P0 e pedidos objetivos</h2></div></div>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Prioridade</span><span>Documento</span><span>Razão</span><span>Estado</span><span>Destino</span><span>Uso</span></div>
+                  {data.prebaLajedoPackage.documentGaps.map((item,index)=><div key={item.document}><b className={item.priority==='P0'?'housing-status-gap':'housing-exception-pending'}>{item.priority}</b><strong>{item.document}</strong><small>{item.reason}</small><span>não localizado/preservado</span><span>{data.prebaLajedoPackage.requestedDiligences[index]?.recipient||'SUDESB / Município / FIPLAN'}</span><small>fechamento do pacote</small></div>)}
                 </div>
               </section>
             </>
