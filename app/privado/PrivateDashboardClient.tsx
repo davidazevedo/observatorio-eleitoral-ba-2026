@@ -26,6 +26,8 @@ type ComidaControlCase = { municipality:string;fiplanInstrument:string;fiplanPay
 type P0ComidaControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:ComidaControlCase[];nextActions:string[] };
 type InfrastructureControlCase = { municipality:string;fiplanInstrument:string;stateAgreement:string;fiplanPaymentDate:string;fiplanPaidBRL:number;object:string;procurement:Record<string,unknown>;physicalExecution:Array<{date:string;type:string;fact:string;sourceUrl?:string}>;status:string;assessment:string };
 type P0InfrastructureControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:InfrastructureControlCase[];nextActions:string[] };
+type IreceP0Case = { municipality:string;fiplanInstrument?:string;fiplanInstruments?:Array<{instrument:string;paymentDate:string;paidBRL:number;object:string}>;paymentDate?:string;paidBRL?:number;object?:string;procurement?:string;contract?:string;supplierCnpj?:string;preCutoffContract:boolean|null;preCutoffPhysicalExecution:string;status:string;assessment:string;marketProcurement?:Record<string,unknown>;animalCenterProcurement?:Record<string,unknown> };
+type IreceP0DeepScan = { schemaVersion:number;batchId:string;generatedAt:string;territory:string;scope:{officialMunicipalities:number;p0Municipalities:string[];p0Count:number;remainingTerritorialTriage:number};methodology:{rule:string;chain:string};cases:IreceP0Case[];territoryNextActions:string[] };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -76,6 +78,7 @@ type DashboardData = {
   centralEvidenceWave03: CentralEvidenceWave03;
   p0ComidaNoPratoControl: P0ComidaControl;
   p0InfrastructureControl: P0InfrastructureControl;
+  ireceP0DeepScan: IreceP0DeepScan;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -665,6 +668,26 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
                     <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
                   </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">IRECÊ · P0</p><h2>Deep scan dos municípios com pagamento no defeso</h2><small>{data.ireceP0DeepScan.scope.p0Count} P0 de {data.ireceP0DeepScan.scope.officialMunicipalities} municípios do território</small></div></div>
+                <p className="private-report-note">{data.ireceP0DeepScan.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Pagamento / instrumento</span><span>Contratação prévia</span><span>Execução prévia</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.ireceP0DeepScan.cases.map((item)=>{
+                    const paid=item.paidBRL ?? (item.fiplanInstruments||[]).reduce((sum,row)=>sum+row.paidBRL,0);
+                    const instruments=item.fiplanInstrument || (item.fiplanInstruments||[]).map((row)=>row.instrument).join(' · ');
+                    return <div key={item.municipality}>
+                      <strong>{item.municipality}</strong>
+                      <div><b>{money(paid||0)}</b><code>{instruments||'—'}</code></div>
+                      <div><b>{item.preCutoffContract===true?'sim':item.preCutoffContract===false?'não':'não fechado'}</b></div>
+                      <div><b>{item.preCutoffPhysicalExecution==='not_located'?'não localizada':item.preCutoffPhysicalExecution}</b></div>
+                      <div><b className={item.status.includes('high_priority')?'housing-status-gap':item.status.includes('pre_cutoff')?'housing-status-ok':'housing-exception-pending'}>{item.status.replaceAll('_',' ')}</b></div>
+                      <div><small>{item.assessment}</small></div>
+                    </div>;
+                  })}
                 </div>
               </section>
 
