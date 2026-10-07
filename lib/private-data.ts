@@ -181,15 +181,15 @@ export async function getPrivateDashboardData() {
   const highPriority = queue.filter((item) => item.priority === 'high' || item.priority === 'urgent');
   const finance = financialTotals(intelligence);
   const housingTargets = ['Barra','Cipó','Esplanada','Iraquara','Itaberaba','Lajedinho','Lapão','Macajuba'];
-  const housingExceptionTest: Record<string,{status:'under_test'|'not_located'|'documented';note:string}> = {
-    Barra:{status:'under_test',note:'Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 075/2026, homologado pelo Decreto Estadual 24.408/2026); vínculo específico do convênio habitacional com a emergência ainda não localizado.'},
-    Cipó:{status:'under_test',note:'Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 065/2026); vínculo específico do Convênio 009/2026/50 moradias com a emergência ainda não localizado.'},
-    Esplanada:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico.'},
-    Iraquara:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico para as 50 unidades estaduais.'},
-    Itaberaba:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico.'},
-    Lajedinho:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico.'},
-    Lapão:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico.'},
-    Macajuba:{status:'not_located',note:'Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original, OS/medição anterior ou vínculo emergencial específico.'},
+  const housingExceptionTest: Record<string,{status:'under_test'|'not_located'|'documented';note:string;instrumentPublishedAt:string;physicalExecution:'not_located'|'documented';prefixedSchedule:'not_located'|'documented'}> = {
+    Barra:{status:'under_test',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 075/2026, homologado pelo Decreto Estadual 24.408/2026); vínculo específico do convênio habitacional com a emergência ainda não localizado.'},
+    Cipó:{status:'under_test',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Situação de emergência por chuvas vigente na data do pagamento (Decreto Municipal 065/2026); vínculo específico do Convênio 009/2026/50 moradias com a emergência ainda não localizado.'},
+    Esplanada:{status:'not_located',instrumentPublishedAt:'2026-06-27',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Iraquara:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico para as 50 unidades estaduais.'},
+    Itaberaba:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Lajedinho:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Lapão:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
+    Macajuba:{status:'not_located',instrumentPublishedAt:'2026-06-20',physicalExecution:'not_located',prefixedSchedule:'not_located',note:'Instrumento publicado antes de 04/07. Não localizada, até o corte, prova pública de execução física anterior a 04/07, cronograma original aplicável, OS/medição anterior ou vínculo emergencial específico.'},
   };
   const housingAudit = housingTargets.map((municipality) => {
     const payment = intelligence.find((item) => item.kind === 'financial_record' && item.municipality === municipality && (item.tags || []).includes('habitação'));
@@ -214,6 +214,9 @@ export async function getPrivateDashboardData() {
       exceptionDocumented: housingExceptionTest[municipality]?.status === 'documented',
       exceptionStatus: housingExceptionTest[municipality]?.status || 'not_located',
       exceptionNote: housingExceptionTest[municipality]?.note || null,
+      instrumentPublishedAt: housingExceptionTest[municipality]?.instrumentPublishedAt || null,
+      physicalExecutionStatus: housingExceptionTest[municipality]?.physicalExecution || 'not_located',
+      prefixedScheduleStatus: housingExceptionTest[municipality]?.prefixedSchedule || 'not_located',
       procurementDate: rawString('procurementDate'),
       procurementStatus: rawString('procurementStatus'),
       procurementControl: rawString('procurementControl'),
