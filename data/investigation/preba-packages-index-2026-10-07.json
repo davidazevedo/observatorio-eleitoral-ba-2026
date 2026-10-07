@@ -10,17 +10,20 @@
       "packageId": "PREBA-01-LAJEDO-TABOCAL-2026",
       "municipality": "Lajedo do Tabocal",
       "priority": "critical",
-      "status": "draft_v1_pending_p0_diligences",
+      "status": "public_source_exhausted_ready_for_diligence_request",
       "structuredData": "data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json",
       "humanReadable": "docs/PREBA_01_LAJEDO_DO_TABOCAL.md",
-      "coreEvidence": ["CE-031", "CE-051", "CE-052"],
+      "coreEvidence": [
+        "CE-031",
+        "CE-051",
+        "CE-052"
+      ],
       "protocolReady": false,
       "mainBlockers": [
-        "Plano de Trabalho e cronograma prefixado",
+        "requisição formal do Processo SEI integral e Plano de Trabalho/cronograma",
         "AIO/OS e prova objetiva de início físico",
         "fundamento administrativo/jurídico do pagamento de 06/07",
-        "publicação e errata preservadas",
-        "processo municipal/PNCP completo e contrato resultante"
+        "publicação/errata e processo municipal completos"
       ]
     },
     {
@@ -28,9 +31,22 @@
       "packageId": "PREBA-02-BELO-CAMPO-2026",
       "municipality": "Belo Campo",
       "priority": "critical",
-      "status": "queued",
+      "status": "draft_v1_pending_p0_diligences",
+      "structuredData": "data/investigation/preba-package-02-belo-campo-2026-10-07.json",
+      "humanReadable": "docs/PREBA_02_BELO_CAMPO.md",
+      "coreEvidence": [
+        "CE-019",
+        "CE-053",
+        "CE-054"
+      ],
       "protocolReady": false,
-      "focus": "evento realizado em 07/06 e participação estadual de R$ 200 mil paga em 08/07; obter fundamento administrativo e jurídico do repasse posterior ao evento"
+      "mainBlockers": [
+        "Processo SEI integral e Plano de Trabalho/cronogramas",
+        "parecer/fundamento do pagamento de R$ 200 mil em 08/07",
+        "classificação jurídica do repasse Estado→Município",
+        "prestação de contas e despesas efetivamente custeadas",
+        "histórico integral FIPLAN/NOB"
+      ]
     },
     {
       "order": 3,
