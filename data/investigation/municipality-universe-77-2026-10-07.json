@@ -1,0 +1,1426 @@
+{
+  "schemaVersion": 1,
+  "universeId": "OE-BA-PRIORITY-UNIVERSE-77",
+  "createdAt": "2026-10-07T12:55:00Z",
+  "methodology": {
+    "statement": "Universo consolidado de priorização investigativa. Reúne os 8 municípios do núcleo habitacional original e os 69 municípios da expansão. Critérios de votação são apenas de amostragem e nunca evidência de irregularidade.",
+    "legacyExpansionDataset": "data/investigation/municipality-cohort-69-2026-10-06.json",
+    "housingCoreMunicipalities": [
+      "Barra",
+      "Cipó",
+      "Esplanada",
+      "Iraquara",
+      "Itaberaba",
+      "Lajedinho",
+      "Lapão",
+      "Macajuba"
+    ]
+  },
+  "counts": {
+    "totalMunicipalities": 77,
+    "housingCore": 8,
+    "expansionMunicipalities": 69,
+    "expansionP0Municipalities": 36,
+    "territoryIreceMunicipalities": 20,
+    "cumulativeCentralEvidence": 57
+  },
+  "municipalities": [
+    {
+      "rank": 1,
+      "name": "Barra",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_exception_under_test",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 2,
+      "name": "Cipó",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_exception_under_test",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 3,
+      "name": "Esplanada",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_document_gap",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 4,
+      "name": "Iraquara",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_document_gap",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 5,
+      "name": "Itaberaba",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_procurement_corroborated",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 6,
+      "name": "Lajedinho",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_procurement_corroborated",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 7,
+      "name": "Lapão",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_high_priority",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 8,
+      "name": "Macajuba",
+      "state": "BA",
+      "sourceGroup": "housing_core",
+      "priority": "P0",
+      "selectionReasons": [
+        "housing_core",
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1170000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "housing_core_evidence",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "housing_core_procurement_corroborated",
+      "legalConclusion": "none"
+    },
+    {
+      "rank": 9,
+      "name": "Antônio Cardoso",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 150000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 10,
+      "name": "Araçás",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 8146.7,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 11,
+      "name": "Araci",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 496717.02,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 12,
+      "name": "Aratuípe",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 574446.41,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 13,
+      "name": "Belo Campo",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 200000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 14,
+      "name": "Brumado",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 2035388.31,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 15,
+      "name": "Cafarnaum",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment",
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 200000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 16,
+      "name": "Canarana",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment",
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 820084.88,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 17,
+      "name": "Candeal",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 59950,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 18,
+      "name": "Dom Basílio",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 59950,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 19,
+      "name": "Eunápolis",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 246045.75,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 20,
+      "name": "Ipupiara",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment",
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 855000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 21,
+      "name": "Irajuba",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 82000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 22,
+      "name": "Ituaçu",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 845033.5,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 23,
+      "name": "Jaguaquara",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 918432.07,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 24,
+      "name": "Jiquiriçá",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 413495.16,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 25,
+      "name": "Lajedo do Tabocal",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 49946.15,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 26,
+      "name": "Macarani",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 62450,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 27,
+      "name": "Maetinga",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 63259.5,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 28,
+      "name": "Nova Soure",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 446845.04,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 29,
+      "name": "Paramirim",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 213995.5,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 30,
+      "name": "Pindobaçu",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 63187.25,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 31,
+      "name": "Planaltino",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 615333.54,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 32,
+      "name": "Queimadas",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 59950,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 33,
+      "name": "Remanso",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1623948.12,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 34,
+      "name": "Ribeira do Pombal",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 273552.84,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 35,
+      "name": "Rio Real",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1217461.02,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 36,
+      "name": "Santa Bárbara",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 119900,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 37,
+      "name": "São Félix",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 400000,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 38,
+      "name": "Sento Sé",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 132338.45,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 39,
+      "name": "Serra do Ramalho",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 192561.75,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 40,
+      "name": "Sítio do Quinto",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1092504.11,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 41,
+      "name": "Tabocas do Brejo Velho",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 1452398.81,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 42,
+      "name": "Teodoro Sampaio",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 66721.25,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 43,
+      "name": "Uauá",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 151469.16,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 44,
+      "name": "Ubaíra",
+      "state": "BA",
+      "priority": "P0",
+      "selectionReasons": [
+        "defeso_fiplan_payment"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 182253.65,
+      "centralEvidenceQualified": true,
+      "centralEvidenceType": "fiplan_payment_during_restricted_period",
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "financial_fact_located",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 45,
+      "name": "América Dourada",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 46,
+      "name": "Barra do Mendes",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 47,
+      "name": "Barro Alto",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 48,
+      "name": "Central",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 49,
+      "name": "Gentio do Ouro",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 50,
+      "name": "Ibipeba",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 51,
+      "name": "Ibititá",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 52,
+      "name": "Irecê",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 53,
+      "name": "Itaguaçu da Bahia",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 54,
+      "name": "João Dourado",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 55,
+      "name": "Jussara",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 56,
+      "name": "Mulungu do Morro",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 57,
+      "name": "Presidente Dutra",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 58,
+      "name": "São Gabriel",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 59,
+      "name": "Uibaí",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 60,
+      "name": "Xique-Xique",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "territorio_irece"
+      ],
+      "territoryIrece": true,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": null,
+      "jeronimoVoteSource": null,
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 61,
+      "name": "Ribeira do Amparo",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 85.88,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-ribeira-do-amparo-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 62,
+      "name": "Caetanos",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 84.54,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/caetanos/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 63,
+      "name": "Andorinha",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 81.46,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/andorinha/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 64,
+      "name": "Glória",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 81.07,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/gloria/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 65,
+      "name": "Guajeru",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 80.57,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/guajeru/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 66,
+      "name": "Chorrochó",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 79.97,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-chorrocho-ba.amp.htm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 67,
+      "name": "Jacaraci",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 78.87,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/jacaraci/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 68,
+      "name": "Quijingue",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 78.22,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-quijingue-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 69,
+      "name": "Cravolândia",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 75.79,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/cravolandia/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 70,
+      "name": "Macururé",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 75.28,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/macurure/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 71,
+      "name": "Santa Inês",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 72.66,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-santa-ines-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 72,
+      "name": "Anguera",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 72.57,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/anguera/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 73,
+      "name": "Iuiu",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 71.8,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/iuiu/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 74,
+      "name": "Abaré",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 71.35,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-abare-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 75,
+      "name": "Canudos",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 71.34,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-canudos-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 76,
+      "name": "Rodelas",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 70.48,
+      "jeronimoVoteSource": "https://noticias.uol.com.br/eleicoes/2026/10/04/resultado-governador-rodelas-ba.ghtm",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    },
+    {
+      "rank": 77,
+      "name": "Coronel João Sá",
+      "state": "BA",
+      "priority": "P1",
+      "selectionReasons": [
+        "high_jeronimo_vote_2026"
+      ],
+      "territoryIrece": false,
+      "defesoPaymentExposureBRL": 0,
+      "centralEvidenceQualified": false,
+      "centralEvidenceType": null,
+      "jeronimo2026ValidVotePct": 67.76,
+      "jeronimoVoteSource": "https://eleicoes.nexojornal.com.br/2026/municipio/bahia/coronel-joao-sa/",
+      "investigationStatus": "triage",
+      "legalConclusion": "none",
+      "sourceGroup": "expansion_69"
+    }
+  ]
+}
