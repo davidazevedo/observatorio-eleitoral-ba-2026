@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "representationId": "PREBA-CONSOLIDATED-2026-10-07",
+  "generatedDate": "2026-10-07",
+  "destination": "Ministério Público Eleitoral — Procuradoria Regional Eleitoral na Bahia (PRE-BA)",
+  "documentType": "noticia_de_fato_ou_representacao_para_apuracao",
+  "title": "Notícia de fato / representação para apuração de transferências estaduais a municípios no período eleitoral de 2026",
+  "protocolReadiness": {
+    "readyAsNewsOfFactForDiligence": true,
+    "readyAsDefinitiveAccusation": false,
+    "reason": "Os quatro núcleos prioritários já possuem cadeia documental suficiente para justificar requisição/preservação de processos e esclarecimentos, mas permanecem lacunas que impedem afirmar, de forma conclusiva, a incidência do art. 73, VI, a."
+  },
+  "scope": {
+    "priorityUniverseMunicipalities": 77,
+    "p0Classified": 36,
+    "p0CoveragePercent": 100,
+    "centralVersionedEvidence": 57,
+    "priorityPackages": 4,
+    "municipalities": ["Lajedo do Tabocal", "Belo Campo", "Araçás", "Jaguaquara"]
+  },
+  "legalBoundary": "A peça deve ser apresentada como notícia de fato/representação para apuração e preservação de provas. Não atribui crime, abuso, dolo, desvio de finalidade ou conduta vedada como fato consumado. Prioridade investigativa não equivale a culpabilidade.",
+  "legalFramework": [
+    {
+      "id": "LEI-9504-ART73-VI-A",
+      "source": "Lei 9.504/1997, art. 73, VI, a",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9504compilado.htm",
+      "rule": "Veda, nos três meses anteriores ao pleito, transferências voluntárias da União aos Estados e Municípios e dos Estados aos Municípios, ressalvadas obrigação formal preexistente destinada à execução de obra ou serviço em andamento e com cronograma prefixado, além de emergência/calamidade."
+    },
+    {
+      "id": "TSE-RES-23760-2026",
+      "source": "Resolução TSE 23.760/2026 — Calendário Eleitoral",
+      "url": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "rule": "Fixa 04/07/2026 como início da vedação nas Eleições 2026."
+    },
+    {
+      "id": "TRANSFEREGOV-COM21-2026",
+      "source": "Comunicado Transferegov 21/2026",
+      "url": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "rule": "Explicita como requisitos cumulativos da exceção ordinária obrigação formal preexistente, cronograma prefixado e execução física iniciada antes do defeso."
+    }
+  ],
+  "methodology": {
+    "principles": [
+      "Separar fato documentado, hipótese investigativa e lacuna documental.",
+      "Não inferir inexistência de documento apenas porque ele não foi localizado em fonte pública.",
+      "Não somar pagamentos de objetos distintos como se fossem um único caso.",
+      "Não atribuir órgão, autoria ou responsabilidade individual sem documento formal.",
+      "Preservar fonte, URL, data de coleta e hash quando disponíveis.",
+      "Usar a ausência de documentação pública como fundamento de diligência, nunca como prova autônoma de ilicitude."
+    ],
+    "countingRule": "57 representa fatos centrais auditáveis versionados, não número de ilícitos.",
+    "samplingRule": "O universo de 77 municípios é uma fila investigativa priorizada; não representa universo de suspeitos."
+  },
+  "executiveSummary": "Foram consolidados quatro núcleos prioritários em que pagamentos estaduais a municípios ocorreram após 04/07/2026 e a documentação pública encontrada deixa questões objetivas quanto ao enquadramento nas exceções do art. 73, VI, a. Em Lajedo do Tabocal, a primeira parcela coincide exatamente com o pagamento de 06/07 e o próprio termo restringe atividade antes do repasse e exige AIO; a contratação localizada foi publicada em 13/07. Em Belo Campo, evento financiado ocorreu em 07/06 e a participação estadual de R$ 200 mil foi paga em 08/07. Em Araçás, o termo prevê primeira parcela de R$ 292.514,22, mas o pagamento localizado em 10/07 é de R$ 8.146,70, exigindo reconstrução do fluxo integral; a contratação executora também foi publicada em 10/07. Em Jaguaquara, R$ 518.432,07 pagos em 10/07 são corroborados pelo portal municipal como receita do convênio estadual para construção de estádio, enquanto a execução física anterior a 04/07 não foi demonstrada nas fontes públicas localizadas.",
+  "cases": [
+    {
+      "order": 1,
+      "packageId": "PREBA-01-LAJEDO-TABOCAL-2026",
+      "municipality": "Lajedo do Tabocal",
+      "priority": "critical",
+      "question": "O pagamento de R$ 49.946,15 em 06/07 estava amparado por exceção legal, considerando que o termo veda atividade do plano antes do repasse, exige AIO e a contratação executora localizada foi publicada em 13/07?",
+      "coreEvidence": ["CE-031", "CE-051", "CE-052"],
+      "status": "ready_for_diligence_request",
+      "mainDiligence": "Processo SEI integral, Plano de Trabalho/cronograma, AIO/OS, primeira medição e fundamento da liberação de 06/07."
+    },
+    {
+      "order": 2,
+      "packageId": "PREBA-02-BELO-CAMPO-2026",
+      "municipality": "Belo Campo",
+      "priority": "critical",
+      "question": "Qual a natureza jurídica e o fundamento do pagamento de R$ 200.000,00 em 08/07, quando o evento apoiado já havia ocorrido em 07/06?",
+      "coreEvidence": ["CE-019", "CE-053", "CE-054"],
+      "status": "ready_for_diligence_request_with_open_legal_classification",
+      "mainDiligence": "Processo SEI integral, Plano de Trabalho, prestação de contas, natureza jurídica do fluxo e parecer que fundamentou a liberação de 08/07."
+    },
+    {
+      "order": 3,
+      "packageId": "PREBA-03-ARACAS-2026",
+      "municipality": "Araçás",
+      "priority": "urgent",
+      "question": "Qual a natureza do pagamento de R$ 8.146,70 em 10/07 dentro do Convênio 31/2026 e havia execução física válida anterior a 04/07?",
+      "coreEvidence": ["CE-016", "CE-055", "CE-056"],
+      "status": "ready_for_diligence_request",
+      "mainDiligence": "Histórico integral FIPLAN, Processo SEI, Plano de Trabalho/cronograma, AIO/OS, contrato e primeira medição."
+    },
+    {
+      "order": 4,
+      "packageId": "PREBA-04-JAGUAQUARA-2026",
+      "municipality": "Jaguaquara",
+      "priority": "urgent",
+      "question": "O pagamento de R$ 518.432,07 em 10/07 estava vinculado a obra fisicamente em andamento antes de 04/07 com obrigação formal e cronograma prefixado, ou a outra exceção legal?",
+      "coreEvidence": ["CE-029", "CE-029-STADIUM-SLICE", "CE-057"],
+      "status": "ready_for_diligence_request",
+      "mainDiligence": "Processo SEI integral, termo do convênio referido municipalmente como 28/2026, contratação, AIO/OS, primeira medição, fundamento da liberação e histórico FIPLAN."
+    }
+  ],
+  "requestedMeasures": [
+    "Autuar a comunicação como notícia de fato/representação e preservar os documentos digitais indicados.",
+    "Requisitar aos órgãos estaduais e municípios os processos administrativos integrais, Planos de Trabalho, cronogramas, pareceres e documentos de execução listados nos anexos.",
+    "Requisitar à SEFAZ/FIPLAN certificação dos históricos integrais dos instrumentos financeiros analisados, com NOBs, emissão, liquidação e efetivação.",
+    "Requisitar AIO/OS, contratos, medições, diários de obra, ART/RRT, relatórios fotográficos e fiscalização nos casos de infraestrutura.",
+    "No caso de Belo Campo, requisitar prestação de contas, notas fiscais/contratos e manifestação formal sobre a natureza jurídica do repasse efetuado após a realização do evento.",
+    "No caso de Jaguaquara, identificar formalmente o órgão estadual convenente e o instrumento referido pelo Município como Convênio Estadual 28/2026, evitando atribuição institucional por mera coincidência numérica.",
+    "Após as diligências, avaliar se os fatos se enquadram em conduta vedada, outra infração eleitoral ou hipótese lícita de exceção, adotando as providências de atribuição cabíveis.",
+    "Caso a atribuição territorial ou funcional recomende atuação de outro ofício/promotoria eleitoral, promover a remessa ou coordenação sem prejuízo da preservação imediata das provas."
+  ],
+  "annexes": [
+    {"id":"ANEXO-01","title":"Metodologia e universo investigativo","path":"data/investigation/municipality-universe-77-2026-10-07.json"},
+    {"id":"ANEXO-02","title":"Classificação P0 36/36","path":"data/investigation/p0-classification-coverage-36-2026-10-06.json"},
+    {"id":"ANEXO-03","title":"Manifesto de evidências centrais Wave 01","path":"preservation/manifests/central-evidence-wave-01-50.json"},
+    {"id":"ANEXO-04","title":"Manifesto de evidências críticas Wave 02","path":"preservation/manifests/central-evidence-wave-02-critical-p0.json"},
+    {"id":"ANEXO-05","title":"Manifesto Wave 03 — Araçás/Jaguaquara","path":"preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json"},
+    {"id":"ANEXO-06","title":"Pacote PREBA-01 — Lajedo do Tabocal","path":"data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json"},
+    {"id":"ANEXO-07","title":"Pacote PREBA-02 — Belo Campo","path":"data/investigation/preba-package-02-belo-campo-2026-10-07.json"},
+    {"id":"ANEXO-08","title":"Pacote PREBA-03 — Araçás","path":"data/investigation/preba-package-03-aracas-2026-10-07.json"},
+    {"id":"ANEXO-09","title":"Pacote PREBA-04 — Jaguaquara","path":"data/investigation/preba-package-04-jaguaquara-2026-10-07.json"},
+    {"id":"ANEXO-10","title":"Manifesto de preservação FIPLAN","path":"preservation/manifests/fiplan-defeso-2026.json"}
+  ],
+  "finalReviewChecklist": [
+    "Inserir identificação e contato do representante apenas no momento de protocolização.",
+    "Exportar/organizar anexos em ordem idêntica ao índice.",
+    "Confirmar integridade/hash dos arquivos que ainda constam como snapshot/hash pendente.",
+    "Revisar eventuais respostas ou documentos novos recebidos após 07/10/2026.",
+    "Não converter lacunas em afirmações negativas sem resposta formal do órgão competente."
+  ]
+}
