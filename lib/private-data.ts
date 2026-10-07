@@ -3,6 +3,8 @@ import { publicCases } from '@/lib/cases';
 import { sourceCatalog } from '@/lib/content';
 import { listSourceArchives, verifySourceArchiveRecord } from '@/lib/source-archive';
 import fiplanPreservation from '@/preservation/manifests/fiplan-defeso-2026.json';
+import municipalityCohort69 from '@/data/investigation/municipality-cohort-69-2026-10-06.json';
+import centralEvidenceWave01 from '@/preservation/manifests/central-evidence-wave-01-50.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -333,5 +335,7 @@ export async function getPrivateDashboardData() {
     sourceArchives: sourceArchivesWithVerification,
     gitPreservations,
     housingAudit,
+    municipalityCohort69,
+    centralEvidenceWave01,
   };
 }
