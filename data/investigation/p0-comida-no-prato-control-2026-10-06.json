@@ -181,13 +181,18 @@
       "linkage": "probable",
       "evidence": [
         {
+          "date": "2026-05-15",
+          "type": "contract",
+          "fact": "Dispensa 057/2026 / PA 066/2026 ratificada para aquisição de carnes e frios do programa Comida no Prato; período contratual de 15/05 a 15/08/2026."
+        },
+        {
           "date": "2026-09-02",
           "type": "regulation",
           "fact": "Decreto Municipal 110/2026 regulamentou coordenação, execução operacional, gestão financeira e prestação de contas do projeto no âmbito do Convênio 62/2026."
         }
       ],
-      "status": "post_cutoff_implementation_indicators",
-      "assessment": "A regulamentação operacional encontrada é posterior inclusive ao pagamento FIPLAN de 20/08. Isso não prova que a cozinha não funcionava antes; torna prioritária a busca por atos operacionais anteriores, contratos, produção de refeições e cronograma."
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Foi localizada contratação operacional do próprio Comida no Prato em 15/05, antes de 04/07. O Decreto 110/2026 de setembro regulamenta a gestão, mas não marca necessariamente o início material do projeto. O caso passa a favorecer a hipótese de execução prévia, ainda dependendo do vínculo exato com o Convênio 62/2026/FIPLAN, cronograma e processo de liberação."
     }
   ],
   "nextActions": [
@@ -195,5 +200,6 @@
     "confirmar vínculo nominal do convênio municipal com o identificador FIPLAN nos casos marcados probable/probable_strong",
     "procurar notas de fornecimento, atestes, produção de refeições e pagamentos municipais anteriores a 04/07",
     "rebaixar casos documentalmente explicados e elevar apenas os casos em que a cadeia prévia permaneça ausente após busca definida"
-  ]
+  ],
+  "updatedAt": "2026-10-07T05:10:00Z"
 }
