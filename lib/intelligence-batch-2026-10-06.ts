@@ -128,4 +128,29 @@ export const exceptionBatchRecords:IntelligenceRecord[]=[
   }
 ];
 
-export const intelligenceBatch20261006=[...housingBatchRecords,...tseBatchRecords,...exceptionBatchRecords];
+export const p0ExpansionFindings:IntelligenceRecord[]=[
+  {
+    schemaVersion:1,recordId:'P0-LAJEDO-TABOCAL-DEFESO-2026',kind:'research_finding',status:'corroborating',
+    title:'Lajedo do Tabocal: primeira parcela de R$ 49.946,15 paga em 06/07; termo veda atividade antes do início do repasse',
+    summary:'O FIPLAN registra R$ 49.946,15 pagos em 06/07/2026 no instrumento 21301.0001.26.0000299-1. O Termo de Convênio SUDESB nº 32/2026, Processo SEI 069.1479.2026.0002857-54, fixa exatamente R$ 49.946,15 como primeira parcela, liberável após a publicação, e veda qualquer atividade prevista no plano de trabalho antes do início do repasse financeiro. O PNCP registra posteriormente, em 13/07, a Concorrência Eletrônica 04/2026 para contratar empresa para a reforma do mesmo estádio, estimada em R$ 3.020.421,46. A combinação cria aparente incompatibilidade com a exceção eleitoral ordinária de execução física anterior a 04/07, mas requer o processo administrativo, AIO/OS e eventual fundamento jurídico antes de conclusão.',
+    municipality:'Lajedo do Tabocal',state:'BA',eventDate:'2026-07-06',collectedAt,caseIds:['OE-BA-0003'],tags:['p0','defeso-eleitoral','primeira-parcela','sudesb','estadio','execucao-fisica','prioridade-critica'],
+    evidenceLevel:'L4',analyticalConfidence:0.99,priority:'urgent',financial:{currency:'BRL',paid:49946.15,contractValue:3020421.46},
+    entities:[{name:'Município de Lajedo do Tabocal',type:'municipality',identifier:'CNPJ 16.434.441/0001-31',role:'convenente/recebedor'},{name:'Superintendência dos Desportos do Estado da Bahia - SUDESB',type:'public_body',role:'concedente'}],
+    provenance:{sourceUrl:'https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf',sourceTitle:'Termo de Convênio nº 32/2026 — Processo SEI 069.1479.2026.0002857-54',publisher:'SUDESB Bahia',sourceDate:'2026-06-30',retrievedAt:collectedAt,externalId:'069.1479.2026.0002857-54',collector:'p0-expansion-2026-10-06',method:'web_research'},
+    notes:['FIPLAN: instrumento 21301.0001.26.0000299-1; publicado em 01/07; NOB 21301.0001.26.0002162-7; R$ 49.946,15 pagos em 06/07.','Cláusula Quarta: primeira parcela R$ 49.946,15; liberação após publicação; vedada atividade do plano antes do início do repasse.','PNCP 16434441000131-1-000026/2026: edital publicado em 13/07 para a reforma do Estádio Municipal em atendimento ao Convênio 32/2026.','Não tratar como ilegalidade consumada sem obter autorização de início de obra, ordem de serviço, processo de liberação e eventual parecer/exceção.'],
+    raw:{instrument:'21301.0001.26.0000299-1',bankOrder:'21301.0001.26.0002162-7',agreement:'32/2026',firstInstallment:49946.15,paymentDate:'2026-07-06',procurementPublication:'2026-07-13',procurementControl:'16434441000131-1-000026/2026',exceptionAssessment:'apparent_incompatibility_requires_authority_records'}
+  },
+  {
+    schemaVersion:1,recordId:'P0-BELO-CAMPO-DEFESO-2026',kind:'research_finding',status:'corroborating',
+    title:'Belo Campo: cavalgada realizada em 07/06; R$ 200 mil estaduais pagos em 08/07',
+    summary:'O Convênio SEAGRI nº 01/2026 destinou R$ 200 mil estaduais à realização da Cavalgada de Belo Campo — A Tradição do Vaqueiro. A Prefeitura documentou que o evento ocorreu em 07/06/2026. O FIPLAN registra pagamento efetivado de R$ 200 mil em 08/07/2026, já no período de vedação. Como a exceção ordinária do art. 73, VI, a exige obrigação preexistente referente a obra ou serviço em andamento e com cronograma prefixado, a transferência posterior à realização do evento requer explicação jurídica específica e exame do processo de liberação.',
+    municipality:'Belo Campo',state:'BA',eventDate:'2026-07-08',collectedAt,caseIds:['OE-BA-0003'],tags:['p0','defeso-eleitoral','evento-concluido','seagri','transferencia-voluntaria','prioridade-critica'],
+    evidenceLevel:'L4',analyticalConfidence:0.995,priority:'urgent',financial:{currency:'BRL',paid:200000,contractValue:200000},
+    entities:[{name:'Município de Belo Campo',type:'municipality',identifier:'CNPJ 14.237.333/0001-43',role:'convenente/recebedor'},{name:'Secretaria da Agricultura da Bahia - SEAGRI',type:'public_body',role:'concedente'}],
+    provenance:{sourceUrl:'https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a',sourceTitle:'Cavalgada – A Tradição do Vaqueiro reúne cerca de 11 mil pessoas',publisher:'Prefeitura Municipal de Belo Campo',sourceDate:'2026-06-10',retrievedAt:collectedAt,externalId:'CONVENIO-SEAGRI-01-2026',collector:'p0-expansion-2026-10-06',method:'web_research'},
+    notes:['DOE 03/06/2026: Convênio SEAGRI 01/2026, Processo 010.9156.2025.0002545-71, R$ 200 mil de participação estadual, objeto apoio à Cavalgada.','Prefeitura: evento realizado em 07/06/2026.','FIPLAN: instrumento 10101.0001.26.0000079-3; NOB 10101.0001.26.0001454-0; R$ 200.000,00 pagos em 08/07.','Requisitar processo de pagamento e parecer que definiu o enquadramento eleitoral; evento concluído antes do início do defeso não deve ser automaticamente equiparado a serviço em andamento.'],
+    raw:{instrument:'10101.0001.26.0000079-3',bankOrder:'10101.0001.26.0001454-0',agreement:'SEAGRI 01/2026',eventDate:'2026-06-07',paymentDate:'2026-07-08',stateContribution:200000,exceptionAssessment:'post_completion_transfer_requires_legal_basis'}
+  }
+];
+
+export const intelligenceBatch20261006=[...housingBatchRecords,...tseBatchRecords,...exceptionBatchRecords,...p0ExpansionFindings];
