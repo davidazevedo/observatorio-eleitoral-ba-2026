@@ -1,7 +1,7 @@
 # Pacote PRE-BA 01 — Lajedo do Tabocal
 
 **Data de consolidação:** 07/10/2026  
-**Situação:** minuta probatória v1 — diligências P0 pendentes  
+**Situação:** esgotamento de fontes públicas concluído — pronto para requisição de diligências; não fechado para protocolo final  
 **Classificação interna:** investigação crítica  
 **Finalidade:** subsidiar eventual notícia de fato ou representação à Procuradoria Regional Eleitoral na Bahia (PRE-BA).
 
@@ -176,7 +176,7 @@ Essa redação evita transformar a falta de um documento localizado em prova de 
 
 ## 11. Gate de protocolo
 
-**Situação atual:** **NÃO FECHADO PARA PROTOCOLO COMO PEÇA FINAL.**
+**Situação atual:** **FONTES PÚBLICAS ESGOTADAS PARA OS DOCUMENTOS P0; PRONTO PARA REQUISIÇÃO DE DILIGÊNCIAS, MAS NÃO FECHADO COMO PEÇA FINAL.**
 
 O material atual já é suficiente para:
 - preservar a cadeia documental;
