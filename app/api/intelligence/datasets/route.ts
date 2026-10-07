@@ -14,6 +14,7 @@ import centralEvidenceWave02 from '@/preservation/manifests/central-evidence-wav
 import centralEvidenceWave03 from '@/preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json';
 import prebaPackagesIndex from '@/data/investigation/preba-packages-index-2026-10-07.json';
 import prebaLajedoPackage from '@/data/investigation/preba-package-01-lajedo-do-tabocal-2026-10-07.json';
+import prebaBeloCampoPackage from '@/data/investigation/preba-package-02-belo-campo-2026-10-07.json';
 
 export const runtime = 'nodejs';
 
@@ -31,6 +32,7 @@ const datasets = {
   'central-evidence-wave-03': centralEvidenceWave03,
   'preba-priority-packages': prebaPackagesIndex,
   'preba-package-01-lajedo-do-tabocal': prebaLajedoPackage,
+  'preba-package-02-belo-campo': prebaBeloCampoPackage,
 } as const;
 
 type DatasetName = keyof typeof datasets;
