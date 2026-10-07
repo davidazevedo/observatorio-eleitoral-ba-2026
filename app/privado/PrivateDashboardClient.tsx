@@ -21,6 +21,7 @@ type CentralEvidenceWave = { schemaVersion:number;manifestId:string;generatedAt:
 type P0TriageRow = { municipality:string; instrument:string; agency:string; category:string; object:string; published:string; payment:string; paidBRL:number; instrumentValueBRL:number; publishedBeforeCutoff:boolean; daysPublicationBeforeCutoff:number; daysPaymentAfterCutoff:number; priority:string; flag:string };
 type P0Triage36 = { schemaVersion:number;batchId:string;generatedAt:string;cutoffDate:string;scope:{municipalities:number;instruments:number;defesoPaidBRL:number};methodology:{statement:string;legalTest:string[];boundary:string};summary:{instrumentsPublishedBeforeCutoff:number;instrumentsPublishedOnOrAfterCutoff:number;criticalMunicipalities:string[];urgentFocus:string[]};deepDiveFacts:Record<string,{status:string;assessment:string}>;instruments:P0TriageRow[] };
 type CentralEvidenceWave02 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;relationToPriorEvidence?:string;legalConclusion:string}>;boundary:string };
+type CentralEvidenceWave03 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;boundary?:string;legalConclusion:string}>;boundary:string };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -68,6 +69,7 @@ type DashboardData = {
   centralEvidenceWave01: CentralEvidenceWave;
   p0Triage36: P0Triage36;
   centralEvidenceWave02: CentralEvidenceWave02;
+  centralEvidenceWave03: CentralEvidenceWave03;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -627,7 +629,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-grid-three">
                 <article className="private-panel"><p className="eyebrow">EXPANSÃO TERRITORIAL</p><h2>{data.municipalityCohort69.methodology.newMunicipalityCount} novos municípios</h2><p className="private-report-note">A votação é critério de priorização da amostra, nunca evidência de irregularidade.</p></article>
                 <article className="private-panel"><p className="eyebrow">IRECÊ</p><h2>{data.municipalityCohort69.methodology.newIreceMunicipalities} novos + Lapão</h2><p className="private-report-note">Cobertura completa dos 20 municípios do Território de Identidade de Irecê.</p></article>
-                <article className="private-panel"><p className="eyebrow">EVIDÊNCIAS CENTRAIS</p><h2>{data.centralEvidenceWave02.counts.cumulativeCentralEvidence} itens</h2><p className="private-report-note">Wave 01 congelada em {data.centralEvidenceWave01.counts.total}; Wave 02 adicionou {data.centralEvidenceWave02.counts.newEvidence} fatos críticos independentes.</p></article>
+                <article className="private-panel"><p className="eyebrow">EVIDÊNCIAS CENTRAIS</p><h2>{data.centralEvidenceWave03.counts.cumulativeCentralEvidence} itens</h2><p className="private-report-note">Wave 01: {data.centralEvidenceWave01.counts.total} · Wave 02: +{data.centralEvidenceWave02.counts.newEvidence} · Wave 03: +{data.centralEvidenceWave03.counts.newEvidence}.</p></article>
               </section>
               <section className="private-panel">
                 <div className="private-panel-title"><div><p className="eyebrow">COORTE DE PRIORIZAÇÃO</p><h2>69 municípios selecionados para a próxima onda</h2><small>{money(data.centralEvidenceWave01.counts.expansionFinancialExposureBRL)} em pagamentos FIPLAN já qualificados entre os 36 municípios com exposição financeira.</small></div></div>
@@ -657,6 +659,15 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
                     <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
                   </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">WAVE 03 · ARAÇÁS / JAGUAQUARA</p><h2>Novos elos documentais da triagem P0</h2><small>Total acumulado: {data.centralEvidenceWave03.counts.cumulativeCentralEvidence}</small></div></div>
+                <p className="private-report-note">{data.centralEvidenceWave03.boundary}</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>ID</span><span>Município</span><span>Tipo</span><span>Fonte</span><span>Fato</span></div>
+                  {data.centralEvidenceWave03.items.map((item)=><div key={item.id}><code>{item.id}</code><strong>{item.municipality}</strong><span>{item.type}</span><span>{item.source}</span><span>{item.title}</span></div>)}
                 </div>
               </section>
 
