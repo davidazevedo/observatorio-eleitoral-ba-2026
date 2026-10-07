@@ -24,6 +24,8 @@ type CentralEvidenceWave02 = { schemaVersion:number;manifestId:string;generatedA
 type CentralEvidenceWave03 = { schemaVersion:number;manifestId:string;generatedAt:string;previousWave:string;countingPolicy:string;counts:{newEvidence:number;cumulativeCentralEvidence:number};items:Array<{id:string;municipality:string;type:string;status:string;title:string;source:string;sourceUrl:string;boundary?:string;legalConclusion:string}>;boundary:string };
 type ComidaControlCase = { municipality:string;fiplanInstrument:string;fiplanPaymentDate:string;fiplanPaidBRL:number;program:string;municipalAgreement:string;linkage:string;evidence:Array<{date:string;type:string;fact:string}>;status:string;assessment:string };
 type P0ComidaControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:ComidaControlCase[];nextActions:string[] };
+type InfrastructureControlCase = { municipality:string;fiplanInstrument:string;stateAgreement:string;fiplanPaymentDate:string;fiplanPaidBRL:number;object:string;procurement:Record<string,unknown>;physicalExecution:Array<{date:string;type:string;fact:string;sourceUrl?:string}>;status:string;assessment:string };
+type P0InfrastructureControl = { schemaVersion:number;batchId:string;generatedAt:string;purpose:string;methodology:{rule:string;states:Record<string,string>};cases:InfrastructureControlCase[];nextActions:string[] };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -73,6 +75,7 @@ type DashboardData = {
   centralEvidenceWave02: CentralEvidenceWave02;
   centralEvidenceWave03: CentralEvidenceWave03;
   p0ComidaNoPratoControl: P0ComidaControl;
+  p0InfrastructureControl: P0InfrastructureControl;
 };
 
 type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -661,6 +664,22 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <div><b>{item.payment}</b><small>{item.daysPaymentAfterCutoff} dia(s) após 04/07</small></div>
                     <div><b>{money(item.paidBRL)}</b><small>{item.object}</small></div>
                     <div><b className={item.priority==='critical'?'housing-status-gap':item.priority==='urgent'?'housing-exception-pending':'housing-status-triage'}>{item.priority}</b><small>{item.flag.replaceAll('_',' ')}</small></div>
+                  </div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">CONTROLE · OBRAS DE INFRAESTRUTURA</p><h2>Execução física antes de 04/07 versus contratação apenas iniciada</h2><small>{data.p0InfrastructureControl.cases.length} casos estruturados</small></div></div>
+                <p className="private-report-note">{data.p0InfrastructureControl.methodology.rule}</p>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Convênio / instrumento</span><span>Pagamento</span><span>Execução prévia</span><span>Estado</span><span>Avaliação</span></div>
+                  {data.p0InfrastructureControl.cases.map((item)=><div key={item.municipality}>
+                    <strong>{item.municipality}</strong>
+                    <div><b>{item.stateAgreement}</b><code>{item.fiplanInstrument}</code></div>
+                    <div><b>{money(item.fiplanPaidBRL)}</b><small>{item.fiplanPaymentDate}</small></div>
+                    <div><b>{item.physicalExecution.length} indicador(es)</b><small>{item.physicalExecution.map((e)=>`${e.date} · ${e.type}`).join(' | ')||'não localizada'}</small></div>
+                    <div><b className={item.status==='pre_cutoff_physical_execution_corroborated'?'housing-status-ok':'housing-exception-pending'}>{item.status==='pre_cutoff_physical_execution_corroborated'?'execução pré-04/07 corroborada':'contratação prévia; execução aberta'}</b></div>
+                    <div><small>{item.assessment}</small></div>
                   </div>)}
                 </div>
               </section>
