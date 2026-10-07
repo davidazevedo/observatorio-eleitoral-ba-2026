@@ -440,7 +440,7 @@ export async function persistIntelligenceReview(input: {
   note?: string;
 }) {
   const recordIdValue = txt(input.recordId, 120);
-  if (!/^INT-[A-Z0-9-]+$/i.test(recordIdValue)) throw new Error('recordId inválido.');
+  if (!/^[A-Z0-9][A-Z0-9._-]{2,119}$/i.test(recordIdValue)) throw new Error('recordId inválido.');
   if (!allowedWorkflowStates.has(input.workflowState)) throw new Error('workflowState inválido.');
   if (!allowedClassifications.has(input.classification)) throw new Error('classification inválida.');
   if (!allowedLevels.has(input.evidenceLevel)) throw new Error('evidenceLevel inválido.');
