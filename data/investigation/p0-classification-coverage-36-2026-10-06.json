@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "batchId": "p0-classification-coverage-36-2026-10-06",
+  "generatedAt": "2026-10-07T07:30:00Z",
+  "coverage": {
+    "classifiedMunicipalities": 36,
+    "totalP0Municipalities": 36,
+    "percent": 100
+  },
+  "counts": {
+    "critical_investigation": 2,
+    "urgent_document_gap": 2,
+    "pre_cutoff_execution_indicators": 6,
+    "pre_cutoff_physical_execution_corroborated": 1,
+    "pre_cutoff_procurement_only": 17,
+    "post_cutoff_implementation_indicators": 1,
+    "document_gap": 7
+  },
+  "interpretation": {
+    "critical_investigation": "contradição/incompatibilidade documental aparente suficientemente forte para requisição prioritária de processo, sem conclusão de ilícito",
+    "urgent_document_gap": "vínculo financeiro/objeto robusto e lacuna decisiva de execução/exceção",
+    "pre_cutoff_physical_execution_corroborated": "há indicador direto de execução física antes do marco; tende a favorecer a exceção ordinária",
+    "pre_cutoff_execution_indicators": "há atos materiais/contratos operacionais antes do marco; exceção torna-se plausível, mas ainda requer cronograma/processo",
+    "pre_cutoff_procurement_only": "contratação/licitacão antecede o marco, mas execução física ainda precisa ser comprovada",
+    "post_cutoff_implementation_indicators": "atos de implantação localizados apenas após o marco; pesquisar exaustivamente atos anteriores antes de elevar",
+    "document_gap": "pagamento/objeto identificados, mas cadeia operacional ainda não fechada"
+  },
+  "municipalities": [
+    {
+      "municipality": "Lajedo do Tabocal",
+      "status": "critical_investigation",
+      "assessment": "Termo fixa a parcela de 06/07 e veda atividade antes do repasse; contratação executora publicada depois."
+    },
+    {
+      "municipality": "Belo Campo",
+      "status": "critical_investigation",
+      "assessment": "Evento financiado ocorreu em 07/06 e o aporte estadual integral foi pago em 08/07; requer fundamento específico."
+    },
+    {
+      "municipality": "Araçás",
+      "status": "urgent_document_gap",
+      "assessment": "Termo veda atividade pré-repasse e exige AIO; contratação executora publicada em 10/07; histórico integral de repasses ainda aberto."
+    },
+    {
+      "municipality": "Jaguaquara",
+      "status": "urgent_document_gap",
+      "assessment": "Pagamento do estádio confirmado por FIPLAN e receita municipal; execução pré-04/07 ainda não localizada."
+    },
+    {
+      "municipality": "Macarani",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Contratos operacionais do Comida no Prato em abril e junho."
+    },
+    {
+      "municipality": "Serra do Ramalho",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Contratos operacionais do Comida no Prato em 01–02/06."
+    },
+    {
+      "municipality": "Eunápolis",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Licitação/homologação e contratação do Comida no Prato antes do marco."
+    },
+    {
+      "municipality": "Maetinga",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Contrato de alimentos do Comida no Prato desde 15/05."
+    },
+    {
+      "municipality": "Queimadas",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Contratações do Comida no Prato com vigência iniciada em 30/06–01/07."
+    },
+    {
+      "municipality": "Teodoro Sampaio",
+      "status": "pre_cutoff_execution_indicators",
+      "assessment": "Contrato de equipamentos em 08/05 e contratação de alimentos em junho."
+    },
+    {
+      "municipality": "Brumado",
+      "status": "pre_cutoff_physical_execution_corroborated",
+      "assessment": "Ordem de serviço em 12/05 e indicador CNO de início em 11/05."
+    },
+    {
+      "municipality": "Candeal",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Planejamento/credenciamento do Comida no Prato antes de 04/07; execução material ainda aberta."
+    },
+    {
+      "municipality": "Santa Bárbara",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Procedimentos do Comida no Prato antes do marco; execução material ainda aberta."
+    },
+    {
+      "municipality": "Remanso",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Concorrência da obra publicada e sessão realizada antes de 04/07."
+    },
+    {
+      "municipality": "Canarana",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Homologação e contrato da pavimentação em maio."
+    },
+    {
+      "municipality": "Ituaçu",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Contrato da obra do balneário assinado em 04/03."
+    },
+    {
+      "municipality": "Aratuípe",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação exata do Convênio 024/2026 iniciada em maio."
+    },
+    {
+      "municipality": "Tabocas do Brejo Velho",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Contrato do Convênio 022/2025 assinado em 04/02."
+    },
+    {
+      "municipality": "Sítio do Quinto",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Contratação da pavimentação formalizada antes do marco."
+    },
+    {
+      "municipality": "Araci",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Convênios 029/2025 e 034/2025 integraram concorrência homologada antes do marco."
+    },
+    {
+      "municipality": "Ubaíra",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação homologada e contrato derivado antes de 04/07."
+    },
+    {
+      "municipality": "Jiquiriçá",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação do Convênio 56/2025 publicada em dezembro e sessão em fevereiro."
+    },
+    {
+      "municipality": "Ribeira do Pombal",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação do Convênio 065/2025 publicada em março."
+    },
+    {
+      "municipality": "Paramirim",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Licitação em fevereiro; primeira execução pública localizada em 10/07, ainda sem prova de início pré-marco."
+    },
+    {
+      "municipality": "Uauá",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Convênio 057/2025 e concorrência correspondente anteriores a 04/07."
+    },
+    {
+      "municipality": "Antônio Cardoso",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Concorrência 005/2026 do Convênio CAR 0054/2026 publicada em maio."
+    },
+    {
+      "municipality": "Planaltino",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Convênio 043/2025, Etapa 3 do Morumbi, teve concorrência correta localizada em janeiro."
+    },
+    {
+      "municipality": "Ipupiara",
+      "status": "pre_cutoff_procurement_only",
+      "assessment": "Dois objetos possuem homologação/contrato antes de 04/07; falta prova material de execução."
+    },
+    {
+      "municipality": "Pindobaçu",
+      "status": "post_cutoff_implementation_indicators",
+      "assessment": "Primeiros contratos do Comida no Prato localizados em 16/07; procurar atos anteriores antes de inferir início tardio."
+    },
+    {
+      "municipality": "Dom Basílio",
+      "status": "document_gap",
+      "assessment": "Programa identificado, mas cadeia municipal do instrumento FIPLAN ainda não localizada."
+    },
+    {
+      "municipality": "Sento Sé",
+      "status": "document_gap",
+      "assessment": "Programa identificado, mas cadeia municipal do instrumento FIPLAN ainda não localizada."
+    },
+    {
+      "municipality": "Rio Real",
+      "status": "document_gap",
+      "assessment": "Múltiplas pavimentações encontradas; nenhuma vinculada com segurança ao instrumento estadual."
+    },
+    {
+      "municipality": "Cafarnaum",
+      "status": "document_gap",
+      "assessment": "Convênio 144/2025 do Mercado Municipal identificado; contratação/OS/medição correspondente ainda não localizada."
+    },
+    {
+      "municipality": "Irajuba",
+      "status": "document_gap",
+      "assessment": "Convênio 02/2026/passagem molhada identificado; contratação/OS/medição ainda não localizada."
+    },
+    {
+      "municipality": "Nova Soure",
+      "status": "document_gap",
+      "assessment": "Convênios 97/2025 e 138/2025 corroborados pela receita municipal; contratações específicas ainda não localizadas."
+    },
+    {
+      "municipality": "São Félix",
+      "status": "document_gap",
+      "assessment": "Convênio 101/2026/mercado identificado; contratação/execução específica ainda não localizada."
+    }
+  ]
+}
