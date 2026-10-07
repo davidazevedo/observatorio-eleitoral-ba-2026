@@ -50,6 +50,7 @@ type DashboardData = {
     submissions: number; identified: number; anonymous: number; evidenceFiles: number; evidenceBytes: number;
     municipalities: number; categories: number; publicCases: number; intelligenceRecords: number;
     researchFindings: number; sourceInventory: number; entities: number; relationships: number; highPriority: number;
+    dynamicIntelligence: number; reviewedIntelligence: number; promotedIntelligence: number; triagePendingIntelligence: number;
     withEvidence: number; withEventDate: number; missingReferencedEvidence: number; orphanEvidence: number;
     archivedSources: number; archivedSourceBytes: number; validSourceCertificates: number;
     housingCorroborated:number; housingGaps:number; versionedDatasets: number; versionedRows: number; versionedPaid: number;
@@ -89,7 +90,7 @@ type DashboardData = {
   p0ClassificationCoverage: P0ClassificationCoverage;
 };
 
-type Tab = 'overview' | 'submissions' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -110,6 +111,14 @@ function levelClass(level: string) {
 }
 function priorityClass(priority: string) {
   return `intel-priority intel-priority-${priority}`;
+}
+function workflowStateFor(item: IntelligenceRecord) {
+  if (item.review?.workflowState) return item.review.workflowState;
+  if (item.status === 'ingested') return 'new';
+  if (item.status === 'triage' || item.status === 'corroborating') return 'analyzing';
+  if (item.status === 'rejected' || item.status === 'insufficient') return 'discarded';
+  if (item.status === 'publishable' || item.status === 'referred') return 'promoted';
+  return 'corroborated';
 }
 function normalized(value: unknown) {
   return String(value ?? '').trim().toLocaleLowerCase('pt-BR');
@@ -157,6 +166,18 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [archivePublisher,setArchivePublisher]=useState('');
   const [archiveMessage,setArchiveMessage]=useState('');
   const [archiving,setArchiving]=useState(false);
+  const [triageOrigin,setTriageOrigin]=useState('ingested');
+  const [workflowFilter,setWorkflowFilter]=useState('Todos');
+  const [reviewRecordId,setReviewRecordId]=useState('');
+  const [reviewWorkflow,setReviewWorkflow]=useState('analyzing');
+  const [reviewClassification,setReviewClassification]=useState('unclassified');
+  const [reviewLevel,setReviewLevel]=useState('L1');
+  const [reviewPriority,setReviewPriority]=useState('medium');
+  const [reviewMunicipality,setReviewMunicipality]=useState('');
+  const [reviewCaseId,setReviewCaseId]=useState('');
+  const [reviewNote,setReviewNote]=useState('');
+  const [reviewMessage,setReviewMessage]=useState('');
+  const [savingReview,setSavingReview]=useState(false);
 
   // Filtros analíticos transversais
   const [globalQuery,setGlobalQuery]=useState('');
@@ -260,6 +281,12 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
       return normalized([item.recordId,item.title,item.summary,item.content,item.municipality,item.provenance?.publisher,...(item.tags||[]),...(item.entities||[]).map((e)=>e.name)].join(' ')).includes(local);
     });
   }, [filteredIntelligence,intelQuery,intelKind]);
+
+  const triageRecords = useMemo(() => visibleIntel.filter((item) => {
+    if (triageOrigin === 'ingested' && item.recordOrigin !== 'ingested') return false;
+    if (workflowFilter !== 'Todos' && workflowStateFor(item) !== workflowFilter) return false;
+    return true;
+  }), [visibleIntel,triageOrigin,workflowFilter]);
 
   const visibleSources = useMemo(() => {
     const q=normalized([sourceQuery,globalQuery].filter(Boolean).join(' '));
@@ -371,6 +398,34 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   }
 
 
+  function openReview(item: IntelligenceRecord) {
+    setReviewRecordId(item.recordId);
+    setReviewWorkflow(workflowStateFor(item));
+    setReviewClassification(item.review?.classification || 'unclassified');
+    setReviewLevel(item.evidenceLevel);
+    setReviewPriority(item.priority);
+    setReviewMunicipality(data.municipalityUniverse77.municipalities.some((row)=>row.name===item.municipality) ? (item.municipality || '') : '');
+    setReviewCaseId(item.review?.linkedCaseId || item.caseIds?.[0] || '');
+    setReviewNote(item.review?.note || '');
+    setReviewMessage('');
+  }
+
+  async function saveReview() {
+    if (!reviewRecordId) return;
+    setSavingReview(true); setReviewMessage('');
+    try {
+      const response=await fetch('/api/private/intelligence-review',{
+        method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({recordId:reviewRecordId,workflowState:reviewWorkflow,classification:reviewClassification,evidenceLevel:reviewLevel,priority:reviewPriority,municipality:reviewMunicipality,caseId:reviewCaseId,note:reviewNote}),
+      });
+      const payload=await response.json();
+      if(!response.ok) throw new Error(payload?.error||'Falha ao registrar revisão.');
+      setReviewMessage(`Revisão registrada: ${payload.event.eventId}`);
+      window.setTimeout(()=>window.location.reload(),650);
+    } catch(error) { setReviewMessage(error instanceof Error?error.message:'Falha ao registrar revisão.'); }
+    finally { setSavingReview(false); }
+  }
+
   async function archiveSource() {
     if (!archiveUrl.trim()) return;
     setArchiving(true); setArchiveMessage('');
@@ -392,6 +447,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const tabs: { id: Tab; label: string; count?: number }[] = [
     { id: 'overview', label: 'Visão geral' },
     { id: 'submissions', label: 'Denúncias', count: data.metrics.submissions },
+    { id: 'triage', label: 'Ingestão / Triagem', count: data.metrics.triagePendingIntelligence },
     { id: 'findings', label: 'Inteligência', count: data.metrics.intelligenceRecords },
     { id: 'sources', label: 'Fontes', count: data.metrics.sourceInventory },
     { id: 'provenance', label: 'Proveniência', count: data.metrics.archivedSources + data.metrics.versionedDatasets },
@@ -544,7 +600,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               </section>
 
               <section className="private-panel">
-                <div className="private-panel-title"><div><p className="eyebrow">FILA DE INVESTIGAÇÃO</p><h2>Próximos itens a trabalhar</h2></div><button className="intel-link-button" onClick={()=>setTab('findings')}>Ver tudo →</button></div>
+                <div className="private-panel-title"><div><p className="eyebrow">FILA DE INVESTIGAÇÃO</p><h2>Próximos itens a trabalhar</h2></div><button className="intel-link-button" onClick={()=>setTab('triage')}>Abrir triagem →</button></div>
                 <div className="intel-queue">
                   {filteredQueue.length ? filteredQueue.slice(0,8).map((item) => (
                     <div key={item.recordId}>
@@ -596,6 +652,64 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 ))}
               </div>
             </section>
+          )}
+
+          {tab === 'triage' && (
+            <>
+              <section className="intel-metrics-grid">
+                <article><span>Recebidos pela Intel API</span><strong>{data.metrics.dynamicIntelligence}</strong><small>registros preservados no Blob privado</small></article>
+                <article><span>Pendentes de triagem</span><strong>{data.metrics.triagePendingIntelligence}</strong><small>novos ou em análise</small></article>
+                <article><span>Revisados</span><strong>{data.metrics.reviewedIntelligence}</strong><small>com evento humano append-only</small></article>
+                <article><span>Promovidos</span><strong>{data.metrics.promotedIntelligence}</strong><small>evidência dinâmica; não altera as 57 evidências versionadas</small></article>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title submissions-heading">
+                  <div><p className="eyebrow">INTELLIGENCE TRIAGE & EVIDENCE PROMOTION</p><h2>Fila operacional da Intel API</h2><small className="filter-result-count">{triageRecords.length} registro(s) no recorte</small></div>
+                  <div className="private-filters">
+                    <select value={triageOrigin} onChange={(e)=>setTriageOrigin(e.target.value)}><option value="ingested">Somente Intel API</option><option value="all">Toda inteligência</option></select>
+                    <select value={workflowFilter} onChange={(e)=>setWorkflowFilter(e.target.value)}><option>Todos</option>{['new','analyzing','corroborated','discarded','promoted'].map((v)=><option key={v}>{v}</option>)}</select>
+                  </div>
+                </div>
+                <p className="private-report-note">O registro original permanece imutável. Cada decisão abaixo gera um novo evento de revisão com data/hora e ator da sessão privada. “Promovido” significa apto a integrar um pacote probatório interno; não significa ilícito comprovado nem altera automaticamente a contagem das 57 evidências centrais versionadas.</p>
+                <div className="intel-record-list">
+                  {triageRecords.length ? triageRecords.map((item)=>(
+                    <details key={item.recordId} className="intel-record" open={reviewRecordId===item.recordId || undefined}>
+                      <summary>
+                        <span className={priorityClass(item.priority)}>{item.priority}</span>
+                        <div><strong>{item.title}</strong><small>{item.recordId} · {item.kind} · {item.municipality||'sem município'} · origem: {item.recordOrigin||'legado'}</small></div>
+                        <span className={levelClass(item.evidenceLevel)}>{item.evidenceLevel}</span>
+                      </summary>
+                      <div className="intel-record-body">
+                        <p>{item.summary}</p>
+                        <div className="intel-record-meta">
+                          <div><span>Workflow</span><b>{workflowStateFor(item)}</b></div>
+                          <div><span>Classificação</span><b>{item.review?.classification||'unclassified'}</b></div>
+                          <div><span>Revisões</span><b>{item.review?.reviewCount||0}</b></div>
+                          <div><span>Última revisão</span><b>{item.review?.reviewedAt?formatDate(item.review.reviewedAt):'—'}</b></div>
+                        </div>
+                        <div className="private-text-block"><small>PROVENIÊNCIA</small><p>{item.provenance?.publisher||'Fonte não informada'} · {item.provenance?.retrievedAt?formatDate(item.provenance.retrievedAt):'sem data de coleta'}{item.provenance?.checksum?` · SHA/checksum: ${item.provenance.checksum}`:''}</p></div>
+                        {item.provenance?.sourceUrl?<a className="intel-source-link" href={item.provenance.sourceUrl} target="_blank" rel="noreferrer">Abrir fonte original ↗</a>:null}
+                        <button type="button" className="intel-link-button" onClick={()=>openReview(item)}>{reviewRecordId===item.recordId?'Revisão aberta':'Classificar / promover'}</button>
+                        {reviewRecordId===item.recordId?<div className="private-panel" style={{marginTop:'18px'}}>
+                          <div className="analytic-filter-grid secondary">
+                            <label><span>Estado</span><select value={reviewWorkflow} onChange={(e)=>setReviewWorkflow(e.target.value)}>{['new','analyzing','corroborated','discarded','promoted'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                            <label><span>Papel probatório</span><select value={reviewClassification} onChange={(e)=>setReviewClassification(e.target.value)}><option value="unclassified">não classificado</option><option value="documented_fact">fato documentado</option><option value="apparent_incompatibility">incompatibilidade aparente</option><option value="document_gap">lacuna documental</option><option value="lawful_explanation">hipótese explicativa lícita</option><option value="investigative_hypothesis">hipótese investigativa</option></select></label>
+                            <label><span>Nível</span><select value={reviewLevel} onChange={(e)=>setReviewLevel(e.target.value)}>{['L0','L1','L2','L3','L4'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                            <label><span>Prioridade</span><select value={reviewPriority} onChange={(e)=>setReviewPriority(e.target.value)}>{['low','medium','high','urgent'].map((v)=><option key={v}>{v}</option>)}</select></label>
+                            <label><span>Município do Universo 77</span><select value={reviewMunicipality} onChange={(e)=>setReviewMunicipality(e.target.value)}><option value="">Sem vínculo</option>{data.municipalityUniverse77.municipalities.map((row)=><option key={row.name} value={row.name}>{row.name}</option>)}</select></label>
+                            <label><span>Caso / pacote</span><input value={reviewCaseId} onChange={(e)=>setReviewCaseId(e.target.value)} placeholder="ex.: PREBA-LAJEDO-01" /></label>
+                          </div>
+                          <label style={{display:'grid',gap:'6px',marginTop:'12px'}}><span>Nota de revisão</span><textarea rows={4} value={reviewNote} onChange={(e)=>setReviewNote(e.target.value)} placeholder="O que foi verificado, qual lacuna permanece e por que o estado foi escolhido." /></label>
+                          <div style={{display:'flex',gap:'10px',alignItems:'center',marginTop:'12px',flexWrap:'wrap'}}><button type="button" className="source-archive-button" disabled={savingReview} onClick={saveReview}>{savingReview?'Registrando…':reviewWorkflow==='promoted'?'Promover para evidência':'Registrar revisão'}</button>{reviewMessage?<span>{reviewMessage}</span>:null}</div>
+                          {reviewWorkflow==='promoted'?<p className="private-report-note">Guardrails: promoção exige município do Universo 77, classificação diferente de “não classificado”, nível L2–L4 e URL de fonte ou checksum de proveniência.</p>:null}
+                        </div>:null}
+                        {(item.reviewHistory||[]).length?<div className="private-text-block" style={{marginTop:'16px'}}><small>HISTÓRICO DE REVISÃO</small><div className="intel-queue">{item.reviewHistory?.slice().reverse().map((event)=><div key={event.eventId}><span className={levelClass(event.evidenceLevel)}>{event.evidenceLevel}</span><div><strong>{event.workflowState} · {event.classification}</strong><small>{formatDate(event.createdAt)} · {event.actor}{event.caseId?` · ${event.caseId}`:''}</small></div><span className={priorityClass(event.priority)}>{event.priority}</span></div>)}</div></div>:null}
+                      </div>
+                    </details>
+                  )):<p>Nenhum registro correspondente. Novos registros enviados por <code>/api/intelligence/ingest</code> aparecerão aqui automaticamente.</p>}
+                </div>
+              </section>
+            </>
           )}
 
           {tab === 'findings' && (
