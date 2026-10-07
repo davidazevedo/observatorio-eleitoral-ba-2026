@@ -36,6 +36,7 @@ type P0ClassificationCoverage = { schemaVersion:number;batchId:string;generatedA
 type PrebaPackageIndex = { schemaVersion:number;indexId:string;generatedDate:string;purpose:string;methodologicalBoundary:string;packages:Array<{order:number;packageId:string;municipality:string;priority:string;status:string;protocolReady:boolean;structuredData?:string;humanReadable?:string;coreEvidence?:string[];mainBlockers?:string[];focus?:string}> };
 type PrebaLajedoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaBeloCampoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;stateContributionBRL:number;municipalCounterpartBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
+type PrebaAracasPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;locatedCriticalPeriodPaymentBRL:number;locatedPaymentDate:string;paymentMatchesFirstInstallment:boolean};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -94,6 +95,7 @@ type DashboardData = {
   prebaPackagesIndex: PrebaPackageIndex;
   prebaLajedoPackage: PrebaLajedoPackage;
   prebaBeloCampoPackage: PrebaBeloCampoPackage;
+  prebaAracasPackage: PrebaAracasPackage;
 };
 
 type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -947,9 +949,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <>
               <section className="intel-metrics-grid">
                 <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}</strong><small>2 críticos · 2 urgentes</small></article>
-                <article><span>Pacotes estruturados</span><strong>2/4</strong><small>Lajedo + Belo Campo · v1</small></article>
-                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length + data.prebaBeloCampoPackage.evidenceMatrix.length}</strong><small>6 elos centrais nos dois pacotes</small></article>
-                <article><span>Pronto para requisição</span><strong>1</strong><small>Lajedo: fontes públicas esgotadas</small></article>
+                <article><span>Pacotes estruturados</span><strong>3/4</strong><small>Lajedo + Belo Campo + Araçás</small></article>
+                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length + data.prebaBeloCampoPackage.evidenceMatrix.length + data.prebaAracasPackage.evidenceMatrix.length}</strong><small>9 elos centrais nos três pacotes</small></article>
+                <article><span>Pronto para requisição</span><strong>2</strong><small>Lajedo e Araçás: fontes públicas esgotadas</small></article>
               </section>
 
               <section className="private-panel">
@@ -1033,6 +1035,35 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-grid-two">
                 <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">BELO CAMPO · QUESTÃO JURÍDICA</p><h2>Repasse posterior ao evento</h2></div></div><p>{data.prebaBeloCampoPackage.apparentIncompatibility.statement}</p><p className="private-report-note">Conclusão jurídica atual: <strong>nenhuma</strong>.</p></article>
                 <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">GATE DE PROTOCOLO</p><h2>O que falta fechar</h2></div></div><ul>{data.prebaBeloCampoPackage.protocolGate.minimumToClose.map((item)=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{data.prebaBeloCampoPackage.protocolGate.recommendedUseNow}</p></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">PREBA-03 · ARAÇÁS</p><h2>Pacote probatório v1</h2><small>{data.prebaAracasPackage.legalBoundary}</small></div><span className="housing-exception-pending">requisição formal</span></div>
+                <p><strong>Questão central:</strong> {data.prebaAracasPackage.coreQuestion}</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Convênio</span><strong>{money(data.prebaAracasPackage.financial.agreementValueBRL)}</strong><small>valor global</small></article>
+                  <article><span>1ª parcela contratual</span><strong>{money(data.prebaAracasPackage.financial.firstInstallmentBRL)}</strong><small>prevista no termo</small></article>
+                  <article><span>Pagamento localizado</span><strong>{money(data.prebaAracasPackage.financial.locatedCriticalPeriodPaymentBRL)}</strong><small>{data.prebaAracasPackage.financial.locatedPaymentDate}</small></article>
+                  <article><span>Coincide com 1ª parcela?</span><strong>{data.prebaAracasPackage.financial.paymentMatchesFirstInstallment?'SIM':'NÃO'}</strong><small>histórico integral é diligência nº 1</small></article>
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">ARAÇÁS · CRONOLOGIA</p><h2>Convênio → defeso → pagamento/contratação</h2></div></div>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>Data</span><span>Evento</span><span>Papel</span><span>Fonte</span><span>Observação</span></div>
+                  {data.prebaAracasPackage.chronology.map((item,index)=><div key={item.date+index}><strong>{item.date}</strong><span>{item.event}</span><code>{item.evidentiaryRole}</code><span>{item.sourceId}</span><small>{item.note||'—'}</small></div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">ARAÇÁS · MATRIZ PROBATÓRIA</p><h2>Pagamento, cláusula e contratação</h2></div></div>
+                <div className="intel-record-list">{data.prebaAracasPackage.evidenceMatrix.map((item)=><article className="intel-record" key={item.evidenceId}><div className="intel-record-body"><div style={{display:'flex',justifyContent:'space-between',gap:'10px'}}><h3>{item.evidenceId} · {item.type}</h3><code>{item.integrityStatus}</code></div><p><strong>Fato:</strong> {item.assertion}</p><p><strong>Prova:</strong> {item.whatItProves}</p><p className="private-report-note"><strong>Limite:</strong> {item.whatItDoesNotProve}</p><small>{item.source}</small></div></article>)}</div>
+              </section>
+
+              <section className="private-grid-two">
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">ARAÇÁS · LACUNA CENTRAL</p><h2>Reconstrução do fluxo financeiro</h2></div></div><p>{data.prebaAracasPackage.apparentIncompatibility.statement}</p><p className="private-report-note">Conclusão jurídica atual: <strong>nenhuma</strong>.</p></article>
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">GATE DE PROTOCOLO</p><h2>O que falta fechar</h2></div></div><ul>{data.prebaAracasPackage.protocolGate.minimumToClose.map((item)=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{data.prebaAracasPackage.protocolGate.recommendedUseNow}</p></article>
               </section>
             </>
           )}
@@ -1168,7 +1199,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle e os datasets <code>preba-priority-packages</code>, <code>preba-package-01-lajedo-do-tabocal</code> e <code>preba-package-02-belo-campo</code>.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle e os datasets <code>preba-priority-packages</code>, <code>preba-package-01-lajedo-do-tabocal</code>, <code>preba-package-02-belo-campo</code> e <code>preba-package-03-aracas</code>.</p>
             </section>
           )}
         </main>
