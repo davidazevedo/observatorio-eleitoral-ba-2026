@@ -37,6 +37,7 @@ type PrebaPackageIndex = { schemaVersion:number;indexId:string;generatedDate:str
 type PrebaLajedoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaBeloCampoPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;stateContributionBRL:number;municipalCounterpartBRL:number;criticalPeriodPaymentBRL:number;paymentDate:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaAracasPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{agreementValueBRL:number;firstInstallmentBRL:number;locatedCriticalPeriodPaymentBRL:number;locatedPaymentDate:string;paymentMatchesFirstInstallment:boolean};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
+type PrebaJaguaquaraPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{instrumentValueBRL:number;stadiumPaymentBRL:number;stadiumPaymentDate:string;municipalRevenueCorroboratedBRL:number;totalJaguaquaraCriticalPeriodPaymentsBRL:number;otherKnownCriticalPeriodPaymentBRL:number;separationRule:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -96,6 +97,7 @@ type DashboardData = {
   prebaLajedoPackage: PrebaLajedoPackage;
   prebaBeloCampoPackage: PrebaBeloCampoPackage;
   prebaAracasPackage: PrebaAracasPackage;
+  prebaJaguaquaraPackage: PrebaJaguaquaraPackage;
 };
 
 type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -949,9 +951,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <>
               <section className="intel-metrics-grid">
                 <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}</strong><small>2 críticos · 2 urgentes</small></article>
-                <article><span>Pacotes estruturados</span><strong>3/4</strong><small>Lajedo + Belo Campo + Araçás</small></article>
-                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length + data.prebaBeloCampoPackage.evidenceMatrix.length + data.prebaAracasPackage.evidenceMatrix.length}</strong><small>9 elos centrais nos três pacotes</small></article>
-                <article><span>Pronto para requisição</span><strong>2</strong><small>Lajedo e Araçás: fontes públicas esgotadas</small></article>
+                <article><span>Pacotes estruturados</span><strong>4/4</strong><small>fila prioritária integralmente estruturada</small></article>
+                <article><span>Evidências-base</span><strong>{data.prebaLajedoPackage.evidenceMatrix.length + data.prebaBeloCampoPackage.evidenceMatrix.length + data.prebaAracasPackage.evidenceMatrix.length + data.prebaJaguaquaraPackage.evidenceMatrix.length}</strong><small>elos e cautelas probatórias dos quatro pacotes</small></article>
+                <article><span>Pronto para requisição</span><strong>3</strong><small>Lajedo, Araçás e Jaguaquara</small></article>
               </section>
 
               <section className="private-panel">
@@ -1064,6 +1066,36 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-grid-two">
                 <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">ARAÇÁS · LACUNA CENTRAL</p><h2>Reconstrução do fluxo financeiro</h2></div></div><p>{data.prebaAracasPackage.apparentIncompatibility.statement}</p><p className="private-report-note">Conclusão jurídica atual: <strong>nenhuma</strong>.</p></article>
                 <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">GATE DE PROTOCOLO</p><h2>O que falta fechar</h2></div></div><ul>{data.prebaAracasPackage.protocolGate.minimumToClose.map((item)=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{data.prebaAracasPackage.protocolGate.recommendedUseNow}</p></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">PREBA-04 · JAGUAQUARA</p><h2>Pacote probatório v1</h2><small>{data.prebaJaguaquaraPackage.legalBoundary}</small></div><span className="housing-exception-pending">requisição formal</span></div>
+                <p><strong>Questão central:</strong> {data.prebaJaguaquaraPackage.coreQuestion}</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Instrumento</span><strong>{money(data.prebaJaguaquaraPackage.financial.instrumentValueBRL)}</strong><small>valor global FIPLAN</small></article>
+                  <article><span>Pagamento estádio</span><strong>{money(data.prebaJaguaquaraPackage.financial.stadiumPaymentBRL)}</strong><small>{data.prebaJaguaquaraPackage.financial.stadiumPaymentDate}</small></article>
+                  <article><span>Receita municipal</span><strong>{money(data.prebaJaguaquaraPackage.financial.municipalRevenueCorroboratedBRL)}</strong><small>coincidência exata de valor</small></article>
+                  <article><span>Total municipal crítico</span><strong>{money(data.prebaJaguaquaraPackage.financial.totalJaguaquaraCriticalPeriodPaymentsBRL)}</strong><small>inclui R$ 400 mil de outro objeto</small></article>
+                </div>
+                <p className="private-report-note">{data.prebaJaguaquaraPackage.financial.separationRule}</p>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">JAGUAQUARA · CRONOLOGIA</p><h2>Publicação → defeso → pagamento → corroboração municipal</h2></div></div>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>Data</span><span>Evento</span><span>Papel</span><span>Fonte</span><span>Observação</span></div>
+                  {data.prebaJaguaquaraPackage.chronology.map((item,index)=><div key={item.date+index}><strong>{item.date}</strong><span>{item.event}</span><code>{item.evidentiaryRole}</code><span>{item.sourceId}</span><small>{item.note||'—'}</small></div>)}
+                </div>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title"><div><p className="eyebrow">JAGUAQUARA · MATRIZ PROBATÓRIA</p><h2>Valor, vínculo e cautela de identificação</h2></div></div>
+                <div className="intel-record-list">{data.prebaJaguaquaraPackage.evidenceMatrix.map((item)=><article className="intel-record" key={item.evidenceId}><div className="intel-record-body"><div style={{display:'flex',justifyContent:'space-between',gap:'10px'}}><h3>{item.evidenceId} · {item.type}</h3><code>{item.integrityStatus}</code></div><p><strong>Fato:</strong> {item.assertion}</p><p><strong>Prova:</strong> {item.whatItProves}</p><p className="private-report-note"><strong>Limite:</strong> {item.whatItDoesNotProve}</p><small>{item.source}</small></div></article>)}</div>
+              </section>
+
+              <section className="private-grid-two">
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">JAGUAQUARA · LACUNA CENTRAL</p><h2>Início físico anterior a 04/07</h2></div></div><p>{data.prebaJaguaquaraPackage.apparentIncompatibility.statement}</p><p className="private-report-note">Conclusão jurídica atual: <strong>nenhuma</strong>.</p></article>
+                <article className="private-panel"><div className="private-panel-title"><div><p className="eyebrow">GATE DE PROTOCOLO</p><h2>O que falta fechar</h2></div></div><ul>{data.prebaJaguaquaraPackage.protocolGate.minimumToClose.map((item)=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{data.prebaJaguaquaraPackage.protocolGate.recommendedUseNow}</p></article>
               </section>
             </>
           )}
@@ -1199,7 +1231,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle e os datasets <code>preba-priority-packages</code>, <code>preba-package-01-lajedo-do-tabocal</code>, <code>preba-package-02-belo-campo</code> e <code>preba-package-03-aracas</code>.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle e os datasets <code>preba-priority-packages</code>, <code>preba-package-01-lajedo-do-tabocal</code>, <code>preba-package-02-belo-campo</code> e <code>preba-package-03-aracas</code> e <code>preba-package-04-jaguaquara</code>.</p>
             </section>
           )}
         </main>
