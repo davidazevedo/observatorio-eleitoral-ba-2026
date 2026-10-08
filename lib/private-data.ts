@@ -25,6 +25,7 @@ import prebaProtocolRelease from '@/data/investigation/preba-protocol-release-20
 import followMoneyRoadmap from '@/data/investigation/follow-money-roadmap-2026-10-08.json';
 import fm02DocumentaryLedger from '@/data/investigation/fm02-documentary-ledger-2026-10-08.json';
 import fm02FiplanPrimaryRows from '@/data/investigation/fm02-fiplan-primary-rows-2026-10-08.json';
+import fm03FinancialChains from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 import {
   listIntelligenceRecords,
@@ -386,6 +387,7 @@ export async function getPrivateDashboardData() {
     followMoneyRoadmap,
     fm02DocumentaryLedger,
     fm02FiplanPrimaryRows,
+    fm03FinancialChains,
     centralEvidenceLedgerSummary: {
       registryId: centralEvidenceLedger.registryId,
       versioned: centralEvidenceLedger.totalUniqueFacts,
