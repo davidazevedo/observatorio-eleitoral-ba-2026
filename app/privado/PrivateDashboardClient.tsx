@@ -41,6 +41,11 @@ type PrebaJaguaquaraPackage = { schemaVersion:number;packageId:string;generatedD
 type PrebaFinalRepresentation = { schemaVersion:number;representationId:string;generatedDate:string;destination:string;documentType:string;title:string;protocolReadiness:{readyAsNewsOfFactForDiligence:boolean;readyAsDefinitiveAccusation:boolean;reason:string};scope:{priorityUniverseMunicipalities:number;p0Classified:number;p0CoveragePercent:number;centralVersionedEvidence:number;priorityPackages:number;municipalities:string[]};legalBoundary:string;executiveSummary:string;cases:Array<{order:number;packageId:string;municipality:string;priority:string;question:string;coreEvidence:string[];status:string;mainDiligence:string}>;requestedMeasures:string[];finalReviewChecklist:string[] };
 type PrebaFinalAnnexIndex = { schemaVersion:number;indexId:string;representationId:string;generatedDate:string;annexes:Array<{order:number;id:string;title:string;path:string;humanReadable?:string;purpose:string}>;protocolFolderOrder:string[];finalGate:{readyForNewsOfFactProtocol:boolean;pendingBeforeDefinitiveAccusation:string[]} };
 type FollowMoneyRoadmap = { schemaVersion:number;roadmapId:string;updatedDate:string;startDate:string;endDate:string;scope:{priorityMunicipalities:string[];centralEvidenceFacts:number;priorityMunicipalitiesCount:number;universe77:boolean};stages:Array<{id:string;title:string;start:string;end:string;status:string;deliverables:string[];gate:string}>;evidenceSync:{repositoryRecords:number;apiServedConfirmed:number;privateBlobMirroredConfirmed:number;mode:string;lastSuccessfulSync:string|null};externalOriginals:{fiplanZipPreserved:boolean;upstreamSourcePdfVerifiedInThisStage:boolean} };
+type Fm02Case = {caseId:string;municipality:string;identifiers:Record<string,unknown>;financial:Record<string,unknown>;chronology:Array<{date:string;event:string;sourceId:string}>;primaryFiplanSliceId:string;sources:string[];p0Gaps:Array<{priority:string;document:string;reason:string}>;p1Gaps:Array<{priority:string;document:string;reason:string}>;requests:Array<{recipient:string;request:string}>;legalBoundary:string;completenessState:string};
+type Fm02Source = {sourceId:string;municipality:string;url:string;publisher:string;linkedEvidenceIds:string[];preservationStatus:string;contentSnapshotSha256:string|null;originalBytesInRepository:boolean;notes:string};
+type Fm02Ledger = {schemaVersion:number;ledgerId:string;registeredDate:string;phase:string;phaseStatus:string;totalCases:number;totalFinancialPrimaryRows:number;totalSourceReferences:number;verifiedSourceArchiveInThisStage:{fiplanFilteredPaymentsInGit:boolean;externalOfficialPdfBinaryCount:number;additionalExternalWebBinaryCount:number};safeguards:Record<string,string>;cases:Fm02Case[];sources:Fm02Source[];protocolReadiness:string};
+type Fm02Row = {evidenceSliceId:string;crossReferences:string[];caseId:string;municipality:string;instrumentFormatted:string;paymentNobFormatted:string;paymentDateDDMMYYYY:string;paymentValueBRL:number;legalConclusion:string};
+type Fm02Financial = {schemaVersion:number;artifactId:string;source:{path:string;sha256Gzip:string;sha256Uncompressed:string;totalSourceRows:number};records:Fm02Row[]};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -107,6 +112,8 @@ type DashboardData = {
   prebaFinalAnnexIndex: PrebaFinalAnnexIndex;
   prebaProtocolRelease: PrebaProtocolRelease;
   followMoneyRoadmap: FollowMoneyRoadmap;
+  fm02DocumentaryLedger: Fm02Ledger;
+  fm02FiplanPrimaryRows: Fm02Financial;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
 
@@ -201,6 +208,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [centralEvidenceSyncing,setCentralEvidenceSyncing]=useState(false);
   const [centralEvidenceMirrorCount,setCentralEvidenceMirrorCount]=useState(data.centralEvidenceLedgerSummary.mirrored);
   const [centralEvidenceSyncMessage,setCentralEvidenceSyncMessage]=useState('');
+  const [fm02ArchivingSource,setFm02ArchivingSource]=useState('');
+  const [fm02ArchivedById,setFm02ArchivedById]=useState<Record<string,{sha256:string;path:string}>>({});
+  const [fm02ArchiveMessage,setFm02ArchiveMessage]=useState('');
 
   // Filtros analíticos transversais
   const [globalQuery,setGlobalQuery]=useState('');
@@ -412,6 +422,30 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     statusFilter!=='Todos'?statusFilter:'',publisherFilter!=='Todos'?publisherFilter:'',
     paymentFilter!=='Todos'?paymentFilter:'',minAmount,maxAmount,
   ].filter(Boolean).length;
+
+  async function archiveFm02Source(item:Fm02Source){
+    if(fm02ArchivingSource)return;
+    setFm02ArchivingSource(item.sourceId);
+    setFm02ArchiveMessage('Coletando '+item.sourceId+' em armazenamento privado...');
+    try{
+      const response=await fetch('/api/private/source-archive',{
+        method:'POST',credentials:'same-origin',
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify({
+          url:item.url,sourceId:item.sourceId,
+          title:'FM02 '+item.municipality+' · '+item.sourceId,
+          publisher:item.publisher,
+          notes:['FM-02: cópia privada da fonte pública, não constitui prova de ilícito','Fonte localizada no registro FM02; conferir conteúdo efetivo e integridade antes do protocolo'],
+        }),
+      });
+      const result=await response.json();
+      if(!response.ok || !result.ok || !result.record?.sha256)throw new Error(result.error||'Falha na preservação');
+      setFm02ArchivedById(prev=>({...prev,[item.sourceId]:{sha256:result.record.sha256,path:result.record.rawBlobPath}}));
+      setFm02ArchiveMessage(item.sourceId+' arquivada com SHA-256 '+result.record.sha256+'. Preservado no Blob privado.');
+    }catch(error){
+      setFm02ArchiveMessage(item.sourceId+' não arquivada: '+(error instanceof Error?error.message:'falha inesperada'));
+    }finally{setFm02ArchivingSource('');}
+  }
 
   async function synchronizeCentralEvidence(){
     setCentralEvidenceSyncing(true);
@@ -985,6 +1019,52 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FOLLOW THE MONEY · ETAPA FM-02</p><h2>Fechamento documental — quatro municípios</h2><small>{data.fm02DocumentaryLedger.ledgerId} · atualização {data.fm02DocumentaryLedger.registeredDate}</small></div>
+                  <span className="housing-exception-pending">EM EXECUÇÃO</span>
+                </div>
+                <p>O extrato FIPLAN original filtrado já está versionado no Git e foi conferido por SHA-256. As quatro linhas de pagamento abaixo são extrações literais do arquivo preservado. As URLs de PDFs e páginas oficiais continuam sendo referências até que seus bytes sejam efetivamente arquivados.</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Linhas financeiras verificadas</span><strong>{data.fm02FiplanPrimaryRows.records.length}/4</strong><small>FIPLAN original, NOB e instrumento</small></article>
+                  <article><span>Casos estruturados</span><strong>{data.fm02DocumentaryLedger.totalCases}/4</strong><small>cronologias + requisições</small></article>
+                  <article><span>Fontes documentais</span><strong>{data.fm02DocumentaryLedger.totalSourceReferences}</strong><small>repetições FIPLAN por caso; não 15 provas novas</small></article>
+                  <article><span>Documentos P0 pendentes</span><strong>{data.fm02DocumentaryLedger.cases.reduce((n,c)=>n+c.p0Gaps.length,0)}</strong><small>solicitar aos órgãos de origem</small></article>
+                </div>
+                <div className="housing-audit-table housing-audit-v2">
+                  <div className="housing-audit-head"><span>Município</span><span>Instrumento</span><span>NOB</span><span>Pagamento</span><span>Correspondência</span><span>Status</span></div>
+                  {data.fm02FiplanPrimaryRows.records.map(row=><div key={row.evidenceSliceId}>
+                    <strong>{row.municipality}</strong><code>{row.instrumentFormatted}</code><code>{row.paymentNobFormatted}</code>
+                    <div><strong>{money(row.paymentValueBRL)}</strong><small>{row.paymentDateDDMMYYYY}</small></div>
+                    <code>{row.crossReferences.join(', ')}</code><span className="housing-status-ok">Extrato validado</span>
+                  </div>)}
+                </div>
+                <p className="private-report-note">Integridade do extrato FIPLAN: compactado SHA-256 <code>{data.fm02FiplanPrimaryRows.source.sha256Gzip}</code>; conteúdo SHA-256 <code>{data.fm02FiplanPrimaryRows.source.sha256Uncompressed}</code>. Estes hashes não representam os PDFs oficiais ainda pendentes.</p>
+                <h3>Fontes externas: preservação privada individual</h3>
+                <p>Os arquivos originais ficam no Blob privado após confirmação de coleta; nenhum link é tratado como prova arquivada antes disso.</p>
+                <div className="intel-entity-table">
+                  <div className="intel-table-head"><span>Município</span><span>Fonte</span><span>Status de preservação</span><span>URL</span><span>Ação</span></div>
+                  {data.fm02DocumentaryLedger.sources.filter(s=>!s.sourceId.includes('FIPLAN')).map(src=>{
+                    const previous=data.sourceArchives.find(a=>a.sourceId===src.sourceId.toLowerCase());
+                    const archived=fm02ArchivedById[src.sourceId];
+                    return <div key={src.sourceId}>
+                      <strong>{src.municipality}</strong><code>{src.sourceId}</code>
+                      <div><small>{archived?'Cópia privada arquivada e hasheada nesta sessão':previous?'Cópia localizada no arquivo privado':'Original pendente de captura'}</small>{archived?<code title={archived.path}>{archived.sha256.slice(0,16)}…</code>:null}</div>
+                      <a href={src.url} target="_blank" rel="noopener noreferrer">Abrir fonte oficial</a>
+                      <button type="button" disabled={Boolean(fm02ArchivingSource)} onClick={()=>archiveFm02Source(src)}>{fm02ArchivingSource===src.sourceId?'Arquivando...':archived||previous?'Arquivar nova versão':'Arquivar original'}</button>
+                    </div>;
+                  })}
+                </div>
+                {fm02ArchiveMessage?<p role="status">{fm02ArchiveMessage}</p>:null}
+                <div className="private-grid-two" style={{marginTop:'16px'}}>
+                  {data.fm02DocumentaryLedger.cases.map(c=><article className="private-panel" key={c.caseId}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{c.caseId}</p><h2>{c.municipality}</h2></div><span className="housing-exception-pending">{c.p0Gaps.length} P0</span></div>
+                    <p><strong>Sequência:</strong> {c.chronology.map(e=>e.date+' '+e.sourceId).join(' → ')}</p>
+                    <p className="private-report-note">Documentação faltante: {c.p0Gaps.map(g=>g.document).join(' · ')}</p>
+                    <p>{c.legalBoundary}</p>
+                  </article>)}
+                </div>
+              </section>
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FOLLOW THE MONEY · ROTEIRO DE 90 DIAS</p><h2>Etapa 01 — Segurança, preservação e sincronização</h2><small>{data.followMoneyRoadmap.roadmapId} · atualização {data.followMoneyRoadmap.updatedDate}</small></div>

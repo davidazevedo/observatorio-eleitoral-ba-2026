@@ -36,13 +36,22 @@
       "title": "Fechamento documental dos quatro municípios",
       "start": "2026-10-11",
       "end": "2026-10-17",
-      "status": "pending",
+      "status": "in_progress",
       "deliverables": [
         "originais SEI/PNCP/FIPLAN recuperados",
         "quatro cronologias",
         "matriz de lacunas"
       ],
-      "gate": "cada conclusão com documento primário ou pendência registrada"
+      "gate": "cada conclusão com documento primário ou pendência registrada",
+      "progress": {
+        "registryCreated": true,
+        "primaryFiplanRowsVerified": 4,
+        "priorityCases": 4,
+        "originalExternalOfficialDocumentsPreservedConfirmed": 0,
+        "uniqueSourceReferences": 15,
+        "p0PendingDocuments": 23,
+        "statusDetail": "Matriz documental versionada; dados financeiros primários confirmados por SHA; originais externos ainda aguardam captura autenticada."
+      }
     },
     {
       "id": "FM-03",
@@ -115,7 +124,9 @@
     "privateBlobMirroredConfirmed": 0,
     "mode": "deployed_authenticated_read_model_private_blob_mirror_pending",
     "lastSuccessfulSync": null,
-    "apiBundledRecords": 57
+    "apiBundledRecords": 57,
+    "fm02SourceRegistryApiStatus": "pending_host_deploy",
+    "fm02PrivateArchivedOriginalsConfirmed": 0
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,
