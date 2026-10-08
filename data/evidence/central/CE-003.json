@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-003",
+  "canonicalPath": "data/evidence/central/CE-003.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+    "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": null,
+    "sourceLabel": "FIPLAN / Convênios e Parcerias",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-003",
+    "municipality": "Esplanada",
+    "title": "Pagamento habitacional efetivado em 06/07/2026",
+    "type": "financial_fact",
+    "status": "fact",
+    "amountBRL": 1170000,
+    "sourceScope": "FIPLAN / Convênios e Parcerias",
+    "caseGroup": "housing_core",
+    "legalConclusion": "none"
+  }
+}

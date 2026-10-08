@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-026",
+  "canonicalPath": "data/evidence/central/CE-026.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+    "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": null,
+    "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-026",
+    "municipality": "Ipupiara",
+    "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 855000.00",
+    "type": "financial_fact",
+    "status": "fact",
+    "amountBRL": 855000,
+    "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+    "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+    "caseGroup": "expansion_wave_01",
+    "legalConclusion": "none",
+    "nextTest": [
+      "instrumento anterior a 04/07",
+      "execução física/obrigação preexistente quando aplicável",
+      "cronograma",
+      "exceção legal",
+      "contratação/OS/medição"
+    ]
+  }
+}

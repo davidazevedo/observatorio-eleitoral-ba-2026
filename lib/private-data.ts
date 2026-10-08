@@ -22,6 +22,8 @@ import prebaJaguaquaraPackage from '@/data/investigation/preba-package-04-jaguaq
 import prebaFinalRepresentation from '@/data/investigation/preba-final-representation-2026-10-07.json';
 import prebaFinalAnnexIndex from '@/data/investigation/preba-final-annex-index-2026-10-07.json';
 import prebaProtocolRelease from '@/data/investigation/preba-protocol-release-2026-10-08.json';
+import followMoneyRoadmap from '@/data/investigation/follow-money-roadmap-2026-10-08.json';
+import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 import {
   listIntelligenceRecords,
   researchSourceRegistry,
@@ -379,5 +381,16 @@ export async function getPrivateDashboardData() {
     prebaFinalRepresentation,
     prebaFinalAnnexIndex,
     prebaProtocolRelease,
+    followMoneyRoadmap,
+    centralEvidenceLedgerSummary: {
+      registryId: centralEvidenceLedger.registryId,
+      versioned: centralEvidenceLedger.totalUniqueFacts,
+      mirrored: intelligence.filter(item =>
+        item.recordOrigin === 'ingested' &&
+        /^CE-\d{3}$/.test(item.recordId) &&
+        item.provenance?.collector === 'oe-ba-central-evidence-ledger-v1'
+      ).length,
+      sourceOriginalsBundled: false,
+    },
   };
 }

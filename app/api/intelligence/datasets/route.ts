@@ -20,6 +20,8 @@ import prebaJaguaquaraPackage from '@/data/investigation/preba-package-04-jaguaq
 import prebaFinalRepresentation from '@/data/investigation/preba-final-representation-2026-10-07.json';
 import prebaFinalAnnexIndex from '@/data/investigation/preba-final-annex-index-2026-10-07.json';
 import prebaProtocolRelease from '@/data/investigation/preba-protocol-release-2026-10-08.json';
+import followMoneyRoadmap from '@/data/investigation/follow-money-roadmap-2026-10-08.json';
+import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 
 export const runtime = 'nodejs';
 
@@ -43,6 +45,8 @@ const datasets = {
   'preba-final-representation': prebaFinalRepresentation,
   'preba-final-annex-index': prebaFinalAnnexIndex,
   'preba-protocol-release': prebaProtocolRelease,
+  'follow-money-roadmap': followMoneyRoadmap,
+  'central-evidence-ledger': centralEvidenceLedger,
 } as const;
 
 type DatasetName = keyof typeof datasets;

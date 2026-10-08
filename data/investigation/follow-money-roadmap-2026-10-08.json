@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "roadmapId": "OEBA-FOLLOW-MONEY-90D-2026-10-08",
+  "updatedDate": "2026-10-08",
+  "startDate": "2026-10-08",
+  "endDate": "2027-01-06",
+  "scope": {
+    "priorityMunicipalities": [
+      "Lajedo do Tabocal",
+      "Belo Campo",
+      "Araçás",
+      "Jaguaquara"
+    ],
+    "centralEvidenceFacts": 57,
+    "priorityMunicipalitiesCount": 4,
+    "universe77": true
+  },
+  "safetyBoundary": "Fatos públicos documentados não equivalem a crime; não presumir compra de votos, não divulgar informações privadas, não obter dados protegidos sem autorização.",
+  "stages": [
+    {
+      "id": "FM-01",
+      "title": "Segurança, preservação e sincronização de evidências",
+      "start": "2026-10-08",
+      "end": "2026-10-10",
+      "status": "in_progress",
+      "deliverables": [
+        "57 fichas versionadas",
+        "API autenticada de consulta",
+        "dashboard de progresso",
+        "replicação privada idempotente habilitada"
+      ],
+      "gate": "Deploy e teste da API; distinguir consulta publicada de espelhamento em Blob."
+    },
+    {
+      "id": "FM-02",
+      "title": "Fechamento documental dos quatro municípios",
+      "start": "2026-10-11",
+      "end": "2026-10-17",
+      "status": "pending",
+      "deliverables": [
+        "originais SEI/PNCP/FIPLAN recuperados",
+        "quatro cronologias",
+        "matriz de lacunas"
+      ],
+      "gate": "cada conclusão com documento primário ou pendência registrada"
+    },
+    {
+      "id": "FM-03",
+      "title": "Reconstrução da cadeia financeira pública",
+      "start": "2026-10-18",
+      "end": "2026-10-24",
+      "status": "pending",
+      "deliverables": [
+        "instrumento→pagamento→contrato→fornecedor→entrega",
+        "conciliação de pagamentos públicos"
+      ],
+      "gate": "nenhum elo afirmado sem documento primário"
+    },
+    {
+      "id": "FM-04",
+      "title": "Cruzamento de fontes eleitorais públicas",
+      "start": "2026-10-25",
+      "end": "2026-11-07",
+      "status": "pending",
+      "deliverables": [
+        "receitas e despesas públicas TSE 2026",
+        "correspondência CNPJ fornecedor",
+        "vínculos confirmados e descartados"
+      ],
+      "gate": "coincidência não implica desvio"
+    },
+    {
+      "id": "FM-05",
+      "title": "Motor de correlação e revisão",
+      "start": "2026-11-08",
+      "end": "2026-11-21",
+      "status": "pending",
+      "deliverables": [
+        "regras auditáveis",
+        "grafo de relações públicas",
+        "fila de revisão humana"
+      ],
+      "gate": "falsos positivos documentados"
+    },
+    {
+      "id": "FM-06",
+      "title": "Adendos probatórios e requisições",
+      "start": "2026-11-22",
+      "end": "2026-12-12",
+      "status": "pending",
+      "deliverables": [
+        "dossiês por município",
+        "pedidos diligências",
+        "cadeia de integridade"
+      ],
+      "gate": "revisão jurídica antes do protocolo"
+    },
+    {
+      "id": "FM-07",
+      "title": "Auditoria independente e expansão",
+      "start": "2026-12-13",
+      "end": "2027-01-06",
+      "status": "pending",
+      "deliverables": [
+        "revalidação",
+        "expansão documentada",
+        "relatório de limitações"
+      ],
+      "gate": "reprodutibilidade e proteção de fontes"
+    }
+  ],
+  "evidenceSync": {
+    "repositoryRecords": 57,
+    "apiServedConfirmed": 0,
+    "privateBlobMirroredConfirmed": 0,
+    "mode": "pending_host_deploy_and_credentials",
+    "lastSuccessfulSync": null
+  },
+  "externalOriginals": {
+    "fiplanZipPreserved": false,
+    "upstreamSourcePdfVerifiedInThisStage": false
+  }
+}

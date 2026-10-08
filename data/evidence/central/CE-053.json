@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-053",
+  "canonicalPath": "data/evidence/central/CE-053.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+    "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+    "sourceLabel": "Prefeitura Municipal de Belo Campo",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-053",
+    "municipality": "Belo Campo",
+    "type": "object_completion_fact",
+    "status": "fact",
+    "title": "A Cavalgada financiada pelo Convênio SEAGRI 01/2026 foi realizada em 07/06/2026",
+    "source": "Prefeitura Municipal de Belo Campo",
+    "sourceUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+    "legalConclusion": "none"
+  }
+}

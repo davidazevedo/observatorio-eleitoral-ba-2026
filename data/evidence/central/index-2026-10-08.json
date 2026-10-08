@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": 1,
+  "registryId": "OEBA-CE-LEDGER-2026-10-08",
+  "registeredDate": "2026-10-08",
+  "sourceBranchBaseline": "7dfa1b823e9960136cb2f77a5fca475f2d471659",
+  "classification": "private_investigation_reference",
+  "totalUniqueFacts": 57,
+  "sourceWaves": [
+    {
+      "path": "preservation/manifests/central-evidence-wave-01-50.json",
+      "gitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+      "count": 50
+    },
+    {
+      "path": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+      "gitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+      "count": 4
+    },
+    {
+      "path": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+      "gitBlobSha": "d62010023f243086c0e362161671e68e0fcd4699",
+      "count": 3
+    }
+  ],
+  "originalArtifactsBoundary": "As 57 fichas são representações estruturadas dos fatos nos manifests; não substituem os documentos originais. O ZIP completo FIPLAN não está armazenado no Git.",
+  "apiDistribution": "versioned-in-git-awaiting-host-deployment",
+  "privateBlobReplication": "not_performed",
+  "entries": [
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-001",
+      "canonicalPath": "data/evidence/central/CE-001.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-001",
+        "municipality": "Barra",
+        "title": "Pagamento habitacional efetivado em 07/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-002",
+      "canonicalPath": "data/evidence/central/CE-002.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-002",
+        "municipality": "Cipó",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-003",
+      "canonicalPath": "data/evidence/central/CE-003.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-003",
+        "municipality": "Esplanada",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-004",
+      "canonicalPath": "data/evidence/central/CE-004.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-004",
+        "municipality": "Iraquara",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-005",
+      "canonicalPath": "data/evidence/central/CE-005.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-005",
+        "municipality": "Itaberaba",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-006",
+      "canonicalPath": "data/evidence/central/CE-006.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-006",
+        "municipality": "Lajedinho",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-007",
+      "canonicalPath": "data/evidence/central/CE-007.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-007",
+        "municipality": "Lapão",
+        "title": "Pagamento habitacional efetivado em 06/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-008",
+      "canonicalPath": "data/evidence/central/CE-008.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-008",
+        "municipality": "Macajuba",
+        "title": "Pagamento habitacional efetivado em 07/07/2026",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1170000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-009",
+      "canonicalPath": "data/evidence/central/CE-009.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-009",
+        "municipality": "Cipó",
+        "title": "Contratação das 50 moradias localizada após o pagamento",
+        "type": "procurement_fact",
+        "status": "fact",
+        "amountBRL": 5877340.25,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-010",
+      "canonicalPath": "data/evidence/central/CE-010.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-010",
+        "municipality": "Itaberaba",
+        "title": "Contratação das 50 moradias localizada após o pagamento",
+        "type": "procurement_fact",
+        "status": "fact",
+        "amountBRL": 5850000,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-011",
+      "canonicalPath": "data/evidence/central/CE-011.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-011",
+        "municipality": "Lajedinho",
+        "title": "Contratação das 50 moradias localizada após o pagamento",
+        "type": "procurement_fact",
+        "status": "fact",
+        "amountBRL": 5877340.25,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-012",
+      "canonicalPath": "data/evidence/central/CE-012.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-012",
+        "municipality": "Lapão",
+        "title": "Contratação das 50 moradias localizada após o pagamento",
+        "type": "procurement_fact",
+        "status": "fact",
+        "amountBRL": 5822160.5,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-013",
+      "canonicalPath": "data/evidence/central/CE-013.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-013",
+        "municipality": "Macajuba",
+        "title": "Contratação das 50 moradias localizada após o pagamento",
+        "type": "procurement_fact",
+        "status": "fact",
+        "amountBRL": 5849648.93,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-014",
+      "canonicalPath": "data/evidence/central/CE-014.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "PNCP/DOE/portal municipal preservados",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-014",
+        "municipality": "Lapão",
+        "title": "Homologação em favor da Nunes Engenharia Ltda.",
+        "type": "procurement_result_fact",
+        "status": "fact",
+        "amountBRL": 5822160.5,
+        "sourceScope": "PNCP/DOE/portal municipal preservados",
+        "caseGroup": "housing_core",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-015",
+      "canonicalPath": "data/evidence/central/CE-015.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-015",
+        "municipality": "Antônio Cardoso",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 150000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 150000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-016",
+      "canonicalPath": "data/evidence/central/CE-016.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-016",
+        "municipality": "Araçás",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 8146.70",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 8146.7,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-017",
+      "canonicalPath": "data/evidence/central/CE-017.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-017",
+        "municipality": "Araci",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 496717.02",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 496717.02,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-018",
+      "canonicalPath": "data/evidence/central/CE-018.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-018",
+        "municipality": "Aratuípe",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 574446.41",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 574446.41,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-019",
+      "canonicalPath": "data/evidence/central/CE-019.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-019",
+        "municipality": "Belo Campo",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 200000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 200000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-020",
+      "canonicalPath": "data/evidence/central/CE-020.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-020",
+        "municipality": "Brumado",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 2035388.31",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 2035388.31,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-021",
+      "canonicalPath": "data/evidence/central/CE-021.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-021",
+        "municipality": "Cafarnaum",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 200000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 200000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-022",
+      "canonicalPath": "data/evidence/central/CE-022.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-022",
+        "municipality": "Canarana",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 820084.88",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 820084.88,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-023",
+      "canonicalPath": "data/evidence/central/CE-023.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-023",
+        "municipality": "Candeal",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 59950,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-024",
+      "canonicalPath": "data/evidence/central/CE-024.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-024",
+        "municipality": "Dom Basílio",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 59950,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-025",
+      "canonicalPath": "data/evidence/central/CE-025.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-025",
+        "municipality": "Eunápolis",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 246045.75",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 246045.75,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-026",
+      "canonicalPath": "data/evidence/central/CE-026.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-026",
+        "municipality": "Ipupiara",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 855000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 855000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-027",
+      "canonicalPath": "data/evidence/central/CE-027.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-027",
+        "municipality": "Irajuba",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 82000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 82000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-028",
+      "canonicalPath": "data/evidence/central/CE-028.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-028",
+        "municipality": "Ituaçu",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 845033.50",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 845033.5,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-029",
+      "canonicalPath": "data/evidence/central/CE-029.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-029",
+        "municipality": "Jaguaquara",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 918432.07",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 918432.07,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-030",
+      "canonicalPath": "data/evidence/central/CE-030.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-030",
+        "municipality": "Jiquiriçá",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 413495.16",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 413495.16,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-031",
+      "canonicalPath": "data/evidence/central/CE-031.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-031",
+        "municipality": "Lajedo do Tabocal",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 49946.15",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 49946.15,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-032",
+      "canonicalPath": "data/evidence/central/CE-032.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-032",
+        "municipality": "Macarani",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 62450.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 62450,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-033",
+      "canonicalPath": "data/evidence/central/CE-033.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-033",
+        "municipality": "Maetinga",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 63259.50",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 63259.5,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-034",
+      "canonicalPath": "data/evidence/central/CE-034.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-034",
+        "municipality": "Nova Soure",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 446845.04",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 446845.04,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-035",
+      "canonicalPath": "data/evidence/central/CE-035.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-035",
+        "municipality": "Paramirim",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 213995.50",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 213995.5,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-036",
+      "canonicalPath": "data/evidence/central/CE-036.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-036",
+        "municipality": "Pindobaçu",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 63187.25",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 63187.25,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-037",
+      "canonicalPath": "data/evidence/central/CE-037.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-037",
+        "municipality": "Planaltino",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 615333.54",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 615333.54,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-038",
+      "canonicalPath": "data/evidence/central/CE-038.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-038",
+        "municipality": "Queimadas",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 59950.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 59950,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-039",
+      "canonicalPath": "data/evidence/central/CE-039.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-039",
+        "municipality": "Remanso",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1623948.12",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1623948.12,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-040",
+      "canonicalPath": "data/evidence/central/CE-040.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-040",
+        "municipality": "Ribeira do Pombal",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 273552.84",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 273552.84,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-041",
+      "canonicalPath": "data/evidence/central/CE-041.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-041",
+        "municipality": "Rio Real",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1217461.02",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1217461.02,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-042",
+      "canonicalPath": "data/evidence/central/CE-042.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-042",
+        "municipality": "Santa Bárbara",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 119900.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 119900,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-043",
+      "canonicalPath": "data/evidence/central/CE-043.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-043",
+        "municipality": "São Félix",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 400000.00",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 400000,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-044",
+      "canonicalPath": "data/evidence/central/CE-044.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-044",
+        "municipality": "Sento Sé",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 132338.45",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 132338.45,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-045",
+      "canonicalPath": "data/evidence/central/CE-045.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-045",
+        "municipality": "Serra do Ramalho",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 192561.75",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 192561.75,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-046",
+      "canonicalPath": "data/evidence/central/CE-046.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-046",
+        "municipality": "Sítio do Quinto",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1092504.11",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1092504.11,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-047",
+      "canonicalPath": "data/evidence/central/CE-047.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-047",
+        "municipality": "Tabocas do Brejo Velho",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 1452398.81",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 1452398.81,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-048",
+      "canonicalPath": "data/evidence/central/CE-048.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-048",
+        "municipality": "Teodoro Sampaio",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 66721.25",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 66721.25,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-049",
+      "canonicalPath": "data/evidence/central/CE-049.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-049",
+        "municipality": "Uauá",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 151469.16",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 151469.16,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-050",
+      "canonicalPath": "data/evidence/central/CE-050.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+        "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": null,
+        "sourceLabel": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-050",
+        "municipality": "Ubaíra",
+        "title": "Pagamento(s) de convênio efetivado(s) no período crítico — total municipal R$ 182253.65",
+        "type": "financial_fact",
+        "status": "fact",
+        "amountBRL": 182253.65,
+        "sourceScope": "FIPLAN / Convênios e Parcerias — lote defeso preservado",
+        "evidenceReference": "preservation/manifests/fiplan-defeso-2026.json",
+        "caseGroup": "expansion_wave_01",
+        "legalConclusion": "none",
+        "nextTest": [
+          "instrumento anterior a 04/07",
+          "execução física/obrigação preexistente quando aplicável",
+          "cronograma",
+          "exceção legal",
+          "contratação/OS/medição"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-051",
+      "canonicalPath": "data/evidence/central/CE-051.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+        "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+        "sourceLabel": "SUDESB — Termo de Convênio 32/2026, SEI 069.1479.2026.0002857-54",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-051",
+        "municipality": "Lajedo do Tabocal",
+        "type": "agreement_clause_fact",
+        "status": "fact",
+        "title": "Convênio 32/2026 fixa R$ 49.946,15 como primeira parcela e veda atividade do plano antes do início do repasse",
+        "source": "SUDESB — Termo de Convênio 32/2026, SEI 069.1479.2026.0002857-54",
+        "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+        "relationToPriorEvidence": "CE da Wave 01 já registra o pagamento de R$ 49.946,15 em 06/07; este item adiciona a regra contratual independente.",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-052",
+      "canonicalPath": "data/evidence/central/CE-052.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+        "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+        "sourceLabel": "PNCP — 16434441000131-1-000026/2026",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-052",
+        "municipality": "Lajedo do Tabocal",
+        "type": "post_payment_procurement_fact",
+        "status": "fact",
+        "title": "Concorrência Eletrônica 04/2026 para a mesma reforma/Convênio 32/2026 foi publicada em 13/07, após o pagamento de 06/07",
+        "source": "PNCP — 16434441000131-1-000026/2026",
+        "sourceUrl": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-053",
+      "canonicalPath": "data/evidence/central/CE-053.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+        "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+        "sourceLabel": "Prefeitura Municipal de Belo Campo",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-053",
+        "municipality": "Belo Campo",
+        "type": "object_completion_fact",
+        "status": "fact",
+        "title": "A Cavalgada financiada pelo Convênio SEAGRI 01/2026 foi realizada em 07/06/2026",
+        "source": "Prefeitura Municipal de Belo Campo",
+        "sourceUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-054",
+      "canonicalPath": "data/evidence/central/CE-054.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+        "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+        "sourceLabel": "DOE Bahia — resumo do Convênio 01/2026 / FIPLAN",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-054",
+        "municipality": "Belo Campo",
+        "type": "agreement_object_fact",
+        "status": "fact",
+        "title": "Convênio SEAGRI 01/2026 destinou R$ 200 mil estaduais especificamente ao apoio da Cavalgada de Belo Campo",
+        "source": "DOE Bahia — resumo do Convênio 01/2026 / FIPLAN",
+        "sourceUrl": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+        "relationToPriorEvidence": "A Wave 01 já registra o pagamento integral de R$ 200 mil em 08/07; este item fecha documentalmente o objeto e o valor da participação estadual.",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-055",
+      "canonicalPath": "data/evidence/central/CE-055.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+        "sourceManifestGitBlobSha": "d62010023f243086c0e362161671e68e0fcd4699",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-06/SEI_00142985210_Termo_de_Convenio.pdf",
+        "sourceLabel": "SUDESB — Termo de Convênio 31/2026, SEI 069.1479.2026.0003119-33",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-055",
+        "municipality": "Araçás",
+        "type": "agreement_execution_clause_fact",
+        "status": "fact",
+        "title": "Convênio 31/2026 veda atividade do plano antes do início do repasse, fixa primeira parcela em R$ 292.514,22 e exige autorização para início da obra",
+        "source": "SUDESB — Termo de Convênio 31/2026, SEI 069.1479.2026.0003119-33",
+        "sourceUrl": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-06/SEI_00142985210_Termo_de_Convenio.pdf",
+        "legalConclusion": "none"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-056",
+      "canonicalPath": "data/evidence/central/CE-056.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+        "sourceManifestGitBlobSha": "d62010023f243086c0e362161671e68e0fcd4699",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+        "sourceLabel": "PNCP — controle 16131088000110-1-000007/2026",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-056",
+        "municipality": "Araçás",
+        "type": "post_cutoff_procurement_fact",
+        "status": "fact",
+        "title": "Concorrência 007/2026 para executar exatamente a Areninha do Convênio 31/2026, valor R$ 732.421,46, foi publicada em 10/07/2026",
+        "source": "PNCP — controle 16131088000110-1-000007/2026",
+        "sourceUrl": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+        "legalConclusion": "none",
+        "boundary": "O pagamento FIPLAN de R$ 8.146,70 em 10/07 não coincide com a primeira parcela de R$ 292.514,22; histórico integral de repasses continua necessário."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "evidenceId": "CE-057",
+      "canonicalPath": "data/evidence/central/CE-057.json",
+      "registrationDate": "2026-10-08",
+      "provenance": {
+        "sourceManifestPath": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+        "sourceManifestGitBlobSha": "d62010023f243086c0e362161671e68e0fcd4699",
+        "sourceReferenceType": "versioned_repository_manifest",
+        "originalDocumentBundledHere": false,
+        "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+        "sourceLabel": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+        "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+      },
+      "analysis": {
+        "classification": "documented_public_record_under_verification",
+        "criminalConclusion": "none",
+        "campaignFundingConclusion": "none",
+        "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+      },
+      "documentedFact": {
+        "id": "CE-057",
+        "municipality": "Jaguaquara",
+        "type": "municipal_revenue_linkage_fact",
+        "status": "fact",
+        "title": "Portal municipal identifica a receita como Convênio Estadual 28/2026 — Construção de Estádio de Jaguaquara — com R$ 518.432,07 acumulados, exatamente o valor do repasse FIPLAN de 10/07",
+        "source": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+        "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+        "legalConclusion": "none",
+        "boundary": "A coincidência de valor e a rubrica específica corroboram o vínculo do pagamento com o estádio; ainda não provam ausência de execução física anterior ao marco."
+      }
+    }
+  ]
+}

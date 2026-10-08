@@ -1,4 +1,5 @@
 import { createHash, timingSafeEqual } from 'node:crypto';
+import { centralEvidenceAsIntelligence } from '@/lib/central-evidence';
 import { get, list, put, type ListBlobResultBlob } from '@vercel/blob';
 import { bootstrapIntelligenceRecords } from '@/lib/intelligence-bootstrap';
 import { defesoIntelligenceRecords } from '@/lib/defeso-intelligence';
@@ -123,7 +124,7 @@ export type IntelligenceRecord = {
   provenance: IntelligenceProvenance;
   notes?: string[];
   raw?: Record<string, unknown>;
-  recordOrigin?: 'bootstrap' | 'defeso' | 'batch' | 'ingested';
+  recordOrigin?: 'bootstrap' | 'defeso' | 'batch' | 'ledger' | 'ingested';
   review?: IntelligenceReviewSummary;
   reviewHistory?: IntelligenceReviewEvent[];
 };
@@ -522,6 +523,7 @@ export async function listIntelligenceRecords(): Promise<IntelligenceRecord[]> {
   for (const item of bootstrapIntelligenceRecords) if (!supersededHousingRecordIds.has(item.recordId)) byId.set(item.recordId, { ...item, recordOrigin: 'bootstrap' });
   for (const item of defesoIntelligenceRecords) byId.set(item.recordId, { ...item, recordOrigin: 'defeso' });
   for (const item of intelligenceBatch20261006) byId.set(item.recordId, { ...item, recordOrigin: 'batch' });
+  for (const item of centralEvidenceAsIntelligence()) byId.set(item.recordId, item);
   for (const item of persisted) byId.set(item.recordId, { ...item, recordOrigin: 'ingested' });
 
   const merged = Array.from(byId.values()).map((item) => {

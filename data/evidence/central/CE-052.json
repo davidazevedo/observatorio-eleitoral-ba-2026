@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-052",
+  "canonicalPath": "data/evidence/central/CE-052.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+    "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+    "sourceLabel": "PNCP — 16434441000131-1-000026/2026",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-052",
+    "municipality": "Lajedo do Tabocal",
+    "type": "post_payment_procurement_fact",
+    "status": "fact",
+    "title": "Concorrência Eletrônica 04/2026 para a mesma reforma/Convênio 32/2026 foi publicada em 13/07, após o pagamento de 06/07",
+    "source": "PNCP — 16434441000131-1-000026/2026",
+    "sourceUrl": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+    "legalConclusion": "none"
+  }
+}
