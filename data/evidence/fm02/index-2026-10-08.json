@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "registerId": "FM02-PER-SOURCE-INDEX-2026-10-08",
+  "registered": "2026-10-08",
+  "countPrimaryRows": 4,
+  "countSourceReferences": 15,
+  "countNewCentralCE": 0,
+  "entries": [
+    {
+      "id": "FM02-FIPLAN-PREBA-01",
+      "kind": "original_filtered_payment_row",
+      "path": "data/evidence/fm02/payments/FM02-FIPLAN-PREBA-01.json"
+    },
+    {
+      "id": "FM02-FIPLAN-PREBA-02",
+      "kind": "original_filtered_payment_row",
+      "path": "data/evidence/fm02/payments/FM02-FIPLAN-PREBA-02.json"
+    },
+    {
+      "id": "FM02-FIPLAN-PREBA-03",
+      "kind": "original_filtered_payment_row",
+      "path": "data/evidence/fm02/payments/FM02-FIPLAN-PREBA-03.json"
+    },
+    {
+      "id": "FM02-FIPLAN-PREBA-04",
+      "kind": "original_filtered_payment_row",
+      "path": "data/evidence/fm02/payments/FM02-FIPLAN-PREBA-04.json"
+    },
+    {
+      "id": "SRC-LAJ-FIPLAN-PRESERVED",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-LAJ-FIPLAN-PRESERVED.json"
+    },
+    {
+      "id": "SRC-LAJ-SUDESB-TERM",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-LAJ-SUDESB-TERM.json"
+    },
+    {
+      "id": "SRC-LAJ-SUDESB-INDEX",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-LAJ-SUDESB-INDEX.json"
+    },
+    {
+      "id": "SRC-LAJ-PNCP-CE04",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-LAJ-PNCP-CE04.json"
+    },
+    {
+      "id": "SRC-BELO-FIPLAN-PRESERVED",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-BELO-FIPLAN-PRESERVED.json"
+    },
+    {
+      "id": "SRC-BELO-DOE-CONVENIO",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-BELO-DOE-CONVENIO.json"
+    },
+    {
+      "id": "SRC-BELO-PREFEITURA-PREVIA",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-BELO-PREFEITURA-PREVIA.json"
+    },
+    {
+      "id": "SRC-BELO-PREFEITURA-POS",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-BELO-PREFEITURA-POS.json"
+    },
+    {
+      "id": "SRC-ARA-FIPLAN-PRESERVED",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-ARA-FIPLAN-PRESERVED.json"
+    },
+    {
+      "id": "SRC-ARA-SUDESB-TERM",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-ARA-SUDESB-TERM.json"
+    },
+    {
+      "id": "SRC-ARA-SUDESB-INDEX",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-ARA-SUDESB-INDEX.json"
+    },
+    {
+      "id": "SRC-ARA-PNCP-007",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-ARA-PNCP-007.json"
+    },
+    {
+      "id": "SRC-JAG-FIPLAN-PRESERVED",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-JAG-FIPLAN-PRESERVED.json"
+    },
+    {
+      "id": "SRC-JAG-MUNICIPAL-REVENUE",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-JAG-MUNICIPAL-REVENUE.json"
+    },
+    {
+      "id": "SRC-JAG-SUDESB-NUMBERING-CHECK",
+      "kind": "public_source_reference_not_new_central_evidence",
+      "path": "data/evidence/fm02/source-references/SRC-JAG-SUDESB-NUMBERING-CHECK.json"
+    }
+  ],
+  "sourceAuthority": "fm02-documentary-ledger-2026-10-08.json",
+  "sourceArchivePolicy": "official SEI PDF binary private only; stored hash in Git when fetched by preservation workflow"
+}

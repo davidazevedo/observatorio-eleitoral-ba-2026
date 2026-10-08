@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-BELO-PREFEITURA-POS",
+  "source": {
+    "sourceId": "SRC-BELO-PREFEITURA-POS",
+    "municipality": "Belo Campo",
+    "url": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+    "publisher": "Prefeitura Municipal de Belo Campo",
+    "linkedEvidenceIds": [
+      "CE-019",
+      "CE-053",
+      "CE-054"
+    ],
+    "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": "fm02-belo-campo-pos",
+  "archiveManifestPath": "preservation/manifests/fm02-belo-campo-pos.json",
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}

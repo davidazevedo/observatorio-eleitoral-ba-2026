@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-LAJ-SUDESB-TERM",
+  "source": {
+    "sourceId": "SRC-LAJ-SUDESB-TERM",
+    "municipality": "Lajedo do Tabocal",
+    "url": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+    "publisher": "SUDESB",
+    "linkedEvidenceIds": [
+      "CE-031",
+      "CE-051",
+      "CE-052"
+    ],
+    "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": "fm02-lajedo-sudesb-term",
+  "archiveManifestPath": "preservation/manifests/fm02-lajedo-sudesb-term.json",
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}

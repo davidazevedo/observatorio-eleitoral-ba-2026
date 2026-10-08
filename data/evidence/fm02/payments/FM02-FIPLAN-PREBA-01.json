@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "original_filtered_payment_row",
+  "itemId": "FM02-FIPLAN-PREBA-01",
+  "corroborates": [
+    "CE-031"
+  ],
+  "originalPrimaryRecordLocatedInGit": true,
+  "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+  "sourceGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+  "sourceRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+  "originalFullZipPresent": false,
+  "fact": {
+    "evidenceSliceId": "FM02-FIPLAN-PREBA-01",
+    "crossReferences": [
+      "CE-031"
+    ],
+    "caseId": "PREBA-01",
+    "municipality": "Lajedo do Tabocal",
+    "instrumentFormatted": "21301.0001.26.0000299-1",
+    "instrumentRaw": "2130100012600002991",
+    "paymentNobRaw": "2130100012600021627",
+    "paymentNobFormatted": "21301.0001.26.0002162-7",
+    "paymentDateDDMMYYYY": "06/07/2026",
+    "paymentValueBRL": 49946.15,
+    "consignment": "Pagamento Principal",
+    "paidFlag": "Sim",
+    "valueGcvBRL": 0,
+    "legalConclusion": "none",
+    "integrityStatus": "derived_from_git_preserved_original_filtered_extract_sha256_verified",
+    "provenance": {
+      "sourceRepoPath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+      "compressedSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+      "uncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51"
+    },
+    "sourceRow": {
+      "num_instrumento_orcamento": "2130100012600002991",
+      "num_pagto_nob": "2130100012600021627",
+      "CONSIGNATARIA": "Pagamento Principal",
+      "val_pagto_nob": "49946,15",
+      "dtc_pagto_nob": "06/07/2026",
+      "val_gcv": "0,00",
+      "Nº do Pagamento Formatado": "21301.0001.26.0002162-7",
+      "Pagamento_Efetivado": "Sim"
+    }
+  }
+}

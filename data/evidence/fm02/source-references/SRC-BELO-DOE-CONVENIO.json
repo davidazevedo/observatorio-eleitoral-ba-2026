@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-BELO-DOE-CONVENIO",
+  "source": {
+    "sourceId": "SRC-BELO-DOE-CONVENIO",
+    "municipality": "Belo Campo",
+    "url": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+    "publisher": "Diário Oficial do Estado da Bahia / SEAGRI",
+    "linkedEvidenceIds": [
+      "CE-019",
+      "CE-053",
+      "CE-054"
+    ],
+    "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": null,
+  "archiveManifestPath": null,
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}
