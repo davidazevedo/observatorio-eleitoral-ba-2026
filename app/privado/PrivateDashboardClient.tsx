@@ -40,6 +40,8 @@ type PrebaAracasPackage = { schemaVersion:number;packageId:string;generatedDate:
 type PrebaJaguaquaraPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{instrumentValueBRL:number;stadiumPaymentBRL:number;stadiumPaymentDate:string;municipalRevenueCorroboratedBRL:number;totalJaguaquaraCriticalPeriodPaymentsBRL:number;otherKnownCriticalPeriodPaymentBRL:number;separationRule:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaFinalRepresentation = { schemaVersion:number;representationId:string;generatedDate:string;destination:string;documentType:string;title:string;protocolReadiness:{readyAsNewsOfFactForDiligence:boolean;readyAsDefinitiveAccusation:boolean;reason:string};scope:{priorityUniverseMunicipalities:number;p0Classified:number;p0CoveragePercent:number;centralVersionedEvidence:number;priorityPackages:number;municipalities:string[]};legalBoundary:string;executiveSummary:string;cases:Array<{order:number;packageId:string;municipality:string;priority:string;question:string;coreEvidence:string[];status:string;mainDiligence:string}>;requestedMeasures:string[];finalReviewChecklist:string[] };
 type PrebaFinalAnnexIndex = { schemaVersion:number;indexId:string;representationId:string;generatedDate:string;annexes:Array<{order:number;id:string;title:string;path:string;humanReadable?:string;purpose:string}>;protocolFolderOrder:string[];finalGate:{readyForNewsOfFactProtocol:boolean;pendingBeforeDefinitiveAccusation:string[]} };
+type FollowMoneyRoadmap = { schemaVersion:number;roadmapId:string;updatedDate:string;startDate:string;endDate:string;scope:{priorityMunicipalities:string[];centralEvidenceFacts:number;priorityMunicipalitiesCount:number;universe77:boolean};stages:Array<{id:string;title:string;start:string;end:string;status:string;deliverables:string[];gate:string}>;evidenceSync:{repositoryRecords:number;apiServedConfirmed:number;privateBlobMirroredConfirmed:number;mode:string;lastSuccessfulSync:string|null};externalOriginals:{fiplanZipPreserved:boolean;upstreamSourcePdfVerifiedInThisStage:boolean} };
+type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
 type GitPreservationRow = {
@@ -104,6 +106,8 @@ type DashboardData = {
   prebaFinalRepresentation: PrebaFinalRepresentation;
   prebaFinalAnnexIndex: PrebaFinalAnnexIndex;
   prebaProtocolRelease: PrebaProtocolRelease;
+  followMoneyRoadmap: FollowMoneyRoadmap;
+  centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
 
 type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -194,6 +198,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
   const [reviewNote,setReviewNote]=useState('');
   const [reviewMessage,setReviewMessage]=useState('');
   const [savingReview,setSavingReview]=useState(false);
+  const [centralEvidenceSyncing,setCentralEvidenceSyncing]=useState(false);
+  const [centralEvidenceMirrorCount,setCentralEvidenceMirrorCount]=useState(data.centralEvidenceLedgerSummary.mirrored);
+  const [centralEvidenceSyncMessage,setCentralEvidenceSyncMessage]=useState('');
 
   // Filtros analíticos transversais
   const [globalQuery,setGlobalQuery]=useState('');
@@ -405,6 +412,29 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     statusFilter!=='Todos'?statusFilter:'',publisherFilter!=='Todos'?publisherFilter:'',
     paymentFilter!=='Todos'?paymentFilter:'',minAmount,maxAmount,
   ].filter(Boolean).length;
+
+  async function synchronizeCentralEvidence(){
+    setCentralEvidenceSyncing(true);
+    setCentralEvidenceSyncMessage('Iniciando espelhamento dos registros CE no Blob privado...');
+    try {
+      const response=await fetch('/api/private/central-evidence-sync',{
+        method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:'{}',
+      });
+      const result=await response.json();
+      if(!response.ok || !result.ok){
+        const partial=(result.created||0)+(result.unchanged||0);
+        setCentralEvidenceMirrorCount(Math.max(centralEvidenceMirrorCount,partial));
+        setCentralEvidenceSyncMessage('Sincronização parcial: '+partial+'/'+(result.requested||57)+'; conflitos '+(result.conflicts||0)+'; erros '+(result.errors||0)+'. Conferir logs antes de repetir.');
+      } else {
+        setCentralEvidenceMirrorCount(result.created+result.unchanged);
+        setCentralEvidenceSyncMessage('Espelhamento concluído: '+result.created+' novos e '+result.unchanged+' já existentes. Recarregue a página para atualizar as métricas globais.');
+      }
+    } catch(error) {
+      setCentralEvidenceSyncMessage('Falha na comunicação com a API: '+(error instanceof Error?error.message:'erro desconhecido'));
+    } finally {
+      setCentralEvidenceSyncing(false);
+    }
+  }
 
   function clearAnalyticalFilters(){
     setGlobalQuery('');setMunicipalityFilter('Todos');setDateFrom('');setDateTo('');
@@ -955,6 +985,31 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FOLLOW THE MONEY · ROTEIRO DE 90 DIAS</p><h2>Etapa 01 — Segurança, preservação e sincronização</h2><small>{data.followMoneyRoadmap.roadmapId} · atualização {data.followMoneyRoadmap.updatedDate}</small></div>
+                  <span className="housing-exception-pending">ETAPA 01/07</span>
+                </div>
+                <p>Os 57 fatos centrais estão versionados individualmente e disponíveis na API autenticada desta release. O espelhamento no Blob privado é uma operação separada: só conta como concluído após a API confirmar os registros.</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Fichas no Git</span><strong>{data.centralEvidenceLedgerSummary.versioned}/57</strong><small>CE-001 a CE-057</small></article>
+                  <article><span>Consulta API</span><strong>57</strong><small>GET /api/intelligence/evidence (chave)</small></article>
+                  <article><span>Blob espelhado</span><strong>{centralEvidenceMirrorCount}/57</strong><small>confirmado no armazenamento privado</small></article>
+                  <article><span>Fases do roadmap</span><strong>1/7</strong><small>em execução; demais aguardam</small></article>
+                </div>
+                <p className="private-report-note"><strong>Limite probatório:</strong> as 57 fichas derivam de manifests. Não constituem 57 arquivos oficiais originais. A fonte primária deve ser anexada e conferida antes de qualquer imputação.</p>
+                <button type="button" disabled={centralEvidenceSyncing} onClick={synchronizeCentralEvidence}>
+                  {centralEvidenceSyncing ? 'Sincronizando evidências...' : 'Sincronizar 57 fichas com o Blob privado'}
+                </button>
+                {centralEvidenceSyncMessage?<p role="status">{centralEvidenceSyncMessage}</p>:null}
+                <div className="private-grid-two" style={{marginTop:'18px'}}>
+                  {data.followMoneyRoadmap.stages.map(phase=><article className="private-panel" key={phase.id}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{phase.id} · {phase.start} — {phase.end}</p><h2>{phase.title}</h2></div><span className={phase.status==='pending'?'housing-exception-pending':'housing-status-ok'}>{phase.status==='pending'?'AGUARDANDO':'EM EXECUÇÃO'}</span></div>
+                    <ul>{phase.deliverables.map(item=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{phase.gate}</p>
+                  </article>)}
+                </div>
+              </section>
+
               <section className="intel-metrics-grid">
                 <article><span>Completude global</span><strong>{data.prebaProtocolRelease.globalCompletionPercent}%</strong><small>release de protocolo concluída</small></article>
                 <article><span>Peça consolidada</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'PRONTA':'PENDENTE'}</strong><small>notícia de fato para diligências</small></article>

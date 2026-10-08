@@ -60,7 +60,7 @@ export function canonicalEvidenceHash(item: CentralEvidenceRecord) {
 }
 
 export function centralEvidenceAsIntelligence(): IntelligenceRecord[] {
-  return centralEvidenceEntries.map(item => ({
+  return centralEvidenceEntries.map<IntelligenceRecord>(item => ({
     schemaVersion: 1,
     recordId: item.evidenceId,
     kind: 'research_finding',
