@@ -13,13 +13,17 @@
       "CE-057",
       "CE-AGENCY-NUMBERING-CAUTION"
     ],
-    "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
-    "contentSnapshotSha256": null,
-    "originalBytesInRepository": false,
-    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    "preservationStatus": "repository_snapshot_sha256_verified",
+    "contentSnapshotSha256": "07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914",
+    "originalBytesInRepository": true,
+    "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+    "httpCapture": "HTTP 200",
+    "httpCaptureAt": "2026-10-08T22:59:19Z",
+    "archiveManifestPath": "preservation/manifests/fm02-jaguaquara-receita.json",
+    "snapshotPath": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T22-59-19Z.html"
   },
   "archiveTrackingTargetId": "fm02-jaguaquara-receita",
   "archiveManifestPath": "preservation/manifests/fm02-jaguaquara-receita.json",
   "rawBytesInThisFile": false,
-  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
 }

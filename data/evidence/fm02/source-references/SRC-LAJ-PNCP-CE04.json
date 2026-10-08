@@ -12,13 +12,17 @@
       "CE-051",
       "CE-052"
     ],
-    "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+    "preservationStatus": "retrieval_rate_limited_original_pending",
     "contentSnapshotSha256": null,
     "originalBytesInRepository": false,
-    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
+    "httpCapture": "HTTP 429 / falha de coleta",
+    "httpCaptureAt": "2026-10-08T22:59:09Z",
+    "archiveManifestPath": "preservation/manifests/fm02-lajedo-pncp-detail.json",
+    "snapshotPath": null
   },
   "archiveTrackingTargetId": "fm02-lajedo-pncp-detail",
   "archiveManifestPath": "preservation/manifests/fm02-lajedo-pncp-detail.json",
   "rawBytesInThisFile": false,
-  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
 }
