@@ -162,3 +162,20 @@ O arquivo **`data/investigation/fm02-fiplan-primary-rows-2026-10-08.json`** cont
 4. Priorizar certificados das fontes primárias na área privada e atualizar explicitamente a situação de arquivamento.
 
 **Não há qualquer resultado de investigação criminal nem comprovação de compra de votos nesta etapa.**
+
+## Coletas documentais automáticas — 08/10/2026
+
+Este trecho registra o resultado do GitHub Actions `37856738127` no branch da etapa, posteriormente incorporado ao acervo via Git SHA, sem inventar downloads e sem aumentar a contagem CE.
+
+| Fonte | HTTP | Tamanho (bytes) | SHA-256 payload | Arquivo original no Git? |
+|---|---:|---:|---|---|
+| fm02-lajedo-sudesb-term | 200 | 136168 | e59df2658b39cc9b246d4530e0d4494f1728da22ad54a4e35c5322530bfeb0a7 | Não |
+| fm02-aracas-sudesb-term | 200 | 129883 | 60bbaa08fcc9d0b2046fe1d1d8bfe8e1ccafde5ca6944c651e608aa0e2e41681 | Não |
+| fm02-sudesb-equipamentos-index | 200 | 325475 | 8cf63407e0693c8a37379e6f0c52055e7a7754023a0587ed99e2f747dce5fbd3 | Sim: preservation/snapshots/fm02-sudesb-equipamentos-index/2026-10-08T22-59-06Z.html |
+| fm02-lajedo-pncp-detail | 429 | — | — | Não |
+| fm02-aracas-pncp-detail | 429 | — | — | Não |
+| fm02-belo-campo-previa | 200 | 39993 | 893fb6e7dcf4e0398410ea00fd71f795960e4bd98fd0ac110eefa81ff5448ab3 | Sim: preservation/snapshots/fm02-belo-campo-previa/2026-10-08T22-59-10Z.html |
+| fm02-belo-campo-pos | 200 | 54866 | 11d6601df1c6b5c62ffc0204ccb8f69856a2b1f60e1d35135dfb4dbd42f6d6f7 | Sim: preservation/snapshots/fm02-belo-campo-pos/2026-10-08T22-59-13Z.html |
+| fm02-jaguaquara-receita | 200 | 893020 | 07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914 | Sim: preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T22-59-19Z.html |
+
+**Limites:** as respostas 429 ao PNCP exigem nova tentativa, não provam ausência de contratação. Os PDFs da SUDESB tiveram os bytes acessados e SHA calculado, mas não foram replicados integralmente no Git público para reduzir exposição de dados pessoais. Repositório contém os manifestos e as cópias HTML das demais fontes obtidas. Nenhum processo SEI integral ou medição foi recuperado por esse procedimento.

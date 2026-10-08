@@ -11,7 +11,12 @@
   "verifiedSourceArchiveInThisStage": {
     "fiplanFilteredPaymentsInGit": true,
     "externalOfficialPdfBinaryCount": 0,
-    "additionalExternalWebBinaryCount": 0
+    "additionalExternalWebBinaryCount": 4,
+    "officialPDFsHashedByGitHubRunner": 2,
+    "htmlSnapshotsActuallyVersioned": 4,
+    "pncpApi429Failures": 2,
+    "verificationRef": "34e4f5aa1441ecdbee06609f464320c29fa2be65",
+    "verificationRunId": 37856738127
   },
   "safeguards": {
     "journalisticBoundary": "Somente pagamentos e cronologias documentadas, sem juízo sobre corrupção, compra de votos ou financiamento eleitoral.",
@@ -687,10 +692,14 @@
         "CE-051",
         "CE-052"
       ],
-      "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
-      "contentSnapshotSha256": null,
+      "preservationStatus": "official_source_sha256_recorded_pdf_not_publicly_rehosted",
+      "contentSnapshotSha256": "e59df2658b39cc9b246d4530e0d4494f1728da22ad54a4e35c5322530bfeb0a7",
       "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "notes": "PDF oficial obtido por HTTPS e SHA registrado em manifesto. Binário não replicado no Git público para evitar expor identificadores pessoais; usar arquivo privado para protocolo.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:03Z",
+      "archiveManifestPath": "preservation/manifests/fm02-lajedo-sudesb-term.json",
+      "snapshotPath": null
     },
     {
       "sourceId": "SRC-LAJ-SUDESB-INDEX",
@@ -702,10 +711,14 @@
         "CE-051",
         "CE-052"
       ],
-      "preservationStatus": "official_index_lists_sources_binary_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "8cf63407e0693c8a37379e6f0c52055e7a7754023a0587ed99e2f747dce5fbd3",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:06Z",
+      "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
+      "snapshotPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-10-08T22-59-06Z.html"
     },
     {
       "sourceId": "SRC-LAJ-PNCP-CE04",
@@ -717,10 +730,14 @@
         "CE-051",
         "CE-052"
       ],
-      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "preservationStatus": "retrieval_rate_limited_original_pending",
       "contentSnapshotSha256": null,
       "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
+      "httpCapture": "HTTP 429 / falha de coleta",
+      "httpCaptureAt": "2026-10-08T22:59:09Z",
+      "archiveManifestPath": "preservation/manifests/fm02-lajedo-pncp-detail.json",
+      "snapshotPath": null
     },
     {
       "sourceId": "SRC-BELO-FIPLAN-PRESERVED",
@@ -762,10 +779,14 @@
         "CE-053",
         "CE-054"
       ],
-      "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "893fb6e7dcf4e0398410ea00fd71f795960e4bd98fd0ac110eefa81ff5448ab3",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:10Z",
+      "archiveManifestPath": "preservation/manifests/fm02-belo-campo-previa.json",
+      "snapshotPath": "preservation/snapshots/fm02-belo-campo-previa/2026-10-08T22-59-10Z.html"
     },
     {
       "sourceId": "SRC-BELO-PREFEITURA-POS",
@@ -777,10 +798,14 @@
         "CE-053",
         "CE-054"
       ],
-      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "11d6601df1c6b5c62ffc0204ccb8f69856a2b1f60e1d35135dfb4dbd42f6d6f7",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:13Z",
+      "archiveManifestPath": "preservation/manifests/fm02-belo-campo-pos.json",
+      "snapshotPath": "preservation/snapshots/fm02-belo-campo-pos/2026-10-08T22-59-13Z.html"
     },
     {
       "sourceId": "SRC-ARA-FIPLAN-PRESERVED",
@@ -807,10 +832,14 @@
         "CE-055",
         "CE-056"
       ],
-      "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
-      "contentSnapshotSha256": null,
+      "preservationStatus": "official_source_sha256_recorded_pdf_not_publicly_rehosted",
+      "contentSnapshotSha256": "60bbaa08fcc9d0b2046fe1d1d8bfe8e1ccafde5ca6944c651e608aa0e2e41681",
       "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "notes": "PDF oficial obtido por HTTPS e SHA registrado em manifesto. Binário não replicado no Git público para evitar expor identificadores pessoais; usar arquivo privado para protocolo.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:04Z",
+      "archiveManifestPath": "preservation/manifests/fm02-aracas-sudesb-term.json",
+      "snapshotPath": null
     },
     {
       "sourceId": "SRC-ARA-SUDESB-INDEX",
@@ -822,10 +851,14 @@
         "CE-055",
         "CE-056"
       ],
-      "preservationStatus": "official_index_lists_sources_binary_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "8cf63407e0693c8a37379e6f0c52055e7a7754023a0587ed99e2f747dce5fbd3",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:06Z",
+      "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
+      "snapshotPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-10-08T22-59-06Z.html"
     },
     {
       "sourceId": "SRC-ARA-PNCP-007",
@@ -837,10 +870,14 @@
         "CE-055",
         "CE-056"
       ],
-      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "preservationStatus": "retrieval_rate_limited_original_pending",
       "contentSnapshotSha256": null,
       "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
+      "httpCapture": "HTTP 429 / falha de coleta",
+      "httpCaptureAt": "2026-10-08T22:59:09Z",
+      "archiveManifestPath": "preservation/manifests/fm02-aracas-pncp-detail.json",
+      "snapshotPath": null
     },
     {
       "sourceId": "SRC-JAG-FIPLAN-PRESERVED",
@@ -869,10 +906,14 @@
         "CE-057",
         "CE-AGENCY-NUMBERING-CAUTION"
       ],
-      "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:19Z",
+      "archiveManifestPath": "preservation/manifests/fm02-jaguaquara-receita.json",
+      "snapshotPath": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T22-59-19Z.html"
     },
     {
       "sourceId": "SRC-JAG-SUDESB-NUMBERING-CHECK",
@@ -885,11 +926,17 @@
         "CE-057",
         "CE-AGENCY-NUMBERING-CAUTION"
       ],
-      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+      "preservationStatus": "repository_snapshot_sha256_verified",
+      "contentSnapshotSha256": "8cf63407e0693c8a37379e6f0c52055e7a7754023a0587ed99e2f747dce5fbd3",
+      "originalBytesInRepository": true,
+      "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-08T22:59:06Z",
+      "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
+      "snapshotPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-10-08T22-59-06Z.html"
     }
   ],
-  "protocolReadiness": "not_a_final_accusation_only_documentary_queries"
+  "protocolReadiness": "not_a_final_accusation_only_documentary_queries",
+  "registeredCaptureAt": "2026-10-08T22:59:19Z",
+  "archiveCountingPolicy": "8 unique automatic collection targets: 2 PDF hashed, 4 HTML files in Git, 2 PNCP API HTTP 429. Multiple sourceId map to shared SUDESB index; do not double count."
 }

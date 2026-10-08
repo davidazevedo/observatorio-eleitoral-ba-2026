@@ -12,13 +12,17 @@
       "CE-051",
       "CE-052"
     ],
-    "preservationStatus": "official_index_lists_sources_binary_pending",
-    "contentSnapshotSha256": null,
-    "originalBytesInRepository": false,
-    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    "preservationStatus": "repository_snapshot_sha256_verified",
+    "contentSnapshotSha256": "8cf63407e0693c8a37379e6f0c52055e7a7754023a0587ed99e2f747dce5fbd3",
+    "originalBytesInRepository": true,
+    "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+    "httpCapture": "HTTP 200",
+    "httpCaptureAt": "2026-10-08T22:59:06Z",
+    "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
+    "snapshotPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-10-08T22-59-06Z.html"
   },
   "archiveTrackingTargetId": "fm02-sudesb-equipamentos-index",
   "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
   "rawBytesInThisFile": false,
-  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
 }

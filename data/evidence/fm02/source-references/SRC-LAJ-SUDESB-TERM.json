@@ -12,13 +12,17 @@
       "CE-051",
       "CE-052"
     ],
-    "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
-    "contentSnapshotSha256": null,
+    "preservationStatus": "official_source_sha256_recorded_pdf_not_publicly_rehosted",
+    "contentSnapshotSha256": "e59df2658b39cc9b246d4530e0d4494f1728da22ad54a4e35c5322530bfeb0a7",
     "originalBytesInRepository": false,
-    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    "notes": "PDF oficial obtido por HTTPS e SHA registrado em manifesto. Binário não replicado no Git público para evitar expor identificadores pessoais; usar arquivo privado para protocolo.",
+    "httpCapture": "HTTP 200",
+    "httpCaptureAt": "2026-10-08T22:59:03Z",
+    "archiveManifestPath": "preservation/manifests/fm02-lajedo-sudesb-term.json",
+    "snapshotPath": null
   },
   "archiveTrackingTargetId": "fm02-lajedo-sudesb-term",
   "archiveManifestPath": "preservation/manifests/fm02-lajedo-sudesb-term.json",
   "rawBytesInThisFile": false,
-  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
 }

@@ -12,13 +12,17 @@
       "CE-053",
       "CE-054"
     ],
-    "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
-    "contentSnapshotSha256": null,
-    "originalBytesInRepository": false,
-    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    "preservationStatus": "repository_snapshot_sha256_verified",
+    "contentSnapshotSha256": "893fb6e7dcf4e0398410ea00fd71f795960e4bd98fd0ac110eefa81ff5448ab3",
+    "originalBytesInRepository": true,
+    "notes": "Snapshot de conteúdo HTTP preservado no Git, com hash de payload e certificado no manifesto. Confira relevância documental específica.",
+    "httpCapture": "HTTP 200",
+    "httpCaptureAt": "2026-10-08T22:59:10Z",
+    "archiveManifestPath": "preservation/manifests/fm02-belo-campo-previa.json",
+    "snapshotPath": "preservation/snapshots/fm02-belo-campo-previa/2026-10-08T22-59-10Z.html"
   },
   "archiveTrackingTargetId": "fm02-belo-campo-previa",
   "archiveManifestPath": "preservation/manifests/fm02-belo-campo-previa.json",
   "rawBytesInThisFile": false,
-  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
 }
