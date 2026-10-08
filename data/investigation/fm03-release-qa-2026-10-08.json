@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "FM03-RELEASE-2026-10-08",
+  "product": "Observatório Eleitoral Bahia — cockpit e API privativos",
+  "productionDeploymentId": "dpl_37QcRr2RonpeATYr6HDufMrHeeTf",
+  "productionCommit": "11794fcd743e0596d0dd5f75d1375bc7387237d6",
+  "productionStatus": "READY",
+  "productionAlias": "https://observatorio-eleitoral-ba-2026.vercel.app",
+  "sourcePreservationRunId": 37859562611,
+  "sourcePreservationStatus": "success",
+  "sourcePreservationCommit": "aa035fd3d05ddef5bb5d3d27c37c1fbf08d352e6",
+  "checks": {
+    "centralCECount": {
+      "passed": true,
+      "actual": 57
+    },
+    "originalFiplanRows": {
+      "passed": true,
+      "actual": 4
+    },
+    "fm02IndividualRegister": {
+      "passed": true,
+      "actual": 19
+    },
+    "archivedSourceTest": {
+      "passed": true,
+      "htmlRawVerified": 4,
+      "pdfHashOnly": 2,
+      "pncpFailuresReported": 2
+    },
+    "fm03GraphBaseline": {
+      "passed": true,
+      "actual": 4,
+      "newCE": 0
+    },
+    "nextBuildAndTypeScript": {
+      "passed": true
+    },
+    "runtimeErrorScan": "no errors in selected 30 minute window",
+    "authenticatedGETWithApiKey": "not_executed_in_this_session",
+    "privateBlobMirrorCount": "not_verified_by_this_release"
+  },
+  "stageStatuses": {
+    "FM01": "in_progress_user_validating_blob_mirror",
+    "FM02": "in_progress_originals_pending",
+    "FM03": "in_progress_first_financial_graphs_deployed"
+  },
+  "limitations": [
+    "No evidence of diverted funds or vote buying established.",
+    "State-level payments are not proof of payments to suppliers.",
+    "The Jaguaquara source HTML changed outside the relevant financial row; no new fact was counted."
+  ]
+}

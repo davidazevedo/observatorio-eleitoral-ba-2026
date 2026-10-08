@@ -35,3 +35,10 @@ Somente marcar FM-03 concluída quando existirem documentos que sustentem a dest
 
 ## Pesquisa pública complementar
 Arquivo `data/investigation/fm03-open-source-review-2026-10-08.json` registra referências oficiais e indexadores secundários. Nenhum pagamento a fornecedor foi identificado com prova primária; fontes secundárias são apenas pistas de acesso às publicações e não substituem nota fiscal, empenho, liquidação ou ordem bancária.
+
+## Release de produção e teste de preservação
+- PR #9 foi integrado pelo commit `11794fcd743e0596d0dd5f75d1375bc7387237d6` e o deploy `dpl_37QcRr2RonpeATYr6HDufMrHeeTf` está READY.
+- Prebuild validou 57 CE, 4 pagamentos FIPLAN, 19 itens FM-02, snapshots preservados e os 4 grafos FM-03; compilação e TypeScript aprovados.
+- O workflow corrigido **run 37859562611** terminou **SUCCESS**, passando coleta, validação SHA e push, com commit automático `aa035fd3d05ddef5bb5d3d27c37c1fbf08d352e6`.
+- A nova captura da receita de Jaguaquara mudou o SHA global do HTML, mas o fragmento de convênio estadual 28/2026 com R$ 518.432,07 permaneceu textual e posicionalmente idêntico; não adicionamos novo fato CE.
+- Leitura ponta a ponta autenticada da nova API e espelhamento privado da FM-01 permanecem dependentes de credenciais/sessão do usuário e **não** são contados como comprovados.

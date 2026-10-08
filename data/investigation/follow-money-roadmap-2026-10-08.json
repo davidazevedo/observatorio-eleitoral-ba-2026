@@ -137,10 +137,29 @@
     "apiBundledRecords": 57,
     "fm02SourceRegistryApiStatus": "included_in_versioned_authenticated_api",
     "fm02PrivateArchivedOriginalsConfirmed": 0,
-    "fm03DatasetStatus": "pending_production_build"
+    "fm03DatasetStatus": "deployed_in_production_authenticated_read_api",
+    "fm03ReleaseCommit": "11794fcd743e0596d0dd5f75d1375bc7387237d6",
+    "fm03ReadApiAuthenticatedCallVerified": false,
+    "lastProductionQa": "2026-10-08"
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,
     "upstreamSourcePdfVerifiedInThisStage": false
+  },
+  "sourcePreservation": {
+    "workflow": "source-preservation.yml",
+    "runId": 37859562611,
+    "status": "completed_successfully",
+    "revision": "aa035fd3d05ddef5bb5d3d27c37c1fbf08d352e6",
+    "validation": "collector, snapshot hashes, git commit/push all passed",
+    "previousFailedRunId": 37856820039,
+    "scopeNote": "Live source snapshots can change bytes without affecting relevant factual row; validate individual facts before creating new CE.",
+    "latestJaguaquaraCapture": {
+      "sourcePath": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T23-28-50Z.html",
+      "sha256": "ea5a40137323d7f1b5826327a6904006c329a7356b852806dedaf7a5eaad8c93",
+      "preservedPreviousSha256": "07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914",
+      "stadiumRevenueRowChanged": false,
+      "scope": "The HTML file byte-level hash changed, but the fragment with Convênio Estadual 28/2026 and R$518.432,07 remained identical. No new CE."
+    }
   }
 }
