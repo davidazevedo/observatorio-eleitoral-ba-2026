@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-FOUR-PUBLIC-FINANCIAL-CHAINS-2026-10-08",
+  "createdDate": "2026-10-08",
+  "status": "partial_baseline",
+  "counting": {
+    "chains": 4,
+    "stateDisbursementsVerified": 4,
+    "municipalRevenuePublicCorroborations": 1,
+    "bankIngressFullyReconciled": 0,
+    "verifiedMunicipalExpenseEntries": 0,
+    "verifiedSupplierPayments": 0,
+    "verifiedCampaignRelatedPayments": 0,
+    "newCentralCE": 0,
+    "totalStateDisbursementsBRL": 776524.92
+  },
+  "sources": [
+    "FM02-DOCUMENTARY-CLOSURE-2026-10-08",
+    "FM02-FIPLAN-FOUR-PRIMARY-PAYMENT-ROWS-2026-10-08"
+  ],
+  "caseFiles": [
+    {
+      "caseId": "PREBA-01",
+      "path": "data/investigation/fm03/chains/PREBA-01.json"
+    },
+    {
+      "caseId": "PREBA-02",
+      "path": "data/investigation/fm03/chains/PREBA-02.json"
+    },
+    {
+      "caseId": "PREBA-03",
+      "path": "data/investigation/fm03/chains/PREBA-03.json"
+    },
+    {
+      "caseId": "PREBA-04",
+      "path": "data/investigation/fm03/chains/PREBA-04.json"
+    }
+  ],
+  "chains": [
+    {
+      "schemaVersion": 1,
+      "chainId": "FM03-PREBA-01",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "inst": "21301.0001.26.0000299-1",
+      "bankOrder": "21301.0001.26.0002162-7",
+      "observedStateDisbursementBRL": 49946.15,
+      "integrity": {
+        "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "fullOriginalZipPresent": false
+      },
+      "steps": [
+        {
+          "slot": "state_disbursement",
+          "state": "verified_primary_extract",
+          "amountBRL": 49946.15,
+          "date": "06/07/2026",
+          "reference": "FM02-FIPLAN-PREBA-01",
+          "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+          "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+          "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+        },
+        {
+          "slot": "municipal_ingress",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "municipal_expenditure",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "supplier_payment",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "final_delivery",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        }
+      ],
+      "contextFacts": [
+        {
+          "kind": "published_procurement",
+          "date": "2026-07-13",
+          "evidenceId": "CE-052",
+          "caveat": "A publicação de uma licitação não comprova execução física nem pagamento municipal."
+        }
+      ],
+      "action": "Receita municipal do convênio 32/2026, processos de despesa, contratos, ordem de serviço, AIO e primeira medição.",
+      "diligencePriority": [
+        "Processo SEI integral 069.1479.2026.0002857-54",
+        "Plano de Trabalho aprovado e cronograma físico-financeiro/cronograma prefixado",
+        "Autorização de Início de Obra (AIO) e eventual Ordem de Serviço",
+        "Primeira medição, boletim de medição, diário de obra, relatório fotográfico e fiscalização de engenharia",
+        "Processo administrativo que autorizou/liberou a primeira parcela em 06/07, inclusive parecer jurídico sobre o art. 73, VI, a"
+      ],
+      "status": "partial_source_based_no_supplier_evidence",
+      "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+    },
+    {
+      "schemaVersion": 1,
+      "chainId": "FM03-PREBA-02",
+      "caseId": "PREBA-02",
+      "municipality": "Belo Campo",
+      "inst": "10101.0001.26.0000079-3",
+      "bankOrder": "10101.0001.26.0001454-0",
+      "observedStateDisbursementBRL": 200000,
+      "integrity": {
+        "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "fullOriginalZipPresent": false
+      },
+      "steps": [
+        {
+          "slot": "state_disbursement",
+          "state": "verified_primary_extract",
+          "amountBRL": 200000,
+          "date": "08/07/2026",
+          "reference": "FM02-FIPLAN-PREBA-02",
+          "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+          "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+          "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+        },
+        {
+          "slot": "municipal_ingress",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "municipal_expenditure",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "supplier_payment",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "final_delivery",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        }
+      ],
+      "contextFacts": [
+        {
+          "kind": "public_event_occurrence",
+          "date": "2026-06-07",
+          "evidenceId": "CE-053",
+          "caveat": "A realização do evento não prova a natureza jurídica da transferência ou quais despesas foram reembolsadas."
+        }
+      ],
+      "action": "Prestação de contas do convênio 01/2026 e despesas/notas efetivamente cobertas pela contribuição estadual.",
+      "diligencePriority": [
+        "Processo SEI integral 010.9156.2025.0002545-71",
+        "Plano de Trabalho aprovado, cronograma de execução e cronograma de desembolso",
+        "Processo administrativo de liquidação/liberação dos R$ 200.000,00 em 08/07 e parecer jurídico eleitoral",
+        "Prestação de contas parcial/final do Convênio 01/2026, notas fiscais, contratos e comprovantes de execução",
+        "Classificação formal da natureza jurídica do repasse Estado→Município"
+      ],
+      "status": "partial_source_based_no_supplier_evidence",
+      "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+    },
+    {
+      "schemaVersion": 1,
+      "chainId": "FM03-PREBA-03",
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "inst": "21301.0001.26.0000276-0",
+      "bankOrder": "21301.0001.26.0002296-8",
+      "observedStateDisbursementBRL": 8146.7,
+      "integrity": {
+        "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "fullOriginalZipPresent": false
+      },
+      "steps": [
+        {
+          "slot": "state_disbursement",
+          "state": "verified_primary_extract",
+          "amountBRL": 8146.7,
+          "date": "10/07/2026",
+          "reference": "FM02-FIPLAN-PREBA-03",
+          "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+          "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+          "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+        },
+        {
+          "slot": "municipal_ingress",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "municipal_expenditure",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "supplier_payment",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "final_delivery",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        }
+      ],
+      "contextFacts": [
+        {
+          "kind": "published_procurement",
+          "date": "2026-07-10",
+          "evidenceId": "CE-056",
+          "caveat": "O edital não demonstra recebimento de pagamentos por contratado."
+        }
+      ],
+      "action": "Histórico integral do instrumento, natureza do lançamento de R$ 8.146,70, receitas, contrato, AIO e medições.",
+      "diligencePriority": [
+        "Histórico integral FIPLAN do instrumento 21301.0001.26.0000276-0, incluindo todos os repasses anteriores e posteriores",
+        "Processo SEI integral 069.1479.2026.0003119-33",
+        "Plano de Trabalho e cronograma físico-financeiro/cronograma prefixado",
+        "Autorização de Início de Obra (AIO), Ordem de Serviço e contrato de execução",
+        "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização de engenharia",
+        "Processo municipal 131/2026 / Concorrência 007/2026 completo, inclusive adjudicação, homologação e contrato"
+      ],
+      "status": "partial_source_based_no_supplier_evidence",
+      "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+    },
+    {
+      "schemaVersion": 1,
+      "chainId": "FM03-PREBA-04",
+      "caseId": "PREBA-04",
+      "municipality": "Jaguaquara",
+      "inst": "21301.0001.26.0000298-1",
+      "bankOrder": "21301.0001.26.0002290-9",
+      "observedStateDisbursementBRL": 518432.07,
+      "integrity": {
+        "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "fullOriginalZipPresent": false
+      },
+      "steps": [
+        {
+          "slot": "state_disbursement",
+          "state": "verified_primary_extract",
+          "amountBRL": 518432.07,
+          "date": "10/07/2026",
+          "reference": "FM02-FIPLAN-PREBA-04",
+          "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+          "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+          "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+        },
+        {
+          "slot": "municipal_ingress",
+          "state": "corroborated_public_revenue_label",
+          "amountBRL": 518432.07,
+          "date": null,
+          "reference": "CE-057",
+          "sourcePath": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T22-59-19Z.html",
+          "sourceSha256": "07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914",
+          "qualification": "Rubrica municipal de estádio e valor coincidem; falta reconciliação por extrato bancário."
+        },
+        {
+          "slot": "municipal_expenditure",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "supplier_payment",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        },
+        {
+          "slot": "final_delivery",
+          "state": "not_documented",
+          "amountBRL": null,
+          "date": null,
+          "reference": null,
+          "sourcePath": null,
+          "sourceSha256": null,
+          "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+        }
+      ],
+      "contextFacts": [
+        {
+          "kind": "distinct_transaction_excluded",
+          "date": "2026-07-10",
+          "evidenceId": "CE-029",
+          "caveat": "Excluir R$ 400.000,00 do mercado municipal, pertencente a outro instrumento; CE-029 é o registro municipal amplo, sem duplicar sua fatia."
+        }
+      ],
+      "action": "Identificação da receita municipal na conta específica, pagamentos do estádio, termo formal SETRE e medições, sem somar o mercado.",
+      "diligencePriority": [
+        "Processo SEI integral 069.1475.2026.0002965-01",
+        "Termo de convênio/instrumento formal correspondente à rubrica municipal 'Convênio Estadual 28/2026'",
+        "Plano de Trabalho e cronograma físico-financeiro/prefixado",
+        "Contratação da empresa executora, adjudicação, homologação e contrato",
+        "AIO/Ordem de Serviço",
+        "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização",
+        "Processo de liquidação/liberação do pagamento de R$ 518.432,07 e parecer jurídico-eleitoral"
+      ],
+      "status": "partial_source_based_no_supplier_evidence",
+      "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+    }
+  ],
+  "nonConclusions": [
+    "A comparação de valores não comprova identidade bancária.",
+    "Não há documentação suficiente para apontar fornecedor pago, financiamento de campanha ou compra de votos.",
+    "A ausência de ato localizado não demonstra inexistência."
+  ]
+}

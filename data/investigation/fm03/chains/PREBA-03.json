@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "chainId": "FM03-PREBA-03",
+  "caseId": "PREBA-03",
+  "municipality": "Araçás",
+  "inst": "21301.0001.26.0000276-0",
+  "bankOrder": "21301.0001.26.0002296-8",
+  "observedStateDisbursementBRL": 8146.7,
+  "integrity": {
+    "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+    "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+    "fullOriginalZipPresent": false
+  },
+  "steps": [
+    {
+      "slot": "state_disbursement",
+      "state": "verified_primary_extract",
+      "amountBRL": 8146.7,
+      "date": "10/07/2026",
+      "reference": "FM02-FIPLAN-PREBA-03",
+      "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+      "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+      "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+    },
+    {
+      "slot": "municipal_ingress",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "municipal_expenditure",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "supplier_payment",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "final_delivery",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    }
+  ],
+  "contextFacts": [
+    {
+      "kind": "published_procurement",
+      "date": "2026-07-10",
+      "evidenceId": "CE-056",
+      "caveat": "O edital não demonstra recebimento de pagamentos por contratado."
+    }
+  ],
+  "action": "Histórico integral do instrumento, natureza do lançamento de R$ 8.146,70, receitas, contrato, AIO e medições.",
+  "diligencePriority": [
+    "Histórico integral FIPLAN do instrumento 21301.0001.26.0000276-0, incluindo todos os repasses anteriores e posteriores",
+    "Processo SEI integral 069.1479.2026.0003119-33",
+    "Plano de Trabalho e cronograma físico-financeiro/cronograma prefixado",
+    "Autorização de Início de Obra (AIO), Ordem de Serviço e contrato de execução",
+    "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização de engenharia",
+    "Processo municipal 131/2026 / Concorrência 007/2026 completo, inclusive adjudicação, homologação e contrato"
+  ],
+  "status": "partial_source_based_no_supplier_evidence",
+  "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+}
