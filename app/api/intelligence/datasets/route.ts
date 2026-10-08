@@ -19,6 +19,7 @@ import prebaAracasPackage from '@/data/investigation/preba-package-03-aracas-202
 import prebaJaguaquaraPackage from '@/data/investigation/preba-package-04-jaguaquara-2026-10-07.json';
 import prebaFinalRepresentation from '@/data/investigation/preba-final-representation-2026-10-07.json';
 import prebaFinalAnnexIndex from '@/data/investigation/preba-final-annex-index-2026-10-07.json';
+import prebaProtocolRelease from '@/data/investigation/preba-protocol-release-2026-10-08.json';
 
 export const runtime = 'nodejs';
 
@@ -41,6 +42,7 @@ const datasets = {
   'preba-package-04-jaguaquara': prebaJaguaquaraPackage,
   'preba-final-representation': prebaFinalRepresentation,
   'preba-final-annex-index': prebaFinalAnnexIndex,
+  'preba-protocol-release': prebaProtocolRelease,
 } as const;
 
 type DatasetName = keyof typeof datasets;
