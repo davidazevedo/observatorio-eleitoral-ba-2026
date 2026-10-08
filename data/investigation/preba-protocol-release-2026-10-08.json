@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "PREBA-PROTOCOL-RELEASE-2026-10-08",
+  "generatedDate": "2026-10-08",
+  "status": "ready_for_news_of_fact_protocol",
+  "globalCompletionPercent": 100,
+  "destination": "Ministério Público Eleitoral — Procuradoria Regional Eleitoral na Bahia (PRE-BA)",
+  "representative": "David Pereira de Azevedo",
+  "documentType": "noticia_de_fato_ou_representacao_para_apuracao",
+  "definitiveAccusationReady": false,
+  "protocolChannel": {
+    "citizen": "Sala de Atendimento ao Cidadão do Ministério Público Federal",
+    "existingProceeding": "Peticionamento Eletrônico do MPF",
+    "institutionalPage": "https://www.mpf.mp.br/atuacao/eleitoral/pre-ba",
+    "attendancePage": "https://www.mpf.mp.br/o-mpf/unidades/pr-ba/municipios/procuradoria-da-republica-na-bahia-salvador",
+    "preAddress": "1ª Avenida do CAB, 150 - TRE, Salvador/BA",
+    "phones": ["(71) 3338-1800", "(71) 3373-7015"]
+  },
+  "artifacts": {
+    "mainEditable": "00_REPRESENTACAO_PREBA_2026-10-08.docx",
+    "mainPdf": "00_REPRESENTACAO_PREBA_2026-10-08.pdf",
+    "combinedPdf": "PACOTE_UNICO_PREBA_2026-10-08.pdf",
+    "zip": "PACOTE_PROTOCOLO_PREBA_2026-10-08.zip",
+    "annexIndex": "00_INDICE_PROTOCOLO_PREBA.pdf",
+    "checklist": "00_CHECKLIST_PROTOCOLO.txt",
+    "checksumManifest": "00_SHA256_DELIVERABLES.txt"
+  },
+  "qa": {
+    "mainDocumentPages": 8,
+    "combinedPackagePages": 19,
+    "annexesRendered": 10,
+    "docxVisualReview": "passed",
+    "pdfRenderReview": "passed",
+    "runtimeErrorsAtPortalRelease": 0
+  },
+  "annexRule": "Os anexos técnicos 01-05 e 10 possuem guia humano no pacote final. Para protocolo, deve ser anexada também a exportação integral do arquivo canônico versionado indicado em cada guia, preservando nome/hash quando aplicável.",
+  "finalBoundary": "Pacote pronto para notícia de fato/representação destinada à apuração e requisição de documentos. Não representa acusação definitiva nem conclusão de ilícito."
+}
