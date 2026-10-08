@@ -1100,14 +1100,14 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FOLLOW THE MONEY · ROTEIRO DE 90 DIAS</p><h2>Etapa 01 — Segurança, preservação e sincronização</h2><small>{data.followMoneyRoadmap.roadmapId} · atualização {data.followMoneyRoadmap.updatedDate}</small></div>
-                  <span className="housing-exception-pending">ETAPA 01/07</span>
+                  <span className="housing-exception-pending">FM-01 · EM VALIDAÇÃO</span>
                 </div>
                 <p>Os 57 fatos centrais estão versionados individualmente e disponíveis na API autenticada desta release. O espelhamento no Blob privado é uma operação separada: só conta como concluído após a API confirmar os registros.</p>
                 <div className="intel-metrics-grid">
                   <article><span>Fichas no Git</span><strong>{data.centralEvidenceLedgerSummary.versioned}/57</strong><small>CE-001 a CE-057</small></article>
                   <article><span>Consulta API</span><strong>57</strong><small>GET /api/intelligence/evidence (chave)</small></article>
                   <article><span>Blob espelhado</span><strong>{centralEvidenceMirrorCount}/57</strong><small>confirmado no armazenamento privado</small></article>
-                  <article><span>Fases do roadmap</span><strong>1/7</strong><small>em execução; demais aguardam</small></article>
+                  <article><span>Fases em execução</span><strong>{data.followMoneyRoadmap.stages.filter(p=>p.status==='in_progress').length}/7</strong><small>status independente por etapa</small></article>
                 </div>
                 <p className="private-report-note"><strong>Limite probatório:</strong> as 57 fichas derivam de manifests. Não constituem 57 arquivos oficiais originais. A fonte primária deve ser anexada e conferida antes de qualquer imputação.</p>
                 <button type="button" disabled={centralEvidenceSyncing} onClick={synchronizeCentralEvidence}>
@@ -1116,7 +1116,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 {centralEvidenceSyncMessage?<p role="status">{centralEvidenceSyncMessage}</p>:null}
                 <div className="private-grid-two" style={{marginTop:'18px'}}>
                   {data.followMoneyRoadmap.stages.map(phase=><article className="private-panel" key={phase.id}>
-                    <div className="private-panel-title"><div><p className="eyebrow">{phase.id} · {phase.start} — {phase.end}</p><h2>{phase.title}</h2></div><span className={phase.status==='pending'?'housing-exception-pending':'housing-status-ok'}>{phase.status==='pending'?'AGUARDANDO':'EM EXECUÇÃO'}</span></div>
+                    <div className="private-panel-title"><div><p className="eyebrow">{phase.id} · {phase.start} — {phase.end}</p><h2>{phase.title}</h2></div><span className={phase.status==='pending'?'housing-exception-pending':'housing-status-ok'}>{phase.status==='pending'?'AGUARDANDO':phase.status==='in_progress'?'EM EXECUÇÃO':'CONCLUÍDO'}</span></div>
                     <ul>{phase.deliverables.map(item=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{phase.gate}</p>
                   </article>)}
                 </div>

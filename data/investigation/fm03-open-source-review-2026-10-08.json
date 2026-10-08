@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "logId": "FM03-PUBLIC-SOURCE-REVIEW-2026-10-08",
+  "reviewDate": "2026-10-08",
+  "premise": "Consultas adicionais para identificar contratação e pagamentos. Resultados indexados de terceiros não são prova de pagamento e não recebem novo ID CE.",
+  "findings": [
+    {
+      "municipality": "Lajedo do Tabocal",
+      "topic": "Concorrência 04/2026",
+      "officialRecord": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+      "secondaryReference": "https://buscarlicitacao.com.br/licitacao/ba/lajedo-do-tabocal/16434441000131-1-000026/2026/concorrencia-eletronica-edital-no-042026",
+      "fact": "Edital e anexo de projetos listados; publicação julho 2026",
+      "newSupplierPaymentFound": false,
+      "evidenceImpact": "Confirma necessidade de processo, contratação efetiva e pagamentos, sem atribuir fornecedor."
+    },
+    {
+      "municipality": "Araçás",
+      "topic": "Concorrência 007/2026",
+      "officialRecord": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+      "secondaryReference": "https://licitachei.iagenes.com.br/licitacao/2405365",
+      "fact": "Portal secundário reproduz dados de publicação e edital",
+      "newSupplierPaymentFound": false,
+      "evidenceImpact": "Sem nome de contratado ou pagamento comprovado, manter cadeia financeira aberta."
+    },
+    {
+      "municipality": "Belo Campo",
+      "topic": "Evento Cavalgada",
+      "officialRecord": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "secondaryReference": null,
+      "fact": "Prefeitura confirmou realização em 07/06, sem indicar fluxo de despesa de convênio 01/2026",
+      "newSupplierPaymentFound": false,
+      "evidenceImpact": "Documento corrobora evento, não pagamento a prestador."
+    },
+    {
+      "municipality": "Jaguaquara",
+      "topic": "Receita estadual estádio",
+      "officialRecord": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "secondaryReference": null,
+      "fact": "Rubrica municipal de estádio já documentada; contrato e pagamentos a executores não localizados no pacote",
+      "newSupplierPaymentFound": false,
+      "evidenceImpact": "Requisitar extrato específico, despesas e execução."
+    }
+  ],
+  "boundary": "Resultado de busca não equivale a busca exaustiva em todos os portais. Nenhuma informação permite afirmar inexistência de gasto ou irregularidade."
+}

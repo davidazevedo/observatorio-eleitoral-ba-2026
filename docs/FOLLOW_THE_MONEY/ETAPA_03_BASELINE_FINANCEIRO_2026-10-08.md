@@ -32,3 +32,6 @@ O run GitHub Actions 37856820039 finalizou com **falha na etapa de commit/push**
 
 ## Critério de fechamento
 Somente marcar FM-03 concluída quando existirem documentos que sustentem a destinação municipal e os pagamentos, ou resposta oficial indicando formalmente o que não foi fornecido. Relação financeira protegida só pode ser buscada por autoridade com competência legal.
+
+## Pesquisa pública complementar
+Arquivo `data/investigation/fm03-open-source-review-2026-10-08.json` registra referências oficiais e indexadores secundários. Nenhum pagamento a fornecedor foi identificado com prova primária; fontes secundárias são apenas pistas de acesso às publicações e não substituem nota fiscal, empenho, liquidação ou ordem bancária.
