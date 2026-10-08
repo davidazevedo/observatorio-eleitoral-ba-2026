@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "ledgerId": "FM02-DOCUMENTARY-CLOSURE-2026-10-08",
+  "registeredDate": "2026-10-08",
+  "phase": "FM-02",
+  "phaseStatus": "in_progress",
+  "sourceOfTruth": "Quatro dossiês PREBA versionados + pagamento CSV.gz FIPLAN preservado",
+  "totalCases": 4,
+  "totalFinancialPrimaryRows": 4,
+  "totalSourceReferences": 15,
+  "verifiedSourceArchiveInThisStage": {
+    "fiplanFilteredPaymentsInGit": true,
+    "externalOfficialPdfBinaryCount": 0,
+    "additionalExternalWebBinaryCount": 0
+  },
+  "safeguards": {
+    "journalisticBoundary": "Somente pagamentos e cronologias documentadas, sem juízo sobre corrupção, compra de votos ou financiamento eleitoral.",
+    "absenceBoundary": "Não localizado em fontes públicas não significa inexistente.",
+    "supplierBoundary": "Nenhuma relação com fornecedor eleitoral/campanha é estabelecida sem fluxo financeiro comprovado.",
+    "agencyBoundary": "Convênio municipal 28/2026 de Jaguaquara não deve ser atribuído à SUDESB — número 28 da SUDESB corresponde a Ibititá.",
+    "aracasBoundary": "Pagamento R$ 8.146,70 não coincide com primeira parcela R$ 292.514,22; não confluir valores."
+  },
+  "cases": [
+    {
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "identifiers": {
+        "agreement": "Convênio SUDESB 32/2026",
+        "seiProcess": "069.1479.2026.0002857-54",
+        "seiDocument": "00142991035",
+        "seiCrc": "2842D758",
+        "fiplanInstrument": "21301.0001.26.0000299-1",
+        "fiplanBankOrder": "21301.0001.26.0002162-7",
+        "procurement": "Concorrência Eletrônica 04/2026",
+        "municipalProcess": "015/2026 - SEMINF",
+        "pncpControl": "16434441000131-1-000026/2026"
+      },
+      "financial": {
+        "agreementValueBRL": 3020421.46,
+        "firstInstallmentBRL": 49946.15,
+        "criticalPeriodPaymentBRL": 49946.15,
+        "paymentDate": "2026-07-06"
+      },
+      "chronology": [
+        {
+          "date": "2026-06-19",
+          "event": "Parecerista/Procuradoria da SUDESB assinou eletronicamente o termo.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-LAJ-SUDESB-TERM"
+        },
+        {
+          "date": "2026-06-30",
+          "event": "Diretor-Geral da SUDESB e representante do Município assinaram eletronicamente o Convênio 32/2026.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-LAJ-SUDESB-TERM"
+        },
+        {
+          "date": "2026-07-01",
+          "event": "Publicação do instrumento registrada na base investigativa consolidada; a eficácia do convênio dependia da publicação do extrato no DOE.",
+          "evidentiaryRole": "documented_fact_pending_primary_publication_preservation",
+          "sourceId": "SRC-LAJ-FIPLAN-PRESERVED",
+          "note": "A página oficial da SUDESB lista links de PUBLICAÇÃO e PUBLICAÇÃO ERRATA para o Convênio 32/2026. O arquivo específico de publicação/errata ainda deve ser preservado no pacote."
+        },
+        {
+          "date": "2026-07-04",
+          "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+          "evidentiaryRole": "legal_milestone",
+          "sourceId": "LEGAL-TSE-23760-2026"
+        },
+        {
+          "date": "2026-07-06",
+          "event": "FIPLAN registra pagamento efetivado de R$ 49.946,15 no instrumento 21301.0001.26.0000299-1, valor idêntico à primeira parcela do Convênio 32/2026.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-031"
+        },
+        {
+          "date": "2026-07-13",
+          "event": "Publicação da Concorrência Eletrônica 04/2026 para contratação da empresa executora da reforma do mesmo estádio/Convênio 32/2026, conforme registro PNCP consolidado.",
+          "evidentiaryRole": "documented_fact_pending_pncp_snapshot_hash",
+          "sourceId": "CE-052"
+        },
+        {
+          "date": "2026-07-27",
+          "event": "Data prevista para abertura/recebimento de propostas da Concorrência Eletrônica 04/2026.",
+          "evidentiaryRole": "procurement_milestone",
+          "sourceId": "SRC-LAJ-PNCP-CE04"
+        }
+      ],
+      "evidenceMatrix": [
+        {
+          "evidenceId": "CE-031",
+          "assertion": "Pagamento de R$ 49.946,15 foi efetivado em 06/07/2026.",
+          "whatItProves": "Existência, valor e data do repasse no período posterior a 04/07.",
+          "whatItDoesNotProve": "Não prova ilegalidade, finalidade eleitoral, ausência de exceção legal ou ausência de execução física anterior.",
+          "integrityStatus": "preserved_and_hashed"
+        },
+        {
+          "evidenceId": "CE-051",
+          "assertion": "O Convênio 32/2026 fixa R$ 49.946,15 como primeira parcela; veda atividade do plano antes do início do repasse; e veda iniciar o objeto antes de AIO, ressalvadas despesas preparatórias específicas.",
+          "whatItProves": "Regras contratuais do próprio instrumento sobre início das atividades, liberação da primeira parcela e autorização de início.",
+          "whatItDoesNotProve": "Não prova que a AIO não existiu, nem exclui por si só eventual enquadramento jurídico excepcional.",
+          "integrityStatus": "official_sei_verification_available_hash_pending_local_preservation"
+        },
+        {
+          "evidenceId": "CE-052",
+          "assertion": "A Concorrência Eletrônica 04/2026 para o mesmo objeto foi publicada após o repasse, em 13/07/2026.",
+          "whatItProves": "A contratação pública identificada para execução integral do objeto aparece documentalmente depois de 04/07 e depois do pagamento de 06/07.",
+          "whatItDoesNotProve": "Não prova inexistência de contrato, execução ou solução juridicamente válida anterior que ainda não tenha sido localizada.",
+          "integrityStatus": "official_identifier_known_snapshot_hash_pending"
+        }
+      ],
+      "primaryFiplanSliceId": "FM02-FIPLAN-PREBA-01",
+      "sources": [
+        "SRC-LAJ-FIPLAN-PRESERVED",
+        "SRC-LAJ-SUDESB-TERM",
+        "SRC-LAJ-SUDESB-INDEX",
+        "SRC-LAJ-PNCP-CE04"
+      ],
+      "p0Gaps": [
+        {
+          "priority": "P0",
+          "document": "Processo SEI integral 069.1479.2026.0002857-54",
+          "reason": "Permite verificar motivação, pareceres, plano, cronograma, liberação, fiscalização e eventuais justificativas eleitorais."
+        },
+        {
+          "priority": "P0",
+          "document": "Plano de Trabalho aprovado e cronograma físico-financeiro/cronograma prefixado",
+          "reason": "Documento incorporado ao convênio e indispensável para testar a exceção legal."
+        },
+        {
+          "priority": "P0",
+          "document": "Autorização de Início de Obra (AIO) e eventual Ordem de Serviço",
+          "reason": "O próprio termo condiciona o início do objeto à AIO; data e conteúdo são decisivos."
+        },
+        {
+          "priority": "P0",
+          "document": "Primeira medição, boletim de medição, diário de obra, relatório fotográfico e fiscalização de engenharia",
+          "reason": "Permitem determinar objetivamente a data de início da execução física."
+        },
+        {
+          "priority": "P0",
+          "document": "Processo administrativo que autorizou/liberou a primeira parcela em 06/07, inclusive parecer jurídico sobre o art. 73, VI, a",
+          "reason": "Esclarece o fundamento concreto adotado pelo Estado para liberar o recurso já no período vedado."
+        }
+      ],
+      "p1Gaps": [
+        {
+          "priority": "P1",
+          "document": "Extrato de publicação do Convênio 32/2026 e respectiva errata, preservados integralmente",
+          "reason": "A página oficial da SUDESB aponta publicação e errata; é necessário conferir se a errata altera dado relevante da cronologia."
+        },
+        {
+          "priority": "P1",
+          "document": "Histórico integral de pagamentos do instrumento FIPLAN e NOB 21301.0001.26.0002162-7",
+          "reason": "Confirma a natureza da parcela, a ordem cronológica dos repasses e os atos de liquidação/pagamento."
+        },
+        {
+          "priority": "P1",
+          "document": "Processo municipal 015/2026-SEMINF / Concorrência Eletrônica 04/2026 completo",
+          "reason": "Deve conter DFD/ETP, projeto, pareceres, edital, atas, propostas, adjudicação, homologação e contrato."
+        },
+        {
+          "priority": "P1",
+          "document": "Contrato de execução, designações de gestor/fiscal, ART/RRT e CNO, se existentes",
+          "reason": "Consolidam quem executou e desde quando a obra poderia ter iniciado materialmente."
+        },
+        {
+          "priority": "P1",
+          "document": "Extratos da conta específica do convênio estritamente no período necessário à apuração",
+          "reason": "Permitem verificar ingresso e aplicação dos recursos sem extrapolar o objeto investigado."
+        }
+      ],
+      "requests": [
+        {
+          "recipient": "SUDESB / Governo do Estado da Bahia",
+          "request": "Encaminhar cópia integral do Processo SEI 069.1479.2026.0002857-54, inclusive Plano de Trabalho, cronogramas, pareceres, AIO, fiscalização, atestes, processo da liberação de 06/07 e justificativa de enquadramento no período eleitoral."
+        },
+        {
+          "recipient": "Município de Lajedo do Tabocal",
+          "request": "Encaminhar íntegra do processo 015/2026-SEMINF/Concorrência 04/2026, contrato, OS, AIO recebida, diário de obra, medições, ART/RRT, CNO e registros que indiquem a data efetiva de início físico."
+        },
+        {
+          "recipient": "SEFAZ/FIPLAN",
+          "request": "Certificar o histórico integral do instrumento 21301.0001.26.0000299-1 e da NOB 21301.0001.26.0002162-7, qualificando natureza, data de emissão, liquidação, efetivação e identificação da parcela."
+        },
+        {
+          "recipient": "SUDESB / DOE Bahia",
+          "request": "Fornecer o extrato original de publicação do Convênio 32/2026 e a errata indicada no portal oficial, com respectivas datas."
+        }
+      ],
+      "legalBoundary": "O pacote documenta fatos, uma aparente incompatibilidade temporal/documental e lacunas que justificam apuração. Não afirma, por si só, ocorrência de ilícito eleitoral, abuso, dolo ou desvio de finalidade.",
+      "completenessState": "financial_payment_row_verified_external_originals_pending",
+      "primaryArchiveReady": false
+    },
+    {
+      "caseId": "PREBA-02",
+      "municipality": "Belo Campo",
+      "identifiers": {
+        "agreement": "Convênio SEAGRI 01/2026",
+        "seiProcess": "010.9156.2025.0002545-71",
+        "fiplanInstrument": "10101.0001.26.0000079-3",
+        "fiplanBankOrder": "10101.0001.26.0001454-0",
+        "parliamentaryAmendment": "202535680003"
+      },
+      "financial": {
+        "agreementValueBRL": 290000,
+        "stateContributionBRL": 200000,
+        "municipalCounterpartBRL": 90000,
+        "criticalPeriodPaymentBRL": 200000,
+        "paymentDate": "2026-07-08"
+      },
+      "chronology": [
+        {
+          "date": "2026-06-02",
+          "event": "Assinatura do Convênio SEAGRI 01/2026 entre o Estado da Bahia/SEAGRI e o Município de Belo Campo.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-BELO-DOE-CONVENIO"
+        },
+        {
+          "date": "2026-06-03",
+          "event": "Publicação do resumo do Convênio 01/2026 no Diário Oficial do Estado, com objeto, valor, fonte e vigência.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-054"
+        },
+        {
+          "date": "2026-06-03",
+          "event": "A Prefeitura anunciou oficialmente a realização da Cavalgada para 07/06 e informou apoio do Governo do Estado por meio da SEAGRI.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-BELO-PREFEITURA-PREVIA"
+        },
+        {
+          "date": "2026-06-07",
+          "event": "A Cavalgada - A Tradição do Vaqueiro foi realizada em Belo Campo.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-053"
+        },
+        {
+          "date": "2026-06-10",
+          "event": "Notícia municipal posterior registrou a realização do evento, público aproximado de 11 mil pessoas e apoio da SEAGRI.",
+          "evidentiaryRole": "independent_municipal_corroboration",
+          "sourceId": "SRC-BELO-PREFEITURA-POS"
+        },
+        {
+          "date": "2026-07-04",
+          "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+          "evidentiaryRole": "legal_milestone",
+          "sourceId": "LEGAL-TSE-23760-2026"
+        },
+        {
+          "date": "2026-07-08",
+          "event": "FIPLAN registra pagamento efetivado de R$ 200.000,00 no instrumento 10101.0001.26.0000079-3, correspondente à participação estadual indicada no Convênio 01/2026.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-019"
+        }
+      ],
+      "evidenceMatrix": [
+        {
+          "evidenceId": "CE-019",
+          "assertion": "Pagamento de R$ 200.000,00 foi efetivado em 08/07/2026.",
+          "whatItProves": "Existência, valor e data do repasse no período posterior a 04/07.",
+          "whatItDoesNotProve": "Não prova que o fluxo seja juridicamente transferência voluntária sujeita ao art. 73, VI, a, nem prova ilegalidade ou finalidade eleitoral.",
+          "integrityStatus": "preserved_and_hashed"
+        },
+        {
+          "evidenceId": "CE-053",
+          "assertion": "A Cavalgada financiada pelo Convênio SEAGRI 01/2026 foi realizada em 07/06/2026.",
+          "whatItProves": "O objeto principal publicamente identificado como o evento já havia ocorrido antes de 04/07 e antes do pagamento de 08/07.",
+          "whatItDoesNotProve": "Não demonstra quais obrigações contratuais acessórias permaneciam pendentes, nem a data de execução de cada despesa ou serviço individual do plano de trabalho.",
+          "integrityStatus": "official_municipal_source_snapshot_hash_pending"
+        },
+        {
+          "evidenceId": "CE-054",
+          "assertion": "O Convênio SEAGRI 01/2026 destinou R$ 200.000,00 estaduais ao apoio da Cavalgada de Belo Campo, dentro de valor global de R$ 290.000,00.",
+          "whatItProves": "Vínculo entre Estado, Município, objeto do evento e valor da participação estadual; registra assinatura em 02/06 e vigência até 30/09.",
+          "whatItDoesNotProve": "Não contém, no resumo publicado, o plano de trabalho, cronograma financeiro detalhado, cláusulas de liberação ou a motivação jurídica específica do pagamento de 08/07.",
+          "integrityStatus": "official_publication_text_corroborated_snapshot_hash_pending"
+        }
+      ],
+      "primaryFiplanSliceId": "FM02-FIPLAN-PREBA-02",
+      "sources": [
+        "SRC-BELO-FIPLAN-PRESERVED",
+        "SRC-BELO-DOE-CONVENIO",
+        "SRC-BELO-PREFEITURA-PREVIA",
+        "SRC-BELO-PREFEITURA-POS"
+      ],
+      "p0Gaps": [
+        {
+          "priority": "P0",
+          "document": "Processo SEI integral 010.9156.2025.0002545-71",
+          "reason": "Permite verificar plano de trabalho, cronograma, cláusulas de liberação, pareceres e motivação do pagamento."
+        },
+        {
+          "priority": "P0",
+          "document": "Plano de Trabalho aprovado, cronograma de execução e cronograma de desembolso",
+          "reason": "Define exatamente quais serviços/etapas eram financiados e se algum permanecia em andamento em 04/07."
+        },
+        {
+          "priority": "P0",
+          "document": "Processo administrativo de liquidação/liberação dos R$ 200.000,00 em 08/07 e parecer jurídico eleitoral",
+          "reason": "Esclarece o enquadramento adotado pela SEAGRI para efetuar o repasse no período vedado."
+        },
+        {
+          "priority": "P0",
+          "document": "Prestação de contas parcial/final do Convênio 01/2026, notas fiscais, contratos e comprovantes de execução",
+          "reason": "Permite identificar quando cada serviço foi executado e se o valor estadual financiou despesas anteriores, posteriores ou ambas."
+        },
+        {
+          "priority": "P0",
+          "document": "Classificação formal da natureza jurídica do repasse Estado→Município",
+          "reason": "É indispensável confirmar se o fluxo é transferência voluntária para fins do art. 73, VI, a ou se há fundamento legal para tratamento diverso."
+        }
+      ],
+      "p1Gaps": [
+        {
+          "priority": "P1",
+          "document": "Histórico integral FIPLAN do instrumento 10101.0001.26.0000079-3 e NOB 10101.0001.26.0001454-0",
+          "reason": "Confirma emissão, liquidação, disponibilização e eventual existência de lançamentos anteriores."
+        },
+        {
+          "priority": "P1",
+          "document": "Contratações municipais vinculadas à Cavalgada — artistas, estrutura, alimentação, premiação, logística e demais itens do plano",
+          "reason": "Ajuda a reconstruir a execução física e financeira do objeto e a separar obrigações concluídas de eventuais obrigações remanescentes."
+        }
+      ],
+      "requests": [
+        {
+          "recipient": "SEAGRI / Governo do Estado da Bahia",
+          "request": "Encaminhar cópia integral do Processo SEI 010.9156.2025.0002545-71, incluindo Convênio completo, Plano de Trabalho, cronogramas, pareceres, processo de liquidação/pagamento de 08/07 e fundamento jurídico-eleitoral da liberação."
+        },
+        {
+          "recipient": "Município de Belo Campo",
+          "request": "Encaminhar prestação de contas do Convênio 01/2026 e as contratações, notas fiscais, ordens de fornecimento/serviço e comprovantes relativos às despesas custeadas pelo aporte estadual."
+        },
+        {
+          "recipient": "SEFAZ/FIPLAN",
+          "request": "Certificar o histórico integral do instrumento 10101.0001.26.0000079-3 e da NOB 10101.0001.26.0001454-0, discriminando emissão, liquidação, efetivação e natureza do pagamento."
+        },
+        {
+          "recipient": "SEAGRI / Assessoria Jurídica",
+          "request": "Informar a classificação jurídica do repasse Estado→Município para fins do art. 73, VI, a, inclusive a relevância atribuída à origem orçamentária vinculada à transferência especial federal."
+        }
+      ],
+      "legalBoundary": "O pacote documenta a cronologia do Convênio SEAGRI 01/2026, a realização do evento e o pagamento posterior ao início do defeso. Não afirma, por si só, ilícito eleitoral, abuso, dolo, desvio de finalidade ou que o repasse necessariamente se enquadre como transferência voluntária sujeita ao art. 73, VI, a.",
+      "completenessState": "financial_payment_row_verified_external_originals_pending",
+      "primaryArchiveReady": false
+    },
+    {
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "identifiers": {
+        "agreement": "Convênio SUDESB 31/2026",
+        "seiProcess": "069.1479.2026.0003119-33",
+        "seiDocument": "00142985210",
+        "seiCrc": "86E7C460",
+        "fiplanInstrument": "21301.0001.26.0000276-0",
+        "procurement": "Concorrência Eletrônica 007/2026",
+        "municipalProcess": "131/2026",
+        "pncpControl": "16131088000110-1-000007/2026"
+      },
+      "financial": {
+        "agreementValueBRL": 732421.46,
+        "firstInstallmentBRL": 292514.22,
+        "locatedCriticalPeriodPaymentBRL": 8146.7,
+        "locatedPaymentDate": "2026-07-10",
+        "paymentMatchesFirstInstallment": false
+      },
+      "chronology": [
+        {
+          "date": "2026-06-19",
+          "event": "Procuradoria da SUDESB assinou eletronicamente o Termo de Convênio 31/2026.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-ARA-SUDESB-TERM"
+        },
+        {
+          "date": "2026-06-25",
+          "event": "Diretor-Geral da SUDESB e Prefeito de Araçás assinaram eletronicamente o Convênio 31/2026.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-ARA-SUDESB-TERM"
+        },
+        {
+          "date": "2026-06-26",
+          "event": "Publicação do instrumento registrada na base investigativa consolidada.",
+          "evidentiaryRole": "documented_fact_pending_primary_publication_preservation",
+          "sourceId": "SRC-ARA-SUDESB-INDEX"
+        },
+        {
+          "date": "2026-07-04",
+          "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+          "evidentiaryRole": "legal_milestone",
+          "sourceId": "LEGAL-TSE-23760-2026"
+        },
+        {
+          "date": "2026-07-10",
+          "event": "FIPLAN registra pagamento efetivado de R$ 8.146,70 no instrumento 21301.0001.26.0000276-0.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-016",
+          "note": "O valor não coincide com a primeira parcela contratual de R$ 292.514,22; o histórico integral de repasses é indispensável."
+        },
+        {
+          "date": "2026-07-10",
+          "event": "Publicação no PNCP da Concorrência Eletrônica 007/2026 para executar a implantação de grama sintética da Areninha Society, valor estimado de R$ 732.421,46.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-056"
+        },
+        {
+          "date": "2026-07-27",
+          "event": "Data de encerramento/abertura competitiva informada para a Concorrência 007/2026.",
+          "evidentiaryRole": "procurement_milestone",
+          "sourceId": "SRC-ARA-PNCP-007"
+        }
+      ],
+      "evidenceMatrix": [
+        {
+          "evidenceId": "CE-016",
+          "assertion": "Pagamento FIPLAN de R$ 8.146,70 foi efetivado em 10/07/2026 no instrumento 21301.0001.26.0000276-0.",
+          "whatItProves": "Existência, valor e data de pelo menos um pagamento ligado ao instrumento durante o período posterior a 04/07.",
+          "whatItDoesNotProve": "Não prova que esse valor seja a primeira parcela, nem revela sozinho o histórico integral dos repasses, a finalidade específica desse lançamento ou eventual enquadramento em exceção legal.",
+          "integrityStatus": "preserved_and_hashed"
+        },
+        {
+          "evidenceId": "CE-055",
+          "assertion": "O Convênio 31/2026 fixa primeira parcela de R$ 292.514,22, veda qualquer atividade prevista no plano antes do início do repasse e veda iniciar o objeto antes da AIO, salvo despesas preparatórias delimitadas.",
+          "whatItProves": "As regras contratuais do próprio instrumento sobre liberação, execução e autorização de início da obra.",
+          "whatItDoesNotProve": "Não prova que nenhuma AIO/OS tenha sido emitida antes de 04/07 e não identifica, por si só, a natureza do lançamento FIPLAN de R$ 8.146,70.",
+          "integrityStatus": "official_sei_verification_available_hash_pending_local_preservation"
+        },
+        {
+          "evidenceId": "CE-056",
+          "assertion": "A Concorrência Eletrônica 007/2026, Processo 131/2026, destinada à execução da obra da Areninha, foi publicada em 10/07/2026 pelo valor estimado de R$ 732.421,46.",
+          "whatItProves": "A contratação pública localizada para execução integral do objeto aparece documentalmente após 04/07.",
+          "whatItDoesNotProve": "Não prova que nenhuma contratação, AIO, OS ou execução física válida anterior existisse por outra via documental ainda não localizada.",
+          "integrityStatus": "official_identifier_known_snapshot_hash_pending"
+        }
+      ],
+      "primaryFiplanSliceId": "FM02-FIPLAN-PREBA-03",
+      "sources": [
+        "SRC-ARA-FIPLAN-PRESERVED",
+        "SRC-ARA-SUDESB-TERM",
+        "SRC-ARA-SUDESB-INDEX",
+        "SRC-ARA-PNCP-007"
+      ],
+      "p0Gaps": [
+        {
+          "priority": "P0",
+          "document": "Histórico integral FIPLAN do instrumento 21301.0001.26.0000276-0, incluindo todos os repasses anteriores e posteriores",
+          "reason": "O pagamento localizado de R$ 8.146,70 não coincide com a primeira parcela de R$ 292.514,22; sem o histórico integral não é possível reconstruir o fluxo."
+        },
+        {
+          "priority": "P0",
+          "document": "Processo SEI integral 069.1479.2026.0003119-33",
+          "reason": "Permite verificar plano de trabalho, cronograma, pareceres, AIO, liberação, fiscalização e eventual fundamento de exceção."
+        },
+        {
+          "priority": "P0",
+          "document": "Plano de Trabalho e cronograma físico-financeiro/cronograma prefixado",
+          "reason": "É parte vinculada ao convênio e essencial para testar os requisitos da exceção eleitoral."
+        },
+        {
+          "priority": "P0",
+          "document": "Autorização de Início de Obra (AIO), Ordem de Serviço e contrato de execução",
+          "reason": "Fixam a possibilidade jurídica e material de início da obra e permitem comparar a data com 04/07."
+        },
+        {
+          "priority": "P0",
+          "document": "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização de engenharia",
+          "reason": "Permitem determinar objetivamente quando começou a execução física."
+        },
+        {
+          "priority": "P0",
+          "document": "Processo municipal 131/2026 / Concorrência 007/2026 completo, inclusive adjudicação, homologação e contrato",
+          "reason": "A fonte pública localizada confirma o edital, mas não forneceu, no recorte pesquisado, cadeia completa de contratação e execução."
+        }
+      ],
+      "p1Gaps": [
+        {
+          "priority": "P1",
+          "document": "Extrato oficial de publicação do Convênio 31/2026 preservado integralmente",
+          "reason": "A base consolidada registra publicação em 26/06 e a página da SUDESB lista o ato; o arquivo deve integrar a cadeia probatória."
+        },
+        {
+          "priority": "P1",
+          "document": "Processo/parecer jurídico que fundamentou eventual liberação durante o período eleitoral",
+          "reason": "Esclarece qual exceção ou classificação jurídica foi adotada pela Administração."
+        }
+      ],
+      "requests": [
+        {
+          "recipient": "SUDESB / Governo do Estado da Bahia",
+          "request": "Encaminhar a íntegra do Processo SEI 069.1479.2026.0003119-33, incluindo Plano de Trabalho, cronogramas, AIO, pareceres, fiscalização e documentação de cada liberação financeira."
+        },
+        {
+          "recipient": "SEFAZ/FIPLAN",
+          "request": "Certificar o histórico integral do instrumento 21301.0001.26.0000276-0, identificando todas as NOBs, parcelas, datas de emissão, liquidação e efetivação, inclusive eventual repasse anterior a 04/07."
+        },
+        {
+          "recipient": "Município de Araçás",
+          "request": "Encaminhar íntegra do Processo 131/2026/Concorrência 007/2026, contrato, homologação, AIO/OS recebidas, diário de obra, medições, ART/RRT e registros do início físico."
+        },
+        {
+          "recipient": "SUDESB / Assessoria Jurídica",
+          "request": "Informar o fundamento jurídico-eleitoral aplicado a eventual repasse realizado após 04/07 e os documentos que demonstrariam os requisitos de eventual exceção."
+        }
+      ],
+      "legalBoundary": "O pacote documenta o Convênio SUDESB 31/2026, suas cláusulas de liberação/início, o pagamento FIPLAN localizado no período vedado e a contratação executora publicada em 10/07. Não afirma, por si só, ilícito eleitoral, ausência de execução anterior ou que o pagamento de R$ 8.146,70 corresponda à primeira parcela de R$ 292.514,22.",
+      "completenessState": "financial_payment_row_verified_external_originals_pending",
+      "primaryArchiveReady": false
+    },
+    {
+      "caseId": "PREBA-04",
+      "municipality": "Jaguaquara",
+      "identifiers": {
+        "municipalRevenueLabel": "Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara",
+        "seiProcess": "069.1475.2026.0002965-01",
+        "fiplanInstrument": "21301.0001.26.0000298-1",
+        "fiplanAgency": "SETRE",
+        "stateAgreementNumberAsMunicipalRevenue": "28/2026",
+        "agencyNumberingCaution": "A numeração 28/2026 não deve ser atribuída automaticamente à SUDESB: a página pública da SUDESB lista seu Convênio 28/2026 de 2026 para Ibititá. A identidade formal do convenente estadual de Jaguaquara deve ser confirmada no processo SEI."
+      },
+      "financial": {
+        "instrumentValueBRL": 4521941.37,
+        "stadiumPaymentBRL": 518432.07,
+        "stadiumPaymentDate": "2026-07-10",
+        "municipalRevenueCorroboratedBRL": 518432.07,
+        "totalJaguaquaraCriticalPeriodPaymentsBRL": 918432.07,
+        "otherKnownCriticalPeriodPaymentBRL": 400000,
+        "otherKnownInstrument": "18401.0001.26.0000276-2",
+        "otherKnownObject": "CONV 55/2026 - Mercado Municipal - implantação",
+        "separationRule": "O total municipal de R$ 918.432,07 não deve ser confundido com o caso do estádio. O núcleo deste pacote é exclusivamente o pagamento de R$ 518.432,07 do instrumento 21301.0001.26.0000298-1."
+      },
+      "chronology": [
+        {
+          "date": "2026-07-02",
+          "event": "Publicação do instrumento 21301.0001.26.0000298-1 registrada na base FIPLAN consolidada, vinculada ao objeto 'Construção de um Estádio' e ao Processo SEI 069.1475.2026.0002965-01.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "SRC-JAG-FIPLAN-PRESERVED"
+        },
+        {
+          "date": "2026-07-04",
+          "event": "Início do período de vedação às transferências voluntárias estaduais a municípios, ressalvadas as hipóteses legais.",
+          "evidentiaryRole": "legal_milestone",
+          "sourceId": "LEGAL-TSE-23760-2026"
+        },
+        {
+          "date": "2026-07-10",
+          "event": "FIPLAN registra pagamento efetivado de R$ 518.432,07 no instrumento 21301.0001.26.0000298-1.",
+          "evidentiaryRole": "documented_fact",
+          "sourceId": "CE-029-STADIUM-SLICE"
+        },
+        {
+          "date": "2026-10-06",
+          "event": "Portal municipal de receitas, atualizado em 06/10, identifica receita acumulada de R$ 518.432,07 como 'Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara'.",
+          "evidentiaryRole": "independent_municipal_corroboration",
+          "sourceId": "CE-057"
+        }
+      ],
+      "evidenceMatrix": [
+        {
+          "evidenceId": "CE-029",
+          "assertion": "Jaguaquara teve R$ 918.432,07 em pagamentos de convênios estaduais no período crítico dentro do lote FIPLAN preservado.",
+          "whatItProves": "Exposição financeira municipal agregada no período crítico.",
+          "whatItDoesNotProve": "Não significa que os R$ 918.432,07 pertençam ao caso do estádio; R$ 400.000,00 referem-se a outro instrumento/objeto.",
+          "integrityStatus": "preserved_and_hashed"
+        },
+        {
+          "evidenceId": "CE-029-STADIUM-SLICE",
+          "assertion": "Dentro do total de Jaguaquara, o instrumento 21301.0001.26.0000298-1 registra R$ 518.432,07 pagos em 10/07/2026 para o objeto 'Construção de um Estádio'.",
+          "whatItProves": "Valor, data, instrumento e objeto do pagamento específico analisado.",
+          "whatItDoesNotProve": "Não demonstra, sozinho, ausência de execução física anterior a 04/07, a parcela contratual correspondente ou a inexistência de exceção legal.",
+          "integrityStatus": "preserved_and_hashed"
+        },
+        {
+          "evidenceId": "CE-057",
+          "assertion": "O portal de receitas de Jaguaquara registra R$ 518.432,07 acumulados sob a rubrica 'Convênio Estadual 28/2026 - Construção de Estádio Município de Jaguaquara'.",
+          "whatItProves": "Corroboração independente, pelo próprio Município, do valor e do vínculo material entre a receita recebida e a construção do estádio.",
+          "whatItDoesNotProve": "Não identifica de forma suficiente, por si só, o órgão estadual convenente nem demonstra a data de início físico da obra.",
+          "integrityStatus": "official_municipal_source_live_snapshot_hash_pending"
+        },
+        {
+          "evidenceId": "CE-AGENCY-NUMBERING-CAUTION",
+          "assertion": "A página pública da SUDESB lista seu Convênio 28/2026 de 2026 como obra em Ibititá, enquanto a receita municipal de Jaguaquara usa a rubrica 'Convênio Estadual 28/2026'.",
+          "whatItProves": "A numeração 28/2026 não pode ser atribuída automaticamente à SUDESB sem o processo/termo específico de Jaguaquara.",
+          "whatItDoesNotProve": "Não invalida a receita municipal nem afasta eventual participação da estrutura SETRE/SUDESB; apenas impede atribuição institucional prematura.",
+          "integrityStatus": "public_crosscheck"
+        }
+      ],
+      "primaryFiplanSliceId": "FM02-FIPLAN-PREBA-04",
+      "sources": [
+        "SRC-JAG-FIPLAN-PRESERVED",
+        "SRC-JAG-MUNICIPAL-REVENUE",
+        "SRC-JAG-SUDESB-NUMBERING-CHECK"
+      ],
+      "p0Gaps": [
+        {
+          "priority": "P0",
+          "document": "Processo SEI integral 069.1475.2026.0002965-01",
+          "reason": "É a peça central para identificar convenente estadual, número formal do convênio, termo, plano, cronograma, pareceres e liberação."
+        },
+        {
+          "priority": "P0",
+          "document": "Termo de convênio/instrumento formal correspondente à rubrica municipal 'Convênio Estadual 28/2026'",
+          "reason": "Resolve a cautela de numeração e identifica corretamente órgão convenente, cláusulas e parcelas."
+        },
+        {
+          "priority": "P0",
+          "document": "Plano de Trabalho e cronograma físico-financeiro/prefixado",
+          "reason": "Permitem testar o requisito de cronograma e a etapa financiada pelos R$ 518.432,07."
+        },
+        {
+          "priority": "P0",
+          "document": "Contratação da empresa executora, adjudicação, homologação e contrato",
+          "reason": "Determinam quando surgiu a obrigação executiva concreta e quem poderia iniciar a obra."
+        },
+        {
+          "priority": "P0",
+          "document": "AIO/Ordem de Serviço",
+          "reason": "Define a autorização formal de início da obra e sua posição temporal frente a 04/07."
+        },
+        {
+          "priority": "P0",
+          "document": "Primeira medição, diário de obra, relatório fotográfico, ART/RRT e fiscalização",
+          "reason": "São as melhores provas objetivas para fixar a data de início físico da construção."
+        },
+        {
+          "priority": "P0",
+          "document": "Processo de liquidação/liberação do pagamento de R$ 518.432,07 e parecer jurídico-eleitoral",
+          "reason": "Esclarece o fundamento administrativo e legal adotado para liberar o recurso em 10/07."
+        }
+      ],
+      "p1Gaps": [
+        {
+          "priority": "P1",
+          "document": "Histórico integral FIPLAN do instrumento 21301.0001.26.0000298-1",
+          "reason": "Permite identificar repasses anteriores, parcelas, NOBs e cronologia financeira completa."
+        },
+        {
+          "priority": "P1",
+          "document": "Extratos da conta específica do convênio estritamente no período necessário à apuração",
+          "reason": "Corroboram ingresso e aplicação dos R$ 518.432,07 sem ampliar desnecessariamente o escopo."
+        }
+      ],
+      "requests": [
+        {
+          "recipient": "SETRE / unidade estadual responsável pelo Processo SEI 069.1475.2026.0002965-01",
+          "request": "Encaminhar íntegra do processo, termo formal do convênio, Plano de Trabalho, cronogramas, pareceres, AIO/OS, fiscalização, medições e documentação da liberação financeira."
+        },
+        {
+          "recipient": "SEFAZ/FIPLAN",
+          "request": "Certificar o histórico integral do instrumento 21301.0001.26.0000298-1, com todas as NOBs, parcelas, datas de emissão, liquidação, efetivação e identificação da natureza do pagamento de R$ 518.432,07."
+        },
+        {
+          "recipient": "Município de Jaguaquara",
+          "request": "Encaminhar termo do Convênio Estadual 28/2026 referido em sua receita, processo municipal de contratação da obra, contrato, AIO/OS, medições, diário de obra, ART/RRT e prestação de contas correspondente."
+        },
+        {
+          "recipient": "Órgão jurídico estadual competente",
+          "request": "Informar o fundamento jurídico-eleitoral aplicado à liberação de 10/07 e os documentos que demonstrariam eventual enquadramento nas exceções do art. 73, VI, a."
+        }
+      ],
+      "legalBoundary": "O pacote documenta o pagamento de R$ 518.432,07, seu vínculo material com a rubrica municipal do Convênio Estadual 28/2026 para construção de estádio e a proximidade temporal entre publicação do instrumento, início do defeso e pagamento. Não afirma, por si só, ilícito eleitoral, ausência de execução física anterior ou a identidade do órgão estadual convenente sem o processo integral.",
+      "completenessState": "financial_payment_row_verified_external_originals_pending",
+      "primaryArchiveReady": false
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "SRC-LAJ-FIPLAN-PRESERVED",
+      "municipality": "Lajedo do Tabocal",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "linkedEvidenceIds": [
+        "CE-031",
+        "CE-051",
+        "CE-052"
+      ],
+      "preservationStatus": "source_excerpt_preserved_and_sha256_verified",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "Filtro FIPLAN .csv.gz versionado no Git, hash validado; ZIP integral fora do Git."
+    },
+    {
+      "sourceId": "SRC-LAJ-SUDESB-TERM",
+      "municipality": "Lajedo do Tabocal",
+      "url": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-07/SEI_00142991035_Termo_de_Convenio.pdf",
+      "publisher": "SUDESB",
+      "linkedEvidenceIds": [
+        "CE-031",
+        "CE-051",
+        "CE-052"
+      ],
+      "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-LAJ-SUDESB-INDEX",
+      "municipality": "Lajedo do Tabocal",
+      "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "publisher": "SUDESB",
+      "linkedEvidenceIds": [
+        "CE-031",
+        "CE-051",
+        "CE-052"
+      ],
+      "preservationStatus": "official_index_lists_sources_binary_pending",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-LAJ-PNCP-CE04",
+      "municipality": "Lajedo do Tabocal",
+      "url": "https://pncp.gov.br/app/editais/16434441000131/2026/26",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "linkedEvidenceIds": [
+        "CE-031",
+        "CE-051",
+        "CE-052"
+      ],
+      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-BELO-FIPLAN-PRESERVED",
+      "municipality": "Belo Campo",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "linkedEvidenceIds": [
+        "CE-019",
+        "CE-053",
+        "CE-054"
+      ],
+      "preservationStatus": "source_excerpt_preserved_and_sha256_verified",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "Filtro FIPLAN .csv.gz versionado no Git, hash validado; ZIP integral fora do Git."
+    },
+    {
+      "sourceId": "SRC-BELO-DOE-CONVENIO",
+      "municipality": "Belo Campo",
+      "url": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+      "publisher": "Diário Oficial do Estado da Bahia / SEAGRI",
+      "linkedEvidenceIds": [
+        "CE-019",
+        "CE-053",
+        "CE-054"
+      ],
+      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-BELO-PREFEITURA-PREVIA",
+      "municipality": "Belo Campo",
+      "url": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-030620260948572561-Cavalgada-A-Tradi-o-do-Vaqueiro-movimenta-Belo-Campo-no-pr-ximo-domingo",
+      "publisher": "Prefeitura Municipal de Belo Campo",
+      "linkedEvidenceIds": [
+        "CE-019",
+        "CE-053",
+        "CE-054"
+      ],
+      "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-BELO-PREFEITURA-POS",
+      "municipality": "Belo Campo",
+      "url": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "publisher": "Prefeitura Municipal de Belo Campo",
+      "linkedEvidenceIds": [
+        "CE-019",
+        "CE-053",
+        "CE-054"
+      ],
+      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-ARA-FIPLAN-PRESERVED",
+      "municipality": "Araçás",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "linkedEvidenceIds": [
+        "CE-016",
+        "CE-055",
+        "CE-056"
+      ],
+      "preservationStatus": "source_excerpt_preserved_and_sha256_verified",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "Filtro FIPLAN .csv.gz versionado no Git, hash validado; ZIP integral fora do Git."
+    },
+    {
+      "sourceId": "SRC-ARA-SUDESB-TERM",
+      "municipality": "Araçás",
+      "url": "https://www.ba.gov.br/esporte/sites/site-sudesb/files/2026-06/SEI_00142985210_Termo_de_Convenio.pdf",
+      "publisher": "SUDESB",
+      "linkedEvidenceIds": [
+        "CE-016",
+        "CE-055",
+        "CE-056"
+      ],
+      "preservationStatus": "official_pdf_text_reviewed_binary_pending_archival",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-ARA-SUDESB-INDEX",
+      "municipality": "Araçás",
+      "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "publisher": "SUDESB",
+      "linkedEvidenceIds": [
+        "CE-016",
+        "CE-055",
+        "CE-056"
+      ],
+      "preservationStatus": "official_index_lists_sources_binary_pending",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-ARA-PNCP-007",
+      "municipality": "Araçás",
+      "url": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "linkedEvidenceIds": [
+        "CE-016",
+        "CE-055",
+        "CE-056"
+      ],
+      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-JAG-FIPLAN-PRESERVED",
+      "municipality": "Jaguaquara",
+      "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+      "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+      "linkedEvidenceIds": [
+        "CE-029",
+        "CE-029-STADIUM-SLICE",
+        "CE-057",
+        "CE-AGENCY-NUMBERING-CAUTION"
+      ],
+      "preservationStatus": "source_excerpt_preserved_and_sha256_verified",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "Filtro FIPLAN .csv.gz versionado no Git, hash validado; ZIP integral fora do Git."
+    },
+    {
+      "sourceId": "SRC-JAG-MUNICIPAL-REVENUE",
+      "municipality": "Jaguaquara",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "publisher": "Prefeitura Municipal de Jaguaquara / Município Online",
+      "linkedEvidenceIds": [
+        "CE-029",
+        "CE-029-STADIUM-SLICE",
+        "CE-057",
+        "CE-AGENCY-NUMBERING-CAUTION"
+      ],
+      "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    },
+    {
+      "sourceId": "SRC-JAG-SUDESB-NUMBERING-CHECK",
+      "municipality": "Jaguaquara",
+      "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "publisher": "SUDESB",
+      "linkedEvidenceIds": [
+        "CE-029",
+        "CE-029-STADIUM-SLICE",
+        "CE-057",
+        "CE-AGENCY-NUMBERING-CAUTION"
+      ],
+      "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+      "contentSnapshotSha256": null,
+      "originalBytesInRepository": false,
+      "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+    }
+  ],
+  "protocolReadiness": "not_a_final_accusation_only_documentary_queries"
+}
