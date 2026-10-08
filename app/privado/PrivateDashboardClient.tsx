@@ -1011,7 +1011,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               </section>
 
               <section className="intel-metrics-grid">
-                <article><span>Completude global</span><strong>{data.prebaProtocolRelease.globalCompletionPercent}%</strong><small>release de protocolo concluída</small></article>
+                <article><span>Pacote de protocolo</span><strong>{data.prebaProtocolRelease.globalCompletionPercent}%</strong><small>release de protocolo concluída</small></article>
                 <article><span>Peça consolidada</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'PRONTA':'PENDENTE'}</strong><small>notícia de fato para diligências</small></article>
                 <article><span>Pacote único</span><strong>{data.prebaProtocolRelease.qa.combinedPackagePages} págs.</strong><small>Word + PDF + 10 anexos + checksums</small></article>
                 <article><span>Acusação definitiva</span><strong>{data.prebaProtocolRelease.definitiveAccusationReady?'SIM':'NÃO'}</strong><small>depende das diligências requisitadas</small></article>

@@ -113,8 +113,9 @@
     "repositoryRecords": 57,
     "apiServedConfirmed": 0,
     "privateBlobMirroredConfirmed": 0,
-    "mode": "pending_host_deploy_and_credentials",
-    "lastSuccessfulSync": null
+    "mode": "deployed_authenticated_read_model_private_blob_mirror_pending",
+    "lastSuccessfulSync": null,
+    "apiBundledRecords": 57
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

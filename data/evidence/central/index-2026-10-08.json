@@ -23,8 +23,8 @@
     }
   ],
   "originalArtifactsBoundary": "As 57 fichas são representações estruturadas dos fatos nos manifests; não substituem os documentos originais. O ZIP completo FIPLAN não está armazenado no Git.",
-  "apiDistribution": "versioned-in-git-awaiting-host-deployment",
-  "privateBlobReplication": "not_performed",
+  "apiDistribution": "included_in_production_build_authenticated_api",
+  "privateBlobReplication": "awaiting_authenticated_sync_no_receipts",
   "entries": [
     {
       "schemaVersion": 1,

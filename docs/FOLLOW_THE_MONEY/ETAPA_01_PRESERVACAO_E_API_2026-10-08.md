@@ -35,3 +35,15 @@ O manifesto Wave 01 contém fatos de pagamentos e licitações. Os manifests Wav
 ## Governança
 
 Nunca misturar registros públicos com denúncias pessoais. Não registrar juízo de culpa, probabilidades de crime ou relações financeiras não demonstradas. Guardar logs de falha e relatar sincronização parcial.
+
+## Release / QA da Etapa 01 (08/10/2026)
+
+- Commit de integração: `f7c6736d777818a05eff668ef11a31faf6868412` (PR #4).
+- Ambiente: Vercel produção `dpl_77rWygXFefoR5qNoB6AcvP8eRm33`, estado READY.
+- Teste automático `npm run test:evidence` no prebuild: **PASS 57/57**, sem divergência de fatos originais.
+- Compilação Next e TypeScript: aprovadas; verificação de runtime: zero erros encontrados na janela verificada.
+- API autenticada implantada com 57 fichas projetadas no GET e `/api/intelligence/query`. Consulta autenticada ponta a ponta ainda não foi executada por ausência de credencial nesta sessão.
+- Espelhamento persistente no Vercel Blob: **0/57 confirmado**. Executar no cockpit `/privado` → guia PRE-BA → botão **Sincronizar 57 fichas com o Blob privado**. Reabrir cockpit e conferir contagem.
+- Nenhuma evidência original FIPLAN/SEI foi inventada nem marcada como recuperada.
+
+**Conclusão de estado:** Etapa FM-01 **em execução**, até confirmação do espelhamento e conferência da API autenticada. A etapa FM-02 ainda não começou.
