@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-JAG-MUNICIPAL-REVENUE",
+  "source": {
+    "sourceId": "SRC-JAG-MUNICIPAL-REVENUE",
+    "municipality": "Jaguaquara",
+    "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+    "publisher": "Prefeitura Municipal de Jaguaquara / Município Online",
+    "linkedEvidenceIds": [
+      "CE-029",
+      "CE-029-STADIUM-SLICE",
+      "CE-057",
+      "CE-AGENCY-NUMBERING-CAUTION"
+    ],
+    "preservationStatus": "official_html_content_verified_raw_snapshot_pending",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": "fm02-jaguaquara-receita",
+  "archiveManifestPath": "preservation/manifests/fm02-jaguaquara-receita.json",
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}

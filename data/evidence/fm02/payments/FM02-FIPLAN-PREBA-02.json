@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "original_filtered_payment_row",
+  "itemId": "FM02-FIPLAN-PREBA-02",
+  "corroborates": [
+    "CE-019"
+  ],
+  "originalPrimaryRecordLocatedInGit": true,
+  "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+  "sourceGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+  "sourceRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+  "originalFullZipPresent": false,
+  "fact": {
+    "evidenceSliceId": "FM02-FIPLAN-PREBA-02",
+    "crossReferences": [
+      "CE-019"
+    ],
+    "caseId": "PREBA-02",
+    "municipality": "Belo Campo",
+    "instrumentFormatted": "10101.0001.26.0000079-3",
+    "instrumentRaw": "1010100012600000793",
+    "paymentNobRaw": "1010100012600014540",
+    "paymentNobFormatted": "10101.0001.26.0001454-0",
+    "paymentDateDDMMYYYY": "08/07/2026",
+    "paymentValueBRL": 200000,
+    "consignment": "Pagamento Principal",
+    "paidFlag": "Sim",
+    "valueGcvBRL": 0,
+    "legalConclusion": "none",
+    "integrityStatus": "derived_from_git_preserved_original_filtered_extract_sha256_verified",
+    "provenance": {
+      "sourceRepoPath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+      "compressedSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+      "uncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51"
+    },
+    "sourceRow": {
+      "num_instrumento_orcamento": "1010100012600000793",
+      "num_pagto_nob": "1010100012600014540",
+      "CONSIGNATARIA": "Pagamento Principal",
+      "val_pagto_nob": "200000,00",
+      "dtc_pagto_nob": "08/07/2026",
+      "val_gcv": "0,00",
+      "Nº do Pagamento Formatado": "10101.0001.26.0001454-0",
+      "Pagamento_Efetivado": "Sim"
+    }
+  }
+}

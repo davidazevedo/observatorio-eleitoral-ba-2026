@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-LAJ-SUDESB-INDEX",
+  "source": {
+    "sourceId": "SRC-LAJ-SUDESB-INDEX",
+    "municipality": "Lajedo do Tabocal",
+    "url": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+    "publisher": "SUDESB",
+    "linkedEvidenceIds": [
+      "CE-031",
+      "CE-051",
+      "CE-052"
+    ],
+    "preservationStatus": "official_index_lists_sources_binary_pending",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": "fm02-sudesb-equipamentos-index",
+  "archiveManifestPath": "preservation/manifests/fm02-sudesb-equipamentos-index.json",
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}

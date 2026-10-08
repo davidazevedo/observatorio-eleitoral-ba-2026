@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-JAG-FIPLAN-PRESERVED",
+  "source": {
+    "sourceId": "SRC-JAG-FIPLAN-PRESERVED",
+    "municipality": "Jaguaquara",
+    "url": "https://dados.ba.gov.br/dataset/9079f8b9-f480-466f-8016-d03108f6420f/resource/abbd1ce3-2117-4732-9c9f-8860e11efb3a/download/conveniosparcerias.zip",
+    "publisher": "Governo do Estado da Bahia / SEFAZ / FIPLAN",
+    "linkedEvidenceIds": [
+      "CE-029",
+      "CE-029-STADIUM-SLICE",
+      "CE-057",
+      "CE-AGENCY-NUMBERING-CAUTION"
+    ],
+    "preservationStatus": "source_excerpt_preserved_and_sha256_verified",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "Filtro FIPLAN .csv.gz versionado no Git, hash validado; ZIP integral fora do Git."
+  },
+  "archiveTrackingTargetId": null,
+  "archiveManifestPath": null,
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}

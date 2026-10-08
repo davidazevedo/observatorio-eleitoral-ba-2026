@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "public_source_reference_not_new_central_evidence",
+  "itemId": "SRC-ARA-PNCP-007",
+  "source": {
+    "sourceId": "SRC-ARA-PNCP-007",
+    "municipality": "Araçás",
+    "url": "https://pncp.gov.br/app/editais/16131088000110/2026/7",
+    "publisher": "Portal Nacional de Contratações Públicas",
+    "linkedEvidenceIds": [
+      "CE-016",
+      "CE-055",
+      "CE-056"
+    ],
+    "preservationStatus": "original_bytes_not_preserved_in_this_stage",
+    "contentSnapshotSha256": null,
+    "originalBytesInRepository": false,
+    "notes": "A URL, a referência oficial ou o conteúdo textual foram localizados; a integridade do documento externo somente será afirmada após arquivamento dos bytes."
+  },
+  "archiveTrackingTargetId": "fm02-aracas-pncp-detail",
+  "archiveManifestPath": "preservation/manifests/fm02-aracas-pncp-detail.json",
+  "rawBytesInThisFile": false,
+  "statusNote": "A referência é verificável mas não equivale ao arquivo oficial original; só considerar arquivado se o manifesto HTTP e os bytes efetivos estiverem preservados."
+}
