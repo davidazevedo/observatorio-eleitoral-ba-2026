@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prebuild": "node scripts/validate-central-evidence.mjs",
+    "test:evidence": "node scripts/validate-central-evidence.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",
