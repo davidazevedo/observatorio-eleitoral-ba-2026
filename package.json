@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild": "node scripts/validate-central-evidence.mjs",
-    "test:evidence": "node scripts/validate-central-evidence.mjs"
+    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs",
+    "test:evidence": "node scripts/validate-central-evidence.mjs",
+    "test:fm02": "node scripts/validate-fm02-documents.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",
