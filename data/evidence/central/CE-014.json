@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-014",
+  "canonicalPath": "data/evidence/central/CE-014.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-01-50.json",
+    "sourceManifestGitBlobSha": "7ec41987284ac357499866605a36b7b829e86236",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": null,
+    "sourceLabel": "PNCP/DOE/portal municipal preservados",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-014",
+    "municipality": "Lapão",
+    "title": "Homologação em favor da Nunes Engenharia Ltda.",
+    "type": "procurement_result_fact",
+    "status": "fact",
+    "amountBRL": 5822160.5,
+    "sourceScope": "PNCP/DOE/portal municipal preservados",
+    "caseGroup": "housing_core",
+    "legalConclusion": "none"
+  }
+}

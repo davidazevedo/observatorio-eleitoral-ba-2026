@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-054",
+  "canonicalPath": "data/evidence/central/CE-054.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-02-critical-p0.json",
+    "sourceManifestGitBlobSha": "eca8bf162fef4f3d1542ec44b5ad0da7baf3ec87",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+    "sourceLabel": "DOE Bahia — resumo do Convênio 01/2026 / FIPLAN",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-054",
+    "municipality": "Belo Campo",
+    "type": "agreement_object_fact",
+    "status": "fact",
+    "title": "Convênio SEAGRI 01/2026 destinou R$ 200 mil estaduais especificamente ao apoio da Cavalgada de Belo Campo",
+    "source": "DOE Bahia — resumo do Convênio 01/2026 / FIPLAN",
+    "sourceUrl": "https://www.escavador.com/diarios/6686733/DOEBA/P/2026-06-03?page=13",
+    "relationToPriorEvidence": "A Wave 01 já registra o pagamento integral de R$ 200 mil em 08/07; este item fecha documentalmente o objeto e o valor da participação estadual.",
+    "legalConclusion": "none"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "CE-057",
+  "canonicalPath": "data/evidence/central/CE-057.json",
+  "registrationDate": "2026-10-08",
+  "provenance": {
+    "sourceManifestPath": "preservation/manifests/central-evidence-wave-03-aracas-jaguaquara.json",
+    "sourceManifestGitBlobSha": "d62010023f243086c0e362161671e68e0fcd4699",
+    "sourceReferenceType": "versioned_repository_manifest",
+    "originalDocumentBundledHere": false,
+    "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+    "sourceLabel": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+    "verificationBoundary": "Registro indexado a partir de manifestação no repositório; original externo ou linha de origem deve ser conferido antes de imputação."
+  },
+  "analysis": {
+    "classification": "documented_public_record_under_verification",
+    "criminalConclusion": "none",
+    "campaignFundingConclusion": "none",
+    "sourceDocumentStatus": "external_source_or_financial_extract_not_embedded_in_this_record"
+  },
+  "documentedFact": {
+    "id": "CE-057",
+    "municipality": "Jaguaquara",
+    "type": "municipal_revenue_linkage_fact",
+    "status": "fact",
+    "title": "Portal municipal identifica a receita como Convênio Estadual 28/2026 — Construção de Estádio de Jaguaquara — com R$ 518.432,07 acumulados, exatamente o valor do repasse FIPLAN de 10/07",
+    "source": "Prefeitura Municipal de Jaguaquara / Município Online — Receita 2026",
+    "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+    "legalConclusion": "none",
+    "boundary": "A coincidência de valor e a rubrica específica corroboram o vínculo do pagamento com o estádio; ainda não provam ausência de execução física anterior ao marco."
+  }
+}
