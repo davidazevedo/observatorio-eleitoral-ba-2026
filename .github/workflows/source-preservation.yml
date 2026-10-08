@@ -1,24 +1,22 @@
 name: Preserve public sources
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '17 */12 * * *'
   push:
+    branches: [main]
     paths:
       - 'preservation/targets.json'
       - 'scripts/archive_sources.py'
       - '.github/workflows/source-preservation.yml'
-
 permissions:
   contents: write
-
 concurrency:
-  group: source-preservation
+  group: source-preservation-main
   cancel-in-progress: false
-
 jobs:
   preserve:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,8 +24,12 @@ jobs:
           fetch-depth: 0
       - name: Preserve sources and calculate certificates
         run: python3 scripts/archive_sources.py
+      - name: Validate source snapshots
+        run: node scripts/validate-fm02-snapshots.mjs
       - name: Commit new or changed snapshots
+        shell: bash
         run: |
+          set -euo pipefail
           if git diff --quiet && [ -z "$(git status --porcelain -- preservation/manifests preservation/snapshots docs/source-certificate-index.json)" ]; then
             echo "No source changes detected."
             exit 0
@@ -36,4 +38,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add preservation/manifests preservation/snapshots docs/source-certificate-index.json
           git commit -m "data: preserve public source snapshots"
-          git push
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              echo "::error::Cannot rebase preservation artifacts after concurrent main update."
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Snapshots committed with no force push."
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::error::Failed to publish snapshots after 3 retries."
+          exit 1

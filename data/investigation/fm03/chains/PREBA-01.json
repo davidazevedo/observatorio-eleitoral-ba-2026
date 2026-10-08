@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "chainId": "FM03-PREBA-01",
+  "caseId": "PREBA-01",
+  "municipality": "Lajedo do Tabocal",
+  "inst": "21301.0001.26.0000299-1",
+  "bankOrder": "21301.0001.26.0002162-7",
+  "observedStateDisbursementBRL": 49946.15,
+  "integrity": {
+    "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+    "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+    "fullOriginalZipPresent": false
+  },
+  "steps": [
+    {
+      "slot": "state_disbursement",
+      "state": "verified_primary_extract",
+      "amountBRL": 49946.15,
+      "date": "06/07/2026",
+      "reference": "FM02-FIPLAN-PREBA-01",
+      "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+      "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+      "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+    },
+    {
+      "slot": "municipal_ingress",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "municipal_expenditure",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "supplier_payment",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "final_delivery",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    }
+  ],
+  "contextFacts": [
+    {
+      "kind": "published_procurement",
+      "date": "2026-07-13",
+      "evidenceId": "CE-052",
+      "caveat": "A publicação de uma licitação não comprova execução física nem pagamento municipal."
+    }
+  ],
+  "action": "Receita municipal do convênio 32/2026, processos de despesa, contratos, ordem de serviço, AIO e primeira medição.",
+  "diligencePriority": [
+    "Processo SEI integral 069.1479.2026.0002857-54",
+    "Plano de Trabalho aprovado e cronograma físico-financeiro/cronograma prefixado",
+    "Autorização de Início de Obra (AIO) e eventual Ordem de Serviço",
+    "Primeira medição, boletim de medição, diário de obra, relatório fotográfico e fiscalização de engenharia",
+    "Processo administrativo que autorizou/liberou a primeira parcela em 06/07, inclusive parecer jurídico sobre o art. 73, VI, a"
+  ],
+  "status": "partial_source_based_no_supplier_evidence",
+  "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+}

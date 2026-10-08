@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "chainId": "FM03-PREBA-02",
+  "caseId": "PREBA-02",
+  "municipality": "Belo Campo",
+  "inst": "10101.0001.26.0000079-3",
+  "bankOrder": "10101.0001.26.0001454-0",
+  "observedStateDisbursementBRL": 200000,
+  "integrity": {
+    "sourceCsvGzipSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+    "sourceCsvRawSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+    "fullOriginalZipPresent": false
+  },
+  "steps": [
+    {
+      "slot": "state_disbursement",
+      "state": "verified_primary_extract",
+      "amountBRL": 200000,
+      "date": "08/07/2026",
+      "reference": "FM02-FIPLAN-PREBA-02",
+      "sourcePath": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+      "sourceSha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+      "qualification": "Pagamento estadual FIPLAN; não é prova de aplicação final."
+    },
+    {
+      "slot": "municipal_ingress",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "municipal_expenditure",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "supplier_payment",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    },
+    {
+      "slot": "final_delivery",
+      "state": "not_documented",
+      "amountBRL": null,
+      "date": null,
+      "reference": null,
+      "sourcePath": null,
+      "sourceSha256": null,
+      "qualification": "Sem documento primário suficiente. Lacuna não prova ilícito ou inexistência."
+    }
+  ],
+  "contextFacts": [
+    {
+      "kind": "public_event_occurrence",
+      "date": "2026-06-07",
+      "evidenceId": "CE-053",
+      "caveat": "A realização do evento não prova a natureza jurídica da transferência ou quais despesas foram reembolsadas."
+    }
+  ],
+  "action": "Prestação de contas do convênio 01/2026 e despesas/notas efetivamente cobertas pela contribuição estadual.",
+  "diligencePriority": [
+    "Processo SEI integral 010.9156.2025.0002545-71",
+    "Plano de Trabalho aprovado, cronograma de execução e cronograma de desembolso",
+    "Processo administrativo de liquidação/liberação dos R$ 200.000,00 em 08/07 e parecer jurídico eleitoral",
+    "Prestação de contas parcial/final do Convênio 01/2026, notas fiscais, contratos e comprovantes de execução",
+    "Classificação formal da natureza jurídica do repasse Estado→Município"
+  ],
+  "status": "partial_source_based_no_supplier_evidence",
+  "caution": "Somente fluxos explicitamente documentados são tratados como ocorridos. Não há evidência de desvio, financiamento eleitoral ou compra de votos."
+}

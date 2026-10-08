@@ -46,6 +46,9 @@ type Fm02Source = {sourceId:string;municipality:string;url:string;publisher:stri
 type Fm02Ledger = {schemaVersion:number;ledgerId:string;registeredDate:string;phase:string;phaseStatus:string;totalCases:number;totalFinancialPrimaryRows:number;totalSourceReferences:number;verifiedSourceArchiveInThisStage:{fiplanFilteredPaymentsInGit:boolean;externalOfficialPdfBinaryCount:number;additionalExternalWebBinaryCount:number};safeguards:Record<string,string>;cases:Fm02Case[];sources:Fm02Source[];protocolReadiness:string};
 type Fm02Row = {evidenceSliceId:string;crossReferences:string[];caseId:string;municipality:string;instrumentFormatted:string;paymentNobFormatted:string;paymentDateDDMMYYYY:string;paymentValueBRL:number;legalConclusion:string};
 type Fm02Financial = {schemaVersion:number;artifactId:string;source:{path:string;sha256Gzip:string;sha256Uncompressed:string;totalSourceRows:number};records:Fm02Row[]};
+type Fm03Step = {slot:string;state:string;amountBRL:number|null;date:string|null;reference:string|null;sourcePath:string|null;sourceSha256:string|null;qualification:string};
+type Fm03Chain = {chainId:string;caseId:string;municipality:string;inst:string;bankOrder:string;observedStateDisbursementBRL:number;steps:Fm03Step[];status:string;action:string;contextFacts:Array<{kind:string;date:string;evidenceId:string;caveat:string}>};
+type Fm03Index = {schemaVersion:number;registryId:string;createdDate:string;status:string;counting:{chains:number;stateDisbursementsVerified:number;municipalRevenuePublicCorroborations:number;bankIngressFullyReconciled:number;verifiedMunicipalExpenseEntries:number;verifiedSupplierPayments:number;verifiedCampaignRelatedPayments:number;newCentralCE:number;totalStateDisbursementsBRL:number};chains:Fm03Chain[];nonConclusions:string[]};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -114,6 +117,7 @@ type DashboardData = {
   followMoneyRoadmap: FollowMoneyRoadmap;
   fm02DocumentaryLedger: Fm02Ledger;
   fm02FiplanPrimaryRows: Fm02Financial;
+  fm03FinancialChains: Fm03Index;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
 
@@ -1021,6 +1025,34 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <>
               <section className="private-panel">
                 <div className="private-panel-title">
+                  <div><p className="eyebrow">FOLLOW THE MONEY · ETAPA FM-03</p><h2>Cadeia financeira — origem ao fornecedor</h2><small>{data.fm03FinancialChains.registryId} · {data.fm03FinancialChains.createdDate}</small></div>
+                  <span className="housing-exception-pending">BASE PARCIAL</span>
+                </div>
+                <p>As quatro origens estaduais são comprovadas por extrato FIPLAN versionado. A receita municipal de Jaguaquara foi corroborada pelo portal municipal, mas não por extrato da conta específica. Não há pagamentos a fornecedores comprovados nesse recorte.</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Saídas estaduais</span><strong>{data.fm03FinancialChains.counting.stateDisbursementsVerified}/4</strong><small>extrato financeiro FIPLAN</small></article>
+                  <article><span>Receita municipal corroborada</span><strong>{data.fm03FinancialChains.counting.municipalRevenuePublicCorroborations}</strong><small>sem conciliação bancária</small></article>
+                  <article><span>Pagamentos a fornecedor</span><strong>{data.fm03FinancialChains.counting.verifiedSupplierPayments}</strong><small>documentalmente verificados</small></article>
+                  <article><span>Montante de saída estadual</span><strong>{money(data.fm03FinancialChains.counting.totalStateDisbursementsBRL)}</strong><small>não significa recurso irregular</small></article>
+                </div>
+                <div className="private-grid-two" style={{marginTop:'16px'}}>
+                  {data.fm03FinancialChains.chains.map(chain=><article className="private-panel" key={chain.caseId}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{chain.caseId} · {chain.bankOrder}</p><h2>{chain.municipality}</h2></div><strong>{money(chain.observedStateDisbursementBRL)}</strong></div>
+                    <ol>
+                      {chain.steps.map(step=><li key={step.slot}>
+                        <strong>{step.slot==='state_disbursement'?'Repasse estadual':step.slot==='municipal_ingress'?'Ingresso municipal':step.slot==='municipal_expenditure'?'Empenho / liquidação':step.slot==='supplier_payment'?'Pagamento ao fornecedor':'Execução / entrega'}: </strong>
+                        <span>{step.state==='verified_primary_extract'?'Comprovado no extrato FIPLAN':step.state==='corroborated_public_revenue_label'?'Receita municipal corroborada':'Documento não obtido'}</span>
+                        <small> — {step.qualification}</small>
+                      </li>)}
+                    </ol>
+                    <p className="private-report-note"><strong>Próxima diligência:</strong> {chain.action}</p>
+                    {chain.contextFacts.map(context=><p key={context.evidenceId} className="private-report-note"><strong>{context.evidenceId}:</strong> {context.caveat}</p>)}
+                  </article>)}
+                </div>
+                <p className="private-report-note">Limite metodológico: nenhuma correlação com financiamento eleitoral ou compra de votos foi estabelecida. Os grafos distinguem fatos comprovados, corroboração e lacunas de documentação.</p>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title">
                   <div><p className="eyebrow">FOLLOW THE MONEY · ETAPA FM-02</p><h2>Fechamento documental — quatro municípios</h2><small>{data.fm02DocumentaryLedger.ledgerId} · atualização {data.fm02DocumentaryLedger.registeredDate}</small></div>
                   <span className="housing-exception-pending">EM EXECUÇÃO</span>
                 </div>
@@ -1068,14 +1100,14 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FOLLOW THE MONEY · ROTEIRO DE 90 DIAS</p><h2>Etapa 01 — Segurança, preservação e sincronização</h2><small>{data.followMoneyRoadmap.roadmapId} · atualização {data.followMoneyRoadmap.updatedDate}</small></div>
-                  <span className="housing-exception-pending">ETAPA 01/07</span>
+                  <span className="housing-exception-pending">FM-01 · EM VALIDAÇÃO</span>
                 </div>
                 <p>Os 57 fatos centrais estão versionados individualmente e disponíveis na API autenticada desta release. O espelhamento no Blob privado é uma operação separada: só conta como concluído após a API confirmar os registros.</p>
                 <div className="intel-metrics-grid">
                   <article><span>Fichas no Git</span><strong>{data.centralEvidenceLedgerSummary.versioned}/57</strong><small>CE-001 a CE-057</small></article>
                   <article><span>Consulta API</span><strong>57</strong><small>GET /api/intelligence/evidence (chave)</small></article>
                   <article><span>Blob espelhado</span><strong>{centralEvidenceMirrorCount}/57</strong><small>confirmado no armazenamento privado</small></article>
-                  <article><span>Fases do roadmap</span><strong>1/7</strong><small>em execução; demais aguardam</small></article>
+                  <article><span>Fases em execução</span><strong>{data.followMoneyRoadmap.stages.filter(p=>p.status==='in_progress').length}/7</strong><small>status independente por etapa</small></article>
                 </div>
                 <p className="private-report-note"><strong>Limite probatório:</strong> as 57 fichas derivam de manifests. Não constituem 57 arquivos oficiais originais. A fonte primária deve ser anexada e conferida antes de qualquer imputação.</p>
                 <button type="button" disabled={centralEvidenceSyncing} onClick={synchronizeCentralEvidence}>
@@ -1084,7 +1116,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 {centralEvidenceSyncMessage?<p role="status">{centralEvidenceSyncMessage}</p>:null}
                 <div className="private-grid-two" style={{marginTop:'18px'}}>
                   {data.followMoneyRoadmap.stages.map(phase=><article className="private-panel" key={phase.id}>
-                    <div className="private-panel-title"><div><p className="eyebrow">{phase.id} · {phase.start} — {phase.end}</p><h2>{phase.title}</h2></div><span className={phase.status==='pending'?'housing-exception-pending':'housing-status-ok'}>{phase.status==='pending'?'AGUARDANDO':'EM EXECUÇÃO'}</span></div>
+                    <div className="private-panel-title"><div><p className="eyebrow">{phase.id} · {phase.start} — {phase.end}</p><h2>{phase.title}</h2></div><span className={phase.status==='pending'?'housing-exception-pending':'housing-status-ok'}>{phase.status==='pending'?'AGUARDANDO':phase.status==='in_progress'?'EM EXECUÇÃO':'CONCLUÍDO'}</span></div>
                     <ul>{phase.deliverables.map(item=><li key={item}>{item}</li>)}</ul><p className="private-report-note">{phase.gate}</p>
                   </article>)}
                 </div>

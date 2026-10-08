@@ -61,12 +61,19 @@
       "title": "Reconstrução da cadeia financeira pública",
       "start": "2026-10-18",
       "end": "2026-10-24",
-      "status": "pending",
+      "status": "in_progress",
       "deliverables": [
         "instrumento→pagamento→contrato→fornecedor→entrega",
         "conciliação de pagamentos públicos"
       ],
-      "gate": "nenhum elo afirmado sem documento primário"
+      "gate": "nenhum elo afirmado sem documento primário",
+      "progress": {
+        "initialChainsVersioned": 4,
+        "statePaymentsWithPrimaryFinancialRecord": 4,
+        "municipalRevenuePublicCorroborations": 1,
+        "supplierDisbursementsVerified": 0,
+        "statusNote": "Baseline das cadeias iniciada em paralelo à FM-02; a obtenção de empenhos, liquidações, contratos, pagamentos e execução física continua pendente."
+      }
     },
     {
       "id": "FM-04",
@@ -129,7 +136,8 @@
     "lastSuccessfulSync": null,
     "apiBundledRecords": 57,
     "fm02SourceRegistryApiStatus": "included_in_versioned_authenticated_api",
-    "fm02PrivateArchivedOriginalsConfirmed": 0
+    "fm02PrivateArchivedOriginalsConfirmed": 0,
+    "fm03DatasetStatus": "pending_production_build"
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,
