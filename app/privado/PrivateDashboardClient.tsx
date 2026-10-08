@@ -40,6 +40,7 @@ type PrebaAracasPackage = { schemaVersion:number;packageId:string;generatedDate:
 type PrebaJaguaquaraPackage = { schemaVersion:number;packageId:string;generatedDate:string;purpose:string;municipality:string;state:string;status:string;protocolReadiness:string;classification:string;legalBoundary:string;coreQuestion:string;financial:{instrumentValueBRL:number;stadiumPaymentBRL:number;stadiumPaymentDate:string;municipalRevenueCorroboratedBRL:number;totalJaguaquaraCriticalPeriodPaymentsBRL:number;otherKnownCriticalPeriodPaymentBRL:number;separationRule:string};chronology:Array<{date:string;event:string;evidentiaryRole:string;sourceId:string;note?:string}>;evidenceMatrix:Array<{evidenceId:string;type:string;assertion:string;whatItProves:string;whatItDoesNotProve:string;source:string;integrityStatus:string}>;apparentIncompatibility:{status:string;statement:string;legalConclusion:string};documentGaps:Array<{priority:string;document:string;reason:string}>;requestedDiligences:Array<{recipient:string;request:string}>;protocolGate:{ready:boolean;minimumToClose:string[];recommendedUseNow:string} };
 type PrebaFinalRepresentation = { schemaVersion:number;representationId:string;generatedDate:string;destination:string;documentType:string;title:string;protocolReadiness:{readyAsNewsOfFactForDiligence:boolean;readyAsDefinitiveAccusation:boolean;reason:string};scope:{priorityUniverseMunicipalities:number;p0Classified:number;p0CoveragePercent:number;centralVersionedEvidence:number;priorityPackages:number;municipalities:string[]};legalBoundary:string;executiveSummary:string;cases:Array<{order:number;packageId:string;municipality:string;priority:string;question:string;coreEvidence:string[];status:string;mainDiligence:string}>;requestedMeasures:string[];finalReviewChecklist:string[] };
 type PrebaFinalAnnexIndex = { schemaVersion:number;indexId:string;representationId:string;generatedDate:string;annexes:Array<{order:number;id:string;title:string;path:string;humanReadable?:string;purpose:string}>;protocolFolderOrder:string[];finalGate:{readyForNewsOfFactProtocol:boolean;pendingBeforeDefinitiveAccusation:string[]} };
+type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
 type GitPreservationRow = {
   schemaVersion:number; sourceId:string; sourceUrl:string; publisher:string; retrievedAt:string;
@@ -102,6 +103,7 @@ type DashboardData = {
   prebaJaguaquaraPackage: PrebaJaguaquaraPackage;
   prebaFinalRepresentation: PrebaFinalRepresentation;
   prebaFinalAnnexIndex: PrebaFinalAnnexIndex;
+  prebaProtocolRelease: PrebaProtocolRelease;
 };
 
 type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
@@ -954,10 +956,36 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
           {tab === 'preba' && (
             <>
               <section className="intel-metrics-grid">
-                <article><span>Pacotes prioritários</span><strong>{data.prebaPackagesIndex.packages.length}/4</strong><small>2 críticos · 2 urgentes</small></article>
+                <article><span>Completude global</span><strong>{data.prebaProtocolRelease.globalCompletionPercent}%</strong><small>release de protocolo concluída</small></article>
                 <article><span>Peça consolidada</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsNewsOfFactForDiligence?'PRONTA':'PENDENTE'}</strong><small>notícia de fato para diligências</small></article>
-                <article><span>Anexos indexados</span><strong>{data.prebaFinalAnnexIndex.annexes.length}</strong><small>ordem de protocolo definida</small></article>
-                <article><span>Acusação definitiva</span><strong>{data.prebaFinalRepresentation.protocolReadiness.readyAsDefinitiveAccusation?'SIM':'NÃO'}</strong><small>depende das diligências requisitadas</small></article>
+                <article><span>Pacote único</span><strong>{data.prebaProtocolRelease.qa.combinedPackagePages} págs.</strong><small>Word + PDF + 10 anexos + checksums</small></article>
+                <article><span>Acusação definitiva</span><strong>{data.prebaProtocolRelease.definitiveAccusationReady?'SIM':'NÃO'}</strong><small>depende das diligências requisitadas</small></article>
+              </section>
+
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">ETAPA 8 · RELEASE DE PROTOCOLO</p><h2>Pacote final PRE-BA</h2><small>{data.prebaProtocolRelease.releaseId} · {data.prebaProtocolRelease.generatedDate}</small></div>
+                  <span className="housing-status-ok">100% CONCLUÍDO</span>
+                </div>
+                <p>{data.prebaProtocolRelease.finalBoundary}</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Peça principal</span><strong>{data.prebaProtocolRelease.qa.mainDocumentPages} págs.</strong><small>{data.prebaProtocolRelease.artifacts.mainPdf}</small></article>
+                  <article><span>Pacote único</span><strong>{data.prebaProtocolRelease.qa.combinedPackagePages} págs.</strong><small>{data.prebaProtocolRelease.artifacts.combinedPdf}</small></article>
+                  <article><span>Anexos renderizados</span><strong>{data.prebaProtocolRelease.qa.annexesRendered}</strong><small>QA visual concluído</small></article>
+                  <article><span>Runtime</span><strong>{data.prebaProtocolRelease.qa.runtimeErrorsAtPortalRelease}</strong><small>erros na release do portal</small></article>
+                </div>
+                <div className="private-grid-two" style={{marginTop:'18px'}}>
+                  <article className="private-panel">
+                    <div className="private-panel-title"><div><p className="eyebrow">CANAL DE ENVIO</p><h2>{data.prebaProtocolRelease.protocolChannel.citizen}</h2></div></div>
+                    <p>Para apresentação inicial por cidadão. Se já existir procedimento em trâmite, usar {data.prebaProtocolRelease.protocolChannel.existingProceeding}.</p>
+                    <p className="private-report-note">{data.prebaProtocolRelease.protocolChannel.preAddress} · {data.prebaProtocolRelease.protocolChannel.phones.join(' / ')}</p>
+                  </article>
+                  <article className="private-panel">
+                    <div className="private-panel-title"><div><p className="eyebrow">ANEXOS TÉCNICOS</p><h2>Regra de integridade</h2></div></div>
+                    <p>{data.prebaProtocolRelease.annexRule}</p>
+                    <div className="intel-chip-list"><span>{data.prebaProtocolRelease.artifacts.checksumManifest}</span><span>{data.prebaProtocolRelease.artifacts.zip}</span></div>
+                  </article>
+                </div>
               </section>
 
               <section className="private-panel">
@@ -1269,7 +1297,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 analyticalConfidence:0.82,caseIds:['OE-BA-0002'],
                 provenance:{sourceUrl:'https://fonte-oficial.example/',publisher:'Órgão público',method:'web_research'}
               },null,2)}</pre>
-              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle, os quatro pacotes PRE-BA e os datasets finais <code>preba-final-representation</code> e <code>preba-final-annex-index</code>.</p>
+              <p className="private-report-note">Para cruzamentos de contas eleitorais, use <code>electoral_account</code>; para pagamentos e execução financeira, <code>financial_record</code>; para relações societárias ou eleitorais documentadas, use <code>relationship</code> e identifique a fonte no campo <code>provenance</code>. Dataset principal: <code>municipality-universe-77</code>. O <code>cohort-69</code> permanece disponível apenas como recorte legado da expansão. Também estão publicados <code>p0-triage-36</code>, <code>p0-classification-36</code>, <code>irece-p0-deep-scan</code>, três waves de evidência, matrizes de controle, os quatro pacotes PRE-BA e os datasets finais <code>preba-final-representation</code>, <code>preba-final-annex-index</code> e <code>preba-protocol-release</code>.</p>
             </section>
           )}
         </main>
