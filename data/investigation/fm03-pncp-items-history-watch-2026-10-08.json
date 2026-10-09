@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-PNCP-ITEMS-HISTORY-2026-10-08",
+  "createdAt": "2026-10-08",
+  "status": "capture_targets_registered_pending_execution",
+  "basis": {
+    "primaryPncpDataset": "data/investigation/fm03-pncp-official-snapshots-2026-10-08.json",
+    "upstreamOfficialManual": "https://pncp.gov.br/manual/pt-br/latest/singlehtml/",
+    "primaryProcurements": [
+      {
+        "caseId": "PREBA-01",
+        "control": "16434441000131-1-000026/2026",
+        "originalSha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
+        "publicationDate": "2026-07-13T23:55:27",
+        "rawPath": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-09T01-05-10Z.json"
+      },
+      {
+        "caseId": "PREBA-03",
+        "control": "16131088000110-1-000007/2026",
+        "originalSha256": "b18f622ed010f3ec1ac5cf3450c58801c7ba098b9971741cefefb586c82671c3",
+        "publicationDate": "2026-07-10T10:35:56",
+        "rawPath": "preservation/snapshots/fm02-aracas-pncp-detail/2026-10-09T01-01-45Z.json"
+      }
+    ]
+  },
+  "accessPoints": [
+    {
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "id": "fm03-lajedo-pncp-items",
+      "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens",
+      "operation": "itens",
+      "archiveTargetId": "fm03-lajedo-pncp-items",
+      "contentStatus": "not_collected_yet",
+      "sha256": null,
+      "originalBytesPreserved": false,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+    },
+    {
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "id": "fm03-lajedo-pncp-history",
+      "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
+      "operation": "historico",
+      "archiveTargetId": "fm03-lajedo-pncp-history",
+      "contentStatus": "not_collected_yet",
+      "sha256": null,
+      "originalBytesPreserved": false,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+    },
+    {
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "id": "fm03-aracas-pncp-items",
+      "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens",
+      "operation": "itens",
+      "archiveTargetId": "fm03-aracas-pncp-items",
+      "contentStatus": "not_collected_yet",
+      "sha256": null,
+      "originalBytesPreserved": false,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+    },
+    {
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "id": "fm03-aracas-pncp-history",
+      "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
+      "operation": "historico",
+      "archiveTargetId": "fm03-aracas-pncp-history",
+      "contentStatus": "not_collected_yet",
+      "sha256": null,
+      "originalBytesPreserved": false,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+    }
+  ],
+  "sourceMonitor": {
+    "autoGitHubWorkflow": "source-preservation.yml",
+    "collectionMode": "GET via public PNCP api/pncp/v1",
+    "requiresAuthentication": false,
+    "bytePreservationAllowed": true,
+    "firstResultStatus": "pending",
+    "lastRunId": null,
+    "archiveTrigger": "targets_json_push_to_main",
+    "followUpItemResultLookup": "defer_until_item_numbers_verified_in_official_items_response"
+  },
+  "metrics": {
+    "targetsAdded": 4,
+    "casesCovered": 2,
+    "itemsObtained": 0,
+    "historyResponsesObtained": 0,
+    "verifiedSupplierAwards": 0,
+    "verifiedSupplierPayments": 0,
+    "newCentralCE": 0
+  },
+  "cautions": [
+    "Result item API requires a verified numeroItem; do not assume 1 before reading official items.",
+    "PNCP award/contract records and supplier payments are distinct and must never be conflated.",
+    "HTTP 429/403 or empty response is a collection limitation, not evidence of a missing contract.",
+    "Any discovered supplier identity must be directly supported by a preserved official record, not by name coincidence.",
+    "Any private identifiers unexpectedly returned must be removed from public representations."
+  ]
+}
