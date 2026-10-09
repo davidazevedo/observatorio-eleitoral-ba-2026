@@ -14,7 +14,7 @@ for(const r of index.receipts){
  assert(history&&history.httpStatus===204&&history.available===true);
  const bytes=readFileSync(r.rawCapturePath);
  assert.equal(bytes.length,0);
- assert.equal(sha(bytes),'e3b0c44298fc1c149afbf4c8996fb934ca495991b7852b855');
+ assert.equal(sha(bytes),'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
  assert.equal(item.httpStatus,204);
  assert.equal(item.bodyBytes,0);
  assert.equal(item.resultRecordsObserved,null);
