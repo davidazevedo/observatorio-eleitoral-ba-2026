@@ -165,7 +165,11 @@
     "fm03FiscalPortalsApiStatus": "nine_http_hashes_in_git_pending_semantic_quality_release",
     "fm03NewSupplierEvidenceIds": 0,
     "fm03SemanticallyVerifiedFiscalStatements": 0,
-    "fm03PncpItemHistoryStatus": "four_json_raw_plus_two_HTTP204_hash_receipts_public_API_pending_release"
+    "fm03PncpItemHistoryStatus": "production_read_model_deployed_four_JSON_two_HTTP204_receipts",
+    "fm03PncpResultReceiptCommit": "14bbf6f70233140b2bed14a7f720fa3048749121",
+    "fm03PncpResultReceiptDeploy": "dpl_78B5ekoMbFk998XBLt6DY5rEE7uf",
+    "fm03PncpAuthenticatedGETVerified": false,
+    "fm03SupplierPaymentsVerified": 0
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,
