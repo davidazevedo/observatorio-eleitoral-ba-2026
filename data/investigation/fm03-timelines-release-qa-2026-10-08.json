@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "FM03-TIMELINES-PRODUCTION-2026-10-08",
+  "date": "2026-10-08",
+  "sourceCommit": "bf3fd232d368039daf55efdecceb31574edebbd2",
+  "productionDeployment": "dpl_4z3kqsotFJgfwHjxPLCMMbZFKLvc",
+  "productionState": "READY",
+  "productionDomain": "observatorio-eleitoral-ba-2026.vercel.app",
+  "provenanceRegistry": "data/investigation/fm03-evidence-timelines-2026-10-08.json",
+  "checks": {
+    "centralCE": "PASS 57/57",
+    "fm02Payments": "PASS 4/4",
+    "fm02Individual": "PASS 19/19",
+    "pncpOfficialFiles": "PASS",
+    "fm03Timelines": "PASS 4/4 cases, 18 events",
+    "typeScript": "PASS",
+    "nextBuild": "PASS",
+    "runtimeErrorsInQueriedWindow": 0,
+    "authenticatedApiGET": "not_independently_checked",
+    "blobMirror": "not_performed"
+  },
+  "privacy": "only versioned reference payloads deployed, no redistribution of private reporter records",
+  "limits": [
+    "Zero municipal supplier bank payments verified.",
+    "HTTP 204 and 400 from PNCP remain inconclusive.",
+    "No vote-buying or funding conclusion.",
+    "Do not confuse estimated tender value with public money disbursed."
+  ]
+}
