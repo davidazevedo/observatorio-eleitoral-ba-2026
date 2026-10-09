@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "FM03-BELO-SIC",
+  "caseId": "PREBA-02",
+  "municipality": "Belo Campo",
+  "category": "official_municipal_fiscal_portal_reference",
+  "url": "https://transparencia.belocampo.ba.gov.br/",
+  "scope": "Portal municipal de transparência e SIC",
+  "discoveryEvidence": "publisher_official_navigation",
+  "firstIdentifiedDate": "2026-10-08",
+  "preservation": {
+    "targetId": "fm03-belo-sic",
+    "rawFilePublicGitAllowed": false,
+    "status": "awaiting_automated_capture",
+    "sha256": null,
+    "gitSnapshotPath": null,
+    "githubManifestPath": "preservation/manifests/fm03-belo-sic.json"
+  },
+  "extraction": {
+    "filterYear": 2026,
+    "requireExactAgreementOrExpenseObject": true,
+    "requirePrimaryExpenseDocument": true,
+    "matchOutcomesAllowed": [
+      "exact_with_document",
+      "potential_needs_review",
+      "not_found_in_accessible_source"
+    ],
+    "financialLinkVerified": false
+  },
+  "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+  "supplierPaymentVerified": false,
+  "legalFinding": "none",
+  "notASeparateCentralEvidence": true
+}

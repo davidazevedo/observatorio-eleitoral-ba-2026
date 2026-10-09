@@ -72,7 +72,11 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "Baseline das cadeias iniciada em paralelo à FM-02; a obtenção de empenhos, liquidações, contratos, pagamentos e execução física continua pendente."
+        "statusNote": "Cadeias financeiras parciais, 7 canais públicos de consulta monitorados e quatro minutas específicas de LAI. Nenhum novo pagamento de fornecedor identificado; coleta automática em preparação.",
+        "municipalPortalAccessPointsVersioned": 7,
+        "municipalitiesWithAccessPoints": 4,
+        "confirmedMunicipalSupplierPayments": 0,
+        "officialDocumentRequestsDrafted": 4
       }
     },
     {
@@ -140,7 +144,9 @@
     "fm03DatasetStatus": "deployed_in_production_authenticated_read_api",
     "fm03ReleaseCommit": "11794fcd743e0596d0dd5f75d1375bc7387237d6",
     "fm03ReadApiAuthenticatedCallVerified": false,
-    "lastProductionQa": "2026-10-08"
+    "lastProductionQa": "2026-10-08",
+    "fm03FiscalPortalsApiStatus": "pending_preview_and_production_release",
+    "fm03NewSupplierEvidenceIds": 0
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

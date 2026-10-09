@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-MUNICIPAL-FISCAL-PORTALS-2026-10-08",
+  "registeredDate": "2026-10-08",
+  "status": "source_discovery_verified_monitoring_not_yet_ingested",
+  "totalMunicipalities": 4,
+  "totalSourceReferences": 7,
+  "financeLedgerReconciliationStatus": "missing_municipal_expenditure_and_supplier_docs",
+  "priorConfirmedStateTransfers": 4,
+  "verifiedSupplierPaymentsFoundInThisStage": 0,
+  "newCentralCE": 0,
+  "privacyRule": "Do not publish complete municipal expenditure pages in public Git: possible personal names/identifiers. Preserve only retrieval metadata/hash on Git and archive raw privately via authenticated cockpit.",
+  "portalNavigationBoundary": "Links are documented access points, not proof of transaction, 2026 coverage, or payment by contract. Filters and export need user/browser or official API.",
+  "cases": [
+    {
+      "caseId": "PREBA-01",
+      "agreement": "SUDESB 32/2026",
+      "sei": "069.1479.2026.0002857-54",
+      "paymentNob": "21301.0001.26.0002162-7",
+      "amountBRL": 49946.15,
+      "date": "2026-07-06",
+      "requests": [
+        "Extrato da conta específica do convênio, ingresso e conciliação com NOB estadual",
+        "Empenhos, liquidações, pagamentos e identificação CNPJ/contratos relacionados ao convênio",
+        "Processo 015/2026 e Concorrência 04/2026: homologação, contrato/OS, AIO, medições e prestação de contas"
+      ],
+      "associatedPortalIds": [
+        "FM03-LAJ-PORTAL",
+        "FM03-LAJ-DESPESA",
+        "FM03-LAJ-CONTRATOS"
+      ],
+      "requestStatus": "draft_prepared_not_submitted",
+      "proofStatus": "no_new_verified_municipal_spending"
+    },
+    {
+      "caseId": "PREBA-02",
+      "agreement": "SEAGRI 01/2026",
+      "sei": "010.9156.2025.0002545-71",
+      "paymentNob": "10101.0001.26.0001454-0",
+      "amountBRL": 200000,
+      "date": "2026-07-08",
+      "requests": [
+        "Extrato específico de ingresso estadual e comprovante da liberação dos R$200.000,00",
+        "Empenhos, liquidações, contratos, notas fiscais e pagamentos da Cavalgada de 07/06/2026",
+        "Processo de prestação de contas, despesas anteriores/posteriores e classificação formal de eventual reembolso"
+      ],
+      "associatedPortalIds": [
+        "FM03-BELO-DESPESAS",
+        "FM03-BELO-SIC"
+      ],
+      "requestStatus": "draft_prepared_not_submitted",
+      "proofStatus": "no_new_verified_municipal_spending"
+    },
+    {
+      "caseId": "PREBA-03",
+      "agreement": "SUDESB 31/2026",
+      "sei": "069.1479.2026.0003119-33",
+      "paymentNob": "21301.0001.26.0002296-8",
+      "amountBRL": 8146.7,
+      "date": "2026-07-10",
+      "requests": [
+        "Histórico integral de pagamentos do convênio; identificar natureza da NOB de R$8.146,70",
+        "Extrato municipal da conta específica, empenhos, pagamentos, CNPJ dos contratados",
+        "Processo 131/2026 / Concorrência 007/2026; homologação, contrato, AIO/OS e medições"
+      ],
+      "associatedPortalIds": [
+        "FM03-ARA-PORTAL"
+      ],
+      "requestStatus": "draft_prepared_not_submitted",
+      "proofStatus": "no_new_verified_municipal_spending"
+    },
+    {
+      "caseId": "PREBA-04",
+      "agreement": "Convênio estadual 28/2026 (identidade estadual formal a confirmar)",
+      "sei": "069.1475.2026.0002965-01",
+      "paymentNob": "21301.0001.26.0002290-9",
+      "amountBRL": 518432.07,
+      "date": "2026-07-10",
+      "requests": [
+        "Conciliação bancária da conta do convênio do estádio com FIPLAN R$518.432,07 e rubrica municipal 242299011000",
+        "Processos de despesa, empenhos, liquidações, pagamentos e identificação de fornecedores do estádio",
+        "Convênio e processo SETRE integral, licitação, contratos, AIO/OS, medição e relatório de execução; excluir objeto do Mercado R$400.000,00"
+      ],
+      "associatedPortalIds": [
+        "FM03-JAG-DESPESA"
+      ],
+      "requestStatus": "draft_prepared_not_submitted",
+      "proofStatus": "no_new_verified_municipal_spending"
+    }
+  ],
+  "sources": [
+    {
+      "schemaVersion": 1,
+      "id": "FM03-LAJ-PORTAL",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia",
+      "scope": "Portal municipal da transparência; menu de despesas/contratos",
+      "discoveryEvidence": "publisher_official_navigation",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-laj-portal",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-laj-portal.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-LAJ-DESPESA",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa",
+      "scope": "Listagem de despesas municipais; requer filtros por período/objeto",
+      "discoveryEvidence": "derived_from_official_portal_menu",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-laj-despesa",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-laj-despesa.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-LAJ-CONTRATOS",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "scope": "Publicações de contratos do município",
+      "discoveryEvidence": "derived_from_official_portal_menu",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-laj-contratos",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-BELO-DESPESAS",
+      "caseId": "PREBA-02",
+      "municipality": "Belo Campo",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://belocampo-ba.portaltp.com.br/",
+      "scope": "Portal da Transparência — Empenhos/Liquidações/Pagamentos/Favorecidos",
+      "discoveryEvidence": "publisher_official_navigation",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-belo-despesas",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-belo-despesas.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-BELO-SIC",
+      "caseId": "PREBA-02",
+      "municipality": "Belo Campo",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://transparencia.belocampo.ba.gov.br/",
+      "scope": "Portal municipal de transparência e SIC",
+      "discoveryEvidence": "publisher_official_navigation",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-belo-sic",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-belo-sic.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-ARA-PORTAL",
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://transparencia.aracas.ba.gov.br/",
+      "scope": "Transparência — despesas, contratos, obras e transferências estaduais",
+      "discoveryEvidence": "publisher_official_navigation",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-ara-portal",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-ara-portal.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-JAG-DESPESA",
+      "caseId": "PREBA-04",
+      "municipality": "Jaguaquara",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/despesa",
+      "scope": "Despesa — Empenhos, Liquidações, Pagamentos e Favorecidos; aplicar 2026",
+      "discoveryEvidence": "publisher_official_navigation",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-jag-despesa",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-jag-despesa.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    }
+  ]
+}
