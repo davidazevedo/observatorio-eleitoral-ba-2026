@@ -120,6 +120,7 @@ type DashboardData = {
   p0RuralMarketGaps: P0RuralMarketGaps;
   p0ClassificationCoverage: P0ClassificationCoverage;
   prebaPackagesIndex: PrebaPackageIndex;
+  prebaDiligenceTracker: DiligenceTracker;
   prebaLajedoPackage: PrebaLajedoPackage;
   prebaBeloCampoPackage: PrebaBeloCampoPackage;
   prebaAracasPackage: PrebaAracasPackage;
@@ -141,7 +142,9 @@ type DashboardData = {
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
 
-type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
+type DiligenceRequest = { requestId:string; packageId:string; municipality:string; priority:string; recipient:string; document:string; status:string; requestSentAt:string|null; responseReceivedAt:string|null; sourceUrl:string|null; artifactSha256:string|null; verifiedBy:string|null; gates:Record<string,string>; notes:string };
+type DiligenceTracker = { schemaVersion:number; trackerId:string; createdAt:string; requests:DiligenceRequest[] };
+type Tab = 'overview' | 'submissions' | 'triage' | 'findings' | 'sources' | 'provenance' | 'housing' | 'expansion' | 'preba' | 'diligences' | 'entities' | 'relations' | 'municipalities' | 'reports' | 'api';
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -206,6 +209,9 @@ function financialTotalsFor(records: IntelligenceRecord[]) {
 
 export default function PrivateDashboardClient({ data }: { data: DashboardData }) {
   const [tab, setTab] = useState<Tab>('overview');
+  const [diligenceMunicipality,setDiligenceMunicipality] = useState('Todos');
+  const [diligenceStatus,setDiligenceStatus] = useState('Todos');
+  const [diligenceSearch,setDiligenceSearch] = useState('');
   const [query, setQuery] = useState('');
   const [mode, setMode] = useState('Todos');
   const [intelQuery, setIntelQuery] = useState('');
@@ -558,6 +564,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
     { id: 'housing', label: 'Matriz Habitação', count: data.housingAudit.length },
     { id: 'expansion', label: 'Universo 77', count: data.municipalityUniverse77.counts.totalMunicipalities },
     { id: 'preba', label: 'Pacotes PRE-BA', count: data.prebaPackagesIndex.packages.length },
+    { id: 'diligences', label: 'Diligências', count: data.prebaDiligenceTracker.requests.length },
     { id: 'entities', label: 'Entidades', count: data.metrics.entities },
     { id: 'relations', label: 'Relações', count: data.metrics.relationships },
     { id: 'municipalities', label: 'Municípios', count: data.metrics.municipalities },
@@ -1462,6 +1469,26 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             </>
           )}
 
+          {tab === 'diligences' && (
+            <section className="private-panel" aria-label="Controle documental de diligências PRE-BA">
+              <div className="private-panel-title"><div><p className="eyebrow">ETAPA 6C · CONTROLE INTERNO</p><h2>Diligências e gates probatórios</h2><small>Lista de leitura; nenhum pedido é enviado por esta tela. A ausência de documento neste controle não prova sua inexistência.</small></div></div>
+              <div className="private-filter-row" style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:20}}>
+                <label>Município <select aria-label="Filtrar município" value={diligenceMunicipality} onChange={e=>setDiligenceMunicipality(e.target.value)}><option>Todos</option>{Array.from(new Set(data.prebaDiligenceTracker.requests.map(r=>r.municipality))).map(m=><option key={m}>{m}</option>)}</select></label>
+                <label>Estado <select aria-label="Filtrar estado da diligência" value={diligenceStatus} onChange={e=>setDiligenceStatus(e.target.value)}><option>Todos</option>{['not_requested','requested','received_unverified','verified','not_located','not_applicable'].map(st=><option key={st} value={st}>{st}</option>)}</select></label>
+                <label>Busca <input aria-label="Buscar diligências" value={diligenceSearch} onChange={e=>setDiligenceSearch(e.target.value)} placeholder="Documento, órgão ou ID"/></label>
+              </div>
+              <p role="status">{data.prebaDiligenceTracker.requests.filter(r=>(diligenceMunicipality==='Todos'||r.municipality===diligenceMunicipality)&&(diligenceStatus==='Todos'||r.status===diligenceStatus)&&(!diligenceSearch||[r.requestId,r.document,r.recipient].join(' ').toLowerCase().includes(diligenceSearch.toLowerCase()))).length} diligências exibidas de {data.prebaDiligenceTracker.requests.length} cadastradas.</p>
+              <div style={{display:'grid',gap:14}}>
+                {data.prebaDiligenceTracker.requests.filter(r=>(diligenceMunicipality==='Todos'||r.municipality===diligenceMunicipality)&&(diligenceStatus==='Todos'||r.status===diligenceStatus)&&(!diligenceSearch||[r.requestId,r.document,r.recipient].join(' ').toLowerCase().includes(diligenceSearch.toLowerCase()))).map(r=><article key={r.requestId} className="private-panel" style={{margin:0,padding:16}}>
+                  <h3>{r.municipality} · {r.requestId}</h3>
+                  <p><strong>{r.document}</strong></p>
+                  <p>Órgão: {r.recipient} · Prioridade: {r.priority} · Estado: {r.status==='not_requested'?'Não solicitada':r.status}</p>
+                  <p>Verificações: {Object.entries(r.gates).filter(([,v])=>v==='pass').length}/7 aprovadas · SHA-256: {r.artifactSha256||'Não disponível'}</p>
+                  <details><summary>Ver gates e limites</summary><ul>{Object.entries(r.gates).map(([name,value])=><li key={name}>{name}: {value==='pending'?'Pendente':value}</li>)}</ul><p>{r.notes}</p></details>
+                </article>)}
+              </div>
+            </section>
+          )}
           {tab === 'entities' && (
             <section className="private-panel">
               <div className="private-panel-title submissions-heading"><div><p className="eyebrow">ÍNDICE DE ENTIDADES</p><h2>Pessoas, empresas, órgãos e fornecedores</h2><small className="filter-result-count">{visibleEntities.length} entidade(s)</small></div><div className="private-filters"><input value={entityQuery} onChange={(e)=>setEntityQuery(e.target.value)} placeholder="Nome, CNPJ, papel…" /><select value={entityType} onChange={(e)=>setEntityType(e.target.value)}><option>Todos</option>{entityTypeOptions.map((v)=><option key={v}>{v}</option>)}</select><select value={entityMentions} onChange={(e)=>setEntityMentions(e.target.value)}><option value="1">≥ 1 menção</option><option value="2">≥ 2 menções</option><option value="3">≥ 3 menções</option><option value="5">≥ 5 menções</option><option value="10">≥ 10 menções</option></select></div></div>
