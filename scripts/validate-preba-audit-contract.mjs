@@ -57,7 +57,10 @@ valid[0].eventHash=digest(valid[0]);
 assert.deepEqual(validateEvents(valid),{events:1,requests:1});
 function fails(fn){assert.throws(fn);}
 fails(()=>validateEvents([{...valid[0],reason:'tampered'}]));
-fails(()=>validateEvents([{...valid[0],packageId:'PREBA-02-BELO-CAMPO-2026',eventHash:digest({...valid[0],packageId:'PREBA-02-BELO-CAMPO-2026',eventHash:undefined})}]));
+const wrongPackage={...valid[0],packageId:'PREBA-02-BELO-CAMPO-2026'};
+const {eventHash:ignoredHash,...wrongBody}=wrongPackage;
+wrongPackage.eventHash=digest(wrongBody);
+fails(()=>validateEvents([wrongPackage]));
 const unrequested={eventId:'event-receipt-001',requestId:'LAJ-02',packageId:'PREBA-01-LAJEDO-TABOCAL-2026',kind:'received',createdAt:'2026-10-08T21:00:00Z',actorId:'qa',reason:'fixture only',previousEventHash:null,sha256:'a'.repeat(64),blobPath:'private/example',mimeType:'application/pdf',sizeBytes:100,retrievedAt:'2026-10-08T20:59:00Z',publisher:'qa'};
 unrequested.eventHash=digest(unrequested);
 fails(()=>validateEvents([unrequested]));
