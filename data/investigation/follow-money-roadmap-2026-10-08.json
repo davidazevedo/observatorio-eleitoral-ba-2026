@@ -73,7 +73,7 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "PNCP: 2 itens, 5 eventos de histórico, 2 respostas HTTP 204 sem corpo nos endpoints de resultado. Isso não comprova ausência de contrato/pagamento; seguir diligência municipal.",
+        "statusNote": "PNCP detalhe/itens/histórico/resultados já preservados. Adicionados dois endpoints oficiais para localizar contrato/empenho vinculado; nenhum pagamento municipal novo confirmado.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
@@ -93,7 +93,9 @@
         "pncpItemResultTargetsRegistered": 2,
         "pncpResultQueriesVerified": 2,
         "pncpResultHttp204": 2,
-        "pncpResultRecordsObserved": null
+        "pncpResultRecordsObserved": null,
+        "pncpLinkedContractTargetsRegistered": 2,
+        "pncpLinkedContractsCaptureStatus": "official_urls_ready_for_actions_run"
       }
     },
     {
@@ -169,7 +171,8 @@
     "fm03PncpResultReceiptCommit": "14bbf6f70233140b2bed14a7f720fa3048749121",
     "fm03PncpResultReceiptDeploy": "dpl_78B5ekoMbFk998XBLt6DY5rEE7uf",
     "fm03PncpAuthenticatedGETVerified": false,
-    "fm03SupplierPaymentsVerified": 0
+    "fm03SupplierPaymentsVerified": 0,
+    "fm03PncpLinkedContracts": "versioned_source_model_pending_workflow_and_api_deployment"
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

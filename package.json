@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs",
+    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs && node scripts/validate-fm03-pncp-linked-contracts.mjs",
     "test:evidence": "node scripts/validate-central-evidence.mjs",
     "test:fm02": "node scripts/validate-fm02-documents.mjs",
     "test:archive": "node scripts/validate-fm02-snapshots.mjs",
@@ -15,7 +15,8 @@
     "test:fm03-pncp": "node scripts/validate-fm03-pncp-originals.mjs",
     "test:pncp-followup": "node scripts/validate-fm03-pncp-items-history.mjs",
     "test:pncp-history": "node scripts/validate-fm03-pncp-item-history-originals.mjs",
-    "test:pncp-results": "node scripts/validate-fm03-pncp-results-receipts.mjs"
+    "test:pncp-results": "node scripts/validate-fm03-pncp-results-receipts.mjs",
+    "test:pncp-contracts": "node scripts/validate-fm03-pncp-linked-contracts.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",

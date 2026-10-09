@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-PNCP-LINKED-CONTRACT-WATCH-2026-10-08",
+  "initialized": "2026-10-08",
+  "stage": "FM-03",
+  "status": "official_endpoints_registered_capture_pending",
+  "objective": "Verificar contratos/empenhos vinculados diretamente às contratações com número PNCP conhecido; diferenciar fornecedor contratado de fornecedor pago.",
+  "sourceManual": "https://pncp.gov.br/manual/pt-br/latest/contrato_empenho/consultar_contratos_ou_empenhos_de_uma_contratacao.html",
+  "targets": [
+    {
+      "schemaVersion": 1,
+      "id": "FM03-PNCP-LINKED-CONTRACTS-PREBA-01",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "relatedCentralCE": "CE-052",
+      "relatedPNCPOriginal": "FM03-PNCP-LAJEDO-04-2026",
+      "pncpControlNumber": "16434441000131-1-000026/2026",
+      "source": {
+        "authority": "PNCP",
+        "documentation": "https://pncp.gov.br/manual/pt-br/latest/contrato_empenho/consultar_contratos_ou_empenhos_de_uma_contratacao.html",
+        "endpoint": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/contratos/contratacao/2026/26",
+        "cnpjOrgao": "16434441000131",
+        "anoContratacao": 2026,
+        "sequencialContratacao": 26,
+        "targetId": "fm03-lajedo-pncp-linked-contracts",
+        "expectedManifest": "preservation/manifests/fm03-lajedo-pncp-linked-contracts.json",
+        "archivePolicy": "raw_official_json_only_2MB"
+      },
+      "status": "awaiting_first_official_capture",
+      "expectedResponseKinds": [
+        "http_200_json_array_or_object",
+        "http_204_no_body",
+        "http_404_not_registered_or_unavailable",
+        "http_429_retry",
+        "http_5xx_server_failure"
+      ],
+      "resultEvidence": {
+        "httpStatus": null,
+        "bodySha256": null,
+        "rawSnapshotPath": null,
+        "contractIdentifiers": [],
+        "supplierIdentifiers": [],
+        "verifiedFinancialDisbursements": 0
+      },
+      "interpretationBoundary": "Um contrato ou empenho no PNCP pode vincular formalmente contratação a fornecedor. Não prova liquidação, pagamento bancário, execução, financiamento eleitoral ou crime. HTTP vazio/erro também não comprova inexistência de contrato."
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-PNCP-LINKED-CONTRACTS-PREBA-03",
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "relatedCentralCE": "CE-056",
+      "relatedPNCPOriginal": "FM03-PNCP-ARACAS-007-2026",
+      "pncpControlNumber": "16131088000110-1-000007/2026",
+      "source": {
+        "authority": "PNCP",
+        "documentation": "https://pncp.gov.br/manual/pt-br/latest/contrato_empenho/consultar_contratos_ou_empenhos_de_uma_contratacao.html",
+        "endpoint": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/contratos/contratacao/2026/7",
+        "cnpjOrgao": "16131088000110",
+        "anoContratacao": 2026,
+        "sequencialContratacao": 7,
+        "targetId": "fm03-aracas-pncp-linked-contracts",
+        "expectedManifest": "preservation/manifests/fm03-aracas-pncp-linked-contracts.json",
+        "archivePolicy": "raw_official_json_only_2MB"
+      },
+      "status": "awaiting_first_official_capture",
+      "expectedResponseKinds": [
+        "http_200_json_array_or_object",
+        "http_204_no_body",
+        "http_404_not_registered_or_unavailable",
+        "http_429_retry",
+        "http_5xx_server_failure"
+      ],
+      "resultEvidence": {
+        "httpStatus": null,
+        "bodySha256": null,
+        "rawSnapshotPath": null,
+        "contractIdentifiers": [],
+        "supplierIdentifiers": [],
+        "verifiedFinancialDisbursements": 0
+      },
+      "interpretationBoundary": "Um contrato ou empenho no PNCP pode vincular formalmente contratação a fornecedor. Não prova liquidação, pagamento bancário, execução, financiamento eleitoral ou crime. HTTP vazio/erro também não comprova inexistência de contrato."
+    }
+  ],
+  "counts": {
+    "cases": 2,
+    "endpointTargets": 2,
+    "officialCapturesAnalyzed": 0,
+    "verifiedContractors": 0,
+    "verifiedSupplierPayments": 0,
+    "newCentralCE": 0
+  },
+  "originalSourceBoundary": "Dados de contratação/itens/histórico já preservados em outro registro FM03; este é novo endpoint PNCP validado no manual oficial.",
+  "privacyBoundary": "Extratos bancários e identificadores privados não devem ser expostos no Git público; acesso a dados protegidos compete a autoridade com base legal."
+}
