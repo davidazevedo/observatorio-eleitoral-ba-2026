@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-PNCP-ITEM1-RESULT-HTTP204-2026-10-08",
+  "registeredDate": "2026-10-08",
+  "captureRunId": 37870868523,
+  "officialResultsReturnedWithData": 0,
+  "receipts": [
+    {
+      "id": "FM03-PNCP-LAJEDO-ITEM1-RESULTS-2026",
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "path": "data/evidence/fm03/procurement/FM03-PNCP-LAJEDO-ITEM1-RESULTS-2026.json",
+      "httpStatus": 204,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawCapturePath": "preservation/snapshots/fm03-lajedo-pncp-item1-results/2026-10-09T01-41-32Z.json",
+      "retrievedAtUTC": "2026-10-09T01:41:32Z",
+      "bodyBytes": 0,
+      "resultsCanBeInterpreted": false
+    },
+    {
+      "id": "FM03-PNCP-ARACAS-ITEM1-RESULTS-2026",
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "path": "data/evidence/fm03/procurement/FM03-PNCP-ARACAS-ITEM1-RESULTS-2026.json",
+      "httpStatus": 204,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawCapturePath": "preservation/snapshots/fm03-aracas-pncp-item1-results/2026-10-09T01-41-33Z.json",
+      "retrievedAtUTC": "2026-10-09T01:41:33Z",
+      "bodyBytes": 0,
+      "resultsCanBeInterpreted": false
+    }
+  ],
+  "note": "204 No Content in captured official requests. Not evidence of no contracting, award, municipal disbursement, or criminal conduct.",
+  "nextDiligence": "Request award/adjudication/homologation/contract from relevant municipal system and follow original procurement documents.",
+  "newCentralCE": 0,
+  "verifiedSupplierPayments": 0
+}

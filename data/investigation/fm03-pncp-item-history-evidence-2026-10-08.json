@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "registryId": "FM03-PNCP-ITEMS-HISTORY-RESULT-2026-10-08",
   "registeredDate": "2026-10-08",
-  "status": "items_and_history_archived_results_pending",
+  "status": "items_history_validated_two_result_endpoints_http204_no_body",
   "batches": [
     {
       "caseId": "PREBA-01",
@@ -88,9 +88,16 @@
       "resultQuery": {
         "targetId": "fm03-lajedo-pncp-item1-results",
         "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens/1/resultados",
-        "status": "awaiting_automatic_capture",
+        "status": "http_204_no_content_in_captured_response",
         "itemNumberProvenance": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
-        "noSupplierPaymentImplication": true
+        "noSupplierPaymentImplication": true,
+        "sourceManifestPath": "preservation/manifests/fm03-lajedo-pncp-item1-results.json",
+        "httpStatus": 204,
+        "bodyByteLength": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "originalEmptyResponsePath": "preservation/snapshots/fm03-lajedo-pncp-item1-results/2026-10-09T01-41-32Z.json",
+        "retrievedAtUTC": "2026-10-09T01:41:32Z",
+        "resultRecordsAvailableToAnalyze": false
       }
     },
     {
@@ -169,9 +176,16 @@
       "resultQuery": {
         "targetId": "fm03-aracas-pncp-item1-results",
         "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens/1/resultados",
-        "status": "awaiting_automatic_capture",
+        "status": "http_204_no_content_in_captured_response",
         "itemNumberProvenance": "preservation/snapshots/fm03-aracas-pncp-items/2026-10-09T01-34-33Z.json",
-        "noSupplierPaymentImplication": true
+        "noSupplierPaymentImplication": true,
+        "sourceManifestPath": "preservation/manifests/fm03-aracas-pncp-item1-results.json",
+        "httpStatus": 204,
+        "bodyByteLength": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "originalEmptyResponsePath": "preservation/snapshots/fm03-aracas-pncp-item1-results/2026-10-09T01-41-33Z.json",
+        "retrievedAtUTC": "2026-10-09T01:41:33Z",
+        "resultRecordsAvailableToAnalyze": false
       }
     }
   ],
@@ -181,9 +195,11 @@
     "itemsFound": 2,
     "historyEventsFound": 5,
     "resultQueriesRegistered": 2,
-    "resultQueriesCollected": 0,
+    "resultQueriesCollected": 2,
     "supplierPaymentsProven": 0,
-    "newCentralCE": 0
+    "newCentralCE": 0,
+    "resultQueriesWithHttp204": 2,
+    "resultEntriesVerified": 0
   },
   "method": "Only the verified item number from each archived PNCP items JSON is used to form the item-results URL.",
   "decisionBoundary": "PNCP records expose procurement metadata, not bank disbursements; no campaign financing conclusion."
