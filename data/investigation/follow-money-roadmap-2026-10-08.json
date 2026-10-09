@@ -72,11 +72,15 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "9 endereços oficiais de consulta versionados, 4 minutas LAI não protocoladas; dados de despesa e fornecedores ainda sem conexão documentada a cada convênio.",
+        "statusNote": "9 fontes públicas monitoradas e com SHA HTTP200; quatro URLs/duas prefeituras têm bytes idênticos. Nenhum pagamento municipal reconciliado; validar conteúdo, não apenas status.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
-        "officialDocumentRequestsDrafted": 4
+        "officialDocumentRequestsDrafted": 4,
+        "http200ResponseHashesVersioned": 9,
+        "semanticPageValidations": 0,
+        "crossDomainDuplicateResponseGroups": 1,
+        "duplicateSourcePagesFlagged": 4
       }
     },
     {
@@ -145,8 +149,9 @@
     "fm03ReleaseCommit": "11794fcd743e0596d0dd5f75d1375bc7387237d6",
     "fm03ReadApiAuthenticatedCallVerified": false,
     "lastProductionQa": "2026-10-08",
-    "fm03FiscalPortalsApiStatus": "deployed_7_source_registry_pending_9_source_release",
-    "fm03NewSupplierEvidenceIds": 0
+    "fm03FiscalPortalsApiStatus": "nine_http_hashes_in_git_pending_semantic_quality_release",
+    "fm03NewSupplierEvidenceIds": 0,
+    "fm03SemanticallyVerifiedFiscalStatements": 0
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

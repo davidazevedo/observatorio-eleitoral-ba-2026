@@ -11,10 +11,12 @@
   "preservation": {
     "targetId": "fm03-laj-portal",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_hash_only_semantic_review_needed",
+    "sha256": "3b0f2ca803dbadf476a8569abe51520dda67741df21022525de72a677e41ba28",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-laj-portal.json"
+    "githubManifestPath": "preservation/manifests/fm03-laj-portal.json",
+    "httpStatus": 200,
+    "lastCollectedAt": "2026-10-09T01:02:01Z"
   },
   "extraction": {
     "filterYear": 2026,

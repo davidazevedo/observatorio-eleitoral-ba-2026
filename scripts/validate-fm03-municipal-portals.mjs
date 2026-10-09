@@ -5,6 +5,21 @@ const reg=load('data/investigation/fm03-municipal-source-register-2026-10-08.jso
 const targets=load('preservation/targets.json').targets;
 const chain=load('data/investigation/fm03-financial-chain-baseline-2026-10-08.json');
 assert.equal(reg.sources.length,9);
+const qa=load('data/investigation/fm03-source-capture-quality-2026-10-08.json');
+assert.equal(qa.count.registered,9);
+assert.equal(qa.count.receivedHttp200,9);
+assert.equal(qa.count.semanticValidations,0);
+assert.equal(qa.count.verifiedMunicipalSupplierPayments,0);
+assert.equal(qa.count.newCentralEvidenceIds,0);
+assert(qa.count.crossDomainDuplicatedSources>=4,'Cross-domain generic response signal missing');
+for(const capture of qa.captures){
+ const source=reg.sources.find(x=>x.id===capture.id);
+ assert(source&&source.preservation.sha256===capture.sha256);
+ const archive=load(source.preservation.githubManifestPath);
+ assert(archive.history.some(h=>h.sha256===capture.sha256&&h.available===true));
+ assert.equal(capture.rawContentPreservedInPublicGit,false);
+}
+
 assert.equal(reg.totalMunicipalities,4);
 assert.equal(reg.cases.length,4);
 assert.equal(reg.newCentralCE,0);

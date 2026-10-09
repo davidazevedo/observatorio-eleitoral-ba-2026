@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "registryId": "FM03-MUNICIPAL-FISCAL-PORTALS-2026-10-08",
   "registeredDate": "2026-10-08",
-  "status": "source_discovery_9_official_endpoints_pending_http_capture",
+  "status": "nine_http_responses_preserved_by_sha_semantic_review_required",
   "totalMunicipalities": 4,
   "totalSourceReferences": 9,
   "financeLedgerReconciliationStatus": "missing_municipal_expenditure_and_supplier_docs",
@@ -104,10 +104,12 @@
       "preservation": {
         "targetId": "fm03-laj-portal",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_hash_only_semantic_review_needed",
+        "sha256": "3b0f2ca803dbadf476a8569abe51520dda67741df21022525de72a677e41ba28",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-laj-portal.json"
+        "githubManifestPath": "preservation/manifests/fm03-laj-portal.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:02:01Z"
       },
       "extraction": {
         "filterYear": 2026,
@@ -138,10 +140,12 @@
       "preservation": {
         "targetId": "fm03-laj-despesa",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_hash_only_semantic_review_needed",
+        "sha256": "f73882ea6a3cbe6373f65578e3fbedd52fba1050c69150a50c689c937755362f",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-laj-despesa.json"
+        "githubManifestPath": "preservation/manifests/fm03-laj-despesa.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:05:23Z"
       },
       "extraction": {
         "filterYear": 2026,
@@ -172,10 +176,12 @@
       "preservation": {
         "targetId": "fm03-laj-contratos",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_hash_only_semantic_review_needed",
+        "sha256": "df3afd409145ab5c533cff624b6bbffff81ba3d26e728ee6d7cbc2125210766f",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json"
+        "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:02:03Z"
       },
       "extraction": {
         "filterYear": 2026,
@@ -206,10 +212,12 @@
       "preservation": {
         "targetId": "fm03-belo-despesas",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_hash_only_semantic_review_needed",
+        "sha256": "a47bb8462c8a9650129ab331ab5242a8c7b307f5a0ee606a370d93fafa232043",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-belo-despesas.json"
+        "githubManifestPath": "preservation/manifests/fm03-belo-despesas.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:02:05Z"
       },
       "extraction": {
         "filterYear": 2026,
@@ -240,10 +248,17 @@
       "preservation": {
         "targetId": "fm03-belo-sic",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_cross_domain_identical_payload_unverified",
+        "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-belo-sic.json"
+        "githubManifestPath": "preservation/manifests/fm03-belo-sic.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:02:08Z",
+        "sharedShaWith": [
+          "FM03-ARA-PORTAL",
+          "FM03-BELO-DESPESA-DIRETA",
+          "FM03-ARA-CONVENIOS"
+        ]
       },
       "extraction": {
         "filterYear": 2026,
@@ -274,10 +289,17 @@
       "preservation": {
         "targetId": "fm03-ara-portal",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_cross_domain_identical_payload_unverified",
+        "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-ara-portal.json"
+        "githubManifestPath": "preservation/manifests/fm03-ara-portal.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:02:09Z",
+        "sharedShaWith": [
+          "FM03-BELO-SIC",
+          "FM03-BELO-DESPESA-DIRETA",
+          "FM03-ARA-CONVENIOS"
+        ]
       },
       "extraction": {
         "filterYear": 2026,
@@ -308,10 +330,12 @@
       "preservation": {
         "targetId": "fm03-jag-despesa",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_hash_only_semantic_review_needed",
+        "sha256": "765e67e67dcf0637818aa2bcddfcf1a5a8c36f32fa3f835d1b376cde99d2e97c",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-jag-despesa.json"
+        "githubManifestPath": "preservation/manifests/fm03-jag-despesa.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:05:34Z"
       },
       "extraction": {
         "filterYear": 2026,
@@ -342,10 +366,17 @@
       "preservation": {
         "targetId": "fm03-belo-despesa-direta",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_cross_domain_identical_payload_unverified",
+        "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-belo-despesa-direta.json"
+        "githubManifestPath": "preservation/manifests/fm03-belo-despesa-direta.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:05:36Z",
+        "sharedShaWith": [
+          "FM03-BELO-SIC",
+          "FM03-ARA-PORTAL",
+          "FM03-ARA-CONVENIOS"
+        ]
       },
       "extraction": {
         "filterYear": 2026,
@@ -376,10 +407,17 @@
       "preservation": {
         "targetId": "fm03-ara-convenios",
         "rawFilePublicGitAllowed": false,
-        "status": "awaiting_automated_capture",
-        "sha256": null,
+        "status": "http_200_cross_domain_identical_payload_unverified",
+        "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
         "gitSnapshotPath": null,
-        "githubManifestPath": "preservation/manifests/fm03-ara-convenios.json"
+        "githubManifestPath": "preservation/manifests/fm03-ara-convenios.json",
+        "httpStatus": 200,
+        "lastCollectedAt": "2026-10-09T01:05:38Z",
+        "sharedShaWith": [
+          "FM03-BELO-SIC",
+          "FM03-ARA-PORTAL",
+          "FM03-BELO-DESPESA-DIRETA"
+        ]
       },
       "extraction": {
         "filterYear": 2026,
@@ -397,5 +435,18 @@
       "legalFinding": "none",
       "notASeparateCentralEvidence": true
     }
-  ]
+  ],
+  "captureQuality": {
+    "http200Recorded": 9,
+    "crossDomainDuplicateGroups": 1,
+    "sourcesWithDuplicatePayload": 4,
+    "semanticallyValidatedFinancialPages": 0,
+    "verifiedSupplierPaymentsInNewCaptures": 0,
+    "privateBytesRetainedByThisWorkflow": false,
+    "latestWorkflowRuns": [
+      37867608452,
+      37867925722
+    ]
+  },
+  "provenanceWarning": "HTTP 200 may be generic gateway page. Four urls from two municipal hosts share identical bytes; review page body in authenticated/private environment before extracting any municipal fiscal fact."
 }

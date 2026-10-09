@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "qaId": "FM03-HTTP-SOURCE-SEMANTIC-QUALITY-2026-10-08",
+  "generatedDate": "2026-10-08",
+  "workflows": [
+    {
+      "id": 37867608452,
+      "status": "success",
+      "snapshotsCommit": "0e9f9108c7124b8511d1b9de52c429944dd47053"
+    },
+    {
+      "id": 37867925722,
+      "status": "success",
+      "snapshotsCommit": "f0d97c18ad1955a2a69d8879f244c2e1071a66a0"
+    }
+  ],
+  "count": {
+    "registered": 9,
+    "receivedHttp200": 9,
+    "crossDomainDuplicateGroups": 1,
+    "crossDomainDuplicatedSources": 4,
+    "semanticValidations": 0,
+    "verifiedMunicipalSupplierPayments": 0,
+    "newCentralEvidenceIds": 0
+  },
+  "captures": [
+    {
+      "id": "FM03-LAJ-PORTAL",
+      "targetId": "fm03-laj-portal",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia",
+      "httpStatus": 200,
+      "sha256": "3b0f2ca803dbadf476a8569abe51520dda67741df21022525de72a677e41ba28",
+      "contentBytes": 36215,
+      "obtainedAtUTC": "2026-10-09T01:02:01Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-LAJ-DESPESA",
+      "targetId": "fm03-laj-despesa",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa",
+      "httpStatus": 200,
+      "sha256": "f73882ea6a3cbe6373f65578e3fbedd52fba1050c69150a50c689c937755362f",
+      "contentBytes": 141877,
+      "obtainedAtUTC": "2026-10-09T01:05:23Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-LAJ-CONTRATOS",
+      "targetId": "fm03-laj-contratos",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "httpStatus": 200,
+      "sha256": "df3afd409145ab5c533cff624b6bbffff81ba3d26e728ee6d7cbc2125210766f",
+      "contentBytes": 34890,
+      "obtainedAtUTC": "2026-10-09T01:02:03Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-BELO-DESPESAS",
+      "targetId": "fm03-belo-despesas",
+      "url": "https://belocampo-ba.portaltp.com.br/",
+      "httpStatus": 200,
+      "sha256": "a47bb8462c8a9650129ab331ab5242a8c7b307f5a0ee606a370d93fafa232043",
+      "contentBytes": 33484,
+      "obtainedAtUTC": "2026-10-09T01:02:05Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-BELO-SIC",
+      "targetId": "fm03-belo-sic",
+      "url": "https://transparencia.belocampo.ba.gov.br/",
+      "httpStatus": 200,
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "obtainedAtUTC": "2026-10-09T01:02:08Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-ARA-PORTAL",
+      "targetId": "fm03-ara-portal",
+      "url": "https://transparencia.aracas.ba.gov.br/",
+      "httpStatus": 200,
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "obtainedAtUTC": "2026-10-09T01:02:09Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-JAG-DESPESA",
+      "targetId": "fm03-jag-despesa",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/despesa",
+      "httpStatus": 200,
+      "sha256": "765e67e67dcf0637818aa2bcddfcf1a5a8c36f32fa3f835d1b376cde99d2e97c",
+      "contentBytes": 317516,
+      "obtainedAtUTC": "2026-10-09T01:05:34Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-BELO-DESPESA-DIRETA",
+      "targetId": "fm03-belo-despesa-direta",
+      "url": "https://transparencia.belocampo.ba.gov.br/despesa",
+      "httpStatus": 200,
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "obtainedAtUTC": "2026-10-09T01:05:36Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    },
+    {
+      "id": "FM03-ARA-CONVENIOS",
+      "targetId": "fm03-ara-convenios",
+      "url": "https://transparencia.aracas.ba.gov.br/convenios",
+      "httpStatus": 200,
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "obtainedAtUTC": "2026-10-09T01:05:38Z",
+      "rawContentPreservedInPublicGit": false,
+      "semanticValidation": "not_performed"
+    }
+  ],
+  "duplicateGroups": [
+    {
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "sourceIds": [
+        "FM03-BELO-SIC",
+        "FM03-ARA-PORTAL",
+        "FM03-BELO-DESPESA-DIRETA",
+        "FM03-ARA-CONVENIOS"
+      ],
+      "hosts": [
+        "transparencia.belocampo.ba.gov.br",
+        "transparencia.aracas.ba.gov.br"
+      ],
+      "duplicateCount": 4,
+      "classification": "same_response_bytes_from_different_domains_not_validated_fiscal_content"
+    }
+  ],
+  "interpretation": "A shared SHA-256 across distinct official-looking domains is an indicator of an identical response (possibly generic/anti-automation), not of fiscal information. Do not draw any financial conclusion from these HTTP responses without validation of body content.",
+  "privacy": "Raw fiscal pages were intentionally not committed to Git due possible personal data. Manifests contain URL, HTTP metadata and SHA only."
+}
