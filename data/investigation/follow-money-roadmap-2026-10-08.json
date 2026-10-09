@@ -73,7 +73,7 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "9 canais municipais monitorados, dois documentos oficiais PNCP com SHA e detalhes de concorrência; ainda nenhum pagamento municipal a fornecedor do convênio comprovado.",
+        "statusNote": "FM-03: 4 cadeias FIPLAN, 2 JSON originais de contratação PNCP; 4 consultas oficiais novas de itens/histórico foram cadastradas, ainda sem execução de coleta. Zero fornecedor pago confirmado.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
@@ -83,7 +83,9 @@
         "crossDomainDuplicateResponseGroups": 1,
         "duplicateSourcePagesFlagged": 4,
         "officialPncpDetailOriginalsValidated": 2,
-        "verifiedSupplierDisbursements": 0
+        "verifiedSupplierDisbursements": 0,
+        "pncpItemHistoryTargetsRegistered": 4,
+        "pncpItemHistoryHttpVerified": 0
       }
     },
     {
@@ -154,7 +156,8 @@
     "lastProductionQa": "2026-10-08",
     "fm03FiscalPortalsApiStatus": "nine_http_hashes_in_git_pending_semantic_quality_release",
     "fm03NewSupplierEvidenceIds": 0,
-    "fm03SemanticallyVerifiedFiscalStatements": 0
+    "fm03SemanticallyVerifiedFiscalStatements": 0,
+    "fm03PncpItemHistoryStatus": "registered_targets_pending_GitHub_action"
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

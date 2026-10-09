@@ -54,6 +54,7 @@ type Fm03FiscalCase = {caseId:string;agreement:string;sei:string;paymentNob:stri
 type Fm03FiscalRegistry = {schemaVersion:number;registryId:string;registeredDate:string;status:string;totalMunicipalities:number;totalSourceReferences:number;verifiedSupplierPaymentsFoundInThisStage:number;newCentralCE:number;privacyRule:string;cases:Fm03FiscalCase[];sources:Fm03FiscalPortal[]};
 type Fm03PncpItem = {schemaVersion:number;id:string;caseId:string;municipality:string;corroboratesExistingCE:string;rawSnapshotPath:string;sourceSha256:string;pncpControlNumber:string;procurementNumber:string;process:string;object:string;publicationDateTime:string;proposalDeadlineDateTime:string;estimatedValueBRL:number;homologatedValueBRL:number|null;resultRegisteredInRecord:boolean;procurementState:string;sourceModelLimit:string;supplierIdentifiedInThisRecord:boolean;supplierPaymentVerified:boolean};
 type Fm03PncpIndex = {schemaVersion:number;registryId:string;count:number;newCentralCE:number;entries:Fm03PncpItem[];disputedSemantics:string};
+type Fm03PncpFollowUp = {schemaVersion:number;registryId:string;status:string;metrics:{targetsAdded:number;casesCovered:number;itemsObtained:number;historyResponsesObtained:number;verifiedSupplierAwards:number;verifiedSupplierPayments:number;newCentralCE:number};accessPoints:Array<{caseId:string;municipality:string;id:string;sourceUrl:string;operation:string;contentStatus:string;sha256:string|null;originalBytesPreserved:boolean}>;cautions:string[]};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -124,6 +125,7 @@ type DashboardData = {
   fm02FiplanPrimaryRows: Fm02Financial;
   fm03FinancialChains: Fm03Index;
   fm03PncpOfficialSnapshots: Fm03PncpIndex;
+  fm03PncpItemsHistory: Fm03PncpFollowUp;
   fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
@@ -1030,6 +1032,24 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FM-03 · SEGUIMENTO PNCP</p><h2>Itens e histórico oficial de duas contratações</h2><small>{data.fm03PncpItemsHistory.registryId}</small></div>
+                  <span className="housing-exception-pending">COLETA PENDENTE</span>
+                </div>
+                <p>As quatro consultas abaixo já estão cadastradas para preservação automática. Os conteúdos de itens e histórico ainda não foram verificados; não há fornecedor adjudicado nem pagamento comprovado nessa etapa.</p>
+                <div className="private-grid-two">
+                  {data.fm03PncpItemsHistory.accessPoints.map(s=><article key={s.id} className="private-panel">
+                    <div className="private-panel-title">
+                      <div><p className="eyebrow">{s.caseId} · {s.operation}</p><h2>{s.municipality}</h2></div>
+                      <span className="housing-exception-pending">AGUARDANDO COLETA</span>
+                    </div>
+                    <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">Consultar endpoint oficial</a>
+                    <p className="private-report-note">{s.id}: {s.contentStatus}.</p>
+                  </article>)}
+                </div>
+                <p className="private-report-note">Regra probatória: fornecedor vencedor só será exibido se constar de item/resultado oficial e for validado. Resultado de licitação não equivale a pagamento municipal.</p>
+              </section>
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · PNCP OFICIAL — ORIGINAIS PRESERVADOS</p><h2>Contratações e evidências documentais</h2><small>{data.fm03PncpOfficialSnapshots.registryId}</small></div>
