@@ -59,6 +59,9 @@ type Fm03PncpValidatedEvidence = {schemaVersion:number;registryId:string;status:
 type Fm03PncpReceiptIndex = {schemaVersion:number;registryId:string;captureRunId:number;officialResultsReturnedWithData:number;receipts:Array<{id:string;caseId:string;municipality:string;httpStatus:number;sha256:string;bodyBytes:number;resultsCanBeInterpreted:boolean}>;note:string;verifiedSupplierPayments:number;newCentralCE:number};
 type Fm03LinkedContract = {schemaVersion:number;id:string;caseId:string;municipality:string;relatedCentralCE:string;pncpControlNumber:string;source:{authority:string;documentation:string;endpoint:string;targetId:string;expectedManifest:string};status:string;resultEvidence:{httpStatus:number|null;bodySha256:string|null;rawSnapshotPath:string|null;contractIdentifiers:string[];supplierIdentifiers:string[];verifiedFinancialDisbursements:number};interpretationBoundary:string};
 type Fm03LinkedContracts = {registryId:string;status:string;counts:{cases:number;endpointTargets:number;officialCapturesAnalyzed:number;verifiedContractors:number;verifiedSupplierPayments:number;newCentralCE:number};targets:Fm03LinkedContract[];sourceManual:string};
+type Fm03TimelineEvent = {id:string;kind:string;occurredOn:string|null;occurredAt:string|null;recordedAt:string|null;label:string;amountBRL:number|null;qualifyingNote:string;sourceStatus:string;source:{path:string;sha256:string|null}};
+type Fm03Timeline = {timelineId:string;caseId:string;municipality:string;status:string;events:Fm03TimelineEvent[];temporalCaution:string};
+type Fm03TimelineRegistry = {registryId:string;asOf:string;counts:{cases:number;events:number;statePayments:number;pncpDetails:number;pncpHistory:number;pncpItemSnapshots:number;noContentOrHttpErrors:number;supplierPayments:number};timelines:Fm03Timeline[]};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -128,6 +131,7 @@ type DashboardData = {
   fm02DocumentaryLedger: Fm02Ledger;
   fm02FiplanPrimaryRows: Fm02Financial;
   fm03FinancialChains: Fm03Index;
+  fm03Timelines: Fm03TimelineRegistry;
   fm03PncpOfficialSnapshots: Fm03PncpIndex;
   fm03PncpItemsHistory: Fm03PncpFollowUp;
   fm03PncpItemHistoryEvidence: Fm03PncpValidatedEvidence;
@@ -1039,6 +1043,29 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FM-03 · CRONOLOGIAS COM FONTE PRIMÁRIA</p><h2>Eventos de contratação e repasse verificáveis</h2><small>{data.fm03Timelines.registryId}</small></div>
+                  <span className="housing-exception-pending">PROBATÓRIA PARCIAL</span>
+                </div>
+                <p>São {data.fm03Timelines.counts.events} registros de eventos derivados de fontes preservadas: quatro pagamentos FIPLAN, atos do PNCP e respostas de consultas oficiais. Eles não representam {data.fm03Timelines.counts.events} pagamentos nem geram novos CE. Nenhuma despesa municipal a fornecedor foi comprovada aqui.</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Municípios</span><strong>{data.fm03Timelines.counts.cases}</strong><small>fichas individuais</small></article>
+                  <article><span>Pagamentos estaduais</span><strong>{data.fm03Timelines.counts.statePayments}</strong><small>com NOB verificada</small></article>
+                  <article><span>Atos PNCP em histórico</span><strong>{data.fm03Timelines.counts.pncpHistory}</strong><small>registros públicos</small></article>
+                  <article><span>Fornecedores pagos</span><strong>{data.fm03Timelines.counts.supplierPayments}</strong><small>sem pagamentos comprovados</small></article>
+                </div>
+                <div className="private-grid-two" style={{marginTop:'16px'}}>
+                  {data.fm03Timelines.timelines.map(timeline=><article className="private-panel" key={timeline.caseId}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{timeline.caseId}</p><h2>{timeline.municipality}</h2></div><strong>{timeline.events.length} eventos</strong></div>
+                    <ol>{timeline.events.map(e=><li key={e.id}><strong>{e.occurredOn||e.recordedAt?.slice(0,10)||'Data não identificada'} · {e.label}</strong>
+                      {typeof e.amountBRL==='number'?<span> · {money(e.amountBRL)}</span>:null}
+                      <small> — {e.qualifyingNote}</small><code title={e.source.path}>{e.source.sha256?e.source.sha256.slice(0,14)+'…':'Fonte com resposta HTTP de erro'}</code></li>)}</ol>
+                    <p className="private-report-note">{timeline.temporalCaution}</p>
+                  </article>)}
+                </div>
+                <p className="private-report-note">Limite: valores estimados de licitação não são recursos pagos. HTTP 204/400 não demonstra ausência de contrato. Eventos preservados no Git e disponíveis na API autenticada; cópias privadas adicionais devem ter recibo próprio.</p>
+              </section>
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · CONTRATOS VINCULADOS ÀS CONCORRÊNCIAS</p><h2>Próximo elo documental entre licitação e fornecedor</h2><small>{data.fm03LinkedContracts.registryId}</small></div>

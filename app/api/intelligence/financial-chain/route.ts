@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { verifyIntelligenceApiKey } from '@/lib/intelligence';
 import registry from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
+import timeline from '@/data/investigation/fm03-evidence-timelines-2026-10-08.json';
 import linkedContracts from '@/data/investigation/fm03-pncp-linked-contracts-2026-10-08.json';
 import fiscalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 import pncpOfficialSnapshots from '@/data/investigation/fm03-pncp-official-snapshots-2026-10-08.json';
@@ -22,6 +23,8 @@ export async function GET(request:Request){
   return NextResponse.json({
     ok:true,registryId:registry.registryId,status:registry.status,
     count:chains.length,counts:registry.counting,chains,
+    verifiedEventTimelines:timeline.timelines.filter(item=>!caseId||item.caseId===caseId),
+    eventTimelineCounts:timeline.counts,
     linkedOfficialContractQueries: linkedContracts.targets.filter(item=>!caseId||item.caseId===caseId),
     linkedContractsStatus: linkedContracts.status,
     municipalFiscalSources: fiscalSources.sources.filter(source=>!caseId||source.caseId===caseId),

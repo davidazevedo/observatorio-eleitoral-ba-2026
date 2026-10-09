@@ -31,6 +31,7 @@ import fm03PncpItemsHistory from '@/data/investigation/fm03-pncp-items-history-w
 import fm03PncpItemHistoryEvidence from '@/data/investigation/fm03-pncp-item-history-evidence-2026-10-08.json';
 import fm03PncpResultReceipts from '@/data/investigation/fm03-pncp-item-results-receipts-2026-10-08.json';
 import fm03LinkedContracts from '@/data/investigation/fm03-pncp-linked-contracts-2026-10-08.json';
+import fm03Timelines from '@/data/investigation/fm03-evidence-timelines-2026-10-08.json';
 import fm03MunicipalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 import {
@@ -399,6 +400,7 @@ export async function getPrivateDashboardData() {
     fm03PncpItemHistoryEvidence,
     fm03PncpResultReceipts,
     fm03LinkedContracts,
+    fm03Timelines,
     fm03MunicipalSources,
     centralEvidenceLedgerSummary: {
       registryId: centralEvidenceLedger.registryId,
