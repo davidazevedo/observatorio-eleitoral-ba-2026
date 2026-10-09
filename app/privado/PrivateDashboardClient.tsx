@@ -1051,7 +1051,6 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <p className="private-report-note">Regra probatória: fornecedor vencedor só será exibido se constar de item/resultado oficial e for validado. Resultado de licitação não equivale a pagamento municipal.</p>
               </section>
               <section className="private-panel">
-                              <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · PNCP OFICIAL — ORIGINAIS PRESERVADOS</p><h2>Contratações e evidências documentais</h2><small>{data.fm03PncpOfficialSnapshots.registryId}</small></div>
                   <span className="housing-status-ok">2 JSON CONFERIDOS</span>
