@@ -8,7 +8,7 @@ type IntakeResult = { receiptId:string; requestId:string; packageId:string; rece
 const requests = new Map(tracker.requests.map(item => [item.requestId, item]));
 
 function typeFromBytes(bytes: Uint8Array): string | null {
-  if (bytes.length >= 5 && String.fromCharCode(...bytes.slice(0, 5)) === '%PDF-') return ACCEPTED.pdf;
+  if (bytes.length >= 8 && String.fromCharCode(...bytes.slice(0, 5)) === '%PDF-' && String.fromCharCode(...bytes.slice(-6)).includes('%%EOF')) return ACCEPTED.pdf;
   if (bytes.length >= 8 && [137,80,78,71,13,10,26,10].every((x, i) => bytes[i] === x)) return ACCEPTED.png;
   if (bytes.length >= 3 && bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255 && bytes[bytes.length-2] === 255 && bytes[bytes.length-1] === 217) return ACCEPTED.jpg;
   return null;
@@ -17,7 +17,7 @@ function typeFromBytes(bytes: Uint8Array): string | null {
 export function validateIntake(input: { requestId:string; packageId:string; filename:string; contentType:string; bytes:Uint8Array }) {
   const request = requests.get(input.requestId);
   if (!request || request.packageId !== input.packageId) throw new Error('Diligência ou pacote desconhecido.');
-  if (request.status === 'verified') throw new Error('Diligência já validada; abrir revisão formal.');
+  if (request.status !== 'requested') throw new Error('Diligência ainda não solicitada formalmente; recebimento bloqueado.');
   if (!/^[^\\/\x00-\x1f]{1,120}$/.test(input.filename)) throw new Error('Nome de arquivo inválido.');
   const extension = input.filename.split('.').pop()?.toLowerCase() || '';
   if (!Object.hasOwn(ACCEPTED, extension)) throw new Error('Extensão não permitida.');
@@ -29,6 +29,7 @@ export function validateIntake(input: { requestId:string; packageId:string; file
 
 export async function receiveDiligence(input: { requestId:string; packageId:string; filename:string; contentType:string; bytes:Uint8Array }) : Promise<IntakeResult> {
   const { detectedType, extension } = validateIntake(input);
+  if (process.env.PREBA_INTAKE_ENABLED !== 'true') throw new Error('Recebimento desabilitado até liberação dos controles de segurança.');
   if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('Armazenamento privado não configurado.');
   const receiptId = randomUUID();
   const receivedAt = new Date().toISOString();
