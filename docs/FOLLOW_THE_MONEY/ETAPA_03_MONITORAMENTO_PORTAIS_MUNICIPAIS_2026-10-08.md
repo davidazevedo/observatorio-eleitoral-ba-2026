@@ -3,7 +3,7 @@
 **Data:** 08/10/2026 — **Status:** monitoramento iniciado; despesas municipais ainda não conciliadas.
 
 ## Inovação verificável
-Foram cadastrados **7 pontos de consulta fiscal**, pertencentes a quatro municípios, com URL, finalidade, identificador permanente e política de preservação. O workflow de fontes utilizará apenas **HTTP, metadados e SHA-256**, sem publicar a íntegra das tabelas de despesas no Git. Os portais são fontes de pesquisa, mas não representam pagamento a fornecedor ou financiamento eleitoral.
+Foram cadastrados **9 pontos de consulta fiscal**, pertencentes a quatro municípios, com URL, finalidade, identificador permanente e política de preservação. O workflow de fontes utilizará apenas **HTTP, metadados e SHA-256**, sem publicar a íntegra das tabelas de despesas no Git. Os portais são fontes de pesquisa, mas não representam pagamento a fornecedor ou financiamento eleitoral.
 
 - **Lajedo do Tabocal · FM03-LAJ-PORTAL** — https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia — Portal municipal da transparência; menu de despesas/contratos.
 - **Lajedo do Tabocal · FM03-LAJ-DESPESA** — https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa — Listagem de despesas municipais; requer filtros por período/objeto.
@@ -64,3 +64,9 @@ Documentos pessoais devem ser minimizados; snapshots de despesa completos são d
 - `docs/FOLLOW_THE_MONEY/REQUISICOES/LAI_FM03_PREBA-0N.md` — minutas documentais independentes.
 
 Os arquivos de LAI são apenas modelos técnicos; enviar pedidos e divulgar dados exigem avaliação sobre segurança pessoal, preservação de informações e canais institucionais.
+
+## Acesso direto confirmado após a primeira versão
+- **Belo Campo:** https://transparencia.belocampo.ba.gov.br/despesa — URL pública específica de despesas.
+- **Araçás:** https://transparencia.aracas.ba.gov.br/convenios — URL pública específica de convênios, com filtros por concedente, número, exercício e período.
+
+**Atenção metodológica:** resultados vazios por filtro inicial, erro de coleta ou página sem seleção 2026 são `não conclusivos`. Não provaram ausência de pagamento, contrato, convênio ou prestação de contas.

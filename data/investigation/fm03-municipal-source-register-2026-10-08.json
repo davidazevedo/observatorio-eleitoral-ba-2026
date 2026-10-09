@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "registryId": "FM03-MUNICIPAL-FISCAL-PORTALS-2026-10-08",
   "registeredDate": "2026-10-08",
-  "status": "source_discovery_verified_monitoring_not_yet_ingested",
+  "status": "source_discovery_9_official_endpoints_pending_http_capture",
   "totalMunicipalities": 4,
-  "totalSourceReferences": 7,
+  "totalSourceReferences": 9,
   "financeLedgerReconciliationStatus": "missing_municipal_expenditure_and_supplier_docs",
   "priorConfirmedStateTransfers": 4,
   "verifiedSupplierPaymentsFoundInThisStage": 0,
@@ -46,7 +46,8 @@
       ],
       "associatedPortalIds": [
         "FM03-BELO-DESPESAS",
-        "FM03-BELO-SIC"
+        "FM03-BELO-SIC",
+        "FM03-BELO-DESPESA-DIRETA"
       ],
       "requestStatus": "draft_prepared_not_submitted",
       "proofStatus": "no_new_verified_municipal_spending"
@@ -64,7 +65,8 @@
         "Processo 131/2026 / Concorrência 007/2026; homologação, contrato, AIO/OS e medições"
       ],
       "associatedPortalIds": [
-        "FM03-ARA-PORTAL"
+        "FM03-ARA-PORTAL",
+        "FM03-ARA-CONVENIOS"
       ],
       "requestStatus": "draft_prepared_not_submitted",
       "proofStatus": "no_new_verified_municipal_spending"
@@ -323,6 +325,74 @@
         "financialLinkVerified": false
       },
       "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-BELO-DESPESA-DIRETA",
+      "caseId": "PREBA-02",
+      "municipality": "Belo Campo",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://transparencia.belocampo.ba.gov.br/despesa",
+      "scope": "Consulta direta de despesas e execução municipal, com filtros de exercício e exportações",
+      "discoveryEvidence": "verified_official_municipal_transparency_subpage",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-belo-despesa-direta",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-belo-despesa-direta.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "official_municipal_subpage_exists",
+      "supplierPaymentVerified": false,
+      "legalFinding": "none",
+      "notASeparateCentralEvidence": true
+    },
+    {
+      "schemaVersion": 1,
+      "id": "FM03-ARA-CONVENIOS",
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "category": "official_municipal_fiscal_portal_reference",
+      "url": "https://transparencia.aracas.ba.gov.br/convenios",
+      "scope": "Consulta direta de convênios recebidos, com filtro de número e exercício; valor inicial sem filtro não serve como prova de inexistência",
+      "discoveryEvidence": "verified_official_municipal_transparency_subpage",
+      "firstIdentifiedDate": "2026-10-08",
+      "preservation": {
+        "targetId": "fm03-ara-convenios",
+        "rawFilePublicGitAllowed": false,
+        "status": "awaiting_automated_capture",
+        "sha256": null,
+        "gitSnapshotPath": null,
+        "githubManifestPath": "preservation/manifests/fm03-ara-convenios.json"
+      },
+      "extraction": {
+        "filterYear": 2026,
+        "requireExactAgreementOrExpenseObject": true,
+        "requirePrimaryExpenseDocument": true,
+        "matchOutcomesAllowed": [
+          "exact_with_document",
+          "potential_needs_review",
+          "not_found_in_accessible_source"
+        ],
+        "financialLinkVerified": false
+      },
+      "materialFinding": "official_municipal_subpage_exists",
       "supplierPaymentVerified": false,
       "legalFinding": "none",
       "notASeparateCentralEvidence": true
