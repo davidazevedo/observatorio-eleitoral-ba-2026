@@ -73,7 +73,7 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "Consulta PNCP de contratos vinculados efetuada, dois HTTP 400: inconclusivos. Sem contratado/pagamento verificado. Acompanhar sistemas municipais e diligências documentais.",
+        "statusNote": "Linhas do tempo de 4 municípios com pagamentos FIPLAN e registros PNCP preservados (inclusive respostas 204 e 400 inconclusivas). A despesa municipal, destinatários e entrega permanecem pendentes.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
@@ -98,7 +98,11 @@
         "pncpLinkedContractsCaptureStatus": "official_urls_ready_for_actions_run",
         "pncpLinkedContractEndpointsQueried": 2,
         "pncpLinkedContractsHttp400": 2,
-        "pncpLinkedContractsVerified": 0
+        "pncpLinkedContractsVerified": 0,
+        "sourceBoundTimelineCases": 4,
+        "sourceBoundTimelineEvents": 18,
+        "pncpHistoryEventsVerified": 5,
+        "pncpHttpReceiptsPreserved": 4
       }
     },
     {
@@ -175,7 +179,9 @@
     "fm03PncpResultReceiptDeploy": "dpl_78B5ekoMbFk998XBLt6DY5rEE7uf",
     "fm03PncpAuthenticatedGETVerified": false,
     "fm03SupplierPaymentsVerified": 0,
-    "fm03PncpLinkedContracts": "two_HTTP400_receipts_versioned_not_valid_contract_evidence"
+    "fm03PncpLinkedContracts": "two_HTTP400_receipts_versioned_not_valid_contract_evidence",
+    "fm03TimelineDatasetStatus": "pending_preview_build",
+    "fm03TimelinesApiAuthenticatedGETVerified": false
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

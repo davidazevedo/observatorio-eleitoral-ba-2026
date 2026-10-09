@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "timelineId": "FM03-EVIDENCE-TIMELINE-PREBA-01",
+  "caseId": "PREBA-01",
+  "municipality": "Lajedo do Tabocal",
+  "createdDate": "2026-10-08",
+  "status": "documentary_timeline_partial",
+  "events": [
+    {
+      "id": "FM03-TIME-PREBA-01-STATE-PAYMENT",
+      "kind": "verified_financial_record",
+      "occurredOn": "2026-07-06",
+      "precision": "calendar_day",
+      "occurredAt": null,
+      "recordedAt": null,
+      "label": "Pagamento estadual registrado no FIPLAN",
+      "amountBRL": 49946.15,
+      "recordKeys": {
+        "nob": "21301.0001.26.0002162-7",
+        "instrument": "21301.0001.26.0000299-1"
+      },
+      "source": {
+        "path": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+        "sha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "rawUncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "recordLocator": {
+          "num_pagto_nob": "2130100012600021627"
+        }
+      },
+      "qualifyingNote": "FIPLAN comprova a linha de pagamento estatal. Não demonstra crédito em conta específica, despesa municipal ou contratação.",
+      "sourceStatus": "primary_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-HISTORY-01",
+      "kind": "pncp_history_event",
+      "occurredOn": "2026-07-13",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-13T23:55:27",
+      "recordedAt": null,
+      "label": "Inclusão: Contratação",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "historyIndex": 0,
+        "documentType": null,
+        "documentTitle": null
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-09T01-34-33Z.json",
+        "sha256": "bf6a9e7642e569cec40b99e0caf334a7e4f8cb46b4685b2644567a786282b5b5",
+        "recordLocator": {
+          "historyIndex": 0
+        }
+      },
+      "qualifyingNote": "Histórico de publicação do PNCP. Não documenta pagamento ou execução.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-HISTORY-02",
+      "kind": "pncp_history_event",
+      "occurredOn": "2026-07-13",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-13T23:55:28",
+      "recordedAt": null,
+      "label": "Inclusão: Documento de Contratação — Edital_Concorrencia_042026__Reforma_Estadio",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "historyIndex": 1,
+        "documentType": "Edital",
+        "documentTitle": "Edital_Concorrencia_042026__Reforma_Estadio"
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-09T01-34-33Z.json",
+        "sha256": "bf6a9e7642e569cec40b99e0caf334a7e4f8cb46b4685b2644567a786282b5b5",
+        "recordLocator": {
+          "historyIndex": 1
+        }
+      },
+      "qualifyingNote": "Histórico de publicação do PNCP. Não documenta pagamento ou execução.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-ITEM-1",
+      "kind": "pncp_item_snapshot",
+      "occurredOn": "2026-07-13",
+      "precision": "pncp_item_update_at",
+      "occurredAt": "2026-07-13T23:55:27",
+      "recordedAt": null,
+      "label": "Item 1: Em andamento; Menor preço",
+      "amountBRL": 3020421.46,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "itemNumber": 1,
+        "itemHasResultInSnapshot": false
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
+        "sha256": "e68aa5376eeef36d0baa9a77d81e8b7405b159a219c20504dbe702113d20bb09",
+        "recordLocator": {
+          "numeroItem": 1
+        }
+      },
+      "qualifyingNote": "Item registrado em andamento; valor estimado não é adjudicação nem pagamento.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-PUBLICATION",
+      "kind": "pncp_procurement_publication",
+      "occurredOn": "2026-07-13",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-13T23:55:27",
+      "recordedAt": null,
+      "label": "Publicação da contratação no PNCP",
+      "amountBRL": 3020421.46,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "procurement": "04",
+        "estimatedNotPaid": true
+      },
+      "source": {
+        "path": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-09T01-05-10Z.json",
+        "sha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
+        "recordLocator": {
+          "numeroControlePNCP": "16434441000131-1-000026/2026"
+        }
+      },
+      "qualifyingNote": "Valor estimado NÃO equivale a repasse estadual, valor contratado ou pago. Data/hora da fonte não informa fuso horário.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-HISTORY-03",
+      "kind": "pncp_history_event",
+      "occurredOn": "2026-07-14",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-14T00:06:37",
+      "recordedAt": null,
+      "label": "Inclusão: Documento de Contratação — ANEXO_V__Projetos_e_Planilhas__Concorrencia_042026",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "historyIndex": 2,
+        "documentType": "Outros Documentos",
+        "documentTitle": "ANEXO_V__Projetos_e_Planilhas__Concorrencia_042026"
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-09T01-34-33Z.json",
+        "sha256": "bf6a9e7642e569cec40b99e0caf334a7e4f8cb46b4685b2644567a786282b5b5",
+        "recordLocator": {
+          "historyIndex": 2
+        }
+      },
+      "qualifyingNote": "Histórico de publicação do PNCP. Não documenta pagamento ou execução.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-ITEM-RESULT-RESPONSE",
+      "kind": "pncp_http_receipt",
+      "occurredOn": null,
+      "precision": "collection_time_only",
+      "occurredAt": null,
+      "recordedAt": "2026-10-09T01:41:32Z",
+      "label": "Consulta de resultado de item PNCP: HTTP 204 sem conteúdo",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "itemNumber": 1,
+        "httpStatus": 204,
+        "responseBytes": 0
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-lajedo-pncp-item1-results/2026-10-09T01-41-32Z.json",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "recordLocator": {
+          "statusCode": 204
+        }
+      },
+      "qualifyingNote": "Ausência de conteúdo nesta chamada específica não permite inferir ausência de vencedora, adjudicação, contrato ou pagamentos.",
+      "sourceStatus": "official_http204_no_body",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-01-PNCP-LINKED-CONTRACT-ERROR",
+      "kind": "pncp_http_receipt",
+      "occurredOn": null,
+      "precision": "collection_time_only",
+      "occurredAt": null,
+      "recordedAt": "2026-10-09T02:45:20Z",
+      "label": "Consulta de contratos vinculados: HTTP 400",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16434441000131-1-000026/2026",
+        "httpStatus": 400,
+        "contractIds": []
+      },
+      "source": {
+        "path": "preservation/manifests/fm03-lajedo-pncp-linked-contracts.json",
+        "sha256": null,
+        "recordLocator": {
+          "requestUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/contratos/contratacao/2026/26",
+          "httpStatus": 400
+        }
+      },
+      "qualifyingNote": "HTTP 400 é resposta inconclusiva; pode refletir estado do endpoint e não prova inexistência de contrato.",
+      "sourceStatus": "official_http400_error_no_body_evidence",
+      "criminalInference": false
+    }
+  ],
+  "temporalCaution": "Eventos registrados por fontes independentes têm granularidades diferentes; data de captura não é data do fato.",
+  "outstanding": [
+    "Despesas municipais com número de empenho, liquidação e ordem de pagamento",
+    "CNPJ do fornecedor pago e vínculo documentado com instrumento",
+    "AIO/OS, atestes e comprovantes de execução e prestação de contas"
+  ],
+  "methodology": "Only documented primary FIPLAN and PNCP events/captured HTTP responses. HTTP 204/400 are not evidence of no contract or illegal action.",
+  "verdict": "none",
+  "supplierPaymentVerified": false,
+  "newCentralCE": 0
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "timelineId": "FM03-EVIDENCE-TIMELINE-PREBA-04",
+  "caseId": "PREBA-04",
+  "municipality": "Jaguaquara",
+  "createdDate": "2026-10-08",
+  "status": "documentary_timeline_partial",
+  "events": [
+    {
+      "id": "FM03-TIME-PREBA-04-STATE-PAYMENT",
+      "kind": "verified_financial_record",
+      "occurredOn": "2026-07-10",
+      "precision": "calendar_day",
+      "occurredAt": null,
+      "recordedAt": null,
+      "label": "Pagamento estadual registrado no FIPLAN",
+      "amountBRL": 518432.07,
+      "recordKeys": {
+        "nob": "21301.0001.26.0002290-9",
+        "instrument": "21301.0001.26.0000298-1"
+      },
+      "source": {
+        "path": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+        "sha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "rawUncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "recordLocator": {
+          "num_pagto_nob": "2130100012600022909"
+        }
+      },
+      "qualifyingNote": "FIPLAN comprova a linha de pagamento estatal. Não demonstra crédito em conta específica, despesa municipal ou contratação.",
+      "sourceStatus": "primary_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-04-MUNICIPAL-REVENUE",
+      "kind": "public_municipal_revenue_corroboration",
+      "occurredOn": null,
+      "precision": "report_snapshot_not_transaction_date",
+      "occurredAt": null,
+      "recordedAt": "2026-10-06",
+      "label": "Rubrica de receita municipal de estádio compatível em descrição/valor",
+      "amountBRL": 518432.07,
+      "recordKeys": {
+        "municipalSource": "CE-057",
+        "bankReconciliation": "not_available"
+      },
+      "source": {
+        "path": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-08T22-59-19Z.html",
+        "sha256": "07ab9fa4938c0d3e48944c45d9c1a9a00fbaa384dbf79f73c8f65388e37c8914",
+        "recordLocator": {
+          "municipality": "Jaguaquara",
+          "agreement": "Convênio Estadual 28/2026"
+        }
+      },
+      "qualifyingNote": "A data é da atualização da fonte municipal, não necessariamente da entrada bancária; conciliação de conta específica pendente.",
+      "sourceStatus": "independent_public_corrob_missing_bank_reconciliation",
+      "criminalInference": false
+    }
+  ],
+  "temporalCaution": "Eventos registrados por fontes independentes têm granularidades diferentes; data de captura não é data do fato.",
+  "outstanding": [
+    "Despesas municipais com número de empenho, liquidação e ordem de pagamento",
+    "CNPJ do fornecedor pago e vínculo documentado com instrumento",
+    "AIO/OS, atestes e comprovantes de execução e prestação de contas"
+  ],
+  "methodology": "Only documented primary FIPLAN and PNCP events/captured HTTP responses. HTTP 204/400 are not evidence of no contract or illegal action.",
+  "verdict": "none",
+  "supplierPaymentVerified": false,
+  "newCentralCE": 0
+}

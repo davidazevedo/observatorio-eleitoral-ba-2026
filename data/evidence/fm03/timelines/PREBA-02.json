@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "timelineId": "FM03-EVIDENCE-TIMELINE-PREBA-02",
+  "caseId": "PREBA-02",
+  "municipality": "Belo Campo",
+  "createdDate": "2026-10-08",
+  "status": "documentary_timeline_partial",
+  "events": [
+    {
+      "id": "FM03-TIME-PREBA-02-STATE-PAYMENT",
+      "kind": "verified_financial_record",
+      "occurredOn": "2026-07-08",
+      "precision": "calendar_day",
+      "occurredAt": null,
+      "recordedAt": null,
+      "label": "Pagamento estadual registrado no FIPLAN",
+      "amountBRL": 200000,
+      "recordKeys": {
+        "nob": "10101.0001.26.0001454-0",
+        "instrument": "10101.0001.26.0000079-3"
+      },
+      "source": {
+        "path": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+        "sha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "rawUncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "recordLocator": {
+          "num_pagto_nob": "1010100012600014540"
+        }
+      },
+      "qualifyingNote": "FIPLAN comprova a linha de pagamento estatal. Não demonstra crédito em conta específica, despesa municipal ou contratação.",
+      "sourceStatus": "primary_preserved",
+      "criminalInference": false
+    }
+  ],
+  "temporalCaution": "Eventos registrados por fontes independentes têm granularidades diferentes; data de captura não é data do fato.",
+  "outstanding": [
+    "Despesas municipais com número de empenho, liquidação e ordem de pagamento",
+    "CNPJ do fornecedor pago e vínculo documentado com instrumento",
+    "AIO/OS, atestes e comprovantes de execução e prestação de contas"
+  ],
+  "methodology": "Only documented primary FIPLAN and PNCP events/captured HTTP responses. HTTP 204/400 are not evidence of no contract or illegal action.",
+  "verdict": "none",
+  "supplierPaymentVerified": false,
+  "newCentralCE": 0
+}

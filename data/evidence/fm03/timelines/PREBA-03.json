@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "timelineId": "FM03-EVIDENCE-TIMELINE-PREBA-03",
+  "caseId": "PREBA-03",
+  "municipality": "Araçás",
+  "createdDate": "2026-10-08",
+  "status": "documentary_timeline_partial",
+  "events": [
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-HISTORY-01",
+      "kind": "pncp_history_event",
+      "occurredOn": "2026-07-10",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-10T10:35:56",
+      "recordedAt": null,
+      "label": "Inclusão: Contratação",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "historyIndex": 0,
+        "documentType": null,
+        "documentTitle": null
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-aracas-pncp-history/2026-10-09T01-34-33Z.json",
+        "sha256": "9f51ff6e3c0b4454a7c9e9c308f9c7b18c42d8ebe459e386d89bbfcbddc32a9f",
+        "recordLocator": {
+          "historyIndex": 0
+        }
+      },
+      "qualifyingNote": "Histórico de publicação do PNCP. Não documenta pagamento ou execução.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-HISTORY-02",
+      "kind": "pncp_history_event",
+      "occurredOn": "2026-07-10",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-10T10:35:56",
+      "recordedAt": null,
+      "label": "Inclusão: Documento de Contratação — Edital_CONCORRNCIA_n_0072026",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "historyIndex": 1,
+        "documentType": "Edital",
+        "documentTitle": "Edital_CONCORRNCIA_n_0072026"
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-aracas-pncp-history/2026-10-09T01-34-33Z.json",
+        "sha256": "9f51ff6e3c0b4454a7c9e9c308f9c7b18c42d8ebe459e386d89bbfcbddc32a9f",
+        "recordLocator": {
+          "historyIndex": 1
+        }
+      },
+      "qualifyingNote": "Histórico de publicação do PNCP. Não documenta pagamento ou execução.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-ITEM-1",
+      "kind": "pncp_item_snapshot",
+      "occurredOn": "2026-07-10",
+      "precision": "pncp_item_update_at",
+      "occurredAt": "2026-07-10T10:35:56",
+      "recordedAt": null,
+      "label": "Item 1: Em andamento; Menor preço",
+      "amountBRL": 732421.46,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "itemNumber": 1,
+        "itemHasResultInSnapshot": false
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-aracas-pncp-items/2026-10-09T01-34-33Z.json",
+        "sha256": "488d5bf5be8ab4b33915d864b1be7015986384606b1832afba06c4a3198fa097",
+        "recordLocator": {
+          "numeroItem": 1
+        }
+      },
+      "qualifyingNote": "Item registrado em andamento; valor estimado não é adjudicação nem pagamento.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-PUBLICATION",
+      "kind": "pncp_procurement_publication",
+      "occurredOn": "2026-07-10",
+      "precision": "pncp_local_datetime_without_offset",
+      "occurredAt": "2026-07-10T10:35:56",
+      "recordedAt": null,
+      "label": "Publicação da contratação no PNCP",
+      "amountBRL": 732421.46,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "procurement": "007",
+        "estimatedNotPaid": true
+      },
+      "source": {
+        "path": "preservation/snapshots/fm02-aracas-pncp-detail/2026-10-09T01-01-45Z.json",
+        "sha256": "b18f622ed010f3ec1ac5cf3450c58801c7ba098b9971741cefefb586c82671c3",
+        "recordLocator": {
+          "numeroControlePNCP": "16131088000110-1-000007/2026"
+        }
+      },
+      "qualifyingNote": "Valor estimado NÃO equivale a repasse estadual, valor contratado ou pago. Data/hora da fonte não informa fuso horário.",
+      "sourceStatus": "official_json_raw_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-STATE-PAYMENT",
+      "kind": "verified_financial_record",
+      "occurredOn": "2026-07-10",
+      "precision": "calendar_day",
+      "occurredAt": null,
+      "recordedAt": null,
+      "label": "Pagamento estadual registrado no FIPLAN",
+      "amountBRL": 8146.7,
+      "recordKeys": {
+        "nob": "21301.0001.26.0002296-8",
+        "instrument": "21301.0001.26.0000276-0"
+      },
+      "source": {
+        "path": "preservation/extracts/fiplan-defeso-pagamentos-2026.csv.gz",
+        "sha256": "c8f240e353f52ba195a842f08b154f79158e9aadc9279342bbe803a8130cbc66",
+        "rawUncompressedSha256": "bd3f08960b2b20467db1b7856af3aacd7c902859de4843f3117a064031a25d51",
+        "recordLocator": {
+          "num_pagto_nob": "2130100012600022968"
+        }
+      },
+      "qualifyingNote": "FIPLAN comprova a linha de pagamento estatal. Não demonstra crédito em conta específica, despesa municipal ou contratação.",
+      "sourceStatus": "primary_preserved",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-ITEM-RESULT-RESPONSE",
+      "kind": "pncp_http_receipt",
+      "occurredOn": null,
+      "precision": "collection_time_only",
+      "occurredAt": null,
+      "recordedAt": "2026-10-09T01:41:33Z",
+      "label": "Consulta de resultado de item PNCP: HTTP 204 sem conteúdo",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "itemNumber": 1,
+        "httpStatus": 204,
+        "responseBytes": 0
+      },
+      "source": {
+        "path": "preservation/snapshots/fm03-aracas-pncp-item1-results/2026-10-09T01-41-33Z.json",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "recordLocator": {
+          "statusCode": 204
+        }
+      },
+      "qualifyingNote": "Ausência de conteúdo nesta chamada específica não permite inferir ausência de vencedora, adjudicação, contrato ou pagamentos.",
+      "sourceStatus": "official_http204_no_body",
+      "criminalInference": false
+    },
+    {
+      "id": "FM03-TIME-PREBA-03-PNCP-LINKED-CONTRACT-ERROR",
+      "kind": "pncp_http_receipt",
+      "occurredOn": null,
+      "precision": "collection_time_only",
+      "occurredAt": null,
+      "recordedAt": "2026-10-09T02:45:20Z",
+      "label": "Consulta de contratos vinculados: HTTP 400",
+      "amountBRL": null,
+      "recordKeys": {
+        "pncpControl": "16131088000110-1-000007/2026",
+        "httpStatus": 400,
+        "contractIds": []
+      },
+      "source": {
+        "path": "preservation/manifests/fm03-aracas-pncp-linked-contracts.json",
+        "sha256": null,
+        "recordLocator": {
+          "requestUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/contratos/contratacao/2026/7",
+          "httpStatus": 400
+        }
+      },
+      "qualifyingNote": "HTTP 400 é resposta inconclusiva; pode refletir estado do endpoint e não prova inexistência de contrato.",
+      "sourceStatus": "official_http400_error_no_body_evidence",
+      "criminalInference": false
+    }
+  ],
+  "temporalCaution": "Pagamento FIPLAN e publicação PNCP na mesma data (10/07); horário do FIPLAN não disponível: NÃO concluir qual ocorreu primeiro.",
+  "outstanding": [
+    "Despesas municipais com número de empenho, liquidação e ordem de pagamento",
+    "CNPJ do fornecedor pago e vínculo documentado com instrumento",
+    "AIO/OS, atestes e comprovantes de execução e prestação de contas"
+  ],
+  "methodology": "Only documented primary FIPLAN and PNCP events/captured HTTP responses. HTTP 204/400 are not evidence of no contract or illegal action.",
+  "verdict": "none",
+  "supplierPaymentVerified": false,
+  "newCentralCE": 0
+}
