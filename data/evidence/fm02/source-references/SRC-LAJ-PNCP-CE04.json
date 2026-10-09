@@ -15,7 +15,7 @@
     "preservationStatus": "official_pncp_json_snapshot_sha256_verified",
     "contentSnapshotSha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
     "originalBytesInRepository": true,
-    "notes": "PNG? Não. JSON oficial PNCP completo preservado. Resultado não registrado neste detalhe (existeResultado=false); sem inferir fornecedor ou pagamento.",
+    "notes": "JSON oficial PNCP completo preservado. Resultado não registrado neste detalhe (existeResultado=false); sem inferir fornecedor ou pagamento.",
     "httpCapture": "HTTP 200",
     "httpCaptureAt": "2026-10-09T01:05:10Z",
     "archiveManifestPath": "preservation/manifests/fm02-lajedo-pncp-detail.json",
