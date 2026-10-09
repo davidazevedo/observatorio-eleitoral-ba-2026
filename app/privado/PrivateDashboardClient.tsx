@@ -56,6 +56,7 @@ type Fm03PncpItem = {schemaVersion:number;id:string;caseId:string;municipality:s
 type Fm03PncpIndex = {schemaVersion:number;registryId:string;count:number;newCentralCE:number;entries:Fm03PncpItem[];disputedSemantics:string};
 type Fm03PncpFollowUp = {schemaVersion:number;registryId:string;status:string;metrics:{targetsAdded:number;casesCovered:number;itemsObtained:number;historyResponsesObtained:number;verifiedSupplierAwards:number;verifiedSupplierPayments:number;newCentralCE:number};accessPoints:Array<{caseId:string;municipality:string;id:string;sourceUrl:string;operation:string;contentStatus:string;sha256:string|null;originalBytesPreserved:boolean}>;cautions:string[]};
 type Fm03PncpValidatedEvidence = {schemaVersion:number;registryId:string;status:string;counts:{cases:number;originalDocumentsVerifiedByManifest:number;itemsFound:number;historyEventsFound:number;resultQueriesRegistered:number;resultQueriesCollected:number;supplierPaymentsProven:number;newCentralCE:number};batches:Array<{caseId:string;municipality:string;items:{count:number;normalizedFacts:Array<{numeroItem:number;valorTotalEstimadoBRL:number;situacaoNaCaptura:string;temResultadoNoRegistro:boolean}>};history:{count:number};resultQuery:{url:string;status:string}}>};
+type Fm03PncpReceiptIndex = {schemaVersion:number;registryId:string;captureRunId:number;officialResultsReturnedWithData:number;receipts:Array<{id:string;caseId:string;municipality:string;httpStatus:number;sha256:string;bodyBytes:number;resultsCanBeInterpreted:boolean}>;note:string;verifiedSupplierPayments:number;newCentralCE:number};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -128,6 +129,7 @@ type DashboardData = {
   fm03PncpOfficialSnapshots: Fm03PncpIndex;
   fm03PncpItemsHistory: Fm03PncpFollowUp;
   fm03PncpItemHistoryEvidence: Fm03PncpValidatedEvidence;
+  fm03PncpResultReceipts: Fm03PncpReceiptIndex;
   fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
@@ -1037,9 +1039,9 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · SEGUIMENTO PNCP</p><h2>Itens e histórico oficial de duas contratações</h2><small>{data.fm03PncpItemsHistory.registryId}</small></div>
-                  <span className="housing-status-ok">4 JSON VERIFICADOS</span>
+                  <span className="housing-status-ok">4 JSON + 2 RECIBOS HTTP</span>
                 </div>
-                <p>As quatro consultas de itens e histórico retornaram dados oficiais, preservados integralmente com SHA-256. Há um item por processo e cinco eventos históricos ao todo; as consultas específicas de resultado do item 1 foram cadastradas e aguardam coleta. Não há pagamento a fornecedor demonstrado.</p>
+                <p>As quatro consultas de itens e histórico retornaram dados oficiais, preservados integralmente com SHA-256. Há um item por processo e cinco eventos históricos. As duas consultas posteriores de resultado do item 1 responderam HTTP 204, sem corpo: isto não prova ausência de homologação, contratação ou pagamento.</p>
                 <div className="private-grid-two">
                   {data.fm03PncpItemsHistory.accessPoints.map(s=><article key={s.id} className="private-panel">
                     <div className="private-panel-title">
@@ -1057,9 +1059,10 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                     <p>Eventos no histórico PNCP: <strong>{batch.history.count}</strong></p>
                     <p>Resultado cadastrado no item capturado: {batch.items.normalizedFacts[0].temResultadoNoRegistro?'Sim':'Não informado'}</p>
                     <a href={batch.resultQuery.url} target="_blank" rel="noopener noreferrer">Consulta oficial de resultado do item 1</a>
-                    <p className="private-report-note">Status: {batch.resultQuery.status}. Não representa prova de pagamento a fornecedor.</p>
+                    <p className="private-report-note">Resultado da consulta: HTTP 204 (sem dados nesta resposta). Não permite afirmar inexistência de contratado ou pagamento municipal.</p>
                   </article>)}
                 </div>
+                <p className="private-report-note"><strong>Auditoria:</strong> {data.fm03PncpResultReceipts.receipts.length} respostas HTTP 204 preservadas com SHA-256 de corpo vazio. Não tratadas como JSON ou como comprovação de ausência de adjudicação.</p>
                 <p className="private-report-note">Regra probatória: fornecedor vencedor só será exibido se constar de item/resultado oficial e for validado. Resultado de licitação não equivale a pagamento municipal.</p>
               </section>
               <section className="private-panel">

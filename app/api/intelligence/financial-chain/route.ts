@@ -4,6 +4,7 @@ import registry from '@/data/investigation/fm03-financial-chain-baseline-2026-10
 import fiscalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 import pncpOfficialSnapshots from '@/data/investigation/fm03-pncp-official-snapshots-2026-10-08.json';
 import pncpItemHistoryEvidence from '@/data/investigation/fm03-pncp-item-history-evidence-2026-10-08.json';
+import pncpResultReceipts from '@/data/investigation/fm03-pncp-item-results-receipts-2026-10-08.json';
 import captureQuality from '@/data/investigation/fm03-source-capture-quality-2026-10-08.json';
 
 export const runtime='nodejs';
@@ -23,6 +24,7 @@ export async function GET(request:Request){
     municipalFiscalSources: fiscalSources.sources.filter(source=>!caseId||source.caseId===caseId),
     officialPncpSnapshots: pncpOfficialSnapshots.entries.filter(entry=>!caseId||entry.caseId===caseId),
     officialPncpItemsAndHistory: pncpItemHistoryEvidence.batches.filter(batch=>!caseId||batch.caseId===caseId),
+    pncpResultHttpReceipts: pncpResultReceipts.receipts.filter(x=>!caseId||x.caseId===caseId),
     fiscalCaptureAssessment: { ...captureQuality.count, finding: captureQuality.interpretation },
     municipalPortalReferenceBoundary: 'Links oficiais de consulta, não comprovantes de pagamentos ou fornecedores.',
     limitations:registry.nonConclusions,
