@@ -401,6 +401,22 @@
       "publisher": "PNCP",
       "preserveRaw": true,
       "maxRawBytes": 2000000
+    },
+    {
+      "id": "fm03-lajedo-pncp-item1-results",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens/1/resultados",
+      "title": "FM-03 Lajedo do Tabocal — resultados oficiais PNCP item 1 (identificado no JSON original)",
+      "publisher": "PNCP",
+      "preserveRaw": true,
+      "maxRawBytes": 1500000
+    },
+    {
+      "id": "fm03-aracas-pncp-item1-results",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens/1/resultados",
+      "title": "FM-03 Araçás — resultados oficiais PNCP item 1 (identificado no JSON original)",
+      "publisher": "PNCP",
+      "preserveRaw": true,
+      "maxRawBytes": 1500000
     }
   ]
 }

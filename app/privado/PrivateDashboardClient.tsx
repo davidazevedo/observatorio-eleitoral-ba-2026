@@ -55,6 +55,7 @@ type Fm03FiscalRegistry = {schemaVersion:number;registryId:string;registeredDate
 type Fm03PncpItem = {schemaVersion:number;id:string;caseId:string;municipality:string;corroboratesExistingCE:string;rawSnapshotPath:string;sourceSha256:string;pncpControlNumber:string;procurementNumber:string;process:string;object:string;publicationDateTime:string;proposalDeadlineDateTime:string;estimatedValueBRL:number;homologatedValueBRL:number|null;resultRegisteredInRecord:boolean;procurementState:string;sourceModelLimit:string;supplierIdentifiedInThisRecord:boolean;supplierPaymentVerified:boolean};
 type Fm03PncpIndex = {schemaVersion:number;registryId:string;count:number;newCentralCE:number;entries:Fm03PncpItem[];disputedSemantics:string};
 type Fm03PncpFollowUp = {schemaVersion:number;registryId:string;status:string;metrics:{targetsAdded:number;casesCovered:number;itemsObtained:number;historyResponsesObtained:number;verifiedSupplierAwards:number;verifiedSupplierPayments:number;newCentralCE:number};accessPoints:Array<{caseId:string;municipality:string;id:string;sourceUrl:string;operation:string;contentStatus:string;sha256:string|null;originalBytesPreserved:boolean}>;cautions:string[]};
+type Fm03PncpValidatedEvidence = {schemaVersion:number;registryId:string;status:string;counts:{cases:number;originalDocumentsVerifiedByManifest:number;itemsFound:number;historyEventsFound:number;resultQueriesRegistered:number;resultQueriesCollected:number;supplierPaymentsProven:number;newCentralCE:number};batches:Array<{caseId:string;municipality:string;items:{count:number;normalizedFacts:Array<{numeroItem:number;valorTotalEstimadoBRL:number;situacaoNaCaptura:string;temResultadoNoRegistro:boolean}>};history:{count:number};resultQuery:{url:string;status:string}}>};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -126,6 +127,7 @@ type DashboardData = {
   fm03FinancialChains: Fm03Index;
   fm03PncpOfficialSnapshots: Fm03PncpIndex;
   fm03PncpItemsHistory: Fm03PncpFollowUp;
+  fm03PncpItemHistoryEvidence: Fm03PncpValidatedEvidence;
   fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
@@ -1035,17 +1037,27 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · SEGUIMENTO PNCP</p><h2>Itens e histórico oficial de duas contratações</h2><small>{data.fm03PncpItemsHistory.registryId}</small></div>
-                  <span className="housing-exception-pending">COLETA PENDENTE</span>
+                  <span className="housing-status-ok">4 JSON VERIFICADOS</span>
                 </div>
-                <p>As quatro consultas abaixo já estão cadastradas para preservação automática. Os conteúdos de itens e histórico ainda não foram verificados; não há fornecedor adjudicado nem pagamento comprovado nessa etapa.</p>
+                <p>As quatro consultas de itens e histórico retornaram dados oficiais, preservados integralmente com SHA-256. Há um item por processo e cinco eventos históricos ao todo; as consultas específicas de resultado do item 1 foram cadastradas e aguardam coleta. Não há pagamento a fornecedor demonstrado.</p>
                 <div className="private-grid-two">
                   {data.fm03PncpItemsHistory.accessPoints.map(s=><article key={s.id} className="private-panel">
                     <div className="private-panel-title">
                       <div><p className="eyebrow">{s.caseId} · {s.operation}</p><h2>{s.municipality}</h2></div>
-                      <span className="housing-exception-pending">AGUARDANDO COLETA</span>
+                      <span className={s.originalBytesPreserved?'housing-status-ok':'housing-exception-pending'}>{s.originalBytesPreserved?'ARQUIVADO':'AGUARDANDO'}</span>
                     </div>
                     <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">Consultar endpoint oficial</a>
                     <p className="private-report-note">{s.id}: {s.contentStatus}.</p>
+                  </article>)}
+                </div>
+                <div className="private-grid-two">
+                  {data.fm03PncpItemHistoryEvidence.batches.map(batch=><article className="private-panel" key={batch.caseId}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{batch.caseId}</p><h2>{batch.municipality}</h2></div><strong>{money(batch.items.normalizedFacts[0].valorTotalEstimadoBRL)}</strong></div>
+                    <p>Itens oficiais: <strong>{batch.items.count}</strong> · Número {batch.items.normalizedFacts[0].numeroItem} · Situação: {batch.items.normalizedFacts[0].situacaoNaCaptura}</p>
+                    <p>Eventos no histórico PNCP: <strong>{batch.history.count}</strong></p>
+                    <p>Resultado cadastrado no item capturado: {batch.items.normalizedFacts[0].temResultadoNoRegistro?'Sim':'Não informado'}</p>
+                    <a href={batch.resultQuery.url} target="_blank" rel="noopener noreferrer">Consulta oficial de resultado do item 1</a>
+                    <p className="private-report-note">Status: {batch.resultQuery.status}. Não representa prova de pagamento a fornecedor.</p>
                   </article>)}
                 </div>
                 <p className="private-report-note">Regra probatória: fornecedor vencedor só será exibido se constar de item/resultado oficial e for validado. Resultado de licitação não equivale a pagamento municipal.</p>

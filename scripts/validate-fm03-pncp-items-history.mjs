@@ -9,7 +9,7 @@ assert.equal(new Set(registry.accessPoints.map(x=>x.id)).size,4);
 assert.equal(new Set(registry.accessPoints.map(x=>x.caseId)).size,2);
 assert.equal(registry.metrics.verifiedSupplierPayments,0);
 assert.equal(registry.metrics.newCentralCE,0);
-assert.equal(registry.sourceMonitor.followUpItemResultLookup,'defer_until_item_numbers_verified_in_official_items_response');
+assert.equal(registry.sourceMonitor.followUpItemResultLookup,'two_item_1_results_source_targets_registered_numbers_verified');
 for(const q of registry.accessPoints){
   const target=targets.find(t=>t.id===q.id);
   assert(target, 'Target missing '+q.id);
@@ -17,8 +17,8 @@ for(const q of registry.accessPoints){
   assert.equal(target.preserveRaw,true);
   assert(target.maxRawBytes<=2000000);
   assert(/^https:\/\/pncp\.gov\.br\/api\/pncp\/v1\/orgaos\/\d{14}\/compras\/2026\/\d+\/(itens|historico)$/.test(q.sourceUrl));
-  assert.equal(q.originalBytesPreserved,false);
-  assert.equal(q.sha256,null);
+  assert.equal(q.originalBytesPreserved,true);
+  assert.match(q.sha256,/^[a-f0-9]{64}$/);
   assert(originals.entries.some(e=>e.caseId===q.caseId));
 }
 console.log('PASS FM-03 PNCP follow-up: 4 official GET targets, 2 cases, no inferred supplier payment or unverified item result.');
