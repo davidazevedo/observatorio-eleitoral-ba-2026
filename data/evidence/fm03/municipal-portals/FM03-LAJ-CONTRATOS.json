@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "FM03-LAJ-CONTRATOS",
+  "caseId": "PREBA-01",
+  "municipality": "Lajedo do Tabocal",
+  "category": "official_municipal_fiscal_portal_reference",
+  "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+  "scope": "Publicações de contratos do município",
+  "discoveryEvidence": "derived_from_official_portal_menu",
+  "firstIdentifiedDate": "2026-10-08",
+  "preservation": {
+    "targetId": "fm03-laj-contratos",
+    "rawFilePublicGitAllowed": false,
+    "status": "awaiting_automated_capture",
+    "sha256": null,
+    "gitSnapshotPath": null,
+    "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json"
+  },
+  "extraction": {
+    "filterYear": 2026,
+    "requireExactAgreementOrExpenseObject": true,
+    "requirePrimaryExpenseDocument": true,
+    "matchOutcomesAllowed": [
+      "exact_with_document",
+      "potential_needs_review",
+      "not_found_in_accessible_source"
+    ],
+    "financialLinkVerified": false
+  },
+  "materialFinding": "public_portal_exists_or_is_linked_from_official_site",
+  "supplierPaymentVerified": false,
+  "legalFinding": "none",
+  "notASeparateCentralEvidence": true
+}

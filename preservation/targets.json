@@ -297,6 +297,62 @@
       "publisher": "Prefeitura de Jaguaquara / Município Online",
       "preserveRaw": true,
       "maxRawBytes": 2500000
+    },
+    {
+      "id": "fm03-laj-portal",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia",
+      "title": "FM-03 Lajedo do Tabocal — Portal municipal da transparência; menu de despesas/contratos",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-laj-despesa",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa",
+      "title": "FM-03 Lajedo do Tabocal — Listagem de despesas municipais; requer filtros por período/objeto",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-laj-contratos",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "title": "FM-03 Lajedo do Tabocal — Publicações de contratos do município",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-belo-despesas",
+      "url": "https://belocampo-ba.portaltp.com.br/",
+      "title": "FM-03 Belo Campo — Portal da Transparência — Empenhos/Liquidações/Pagamentos/Favorecidos",
+      "publisher": "Portal público municipal de Belo Campo",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-belo-sic",
+      "url": "https://transparencia.belocampo.ba.gov.br/",
+      "title": "FM-03 Belo Campo — Portal municipal de transparência e SIC",
+      "publisher": "Portal público municipal de Belo Campo",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-ara-portal",
+      "url": "https://transparencia.aracas.ba.gov.br/",
+      "title": "FM-03 Araçás — Transparência — despesas, contratos, obras e transferências estaduais",
+      "publisher": "Portal público municipal de Araçás",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-jag-despesa",
+      "url": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/despesa",
+      "title": "FM-03 Jaguaquara — Despesa — Empenhos, Liquidações, Pagamentos e Favorecidos; aplicar 2026",
+      "publisher": "Portal público municipal de Jaguaquara",
+      "preserveRaw": false,
+      "maxRawBytes": 0
     }
   ]
 }

@@ -49,6 +49,9 @@ type Fm02Financial = {schemaVersion:number;artifactId:string;source:{path:string
 type Fm03Step = {slot:string;state:string;amountBRL:number|null;date:string|null;reference:string|null;sourcePath:string|null;sourceSha256:string|null;qualification:string};
 type Fm03Chain = {chainId:string;caseId:string;municipality:string;inst:string;bankOrder:string;observedStateDisbursementBRL:number;steps:Fm03Step[];status:string;action:string;contextFacts:Array<{kind:string;date:string;evidenceId:string;caveat:string}>};
 type Fm03Index = {schemaVersion:number;registryId:string;createdDate:string;status:string;counting:{chains:number;stateDisbursementsVerified:number;municipalRevenuePublicCorroborations:number;bankIngressFullyReconciled:number;verifiedMunicipalExpenseEntries:number;verifiedSupplierPayments:number;verifiedCampaignRelatedPayments:number;newCentralCE:number;totalStateDisbursementsBRL:number};chains:Fm03Chain[];nonConclusions:string[]};
+type Fm03FiscalPortal = {schemaVersion:number;id:string;caseId:string;municipality:string;category:string;url:string;scope:string;preservation:{targetId:string;rawFilePublicGitAllowed:boolean;status:string;sha256:string|null;githubManifestPath:string};extraction:{filterYear:number;financialLinkVerified:boolean};supplierPaymentVerified:boolean;notASeparateCentralEvidence:boolean};
+type Fm03FiscalCase = {caseId:string;agreement:string;sei:string;paymentNob:string;amountBRL:number;date:string;associatedPortalIds:string[];requests:string[];requestStatus:string;proofStatus:string};
+type Fm03FiscalRegistry = {schemaVersion:number;registryId:string;registeredDate:string;status:string;totalMunicipalities:number;totalSourceReferences:number;verifiedSupplierPaymentsFoundInThisStage:number;newCentralCE:number;privacyRule:string;cases:Fm03FiscalCase[];sources:Fm03FiscalPortal[]};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -118,6 +121,7 @@ type DashboardData = {
   fm02DocumentaryLedger: Fm02Ledger;
   fm02FiplanPrimaryRows: Fm02Financial;
   fm03FinancialChains: Fm03Index;
+  fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
 
@@ -1023,6 +1027,28 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FM-03 · MONITORAMENTO DE TRANSPARÊNCIA MUNICIPAL</p><h2>Despesas, contratos e pedidos de documentos</h2><small>{data.fm03MunicipalSources.registryId}</small></div>
+                  <span className="housing-exception-pending">DOCUMENTOS PENDENTES</span>
+                </div>
+                <p>Sete pontos oficiais de consulta financeira foram cadastrados para quatro municípios. Os sites permitem pesquisar, mas não há pagamentos a fornecedores vinculados a esses convênios documentalmente comprovados neste recorte.</p>
+                <div className="intel-metrics-grid">
+                  <article><span>Portais monitorados</span><strong>{data.fm03MunicipalSources.totalSourceReferences}</strong><small>URLs oficiais ou indicadas por município</small></article>
+                  <article><span>Municípios</span><strong>{data.fm03MunicipalSources.totalMunicipalities}</strong><small>Fontes e minutas de LAI</small></article>
+                  <article><span>Minutas LAI preparadas</span><strong>{data.fm03MunicipalSources.cases.length}</strong><small>Não foram protocoladas</small></article>
+                  <article><span>Pagamentos novos comprovados</span><strong>{data.fm03MunicipalSources.verifiedSupplierPaymentsFoundInThisStage}</strong><small>Sem fornecedores presumidos</small></article>
+                </div>
+                <div className="private-grid-two" style={{marginTop:'14px'}}>
+                  {data.fm03MunicipalSources.cases.map(c=><article className="private-panel" key={c.caseId}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{c.caseId}</p><h2>{data.fm03MunicipalSources.sources.find(s=>s.caseId===c.caseId)?.municipality}</h2></div><span className="housing-exception-pending">SEM PAGAMENTO CONFIRMADO</span></div>
+                    <p><strong>{c.agreement}</strong> · NOB <code>{c.paymentNob}</code></p>
+                    <ul>{data.fm03MunicipalSources.sources.filter(s=>s.caseId===c.caseId).map(s=><li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.scope}</a> <small>· {s.preservation.status==='awaiting_automated_capture'?'Coleta HTTP agendada':s.preservation.status}</small></li>)}</ul>
+                    <a href={'https://github.com/davidazevedo/observatorio-eleitoral-ba-2026/blob/main/docs/FOLLOW_THE_MONEY/REQUISICOES/LAI_FM03_'+c.caseId+'.md'} target="_blank" rel="noopener noreferrer">Ver minuta LAI — não enviada</a>
+                  </article>)}
+                </div>
+                <p className="private-report-note"><strong>Privacidade:</strong> as páginas completas de despesas não são republicadas automaticamente no Git público. O relatório de coleta preserva metadados e hash; conteúdo potencialmente pessoal deve ser arquivado apenas em ambiente restrito.</p>
+              </section>
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FOLLOW THE MONEY · ETAPA FM-03</p><h2>Cadeia financeira — origem ao fornecedor</h2><small>{data.fm03FinancialChains.registryId} · {data.fm03FinancialChains.createdDate}</small></div>

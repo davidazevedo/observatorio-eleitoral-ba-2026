@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { verifyIntelligenceApiKey } from '@/lib/intelligence';
 import registry from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
+import fiscalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 
 export const runtime='nodejs';
 export async function GET(request:Request){
@@ -16,6 +17,8 @@ export async function GET(request:Request){
   return NextResponse.json({
     ok:true,registryId:registry.registryId,status:registry.status,
     count:chains.length,counts:registry.counting,chains,
+    municipalFiscalSources: fiscalSources.sources.filter(source=>!caseId||source.caseId===caseId),
+    municipalPortalReferenceBoundary: 'Links oficiais de consulta, não comprovantes de pagamentos ou fornecedores.',
     limitations:registry.nonConclusions,
     provenance:'repository_file_versioned',privateBlobMirroring:'not_inferred',
   },{headers:{'cache-control':'private, no-store','x-robots-tag':'noindex, nofollow, noarchive'}});
