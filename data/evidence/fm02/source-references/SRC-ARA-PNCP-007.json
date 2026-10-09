@@ -12,17 +12,17 @@
       "CE-055",
       "CE-056"
     ],
-    "preservationStatus": "retrieval_rate_limited_original_pending",
-    "contentSnapshotSha256": null,
-    "originalBytesInRepository": false,
-    "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
-    "httpCapture": "HTTP 429 / falha de coleta",
-    "httpCaptureAt": "2026-10-08T22:59:09Z",
+    "preservationStatus": "official_pncp_json_snapshot_sha256_verified",
+    "contentSnapshotSha256": "b18f622ed010f3ec1ac5cf3450c58801c7ba098b9971741cefefb586c82671c3",
+    "originalBytesInRepository": true,
+    "notes": "JSON oficial PNCP completo preservado. Resultado não registrado neste detalhe (existeResultado=false); sem inferir fornecedor ou pagamento.",
+    "httpCapture": "HTTP 200",
+    "httpCaptureAt": "2026-10-09T01:01:45Z",
     "archiveManifestPath": "preservation/manifests/fm02-aracas-pncp-detail.json",
-    "snapshotPath": null
+    "snapshotPath": "preservation/snapshots/fm02-aracas-pncp-detail/2026-10-09T01-01-45Z.json"
   },
   "archiveTrackingTargetId": "fm02-aracas-pncp-detail",
   "archiveManifestPath": "preservation/manifests/fm02-aracas-pncp-detail.json",
   "rawBytesInThisFile": false,
-  "statusNote": "Cópia externa arquivada apenas quando manifesto referenciado registra HTTP 200 e rawPreserved=true. PDF só com SHA, sem PDF público. Não equivale a imputação."
+  "statusNote": "JSON PNCP original disponível no repositório separado e validado por SHA; a referência não é um pagamento ao fornecedor."
 }

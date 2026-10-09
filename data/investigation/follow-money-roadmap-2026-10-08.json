@@ -50,10 +50,11 @@
         "originalExternalOfficialDocumentsPreservedConfirmed": 4,
         "uniqueSourceReferences": 15,
         "p0PendingDocuments": 23,
-        "statusDetail": "4 linhas FIPLAN verificadas com SHA; 2 termos PDF hash conferido sem binários públicos; 4 HTML íntegros no Git; PNCP HTTP 429; processos SEI/medições permanecem pendentes.",
+        "statusDetail": "Quatro linhas FIPLAN, dois termos SUDESB com SHA e quatro HTML, mais dois JSON originais do PNCP preservados em Git; processos completos/AIO/medições pendentes.",
         "officialPdfHashesRecorded": 2,
         "htmlRawSnapshotsActuallyStoredInGit": 4,
-        "pncpRateLimitedRequests": 2
+        "pncpRateLimitedRequests": 0,
+        "pncpRawJsonOriginalsArchived": 2
       }
     },
     {
@@ -72,11 +73,17 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "9 endereços oficiais de consulta versionados, 4 minutas LAI não protocoladas; dados de despesa e fornecedores ainda sem conexão documentada a cada convênio.",
+        "statusNote": "9 canais municipais monitorados, dois documentos oficiais PNCP com SHA e detalhes de concorrência; ainda nenhum pagamento municipal a fornecedor do convênio comprovado.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
-        "officialDocumentRequestsDrafted": 4
+        "officialDocumentRequestsDrafted": 4,
+        "http200ResponseHashesVersioned": 9,
+        "semanticPageValidations": 0,
+        "crossDomainDuplicateResponseGroups": 1,
+        "duplicateSourcePagesFlagged": 4,
+        "officialPncpDetailOriginalsValidated": 2,
+        "verifiedSupplierDisbursements": 0
       }
     },
     {
@@ -145,8 +152,9 @@
     "fm03ReleaseCommit": "11794fcd743e0596d0dd5f75d1375bc7387237d6",
     "fm03ReadApiAuthenticatedCallVerified": false,
     "lastProductionQa": "2026-10-08",
-    "fm03FiscalPortalsApiStatus": "deployed_7_source_registry_pending_9_source_release",
-    "fm03NewSupplierEvidenceIds": 0
+    "fm03FiscalPortalsApiStatus": "nine_http_hashes_in_git_pending_semantic_quality_release",
+    "fm03NewSupplierEvidenceIds": 0,
+    "fm03SemanticallyVerifiedFiscalStatements": 0
   },
   "externalOriginals": {
     "fiplanZipPreserved": false,

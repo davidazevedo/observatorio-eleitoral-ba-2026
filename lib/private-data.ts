@@ -26,6 +26,7 @@ import followMoneyRoadmap from '@/data/investigation/follow-money-roadmap-2026-1
 import fm02DocumentaryLedger from '@/data/investigation/fm02-documentary-ledger-2026-10-08.json';
 import fm02FiplanPrimaryRows from '@/data/investigation/fm02-fiplan-primary-rows-2026-10-08.json';
 import fm03FinancialChains from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
+import fm03PncpOfficialSnapshots from '@/data/investigation/fm03-pncp-official-snapshots-2026-10-08.json';
 import fm03MunicipalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 import {
@@ -389,6 +390,7 @@ export async function getPrivateDashboardData() {
     fm02DocumentaryLedger,
     fm02FiplanPrimaryRows,
     fm03FinancialChains,
+    fm03PncpOfficialSnapshots,
     fm03MunicipalSources,
     centralEvidenceLedgerSummary: {
       registryId: centralEvidenceLedger.registryId,

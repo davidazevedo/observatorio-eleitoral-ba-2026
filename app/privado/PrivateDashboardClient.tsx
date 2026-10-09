@@ -52,6 +52,8 @@ type Fm03Index = {schemaVersion:number;registryId:string;createdDate:string;stat
 type Fm03FiscalPortal = {schemaVersion:number;id:string;caseId:string;municipality:string;category:string;url:string;scope:string;preservation:{targetId:string;rawFilePublicGitAllowed:boolean;status:string;sha256:string|null;githubManifestPath:string};extraction:{filterYear:number;financialLinkVerified:boolean};supplierPaymentVerified:boolean;notASeparateCentralEvidence:boolean};
 type Fm03FiscalCase = {caseId:string;agreement:string;sei:string;paymentNob:string;amountBRL:number;date:string;associatedPortalIds:string[];requests:string[];requestStatus:string;proofStatus:string};
 type Fm03FiscalRegistry = {schemaVersion:number;registryId:string;registeredDate:string;status:string;totalMunicipalities:number;totalSourceReferences:number;verifiedSupplierPaymentsFoundInThisStage:number;newCentralCE:number;privacyRule:string;cases:Fm03FiscalCase[];sources:Fm03FiscalPortal[]};
+type Fm03PncpItem = {schemaVersion:number;id:string;caseId:string;municipality:string;corroboratesExistingCE:string;rawSnapshotPath:string;sourceSha256:string;pncpControlNumber:string;procurementNumber:string;process:string;object:string;publicationDateTime:string;proposalDeadlineDateTime:string;estimatedValueBRL:number;homologatedValueBRL:number|null;resultRegisteredInRecord:boolean;procurementState:string;sourceModelLimit:string;supplierIdentifiedInThisRecord:boolean;supplierPaymentVerified:boolean};
+type Fm03PncpIndex = {schemaVersion:number;registryId:string;count:number;newCentralCE:number;entries:Fm03PncpItem[];disputedSemantics:string};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -121,6 +123,7 @@ type DashboardData = {
   fm02DocumentaryLedger: Fm02Ledger;
   fm02FiplanPrimaryRows: Fm02Financial;
   fm03FinancialChains: Fm03Index;
+  fm03PncpOfficialSnapshots: Fm03PncpIndex;
   fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
@@ -1029,6 +1032,24 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
             <>
               <section className="private-panel">
                 <div className="private-panel-title">
+                  <div><p className="eyebrow">FM-03 · PNCP OFICIAL — ORIGINAIS PRESERVADOS</p><h2>Contratações e evidências documentais</h2><small>{data.fm03PncpOfficialSnapshots.registryId}</small></div>
+                  <span className="housing-status-ok">2 JSON CONFERIDOS</span>
+                </div>
+                <p>Os dados abaixo vêm de cópias integrais do JSON oficial PNCP preservadas com SHA-256. O campo <code>existeResultado=false</code> vale somente para o documento consultado; não significa inexistência de adjudicação, contrato ou pagamento em outro sistema.</p>
+                <div className="private-grid-two">
+                  {data.fm03PncpOfficialSnapshots.entries.map(item=><article className="private-panel" key={item.id}>
+                    <div className="private-panel-title"><div><p className="eyebrow">{item.caseId} · {item.corroboratesExistingCE}</p><h2>{item.municipality}</h2></div><strong>{money(item.estimatedValueBRL)}</strong></div>
+                    <p><strong>Controle PNCP:</strong> <code>{item.pncpControlNumber}</code></p>
+                    <p><strong>Processo:</strong> {item.process} · publicado {item.publicationDateTime.slice(0,10)}</p>
+                    <p><strong>Objeto:</strong> {item.object}</p>
+                    <p className="private-report-note">Resultado informado no documento: {item.resultRegisteredInRecord?'Sim':'Não informado'} · Valor homologado {item.homologatedValueBRL===null?'não informado':money(item.homologatedValueBRL)}.</p>
+                    <p className="private-report-note"><strong>Integridade:</strong> SHA-256 <code>{item.sourceSha256}</code></p>
+                    <p className="private-report-note">Fornecedor e pagamento municipal ainda não comprovados.</p>
+                  </article>)}
+                </div>
+              </section>
+              <section className="private-panel">
+                <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · MONITORAMENTO DE TRANSPARÊNCIA MUNICIPAL</p><h2>Despesas, contratos e pedidos de documentos</h2><small>{data.fm03MunicipalSources.registryId}</small></div>
                   <span className="housing-exception-pending">DOCUMENTOS PENDENTES</span>
                 </div>
@@ -1043,10 +1064,11 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                   {data.fm03MunicipalSources.cases.map(c=><article className="private-panel" key={c.caseId}>
                     <div className="private-panel-title"><div><p className="eyebrow">{c.caseId}</p><h2>{data.fm03MunicipalSources.sources.find(s=>s.caseId===c.caseId)?.municipality}</h2></div><span className="housing-exception-pending">SEM PAGAMENTO CONFIRMADO</span></div>
                     <p><strong>{c.agreement}</strong> · NOB <code>{c.paymentNob}</code></p>
-                    <ul>{data.fm03MunicipalSources.sources.filter(s=>s.caseId===c.caseId).map(s=><li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.scope}</a> <small>· {s.preservation.status==='awaiting_automated_capture'?'Coleta HTTP agendada':s.preservation.status}</small></li>)}</ul>
+                    <ul>{data.fm03MunicipalSources.sources.filter(s=>s.caseId===c.caseId).map(s=><li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.scope}</a> <small>· {s.preservation.status==='awaiting_automated_capture'?'Aguardando coleta':s.preservation.status.includes('cross_domain_identical')?'HTTP 200: resposta igual a outro município; conferir':s.preservation.status.includes('hash_only')?'HTTP 200 + SHA, conteúdo não validado':s.preservation.status.includes('failed')?'Falha de captura':s.preservation.status}</small></li>)}</ul>
                     <a href={'https://github.com/davidazevedo/observatorio-eleitoral-ba-2026/blob/main/docs/FOLLOW_THE_MONEY/REQUISICOES/LAI_FM03_'+c.caseId+'.md'} target="_blank" rel="noopener noreferrer">Ver minuta LAI — não enviada</a>
                   </article>)}
                 </div>
+                <p className="private-report-note"><strong>Alerta documental:</strong> 9 respostas HTTP 200 e hashes, mas 4 URLs de duas prefeituras produziram bytes idênticos. Nenhuma dessas respostas, por si só, comprova pagamento a fornecedor.</p>
                 <p className="private-report-note"><strong>Privacidade:</strong> as páginas completas de despesas não são republicadas automaticamente no Git público. O relatório de coleta preserva metadados e hash; conteúdo potencialmente pessoal deve ser arquivado apenas em ambiente restrito.</p>
               </section>
               <section className="private-panel">
