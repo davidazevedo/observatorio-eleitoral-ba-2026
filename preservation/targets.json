@@ -353,6 +353,22 @@
       "publisher": "Portal público municipal de Jaguaquara",
       "preserveRaw": false,
       "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-belo-despesa-direta",
+      "url": "https://transparencia.belocampo.ba.gov.br/despesa",
+      "title": "FM-03 Belo Campo — Consulta direta de despesas e execução municipal, com filtros de exercício e exportações",
+      "publisher": "Portal público municipal de Belo Campo",
+      "preserveRaw": false,
+      "maxRawBytes": 0
+    },
+    {
+      "id": "fm03-ara-convenios",
+      "url": "https://transparencia.aracas.ba.gov.br/convenios",
+      "title": "FM-03 Araçás — Consulta direta de convênios recebidos, com filtro de número e exercício; valor inicial sem filtro não serve como prova de inexistência",
+      "publisher": "Portal público municipal de Araçás",
+      "preserveRaw": false,
+      "maxRawBytes": 0
     }
   ]
 }
