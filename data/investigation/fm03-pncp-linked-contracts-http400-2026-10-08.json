@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-PNCP-LINKED-CONTRACTS-HTTP400-2026-10-08",
+  "asOf": "2026-10-08",
+  "collectionRunId": 37875942884,
+  "totalRequests": 2,
+  "responseStates": [
+    {
+      "id": "FM03-PNCP-LINKED-CONTRACTS-PREBA-01",
+      "caseId": "PREBA-01",
+      "sourceManifest": "preservation/manifests/fm03-lajedo-pncp-linked-contracts.json",
+      "httpError": "HTTPError: HTTP Error 400: Bad Request",
+      "at": "2026-10-09T02:45:20Z",
+      "pncpControl": "16434441000131-1-000026/2026"
+    },
+    {
+      "id": "FM03-PNCP-LINKED-CONTRACTS-PREBA-03",
+      "caseId": "PREBA-03",
+      "sourceManifest": "preservation/manifests/fm03-aracas-pncp-linked-contracts.json",
+      "httpError": "HTTPError: HTTP Error 400: Bad Request",
+      "at": "2026-10-09T02:45:20Z",
+      "pncpControl": "16131088000110-1-000007/2026"
+    }
+  ],
+  "outcomes": {
+    "validJsonContractLists": 0,
+    "linkedContractsIdentified": 0,
+    "supplierPaymentsVerified": 0,
+    "newCentralCE": 0
+  },
+  "interpretation": "HTTP 400 Bad Request for these specific GETs despite URI pattern specified in PNCP manual; neither content nor absence of contracts can be inferred. Other sources required."
+}

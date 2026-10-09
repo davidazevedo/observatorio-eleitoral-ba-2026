@@ -1047,7 +1047,7 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                 <p>A consulta PNCP de resultados de itens retornou HTTP 204, sem informações sobre adjudicação. Por isso, cadastramos a consulta oficial de contratos/empenhos associados diretamente a cada compra, sem presumir contratação ou pagamento.</p>
                 <div className="private-grid-two">
                   {data.fm03LinkedContracts.targets.map(item=><article key={item.id} className="private-panel">
-                    <div className="private-panel-title"><div><p className="eyebrow">{item.caseId} · {item.relatedCentralCE}</p><h2>{item.municipality}</h2></div><span className="housing-exception-pending">{item.status.includes('awaiting')?'AGUARDANDO':'VERIFICAR'}</span></div>
+                    <div className="private-panel-title"><div><p className="eyebrow">{item.caseId} · {item.relatedCentralCE}</p><h2>{item.municipality}</h2></div><span className="housing-exception-pending">{item.status.includes('http_400')?'HTTP 400 · INCONCLUSIVO':item.status.includes('awaiting')?'AGUARDANDO':'VERIFICAR'}</span></div>
                     <p><code>{item.pncpControlNumber}</code></p>
                     <a href={item.source.endpoint} target="_blank" rel="noopener noreferrer">Consultar contratos oficiais no PNCP</a>
                     <p className="private-report-note">{item.interpretationBoundary}</p>

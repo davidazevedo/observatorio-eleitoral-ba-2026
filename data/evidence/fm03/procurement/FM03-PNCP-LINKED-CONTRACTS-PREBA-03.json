@@ -17,7 +17,7 @@
     "expectedManifest": "preservation/manifests/fm03-aracas-pncp-linked-contracts.json",
     "archivePolicy": "raw_official_json_only_2MB"
   },
-  "status": "awaiting_first_official_capture",
+  "status": "http_400_no_official_contract_payload_at_capture",
   "expectedResponseKinds": [
     "http_200_json_array_or_object",
     "http_204_no_body",
@@ -26,12 +26,22 @@
     "http_5xx_server_failure"
   ],
   "resultEvidence": {
-    "httpStatus": null,
+    "httpStatus": 400,
     "bodySha256": null,
     "rawSnapshotPath": null,
     "contractIdentifiers": [],
     "supplierIdentifiers": [],
     "verifiedFinancialDisbursements": 0
   },
-  "interpretationBoundary": "Um contrato ou empenho no PNCP pode vincular formalmente contratação a fornecedor. Não prova liquidação, pagamento bancário, execução, financiamento eleitoral ou crime. HTTP vazio/erro também não comprova inexistência de contrato."
+  "interpretationBoundary": "Um contrato ou empenho no PNCP pode vincular formalmente contratação a fornecedor. Não prova liquidação, pagamento bancário, execução, financiamento eleitoral ou crime. HTTP vazio/erro também não comprova inexistência de contrato.",
+  "capture": {
+    "manifestPath": "preservation/manifests/fm03-aracas-pncp-linked-contracts.json",
+    "requestedUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/contratos/contratacao/2026/7",
+    "retrievedAtUTC": "2026-10-09T02:45:20Z",
+    "available": false,
+    "httpError": "HTTPError: HTTP Error 400: Bad Request",
+    "sourceRunId": 37875942884,
+    "rawResponsePreserved": false,
+    "interpretation": "HTTP 400 not proof of absent contracting or missing supplier; need municipal purchasing system and formal records."
+  }
 }
