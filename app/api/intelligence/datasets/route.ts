@@ -28,6 +28,7 @@ import fm03MunicipalSources from '@/data/investigation/fm03-municipal-source-reg
 import fm03CaptureQuality from '@/data/investigation/fm03-source-capture-quality-2026-10-08.json';
 import fm03PncpOriginals from '@/data/investigation/fm03-pncp-official-snapshots-2026-10-08.json';
 import fm03PncpItemsHistory from '@/data/investigation/fm03-pncp-items-history-watch-2026-10-08.json';
+import fm03PncpItemHistoryEvidence from '@/data/investigation/fm03-pncp-item-history-evidence-2026-10-08.json';
 import fm03PublicSourceReview from '@/data/investigation/fm03-open-source-review-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 
@@ -61,6 +62,7 @@ const datasets = {
   'fm03-source-capture-quality': fm03CaptureQuality,
   'fm03-official-pncp-snapshots': fm03PncpOriginals,
   'fm03-pncp-items-history-watch': fm03PncpItemsHistory,
+  'fm03-pncp-item-history-evidence': fm03PncpItemHistoryEvidence,
   'fm03-public-source-review': fm03PublicSourceReview,
   'central-evidence-ledger': centralEvidenceLedger,
 } as const;

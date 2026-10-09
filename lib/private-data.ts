@@ -28,6 +28,7 @@ import fm02FiplanPrimaryRows from '@/data/investigation/fm02-fiplan-primary-rows
 import fm03FinancialChains from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
 import fm03PncpOfficialSnapshots from '@/data/investigation/fm03-pncp-official-snapshots-2026-10-08.json';
 import fm03PncpItemsHistory from '@/data/investigation/fm03-pncp-items-history-watch-2026-10-08.json';
+import fm03PncpItemHistoryEvidence from '@/data/investigation/fm03-pncp-item-history-evidence-2026-10-08.json';
 import fm03MunicipalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 import {
@@ -393,6 +394,7 @@ export async function getPrivateDashboardData() {
     fm03FinancialChains,
     fm03PncpOfficialSnapshots,
     fm03PncpItemsHistory,
+    fm03PncpItemHistoryEvidence,
     fm03MunicipalSources,
     centralEvidenceLedgerSummary: {
       registryId: centralEvidenceLedger.registryId,
