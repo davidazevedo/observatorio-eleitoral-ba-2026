@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "FM03-PNCP-LAJEDO-ITENS-2026",
+  "caseId": "PREBA-01",
+  "municipality": "Lajedo do Tabocal",
+  "sourceType": "pncp_official_itens_raw_snapshot",
+  "corroboratesExistingCE": "CE-052",
+  "officialAuthority": "Portal Nacional de Contratações Públicas",
+  "source": {
+    "targetId": "fm03-lajedo-pncp-items",
+    "manifestPath": "preservation/manifests/fm03-lajedo-pncp-items.json",
+    "rawSnapshotPath": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
+    "sha256": "e68aa5376eeef36d0baa9a77d81e8b7405b159a219c20504dbe702113d20bb09",
+    "byteLength": 1261,
+    "retrievedAtUTC": "2026-10-09T01:34:32Z",
+    "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens"
+  },
+  "originalArrayLength": 1,
+  "normalizedFacts": [
+    {
+      "numeroItem": 1,
+      "descricao": "Contratação de empresa especializada em obras e serviços de engenharia para reforma do Estádio Municipal de Lagedo do Tabocal - BA, em atendimento ao Convênio nº 32/2026 – SUDESB, conforme Edital e seus anexos. ",
+      "quantidade": 1,
+      "unidadeMedida": "UN",
+      "valorTotalEstimadoBRL": 3020421.46,
+      "criterioJulgamento": "Menor preço",
+      "situacaoNaCaptura": "Em andamento",
+      "temResultadoNoRegistro": false,
+      "dataAtualizacao": "2026-07-13T23:55:27"
+    }
+  ],
+  "qualification": "PNCP item fields and status at this capture; procurement award and supplier payment remain unknown.",
+  "validationStatus": "source_bytes_preserved_hash_pending_automated_gate",
+  "supplierPaymentEstablished": false,
+  "newCentralCE": false,
+  "conclusions": {
+    "bidAward": "not_documented_in_this_record",
+    "municipalPayment": "not_verified",
+    "electoralCrime": "none"
+  }
+}

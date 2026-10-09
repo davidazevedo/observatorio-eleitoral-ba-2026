@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FM03-PNCP-ITEMS-HISTORY-RESULT-2026-10-08",
+  "registeredDate": "2026-10-08",
+  "status": "items_and_history_archived_results_pending",
+  "batches": [
+    {
+      "caseId": "PREBA-01",
+      "municipality": "Lajedo do Tabocal",
+      "corroborates": "CE-052",
+      "sourceDetailId": "FM03-PNCP-LAJEDO-04-2026",
+      "itemNumbersVerified": [
+        1
+      ],
+      "items": {
+        "kind": "itens",
+        "evidenceId": "FM03-PNCP-LAJEDO-ITENS-2026",
+        "path": "data/evidence/fm03/procurement/FM03-PNCP-LAJEDO-ITENS-2026.json",
+        "source": {
+          "targetId": "fm03-lajedo-pncp-items",
+          "manifestPath": "preservation/manifests/fm03-lajedo-pncp-items.json",
+          "rawSnapshotPath": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
+          "sha256": "e68aa5376eeef36d0baa9a77d81e8b7405b159a219c20504dbe702113d20bb09",
+          "byteLength": 1261,
+          "retrievedAtUTC": "2026-10-09T01:34:32Z",
+          "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens"
+        },
+        "count": 1,
+        "itemNumbers": [
+          1
+        ],
+        "normalizedFacts": [
+          {
+            "numeroItem": 1,
+            "descricao": "Contratação de empresa especializada em obras e serviços de engenharia para reforma do Estádio Municipal de Lagedo do Tabocal - BA, em atendimento ao Convênio nº 32/2026 – SUDESB, conforme Edital e seus anexos. ",
+            "quantidade": 1,
+            "unidadeMedida": "UN",
+            "valorTotalEstimadoBRL": 3020421.46,
+            "criterioJulgamento": "Menor preço",
+            "situacaoNaCaptura": "Em andamento",
+            "temResultadoNoRegistro": false,
+            "dataAtualizacao": "2026-07-13T23:55:27"
+          }
+        ]
+      },
+      "history": {
+        "kind": "historico",
+        "evidenceId": "FM03-PNCP-LAJEDO-HISTORICO-2026",
+        "path": "data/evidence/fm03/procurement/FM03-PNCP-LAJEDO-HISTORICO-2026.json",
+        "source": {
+          "targetId": "fm03-lajedo-pncp-history",
+          "manifestPath": "preservation/manifests/fm03-lajedo-pncp-history.json",
+          "rawSnapshotPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-09T01-34-33Z.json",
+          "sha256": "bf6a9e7642e569cec40b99e0caf334a7e4f8cb46b4685b2644567a786282b5b5",
+          "byteLength": 1545,
+          "retrievedAtUTC": "2026-10-09T01:34:33Z",
+          "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico"
+        },
+        "count": 3,
+        "itemNumbers": [],
+        "normalizedFacts": [
+          {
+            "tipoEvento": "Inclusão",
+            "categoria": "Contratação",
+            "dataInclusao": "2026-07-13T23:55:27",
+            "documentoTitulo": null,
+            "documentoTipo": null,
+            "numeroItem": null
+          },
+          {
+            "tipoEvento": "Inclusão",
+            "categoria": "Documento de Contratação",
+            "dataInclusao": "2026-07-13T23:55:28",
+            "documentoTitulo": "Edital_Concorrencia_042026__Reforma_Estadio",
+            "documentoTipo": "Edital",
+            "numeroItem": null
+          },
+          {
+            "tipoEvento": "Inclusão",
+            "categoria": "Documento de Contratação",
+            "dataInclusao": "2026-07-14T00:06:37",
+            "documentoTitulo": "ANEXO_V__Projetos_e_Planilhas__Concorrencia_042026",
+            "documentoTipo": "Outros Documentos",
+            "numeroItem": null
+          }
+        ]
+      },
+      "resultQuery": {
+        "targetId": "fm03-lajedo-pncp-item1-results",
+        "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens/1/resultados",
+        "status": "awaiting_automatic_capture",
+        "itemNumberProvenance": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
+        "noSupplierPaymentImplication": true
+      }
+    },
+    {
+      "caseId": "PREBA-03",
+      "municipality": "Araçás",
+      "corroborates": "CE-056",
+      "sourceDetailId": "FM03-PNCP-ARACAS-007-2026",
+      "itemNumbersVerified": [
+        1
+      ],
+      "items": {
+        "kind": "itens",
+        "evidenceId": "FM03-PNCP-ARACAS-ITENS-2026",
+        "path": "data/evidence/fm03/procurement/FM03-PNCP-ARACAS-ITENS-2026.json",
+        "source": {
+          "targetId": "fm03-aracas-pncp-items",
+          "manifestPath": "preservation/manifests/fm03-aracas-pncp-items.json",
+          "rawSnapshotPath": "preservation/snapshots/fm03-aracas-pncp-items/2026-10-09T01-34-33Z.json",
+          "sha256": "488d5bf5be8ab4b33915d864b1be7015986384606b1832afba06c4a3198fa097",
+          "byteLength": 1667,
+          "retrievedAtUTC": "2026-10-09T01:34:33Z",
+          "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens"
+        },
+        "count": 1,
+        "itemNumbers": [
+          1
+        ],
+        "normalizedFacts": [
+          {
+            "numeroItem": 1,
+            "descricao": "Contratação de empresa especializada em engenharia paraexecução da obra de implantação de grama sintética para a Areninha Societydo Município de Araçás/BA, compreendendo a administração da obra,serviços preliminares, fornecimento e instalação do sistema de gramasintética esportiva, bem como todos os serviços, materiais, equipamentos emão de obra necessários à perfeita execução do objeto, em conformidadecom os projetos executivos, memorial descritivo, planilhas orçamentárias,cronograma físicofinanceiro, Plano de Trabalho, especificações técnicas edemais documentos integrantes da contratação.",
+            "quantidade": 1,
+            "unidadeMedida": "UN",
+            "valorTotalEstimadoBRL": 732421.46,
+            "criterioJulgamento": "Menor preço",
+            "situacaoNaCaptura": "Em andamento",
+            "temResultadoNoRegistro": false,
+            "dataAtualizacao": "2026-07-10T10:35:56"
+          }
+        ]
+      },
+      "history": {
+        "kind": "historico",
+        "evidenceId": "FM03-PNCP-ARACAS-HISTORICO-2026",
+        "path": "data/evidence/fm03/procurement/FM03-PNCP-ARACAS-HISTORICO-2026.json",
+        "source": {
+          "targetId": "fm03-aracas-pncp-history",
+          "manifestPath": "preservation/manifests/fm03-aracas-pncp-history.json",
+          "rawSnapshotPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-10-09T01-34-33Z.json",
+          "sha256": "9f51ff6e3c0b4454a7c9e9c308f9c7b18c42d8ebe459e386d89bbfcbddc32a9f",
+          "byteLength": 943,
+          "retrievedAtUTC": "2026-10-09T01:34:33Z",
+          "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico"
+        },
+        "count": 2,
+        "itemNumbers": [],
+        "normalizedFacts": [
+          {
+            "tipoEvento": "Inclusão",
+            "categoria": "Contratação",
+            "dataInclusao": "2026-07-10T10:35:56",
+            "documentoTitulo": null,
+            "documentoTipo": null,
+            "numeroItem": null
+          },
+          {
+            "tipoEvento": "Inclusão",
+            "categoria": "Documento de Contratação",
+            "dataInclusao": "2026-07-10T10:35:56",
+            "documentoTitulo": "Edital_CONCORRNCIA_n_0072026",
+            "documentoTipo": "Edital",
+            "numeroItem": null
+          }
+        ]
+      },
+      "resultQuery": {
+        "targetId": "fm03-aracas-pncp-item1-results",
+        "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens/1/resultados",
+        "status": "awaiting_automatic_capture",
+        "itemNumberProvenance": "preservation/snapshots/fm03-aracas-pncp-items/2026-10-09T01-34-33Z.json",
+        "noSupplierPaymentImplication": true
+      }
+    }
+  ],
+  "counts": {
+    "cases": 2,
+    "originalDocumentsVerifiedByManifest": 4,
+    "itemsFound": 2,
+    "historyEventsFound": 5,
+    "resultQueriesRegistered": 2,
+    "resultQueriesCollected": 0,
+    "supplierPaymentsProven": 0,
+    "newCentralCE": 0
+  },
+  "method": "Only the verified item number from each archived PNCP items JSON is used to form the item-results URL.",
+  "decisionBoundary": "PNCP records expose procurement metadata, not bank disbursements; no campaign financing conclusion."
+}

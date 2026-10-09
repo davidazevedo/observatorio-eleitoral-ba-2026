@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "evidenceId": "FM03-PNCP-ARACAS-HISTORICO-2026",
+  "caseId": "PREBA-03",
+  "municipality": "Araçás",
+  "sourceType": "pncp_official_historico_raw_snapshot",
+  "corroboratesExistingCE": "CE-056",
+  "officialAuthority": "Portal Nacional de Contratações Públicas",
+  "source": {
+    "targetId": "fm03-aracas-pncp-history",
+    "manifestPath": "preservation/manifests/fm03-aracas-pncp-history.json",
+    "rawSnapshotPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-10-09T01-34-33Z.json",
+    "sha256": "9f51ff6e3c0b4454a7c9e9c308f9c7b18c42d8ebe459e386d89bbfcbddc32a9f",
+    "byteLength": 943,
+    "retrievedAtUTC": "2026-10-09T01:34:33Z",
+    "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico"
+  },
+  "originalArrayLength": 2,
+  "normalizedFacts": [
+    {
+      "tipoEvento": "Inclusão",
+      "categoria": "Contratação",
+      "dataInclusao": "2026-07-10T10:35:56",
+      "documentoTitulo": null,
+      "documentoTipo": null,
+      "numeroItem": null
+    },
+    {
+      "tipoEvento": "Inclusão",
+      "categoria": "Documento de Contratação",
+      "dataInclusao": "2026-07-10T10:35:56",
+      "documentoTitulo": "Edital_CONCORRNCIA_n_0072026",
+      "documentoTipo": "Edital",
+      "numeroItem": null
+    }
+  ],
+  "qualification": "The PNCP audit/history endpoint lists events present in its own record, not every act of municipal procurement.",
+  "validationStatus": "source_bytes_preserved_hash_pending_automated_gate",
+  "supplierPaymentEstablished": false,
+  "newCentralCE": false,
+  "conclusions": {
+    "bidAward": "not_determined_by_history",
+    "municipalPayment": "not_verified",
+    "electoralCrime": "none"
+  }
+}

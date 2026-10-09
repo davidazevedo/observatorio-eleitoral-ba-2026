@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "registryId": "FM03-PNCP-ITEMS-HISTORY-2026-10-08",
   "createdAt": "2026-10-08",
-  "status": "capture_targets_registered_pending_execution",
+  "status": "four_official_PNCP_arrays_archived_two_item_result_targets_waiting",
   "basis": {
     "primaryPncpDataset": "data/investigation/fm03-pncp-official-snapshots-2026-10-08.json",
     "upstreamOfficialManual": "https://pncp.gov.br/manual/pt-br/latest/singlehtml/",
@@ -31,10 +31,12 @@
       "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens",
       "operation": "itens",
       "archiveTargetId": "fm03-lajedo-pncp-items",
-      "contentStatus": "not_collected_yet",
-      "sha256": null,
-      "originalBytesPreserved": false,
-      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+      "contentStatus": "preserved_source_sha256_referenced_in_individual_registry",
+      "sha256": "e68aa5376eeef36d0baa9a77d81e8b7405b159a219c20504dbe702113d20bb09",
+      "originalBytesPreserved": true,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier.",
+      "rawSnapshotPath": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-09T01-34-32Z.json",
+      "validatedElementCount": 1
     },
     {
       "caseId": "PREBA-01",
@@ -43,10 +45,12 @@
       "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
       "operation": "historico",
       "archiveTargetId": "fm03-lajedo-pncp-history",
-      "contentStatus": "not_collected_yet",
-      "sha256": null,
-      "originalBytesPreserved": false,
-      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+      "contentStatus": "preserved_source_sha256_referenced_in_individual_registry",
+      "sha256": "bf6a9e7642e569cec40b99e0caf334a7e4f8cb46b4685b2644567a786282b5b5",
+      "originalBytesPreserved": true,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier.",
+      "rawSnapshotPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-09T01-34-33Z.json",
+      "validatedElementCount": 3
     },
     {
       "caseId": "PREBA-03",
@@ -55,10 +59,12 @@
       "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens",
       "operation": "itens",
       "archiveTargetId": "fm03-aracas-pncp-items",
-      "contentStatus": "not_collected_yet",
-      "sha256": null,
-      "originalBytesPreserved": false,
-      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+      "contentStatus": "preserved_source_sha256_referenced_in_individual_registry",
+      "sha256": "488d5bf5be8ab4b33915d864b1be7015986384606b1832afba06c4a3198fa097",
+      "originalBytesPreserved": true,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier.",
+      "rawSnapshotPath": "preservation/snapshots/fm03-aracas-pncp-items/2026-10-09T01-34-33Z.json",
+      "validatedElementCount": 1
     },
     {
       "caseId": "PREBA-03",
@@ -67,10 +73,12 @@
       "sourceUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
       "operation": "historico",
       "archiveTargetId": "fm03-aracas-pncp-history",
-      "contentStatus": "not_collected_yet",
-      "sha256": null,
-      "originalBytesPreserved": false,
-      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier."
+      "contentStatus": "preserved_source_sha256_referenced_in_individual_registry",
+      "sha256": "9f51ff6e3c0b4454a7c9e9c308f9c7b18c42d8ebe459e386d89bbfcbddc32a9f",
+      "originalBytesPreserved": true,
+      "documentSignificance": "Supplementary PNCP data may identify procurement items, historical updates or result references. It does not verify payment to a supplier.",
+      "rawSnapshotPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-10-09T01-34-33Z.json",
+      "validatedElementCount": 2
     }
   ],
   "sourceMonitor": {
@@ -78,16 +86,16 @@
     "collectionMode": "GET via public PNCP api/pncp/v1",
     "requiresAuthentication": false,
     "bytePreservationAllowed": true,
-    "firstResultStatus": "pending",
-    "lastRunId": null,
+    "firstResultStatus": "items_history_archived_no_results_proven_yet",
+    "lastRunId": 37870300477,
     "archiveTrigger": "targets_json_push_to_main",
-    "followUpItemResultLookup": "defer_until_item_numbers_verified_in_official_items_response"
+    "followUpItemResultLookup": "two_item_1_results_source_targets_registered_numbers_verified"
   },
   "metrics": {
     "targetsAdded": 4,
     "casesCovered": 2,
-    "itemsObtained": 0,
-    "historyResponsesObtained": 0,
+    "itemsObtained": 2,
+    "historyResponsesObtained": 5,
     "verifiedSupplierAwards": 0,
     "verifiedSupplierPayments": 0,
     "newCentralCE": 0
