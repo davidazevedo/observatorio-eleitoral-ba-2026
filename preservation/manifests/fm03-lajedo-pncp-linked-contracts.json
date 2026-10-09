@@ -1,0 +1,18 @@
+{
+  "sourceId": "fm03-lajedo-pncp-linked-contracts",
+  "title": "PNCP contratos/empenhos associados à concorrência 04/2026",
+  "publisher": "PNCP - Governo Federal",
+  "history": [
+    {
+      "sourceId": "fm03-lajedo-pncp-linked-contracts",
+      "title": "PNCP contratos/empenhos associados à concorrência 04/2026",
+      "publisher": "PNCP - Governo Federal",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/contratos/contratacao/2026/26",
+      "retrievedAt": "2026-10-09T02:45:20Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 400: Bad Request",
+      "available": false,
+      "certificateSha256": "67d86262ffb73e1aea1c67607d09dd2cb33c884d81ca81fe523b5f72247c5ba1"
+    }
+  ]
+}
