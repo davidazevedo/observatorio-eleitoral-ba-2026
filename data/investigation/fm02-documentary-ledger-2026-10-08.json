@@ -11,12 +11,14 @@
   "verifiedSourceArchiveInThisStage": {
     "fiplanFilteredPaymentsInGit": true,
     "externalOfficialPdfBinaryCount": 0,
-    "additionalExternalWebBinaryCount": 4,
+    "additionalExternalWebBinaryCount": 6,
     "officialPDFsHashedByGitHubRunner": 2,
     "htmlSnapshotsActuallyVersioned": 4,
     "pncpApi429Failures": 2,
     "verificationRef": "34e4f5aa1441ecdbee06609f464320c29fa2be65",
-    "verificationRunId": 37856738127
+    "verificationRunId": 37856738127,
+    "officialPncpJsonRawSnapshots": 2,
+    "pncpRecoveredAfterRateLimiting": 2
   },
   "safeguards": {
     "journalisticBoundary": "Somente pagamentos e cronologias documentadas, sem juízo sobre corrupção, compra de votos ou financiamento eleitoral.",
@@ -730,14 +732,14 @@
         "CE-051",
         "CE-052"
       ],
-      "preservationStatus": "retrieval_rate_limited_original_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
-      "httpCapture": "HTTP 429 / falha de coleta",
-      "httpCaptureAt": "2026-10-08T22:59:09Z",
+      "preservationStatus": "official_pncp_json_snapshot_sha256_verified",
+      "contentSnapshotSha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
+      "originalBytesInRepository": true,
+      "notes": "PNG? Não. JSON oficial PNCP completo preservado. Resultado não registrado neste detalhe (existeResultado=false); sem inferir fornecedor ou pagamento.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-09T01:05:10Z",
       "archiveManifestPath": "preservation/manifests/fm02-lajedo-pncp-detail.json",
-      "snapshotPath": null
+      "snapshotPath": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-09T01-05-10Z.json"
     },
     {
       "sourceId": "SRC-BELO-FIPLAN-PRESERVED",
@@ -870,14 +872,14 @@
         "CE-055",
         "CE-056"
       ],
-      "preservationStatus": "retrieval_rate_limited_original_pending",
-      "contentSnapshotSha256": null,
-      "originalBytesInRepository": false,
-      "notes": "HTTP 429: limite de requisições PNCP. Não indica ausência de licitação. Agendar nova consulta; solicitar informação à origem.",
-      "httpCapture": "HTTP 429 / falha de coleta",
-      "httpCaptureAt": "2026-10-08T22:59:09Z",
+      "preservationStatus": "official_pncp_json_snapshot_sha256_verified",
+      "contentSnapshotSha256": "b18f622ed010f3ec1ac5cf3450c58801c7ba098b9971741cefefb586c82671c3",
+      "originalBytesInRepository": true,
+      "notes": "PNG? Não. JSON oficial PNCP completo preservado. Resultado não registrado neste detalhe (existeResultado=false); sem inferir fornecedor ou pagamento.",
+      "httpCapture": "HTTP 200",
+      "httpCaptureAt": "2026-10-09T01:01:45Z",
       "archiveManifestPath": "preservation/manifests/fm02-aracas-pncp-detail.json",
-      "snapshotPath": null
+      "snapshotPath": "preservation/snapshots/fm02-aracas-pncp-detail/2026-10-09T01-01-45Z.json"
     },
     {
       "sourceId": "SRC-JAG-FIPLAN-PRESERVED",
@@ -938,5 +940,5 @@
   ],
   "protocolReadiness": "not_a_final_accusation_only_documentary_queries",
   "registeredCaptureAt": "2026-10-08T22:59:19Z",
-  "archiveCountingPolicy": "8 unique automatic collection targets: 2 PDF hashed, 4 HTML files in Git, 2 PNCP API HTTP 429. Multiple sourceId map to shared SUDESB index; do not double count."
+  "archiveCountingPolicy": "8 alvos únicos: 2 PDF SHA-only, 4 HTML integrais, 2 JSON PNCP integrais. Erros HTTP 429 anteriores são históricos e foram superados em novas coletas."
 }

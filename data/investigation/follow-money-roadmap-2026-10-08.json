@@ -50,10 +50,11 @@
         "originalExternalOfficialDocumentsPreservedConfirmed": 4,
         "uniqueSourceReferences": 15,
         "p0PendingDocuments": 23,
-        "statusDetail": "4 linhas FIPLAN verificadas com SHA; 2 termos PDF hash conferido sem binários públicos; 4 HTML íntegros no Git; PNCP HTTP 429; processos SEI/medições permanecem pendentes.",
+        "statusDetail": "Quatro linhas FIPLAN, dois termos SUDESB com SHA e quatro HTML, mais dois JSON originais do PNCP preservados em Git; processos completos/AIO/medições pendentes.",
         "officialPdfHashesRecorded": 2,
         "htmlRawSnapshotsActuallyStoredInGit": 4,
-        "pncpRateLimitedRequests": 2
+        "pncpRateLimitedRequests": 0,
+        "pncpRawJsonOriginalsArchived": 2
       }
     },
     {
@@ -72,7 +73,7 @@
         "statePaymentsWithPrimaryFinancialRecord": 4,
         "municipalRevenuePublicCorroborations": 1,
         "supplierDisbursementsVerified": 0,
-        "statusNote": "9 fontes públicas monitoradas e com SHA HTTP200; quatro URLs/duas prefeituras têm bytes idênticos. Nenhum pagamento municipal reconciliado; validar conteúdo, não apenas status.",
+        "statusNote": "9 canais municipais monitorados, dois documentos oficiais PNCP com SHA e detalhes de concorrência; ainda nenhum pagamento municipal a fornecedor do convênio comprovado.",
         "municipalPortalAccessPointsVersioned": 9,
         "municipalitiesWithAccessPoints": 4,
         "confirmedMunicipalSupplierPayments": 0,
@@ -80,7 +81,9 @@
         "http200ResponseHashesVersioned": 9,
         "semanticPageValidations": 0,
         "crossDomainDuplicateResponseGroups": 1,
-        "duplicateSourcePagesFlagged": 4
+        "duplicateSourcePagesFlagged": 4,
+        "officialPncpDetailOriginalsValidated": 2,
+        "verifiedSupplierDisbursements": 0
       }
     },
     {
