@@ -417,6 +417,22 @@
       "publisher": "PNCP",
       "preserveRaw": true,
       "maxRawBytes": 1500000
+    },
+    {
+      "id": "fm03-lajedo-pncp-linked-contracts",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/contratos/contratacao/2026/26",
+      "title": "PNCP contratos/empenhos associados à concorrência 04/2026",
+      "publisher": "PNCP - Governo Federal",
+      "preserveRaw": true,
+      "maxRawBytes": 2000000
+    },
+    {
+      "id": "fm03-aracas-pncp-linked-contracts",
+      "url": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/contratos/contratacao/2026/7",
+      "title": "PNCP contratos/empenhos associados à concorrência 007/2026",
+      "publisher": "PNCP - Governo Federal",
+      "preserveRaw": true,
+      "maxRawBytes": 2000000
     }
   ]
 }

@@ -57,6 +57,8 @@ type Fm03PncpIndex = {schemaVersion:number;registryId:string;count:number;newCen
 type Fm03PncpFollowUp = {schemaVersion:number;registryId:string;status:string;metrics:{targetsAdded:number;casesCovered:number;itemsObtained:number;historyResponsesObtained:number;verifiedSupplierAwards:number;verifiedSupplierPayments:number;newCentralCE:number};accessPoints:Array<{caseId:string;municipality:string;id:string;sourceUrl:string;operation:string;contentStatus:string;sha256:string|null;originalBytesPreserved:boolean}>;cautions:string[]};
 type Fm03PncpValidatedEvidence = {schemaVersion:number;registryId:string;status:string;counts:{cases:number;originalDocumentsVerifiedByManifest:number;itemsFound:number;historyEventsFound:number;resultQueriesRegistered:number;resultQueriesCollected:number;supplierPaymentsProven:number;newCentralCE:number};batches:Array<{caseId:string;municipality:string;items:{count:number;normalizedFacts:Array<{numeroItem:number;valorTotalEstimadoBRL:number;situacaoNaCaptura:string;temResultadoNoRegistro:boolean}>};history:{count:number};resultQuery:{url:string;status:string}}>};
 type Fm03PncpReceiptIndex = {schemaVersion:number;registryId:string;captureRunId:number;officialResultsReturnedWithData:number;receipts:Array<{id:string;caseId:string;municipality:string;httpStatus:number;sha256:string;bodyBytes:number;resultsCanBeInterpreted:boolean}>;note:string;verifiedSupplierPayments:number;newCentralCE:number};
+type Fm03LinkedContract = {schemaVersion:number;id:string;caseId:string;municipality:string;relatedCentralCE:string;pncpControlNumber:string;source:{authority:string;documentation:string;endpoint:string;targetId:string;expectedManifest:string};status:string;resultEvidence:{httpStatus:number|null;bodySha256:string|null;rawSnapshotPath:string|null;contractIdentifiers:string[];supplierIdentifiers:string[];verifiedFinancialDisbursements:number};interpretationBoundary:string};
+type Fm03LinkedContracts = {registryId:string;status:string;counts:{cases:number;endpointTargets:number;officialCapturesAnalyzed:number;verifiedContractors:number;verifiedSupplierPayments:number;newCentralCE:number};targets:Fm03LinkedContract[];sourceManual:string};
 type CentralEvidenceLedgerSummary = {registryId:string;versioned:number;mirrored:number;sourceOriginalsBundled:boolean};
 type PrebaProtocolRelease = { schemaVersion:number;releaseId:string;generatedDate:string;status:string;globalCompletionPercent:number;destination:string;representative:string;documentType:string;definitiveAccusationReady:boolean;protocolChannel:{citizen:string;existingProceeding:string;institutionalPage:string;attendancePage:string;preAddress:string;phones:string[]};artifacts:{mainEditable:string;mainPdf:string;combinedPdf:string;zip:string;annexIndex:string;checklist:string;checksumManifest:string};qa:{mainDocumentPages:number;combinedPackagePages:number;annexesRendered:number;docxVisualReview:string;pdfRenderReview:string;runtimeErrorsAtPortalRelease:number};annexRule:string;finalBoundary:string };
 
@@ -130,6 +132,7 @@ type DashboardData = {
   fm03PncpItemsHistory: Fm03PncpFollowUp;
   fm03PncpItemHistoryEvidence: Fm03PncpValidatedEvidence;
   fm03PncpResultReceipts: Fm03PncpReceiptIndex;
+  fm03LinkedContracts: Fm03LinkedContracts;
   fm03MunicipalSources: Fm03FiscalRegistry;
   centralEvidenceLedgerSummary: CentralEvidenceLedgerSummary;
 };
@@ -1036,6 +1039,22 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
 
           {tab === 'preba' && (
             <>
+              <section className="private-panel">
+                <div className="private-panel-title">
+                  <div><p className="eyebrow">FM-03 · CONTRATOS VINCULADOS ÀS CONCORRÊNCIAS</p><h2>Próximo elo documental entre licitação e fornecedor</h2><small>{data.fm03LinkedContracts.registryId}</small></div>
+                  <span className="housing-exception-pending">COLETA EM ANDAMENTO</span>
+                </div>
+                <p>A consulta PNCP de resultados de itens retornou HTTP 204, sem informações sobre adjudicação. Por isso, cadastramos a consulta oficial de contratos/empenhos associados diretamente a cada compra, sem presumir contratação ou pagamento.</p>
+                <div className="private-grid-two">
+                  {data.fm03LinkedContracts.targets.map(item=><article key={item.id} className="private-panel">
+                    <div className="private-panel-title"><div><p className="eyebrow">{item.caseId} · {item.relatedCentralCE}</p><h2>{item.municipality}</h2></div><span className="housing-exception-pending">{item.status.includes('awaiting')?'AGUARDANDO':'VERIFICAR'}</span></div>
+                    <p><code>{item.pncpControlNumber}</code></p>
+                    <a href={item.source.endpoint} target="_blank" rel="noopener noreferrer">Consultar contratos oficiais no PNCP</a>
+                    <p className="private-report-note">{item.interpretationBoundary}</p>
+                  </article>)}
+                </div>
+                <p className="private-report-note">Cada resposta será registrada em arquivo individual com manifesto e SHA-256. Contrato identificado é diferente de pagamento municipal comprovado.</p>
+              </section>
               <section className="private-panel">
                 <div className="private-panel-title">
                   <div><p className="eyebrow">FM-03 · SEGUIMENTO PNCP</p><h2>Itens e histórico oficial de duas contratações</h2><small>{data.fm03PncpItemsHistory.registryId}</small></div>
