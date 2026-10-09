@@ -11,10 +11,12 @@
   "preservation": {
     "targetId": "fm03-laj-contratos",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_sha256_only_content_unverified",
+    "sha256": "df3afd409145ab5c533cff624b6bbffff81ba3d26e728ee6d7cbc2125210766f",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json"
+    "githubManifestPath": "preservation/manifests/fm03-laj-contratos.json",
+    "lastCollectedAt": "2026-10-09T01:02:03Z",
+    "httpStatus": 200
   },
   "extraction": {
     "filterYear": 2026,

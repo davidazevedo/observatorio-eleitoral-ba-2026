@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "qaId": "FM03-HTTP-QUALITY-2026-10-08",
+  "githubActionsRun": 37867608452,
+  "githubActionsSuccess": true,
+  "captureCommit": "0e9f9108c7124b8511d1b9de52c429944dd47053",
+  "totalSources": 9,
+  "captured": 7,
+  "pendingSources": [
+    "FM03-BELO-DESPESA-DIRETA",
+    "FM03-ARA-CONVENIOS"
+  ],
+  "semanticPageValidations": 0,
+  "rawFinancialFilesPubliclyStored": 0,
+  "captures": [
+    {
+      "id": "FM03-LAJ-PORTAL",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia",
+      "targetId": "fm03-laj-portal",
+      "sha256": "3b0f2ca803dbadf476a8569abe51520dda67741df21022525de72a677e41ba28",
+      "contentBytes": 36215,
+      "retrievedAt": "2026-10-09T01:02:01Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-LAJ-DESPESA",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa",
+      "targetId": "fm03-laj-despesa",
+      "sha256": "37f0b1ae383f51c01e73d897220434dd26a355e4a143826bb86feb4c4e19f00b",
+      "contentBytes": 141877,
+      "retrievedAt": "2026-10-09T01:02:02Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-LAJ-CONTRATOS",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "targetId": "fm03-laj-contratos",
+      "sha256": "df3afd409145ab5c533cff624b6bbffff81ba3d26e728ee6d7cbc2125210766f",
+      "contentBytes": 34890,
+      "retrievedAt": "2026-10-09T01:02:03Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-BELO-DESPESAS",
+      "sourceUrl": "https://belocampo-ba.portaltp.com.br/",
+      "targetId": "fm03-belo-despesas",
+      "sha256": "a47bb8462c8a9650129ab331ab5242a8c7b307f5a0ee606a370d93fafa232043",
+      "contentBytes": 33484,
+      "retrievedAt": "2026-10-09T01:02:05Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-BELO-SIC",
+      "sourceUrl": "https://transparencia.belocampo.ba.gov.br/",
+      "targetId": "fm03-belo-sic",
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "retrievedAt": "2026-10-09T01:02:08Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-ARA-PORTAL",
+      "sourceUrl": "https://transparencia.aracas.ba.gov.br/",
+      "targetId": "fm03-ara-portal",
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "contentBytes": 32042,
+      "retrievedAt": "2026-10-09T01:02:09Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    },
+    {
+      "id": "FM03-JAG-DESPESA",
+      "sourceUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/despesa",
+      "targetId": "fm03-jag-despesa",
+      "sha256": "6a2b136f9f2dff136a0dd4478d8a4923e232e7765fb9b3060e6f70cf07d2f922",
+      "contentBytes": 317516,
+      "retrievedAt": "2026-10-09T01:02:11Z",
+      "rawPreserved": false,
+      "semanticVerified": false
+    }
+  ],
+  "duplicateGroups": [
+    {
+      "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
+      "members": [
+        {
+          "id": "FM03-BELO-SIC",
+          "hostname": "transparencia.belocampo.ba.gov.br"
+        },
+        {
+          "id": "FM03-ARA-PORTAL",
+          "hostname": "transparencia.aracas.ba.gov.br"
+        }
+      ],
+      "reason": "content_identical_across_different_municipal_domains"
+    }
+  ],
+  "verifiedSupplierPayments": 0,
+  "legalConclusion": "none"
+}

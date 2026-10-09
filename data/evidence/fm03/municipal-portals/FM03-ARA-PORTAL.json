@@ -11,10 +11,15 @@
   "preservation": {
     "targetId": "fm03-ara-portal",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_identical_cross_domain_payload_requires_review",
+    "sha256": "4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-ara-portal.json"
+    "githubManifestPath": "preservation/manifests/fm03-ara-portal.json",
+    "lastCollectedAt": "2026-10-09T01:02:09Z",
+    "httpStatus": 200,
+    "samePayloadAs": [
+      "FM03-BELO-SIC"
+    ]
   },
   "extraction": {
     "filterYear": 2026,

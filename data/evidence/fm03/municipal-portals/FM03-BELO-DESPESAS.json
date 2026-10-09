@@ -11,10 +11,12 @@
   "preservation": {
     "targetId": "fm03-belo-despesas",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_sha256_only_content_unverified",
+    "sha256": "a47bb8462c8a9650129ab331ab5242a8c7b307f5a0ee606a370d93fafa232043",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-belo-despesas.json"
+    "githubManifestPath": "preservation/manifests/fm03-belo-despesas.json",
+    "lastCollectedAt": "2026-10-09T01:02:05Z",
+    "httpStatus": 200
   },
   "extraction": {
     "filterYear": 2026,

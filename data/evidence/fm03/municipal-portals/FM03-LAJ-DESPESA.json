@@ -11,10 +11,12 @@
   "preservation": {
     "targetId": "fm03-laj-despesa",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_sha256_only_content_unverified",
+    "sha256": "37f0b1ae383f51c01e73d897220434dd26a355e4a143826bb86feb4c4e19f00b",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-laj-despesa.json"
+    "githubManifestPath": "preservation/manifests/fm03-laj-despesa.json",
+    "lastCollectedAt": "2026-10-09T01:02:02Z",
+    "httpStatus": 200
   },
   "extraction": {
     "filterYear": 2026,

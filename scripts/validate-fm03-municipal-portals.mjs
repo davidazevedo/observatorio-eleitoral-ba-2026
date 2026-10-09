@@ -5,6 +5,16 @@ const reg=load('data/investigation/fm03-municipal-source-register-2026-10-08.jso
 const targets=load('preservation/targets.json').targets;
 const chain=load('data/investigation/fm03-financial-chain-baseline-2026-10-08.json');
 assert.equal(reg.sources.length,9);
+const qa=load('data/investigation/fm03-source-capture-quality-2026-10-08.json');
+assert.equal(qa.captured,7);
+assert.equal(qa.semanticPageValidations,0);
+assert.equal(qa.rawFinancialFilesPubliclyStored,0);
+assert(qa.duplicateGroups.length>=1);
+for(const c of qa.captures){
+ const s=reg.sources.find(x=>x.id===c.id);assert(s&&s.preservation.sha256===c.sha256);
+ const m=load(s.preservation.githubManifestPath);
+ assert(m.history.some(h=>h.sha256===c.sha256&&h.available));
+}
 assert.equal(reg.totalMunicipalities,4);
 assert.equal(reg.cases.length,4);
 assert.equal(reg.newCentralCE,0);

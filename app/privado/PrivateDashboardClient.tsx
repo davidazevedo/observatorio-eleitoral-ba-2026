@@ -1043,10 +1043,11 @@ export default function PrivateDashboardClient({ data }: { data: DashboardData }
                   {data.fm03MunicipalSources.cases.map(c=><article className="private-panel" key={c.caseId}>
                     <div className="private-panel-title"><div><p className="eyebrow">{c.caseId}</p><h2>{data.fm03MunicipalSources.sources.find(s=>s.caseId===c.caseId)?.municipality}</h2></div><span className="housing-exception-pending">SEM PAGAMENTO CONFIRMADO</span></div>
                     <p><strong>{c.agreement}</strong> · NOB <code>{c.paymentNob}</code></p>
-                    <ul>{data.fm03MunicipalSources.sources.filter(s=>s.caseId===c.caseId).map(s=><li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.scope}</a> <small>· {s.preservation.status==='awaiting_automated_capture'?'Coleta HTTP agendada':s.preservation.status}</small></li>)}</ul>
+                    <ul>{data.fm03MunicipalSources.sources.filter(s=>s.caseId===c.caseId).map(s=><li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.scope}</a> <small>· {s.preservation.status==='awaiting_automated_capture'?'Aguardando captura':s.preservation.status.includes('identical_cross_domain')?'HTTP 200 · conteúdo repetido em municípios distintos; revisar':s.preservation.status.includes('sha256_only')?'HTTP 200, hash registrado · conteúdo não conferido':s.preservation.status.includes('failed')?'Falha HTTP, não prova ausência':s.preservation.status}</small></li>)}</ul>
                     <a href={'https://github.com/davidazevedo/observatorio-eleitoral-ba-2026/blob/main/docs/FOLLOW_THE_MONEY/REQUISICOES/LAI_FM03_'+c.caseId+'.md'} target="_blank" rel="noopener noreferrer">Ver minuta LAI — não enviada</a>
                   </article>)}
                 </div>
+                <p className="private-report-note"><strong>Qualidade:</strong> 7 respostas HTTP com hash; duas URLs de municípios diferentes devolveram os mesmos bytes. O conteúdo exige conferência manual antes de servir como evidência de despesa.</p>
                 <p className="private-report-note"><strong>Privacidade:</strong> as páginas completas de despesas não são republicadas automaticamente no Git público. O relatório de coleta preserva metadados e hash; conteúdo potencialmente pessoal deve ser arquivado apenas em ambiente restrito.</p>
               </section>
               <section className="private-panel">

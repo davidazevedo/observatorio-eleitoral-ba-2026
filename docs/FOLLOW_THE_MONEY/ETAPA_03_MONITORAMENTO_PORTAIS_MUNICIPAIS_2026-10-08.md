@@ -70,3 +70,8 @@ Os arquivos de LAI são apenas modelos técnicos; enviar pedidos e divulgar dado
 - **Araçás:** https://transparencia.aracas.ba.gov.br/convenios — URL pública específica de convênios, com filtros por concedente, número, exercício e período.
 
 **Atenção metodológica:** resultados vazios por filtro inicial, erro de coleta ou página sem seleção 2026 são `não conclusivos`. Não provaram ausência de pagamento, contrato, convênio ou prestação de contas.
+
+## QA da coleta inicial — run 37867608452
+- Sete canais responderam HTTP 200 com hashes SHA-256; nenhum HTML bruto de despesa foi publicado no Git.
+- `FM03-BELO-SIC` e `FM03-ARA-PORTAL` retornaram bytes idênticos (SHA-256 `4438bcbad2f2d57e5440ff507f589b348d949e712ff3bb8ce1c708c29d8afb8d`) embora possuam hosts distintos. **HTTP 200 não é validação de conteúdo fiscal**.
+- Duas consultas diretas seguem pendentes da coleta automatizada posterior. Nenhum fornecedor ou pagamento municipal vinculável aos convênios foi comprovado.

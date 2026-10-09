@@ -25,6 +25,7 @@ import fm02DocumentaryLedger from '@/data/investigation/fm02-documentary-ledger-
 import fm02FiplanPrimaryRows from '@/data/investigation/fm02-fiplan-primary-rows-2026-10-08.json';
 import fm03FinancialChains from '@/data/investigation/fm03-financial-chain-baseline-2026-10-08.json';
 import fm03MunicipalSources from '@/data/investigation/fm03-municipal-source-register-2026-10-08.json';
+import fm03CaptureQuality from '@/data/investigation/fm03-source-capture-quality-2026-10-08.json';
 import fm03PublicSourceReview from '@/data/investigation/fm03-open-source-review-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 
@@ -55,6 +56,7 @@ const datasets = {
   'fm02-fiplan-primary-rows': fm02FiplanPrimaryRows,
   'fm03-financial-chains': fm03FinancialChains,
   'fm03-municipal-fiscal-portals': fm03MunicipalSources,
+  'fm03-source-capture-quality': fm03CaptureQuality,
   'fm03-public-source-review': fm03PublicSourceReview,
   'central-evidence-ledger': centralEvidenceLedger,
 } as const;

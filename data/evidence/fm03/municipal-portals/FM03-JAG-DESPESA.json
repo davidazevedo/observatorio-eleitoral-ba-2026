@@ -11,10 +11,12 @@
   "preservation": {
     "targetId": "fm03-jag-despesa",
     "rawFilePublicGitAllowed": false,
-    "status": "awaiting_automated_capture",
-    "sha256": null,
+    "status": "http_200_sha256_only_content_unverified",
+    "sha256": "6a2b136f9f2dff136a0dd4478d8a4923e232e7765fb9b3060e6f70cf07d2f922",
     "gitSnapshotPath": null,
-    "githubManifestPath": "preservation/manifests/fm03-jag-despesa.json"
+    "githubManifestPath": "preservation/manifests/fm03-jag-despesa.json",
+    "lastCollectedAt": "2026-10-09T01:02:11Z",
+    "httpStatus": 200
   },
   "extraction": {
     "filterYear": 2026,
