@@ -31,6 +31,7 @@ import fm03PncpItemsHistory from '@/data/investigation/fm03-pncp-items-history-w
 import fm03PncpItemHistoryEvidence from '@/data/investigation/fm03-pncp-item-history-evidence-2026-10-08.json';
 import fm03PncpResultReceipts from '@/data/investigation/fm03-pncp-item-results-receipts-2026-10-08.json';
 import fm03LinkedContracts from '@/data/investigation/fm03-pncp-linked-contracts-2026-10-08.json';
+import fm03LinkedContractsReceipts from '@/data/investigation/fm03-pncp-linked-contracts-http400-2026-10-08.json';
 import fm03PublicSourceReview from '@/data/investigation/fm03-open-source-review-2026-10-08.json';
 import centralEvidenceLedger from '@/data/evidence/central/index-2026-10-08.json';
 
@@ -67,6 +68,7 @@ const datasets = {
   'fm03-pncp-item-history-evidence': fm03PncpItemHistoryEvidence,
   'fm03-pncp-result-receipts': fm03PncpResultReceipts,
   'fm03-pncp-linked-contracts': fm03LinkedContracts,
+  'fm03-pncp-linked-contracts-http-receipts': fm03LinkedContractsReceipts,
   'fm03-public-source-review': fm03PublicSourceReview,
   'central-evidence-ledger': centralEvidenceLedger,
 } as const;

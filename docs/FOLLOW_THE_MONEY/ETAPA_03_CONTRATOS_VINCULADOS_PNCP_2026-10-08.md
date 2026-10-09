@@ -28,3 +28,11 @@ Fonte: https://pncp.gov.br/manual/pt-br/latest/contrato_empenho/consultar_contra
 - O status "aguardando coleta" só pode mudar depois de retorno e manifesto SHA realmente preservado.
 
 **Nenhum novo crime, desvio ou compra de votos foi demonstrado nesta etapa.**
+
+## Resultado verificado da primeira coleta
+GitHub Actions run `37875942884` terminou **success**. Ambos os endpoints vinculados retornaram **HTTPError 400 Bad Request**: nenhuma lista de contratos foi retornada nem preservada como JSON.
+
+- `PREBA-01`: `HTTPError: HTTP Error 400: Bad Request`; manifesto `preservation/manifests/fm03-lajedo-pncp-linked-contracts.json`; tentativa `2026-10-09T02:45:20Z`.
+- `PREBA-03`: `HTTPError: HTTP Error 400: Bad Request`; manifesto `preservation/manifests/fm03-aracas-pncp-linked-contracts.json`; tentativa `2026-10-09T02:45:20Z`.
+
+O status 400 descreve apenas a resposta HTTP da consulta documentada; **não** se pode declarar que não há contrato, empresa vencedora ou pagamento. A próxima diligência é recuperar os registros oficiais municipais e seus atos de homologação, contratação, ateste e pagamento. Consulte `data/investigation/fm03-pncp-linked-contracts-http400-2026-10-08.json` para o recibo versionado.
