@@ -21,6 +21,17 @@
       "rawPath": "preservation/snapshots/fm03-aracas-pncp-item1-results/2026-10-09T01-41-33Z.json",
       "available": true,
       "certificateSha256": "95da1c18e20b3997ff3da71a6d4a54780dc4fa20e14824aefdf05a2eb1634b9a"
+    },
+    {
+      "sourceId": "fm03-aracas-pncp-item1-results",
+      "title": "FM-03 Araçás — resultados oficiais PNCP item 1 (identificado no JSON original)",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/itens/1/resultados",
+      "retrievedAt": "2026-10-11T17:58:33Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "TimeoutError: The read operation timed out",
+      "available": false,
+      "certificateSha256": "2397448075652328fa5aa4a4ed6455381df0e0b1b9dd4755a32bf1f158a4e3f4"
     }
   ]
 }
