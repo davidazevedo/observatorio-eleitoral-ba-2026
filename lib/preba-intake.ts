@@ -27,8 +27,9 @@ export function validateIntake(input: { requestId:string; packageId:string; file
   return { request, detectedType, extension };
 }
 
-export async function receiveDiligence(input: { requestId:string; packageId:string; filename:string; contentType:string; bytes:Uint8Array }) : Promise<IntakeResult> {
+export async function receiveDiligence(input: { requestId:string; packageId:string; filename:string; contentType:string; bytes:Uint8Array; actorId:string }) : Promise<IntakeResult> {
   const { detectedType, extension } = validateIntake(input);
+  if (!/^[a-zA-Z0-9_-]{6,64}$/.test(input.actorId)) throw new Error('Operador inválido.');
   if (process.env.PREBA_INTAKE_ENABLED !== 'true') throw new Error('Recebimento desabilitado até liberação dos controles de segurança.');
   if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('Armazenamento privado não configurado.');
   const receiptId = randomUUID();
@@ -42,7 +43,7 @@ export async function receiveDiligence(input: { requestId:string; packageId:stri
   });
   const receipt = {
     schemaVersion:1, receiptId, requestId:input.requestId, packageId:input.packageId,
-    receivedAt, filename:input.filename, mimeType:detectedType,
+    receivedAt, actorId:input.actorId, filename:input.filename, mimeType:detectedType,
     sha256, sizeBytes:input.bytes.byteLength, documentPath:document.pathname,
     status:'received_unverified' as const,
     security:{ malwareScan:'not_performed', humanReview:'pending', gates:'all_pending', protocolReady:false },
