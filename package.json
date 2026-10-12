@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs && node scripts/validate-fm03-pncp-linked-contracts.mjs && node scripts/validate-fm03-linked-contract-receipts.mjs && node scripts/validate-fm03-primary-timelines.mjs && node scripts/validate-preba-diligences.mjs && node scripts/validate-preba-audit-contract.mjs",
+    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs && node scripts/validate-fm03-pncp-linked-contracts.mjs && node scripts/validate-fm03-linked-contract-receipts.mjs && node scripts/validate-fm03-primary-timelines.mjs && node scripts/validate-preba-diligences.mjs && node scripts/validate-preba-audit-contract.mjs && node scripts/validate-preba-intake.mjs",
     "test:evidence": "node scripts/validate-central-evidence.mjs",
     "test:fm02": "node scripts/validate-fm02-documents.mjs",
     "test:archive": "node scripts/validate-fm02-snapshots.mjs",
@@ -20,7 +20,8 @@
     "test:pncp-contract-receipts": "node scripts/validate-fm03-linked-contract-receipts.mjs",
     "test:fm03-timelines": "node scripts/validate-fm03-primary-timelines.mjs",
     "test:preba-diligences": "node scripts/validate-preba-diligences.mjs",
-    "test:preba-audit": "node scripts/validate-preba-audit-contract.mjs"
+    "test:preba-audit": "node scripts/validate-preba-audit-contract.mjs",
+    "test:preba-intake": "node scripts/validate-preba-intake.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",
