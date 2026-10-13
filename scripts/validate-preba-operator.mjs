@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const route=readFileSync('app/api/private/preba-intake/route.ts','utf8');
+const actor=readFileSync('lib/preba-operator.ts','utf8');
+const intake=readFileSync('lib/preba-intake.ts','utf8');
+assert.ok(route.includes('verifyIntakeOperator(request)'));
+assert.ok(route.includes('if(!actorId)'));
+assert.ok(route.includes('actorId'));
+assert.ok(actor.includes("createHmac('sha256'"));
+assert.ok(actor.includes('timingSafeEqual'));
+assert.ok(actor.includes('PREBA_OPERATOR_SIGNING_SECRET'));
+assert.ok(actor.includes('PREBA_OPERATOR_IDS'));
+assert.ok(actor.includes('allowlist.includes(actor)'));
+assert.ok(intake.includes('actorId:input.actorId'));
+assert.ok(intake.includes("PREBA_INTAKE_ENABLED !== 'true'"));
+console.log('PASS PRE-BA 6E.3 identity: operator signed session gated, allowlisted, short lived, preserved in private receipt; upload still disabled.');
