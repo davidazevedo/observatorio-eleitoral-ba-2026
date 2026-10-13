@@ -287,6 +287,25 @@
       "rawPath": "preservation/snapshots/pncp-cipo-55-detail/2026-10-13T06-49-14Z.json",
       "available": true,
       "certificateSha256": "3061989e01f31085218af0f6f3e4eee5509023b09211b8bc9b4e9f7c38d5412c"
+    },
+    {
+      "sourceId": "pncp-cipo-55-detail",
+      "title": "Cipó — CE 007/2026 (contratação posteriormente anulada)",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/55",
+      "retrievedAt": "2026-10-13T19:18:59Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/55",
+      "content-type": "application/json",
+      "date": "Tue, 13 Oct 2026 19:19:00 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1915,
+      "sha256": "5a77ee6c6b74e65a575e1d434ae09c592a6d989aa2b4bb5089507aae8cb2b844",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-cipo-55-detail/2026-10-13T19-18-59Z.json",
+      "available": true,
+      "certificateSha256": "41951d80556b4951b65761cefb122fce550d1882f314c911be84e3651a8dcd03"
     }
   ]
 }

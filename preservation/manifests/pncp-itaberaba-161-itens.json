@@ -32,6 +32,25 @@
       "error": "TimeoutError: The read operation timed out",
       "available": false,
       "certificateSha256": "d525664668870ea5f9bf44167eae8868bc8c4a50ddc163b696fe52c1f0d3d460"
+    },
+    {
+      "sourceId": "pncp-itaberaba-161-itens",
+      "title": "Itaberaba — itens controle PNCP 161/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/161/itens",
+      "retrievedAt": "2026-10-13T19:19:05Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/161/itens",
+      "content-type": "application/json",
+      "date": "Tue, 13 Oct 2026 19:19:05 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1519,
+      "sha256": "09926179289066f3d8fd96c33c6c0054b6282a7a0efd8c81fd23d8ebf179d3b5",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-itaberaba-161-itens/2026-10-13T19-19-05Z.json",
+      "available": true,
+      "certificateSha256": "b8661ff4c1e27f9f285ce28743cd729a635b1be91e723a182b9f75b117b8e63d"
     }
   ]
 }
