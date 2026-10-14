@@ -228,6 +228,25 @@
       "error": "HTTPError: HTTP Error 429: Too Many Requests",
       "available": false,
       "certificateSha256": "4bcaaa90fe2d35ff115d6651c5eb8b8c7ee8816566ff7d5a4d5000d6ee999b8b"
+    },
+    {
+      "sourceId": "fm02-lajedo-pncp-detail",
+      "title": "FM-02 Lajedo — concorrência eletrônica 04/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16434441000131/compras/2026/26",
+      "retrievedAt": "2026-10-14T04:57:29Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16434441000131/compras/2026/26",
+      "content-type": "application/json",
+      "date": "Wed, 14 Oct 2026 04:57:29 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 2008,
+      "sha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-14T04-57-29Z.json",
+      "available": true,
+      "certificateSha256": "3b10d0749af958454a82ab2c8db7e680f46fa96d1eab11cf495f505e85019954"
     }
   ]
 }
