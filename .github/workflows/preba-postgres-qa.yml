@@ -1,0 +1,50 @@
+name: PRE-BA PostgreSQL QA
+on:
+  push:
+    branches:
+      - test/preba-postgres-integration-20261014
+  pull_request:
+    paths:
+      - 'lib/preba-ledger-postgres.ts'
+      - 'db/migrations/**'
+      - 'scripts/test-preba-postgres-qa.ts'
+      - '.github/workflows/preba-postgres-qa.yml'
+      - 'package.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: preba_qa
+          POSTGRES_PASSWORD: preba_qa
+          POSTGRES_DB: preba_qa
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U preba_qa -d preba_qa"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PREBA_LEDGER_DATABASE_URL: postgresql://preba_qa:preba_qa@localhost:5432/preba_qa
+      PREBA_LEDGER_ENABLED: 'true'
+      PREBA_INTAKE_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - name: Apply real PostgreSQL migration
+        run: |
+          PGPASSWORD=preba_qa psql -h localhost -U preba_qa -d preba_qa -v ON_ERROR_STOP=1 -f db/migrations/20261013_preba_intake_ledger.sql
+      - name: Exercise PostgreSQL adapter
+        run: npm run test:preba-postgres-qa
+      - name: Verify application build with upload disabled
+        run: npm run build
