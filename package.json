@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs && node scripts/validate-fm03-pncp-linked-contracts.mjs && node scripts/validate-fm03-linked-contract-receipts.mjs && node scripts/validate-fm03-primary-timelines.mjs && node scripts/validate-preba-diligences.mjs && node scripts/validate-preba-audit-contract.mjs && node scripts/validate-preba-intake.mjs && node scripts/validate-preba-intake-audit.mjs && node scripts/validate-preba-operator.mjs && node scripts/validate-preba-ledger-schema.mjs",
+    "prebuild": "node scripts/validate-central-evidence.mjs && node scripts/validate-fm02-documents.mjs && node scripts/validate-fm02-individual-register.mjs && node scripts/validate-fm02-snapshots.mjs && node scripts/validate-fm03-chains.mjs && node scripts/validate-fm03-municipal-portals.mjs && node scripts/validate-fm03-pncp-originals.mjs && node scripts/validate-fm03-pncp-items-history.mjs && node scripts/validate-fm03-pncp-item-history-originals.mjs && node scripts/validate-fm03-pncp-results-receipts.mjs && node scripts/validate-fm03-pncp-linked-contracts.mjs && node scripts/validate-fm03-linked-contract-receipts.mjs && node scripts/validate-fm03-primary-timelines.mjs && node scripts/validate-preba-diligences.mjs && node scripts/validate-preba-audit-contract.mjs && node scripts/validate-preba-intake.mjs && node scripts/validate-preba-intake-audit.mjs && node scripts/validate-preba-operator.mjs && node scripts/validate-preba-ledger-schema.mjs && node scripts/validate-preba-ledger-adapter.mjs && node scripts/validate-preba-ledger-integration.mjs",
     "test:evidence": "node scripts/validate-central-evidence.mjs",
     "test:fm02": "node scripts/validate-fm02-documents.mjs",
     "test:archive": "node scripts/validate-fm02-snapshots.mjs",
@@ -24,18 +24,22 @@
     "test:preba-intake": "node scripts/validate-preba-intake.mjs",
     "test:preba-intake-audit": "node scripts/validate-preba-intake-audit.mjs",
     "test:preba-operator": "node scripts/validate-preba-operator.mjs",
-    "test:preba-ledger-schema": "node scripts/validate-preba-ledger-schema.mjs"
+    "test:preba-ledger-schema": "node scripts/validate-preba-ledger-schema.mjs",
+    "test:preba-ledger-adapter": "node scripts/validate-preba-ledger-adapter.mjs",
+    "test:preba-ledger-integration": "node scripts/validate-preba-ledger-integration.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",
     "next": "^16.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "@types/pg": "^8.15.5"
   }
 }
