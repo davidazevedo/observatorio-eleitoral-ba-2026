@@ -78,6 +78,11 @@ export async function recordIntakeTransition(input:{
     if(input.event==='object_written'&&current.status!=='reserved')throw new Error('Objeto fora de ordem.');
     if(input.event==='receipt_written'&&current.status!=='stored')throw new Error('Recibo fora de ordem.');
     if(input.event==='quarantined'&&current.status!=='stored')throw new Error('Quarentena fora de ordem.');
+    if(input.event==='quarantined') {
+      const last=await client.query<{event_type:string}>(
+        'SELECT event_type FROM preba_intake_events WHERE operation_id=$1 ORDER BY event_seq DESC LIMIT 1',[input.operationId]);
+      if(last.rows[0]?.event_type!=='receipt_written')throw new Error('Recibo não confirmado antes da quarentena.');
+    }
     if(input.event==='reconciled'&&current.status!=='recovery_required')throw new Error('Reconciliação fora de ordem.');
     if(input.event==='failed'&&current.status==='quarantined')throw new Error('Transição inválida.');
     await client.query('UPDATE preba_intake_operations SET status=$2,storage_path=COALESCE($3,storage_path),updated_at=clock_timestamp() WHERE operation_id=$1',
