@@ -4,6 +4,7 @@ import { Pool } from 'pg';
 
 process.env.PREBA_LEDGER_ENABLED='true';
 process.env.PREBA_LEDGER_DATABASE_URL ||= 'postgresql://preba_qa:preba_qa@localhost:5432/preba_qa';
+async function main(){
 const {reserveIntake,recordIntakeTransition}=await import('../lib/preba-ledger-postgres.ts');
 const db=new Pool({connectionString:process.env.PREBA_LEDGER_DATABASE_URL});
 const sha=createHash('sha256').update('synthetic-QA-payload').digest('hex');
@@ -61,3 +62,6 @@ async function run(){
   console.log('PASS PRE-BA PostgreSQL QA: real migration, idempotence (12 requests), concurrent row locking, valid/invalid transitions, integrity hashes, immutable events, recovery state.');
 }
 try{await run();}finally{await db.end();}
+
+}
+main().catch(error=>{console.error(error);process.exitCode=1;});
