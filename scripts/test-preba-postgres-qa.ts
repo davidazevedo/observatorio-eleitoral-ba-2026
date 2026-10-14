@@ -5,7 +5,7 @@ import { Pool } from 'pg';
 process.env.PREBA_LEDGER_ENABLED='true';
 process.env.PREBA_LEDGER_DATABASE_URL ||= 'postgresql://preba_qa:preba_qa@localhost:5432/preba_qa';
 async function main(){
-const {reserveIntake,recordIntakeTransition}=await import('../lib/preba-ledger-postgres.ts');
+const {reserveIntake,recordIntakeTransition}=await import('../lib/preba-ledger-postgres');
 const db=new Pool({connectionString:process.env.PREBA_LEDGER_DATABASE_URL});
 const sha=createHash('sha256').update('synthetic-QA-payload').digest('hex');
 const make=()=>({operationId:randomUUID(),requestId:'PREBA-QA-REQUEST-1',packageId:'PREBA-QA-PACKAGE-1',actorId:'qa_operator_01',sha256:sha});
