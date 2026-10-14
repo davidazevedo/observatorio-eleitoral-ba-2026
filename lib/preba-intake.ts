@@ -72,7 +72,7 @@ export async function receiveDiligence(input: { requestId:string; packageId:stri
     } catch { /* Preserve original failure; inventory/ledger reconciliation remains mandatory. */ }
     throw cause;
   }
-  return { receiptId, requestId:receipt.requestId, packageId:receipt.packageId,
-    receivedAt, sha256, sizeBytes:receipt.sizeBytes, mimeType:detectedType,
-    documentPath:document.pathname, receiptPath, status:'received_unverified' };
+  return { receiptId, requestId:input.requestId, packageId:input.packageId,
+    receivedAt, sha256, sizeBytes:input.bytes.byteLength, mimeType:detectedType,
+    documentPath, receiptPath, status:'received_unverified' };
 }
