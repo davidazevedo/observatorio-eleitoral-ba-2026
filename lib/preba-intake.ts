@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { put } from '@vercel/blob';
+import { reserveIntake, recordIntakeTransition } from '@/lib/preba-ledger-postgres';
 import tracker from '@/data/investigation/preba-diligence-tracker-2026-10-08.json';
 
 const MAX_BYTES = 8 * 1024 * 1024;
@@ -31,6 +32,7 @@ export async function receiveDiligence(input: { requestId:string; packageId:stri
   const { detectedType, extension } = validateIntake(input);
   if (!/^[a-zA-Z0-9_-]{6,64}$/.test(input.actorId)) throw new Error('Operador inválido.');
   if (process.env.PREBA_INTAKE_ENABLED !== 'true') throw new Error('Recebimento desabilitado até liberação dos controles de segurança.');
+  if (process.env.PREBA_LEDGER_ENABLED !== 'true') throw new Error('Ledger transacional obrigatório e desabilitado.');
   if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('Armazenamento privado não configurado.');
   const receiptId = randomUUID();
   const receivedAt = new Date().toISOString();
@@ -38,22 +40,38 @@ export async function receiveDiligence(input: { requestId:string; packageId:stri
   const prefix = `private/preba-intake/${input.packageId}/${input.requestId}/${receiptId}`;
   const documentPath = `${prefix}/original.${extension}`;
   const receiptPath = `${prefix}/receipt.json`;
-  const document = await put(documentPath, Buffer.from(input.bytes), {
-    access:'private', addRandomSuffix:false, allowOverwrite:false, contentType:detectedType,
-  });
-  const receipt = {
-    schemaVersion:1, receiptId, requestId:input.requestId, packageId:input.packageId,
-    receivedAt, actorId:input.actorId, filename:input.filename, mimeType:detectedType,
-    sha256, sizeBytes:input.bytes.byteLength, documentPath:document.pathname,
-    status:'received_unverified' as const,
-    security:{ malwareScan:'not_performed', humanReview:'pending', gates:'all_pending', protocolReady:false },
-    provenance:'uploaded_by_authenticated_private_session',
-  };
-  // Receipt is a separate immutable object. If its write fails, original remains quarantined;
-  // do not signal success, and recover through a private orphan inventory.
-  await put(receiptPath, JSON.stringify(receipt), {
-    access:'private', addRandomSuffix:false, allowOverwrite:false, contentType:'application/json',
-  });
+  // Reserve first; do not touch object storage if the ledger is unavailable.
+  const reserved = await reserveIntake({ operationId:receiptId,requestId:input.requestId,
+    packageId:input.packageId,actorId:input.actorId,sha256 });
+  if (reserved !== 'reserved') throw new Error('Operação já reservada; recuperação manual necessária.');
+  let originalWritten = false;
+  try {
+    const document = await put(documentPath, Buffer.from(input.bytes), {
+      access:'private', addRandomSuffix:false, allowOverwrite:false, contentType:detectedType,
+    });
+    originalWritten = true;
+    await recordIntakeTransition({operationId:receiptId,actorId:input.actorId,event:'object_written',path:document.pathname});
+      const receipt = {
+        schemaVersion:1, receiptId, requestId:input.requestId, packageId:input.packageId,
+        receivedAt, actorId:input.actorId, filename:input.filename, mimeType:detectedType,
+        sha256, sizeBytes:input.bytes.byteLength, documentPath:document.pathname,
+        status:'received_unverified' as const,
+        security:{ malwareScan:'not_performed', humanReview:'pending', gates:'all_pending', protocolReady:false },
+        provenance:'uploaded_by_authenticated_private_session',
+      };
+    
+    await put(receiptPath, JSON.stringify(receipt), {
+      access:'private', addRandomSuffix:false, allowOverwrite:false, contentType:'application/json',
+    });
+    await recordIntakeTransition({operationId:receiptId,actorId:input.actorId,event:'receipt_written'});
+    await recordIntakeTransition({operationId:receiptId,actorId:input.actorId,event:'quarantined'});
+  } catch (cause) {
+    try {
+      await recordIntakeTransition({operationId:receiptId,actorId:input.actorId,
+        event:originalWritten?'recovery_required':'failed'});
+    } catch { /* Preserve original failure; inventory/ledger reconciliation remains mandatory. */ }
+    throw cause;
+  }
   return { receiptId, requestId:receipt.requestId, packageId:receipt.packageId,
     receivedAt, sha256, sizeBytes:receipt.sizeBytes, mimeType:detectedType,
     documentPath:document.pathname, receiptPath, status:'received_unverified' };
