@@ -47,9 +47,10 @@ async function run(){
   assert.equal(results.filter(r=>r.status==='fulfilled'&&r.value==='existing').length,11);
   assert.equal((await events(b.operationId)).length,1);
   const c=make();await reserveIntake(c);
+  const cPath='private/preba-intake/qa/'+c.operationId+'/original.pdf';
   const raced=await Promise.allSettled([
-    recordIntakeTransition({operationId:c.operationId,actorId:c.actorId,event:'object_written',path}),
-    recordIntakeTransition({operationId:c.operationId,actorId:c.actorId,event:'object_written',path}),
+    recordIntakeTransition({operationId:c.operationId,actorId:c.actorId,event:'object_written',path:cPath}),
+    recordIntakeTransition({operationId:c.operationId,actorId:c.actorId,event:'object_written',path:cPath}),
   ]);
   assert.equal(raced.filter(r=>r.status==='fulfilled').length,1);
   assert.equal((await events(c.operationId)).length,2);
