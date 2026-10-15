@@ -60,7 +60,20 @@ async function run(){
   const d=make();await reserveIntake(d);
   await recordIntakeTransition({operationId:d.operationId,actorId:d.actorId,event:'failed'});
   assert.equal((await operation(d.operationId)).status,'failed');
-  console.log('PASS PRE-BA PostgreSQL QA: real migration, idempotence (12 requests), concurrent row locking, valid/invalid transitions, integrity hashes, immutable events, recovery state.');
+  // Inject a DB failure after a row update is attempted; the transaction must roll back.
+  const e=make();await reserveIntake(e);
+  await assert.rejects(recordIntakeTransition({operationId:e.operationId,actorId:e.actorId,
+    event:'object_written',path}),/duplicate key value/);
+  assert.equal((await operation(e.operationId)).status,'reserved');
+  assert.equal((await operation(e.operationId)).storage_path,null);
+  assert.deepEqual((await events(e.operationId)).map(x=>x.event_type),['reserved']);
+  await recordIntakeTransition({operationId:e.operationId,actorId:e.actorId,event:'recovery_required'});
+  assert.equal((await operation(e.operationId)).status,'recovery_required');
+  assert.deepEqual((await events(e.operationId)).map(x=>x.event_type),['reserved','recovery_required']);
+  // The event chain remains intact after the rejected, rolled-back transaction.
+  const recoveredEvents=await events(e.operationId);
+  assert.equal(recoveredEvents[1].previous_hash,recoveredEvents[0].event_hash);
+  console.log('PASS PRE-BA PostgreSQL QA: real migration, idempotence (12 requests), concurrent row locking, valid/invalid transitions, integrity hashes, immutable events, rollback on unique-path conflict, recovery state.');
 }
 try{await run();}finally{await db.end();}
 
