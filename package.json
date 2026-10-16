@@ -26,7 +26,8 @@
     "test:preba-operator": "node scripts/validate-preba-operator.mjs",
     "test:preba-ledger-schema": "node scripts/validate-preba-ledger-schema.mjs",
     "test:preba-ledger-adapter": "node scripts/validate-preba-ledger-adapter.mjs",
-    "test:preba-ledger-integration": "node scripts/validate-preba-ledger-integration.mjs"
+    "test:preba-ledger-integration": "node scripts/validate-preba-ledger-integration.mjs",
+    "test:preba-postgres-qa": "tsx scripts/test-preba-postgres-qa.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",
@@ -40,6 +41,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.9.0",
-    "@types/pg": "^8.15.5"
+    "@types/pg": "^8.15.5",
+    "tsx": "^4.20.6"
   }
 }
