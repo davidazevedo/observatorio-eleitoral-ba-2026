@@ -184,6 +184,25 @@
       "rawPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-15T04-43-52Z.json",
       "available": true,
       "certificateSha256": "0fb57e704b3a72315e3631798f07e36e4dae8c5c24ee067d03e3ebab8bbea489"
+    },
+    {
+      "sourceId": "fm03-lajedo-pncp-history",
+      "title": "FM-03 Lajedo do Tabocal — PNCP historico da compra 26/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
+      "retrievedAt": "2026-10-16T04:36:15Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
+      "content-type": "application/json",
+      "date": "Fri, 16 Oct 2026 04:36:15 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1545,
+      "sha256": "1ab6e79262a7d74be2bf08b880f873c3b36dd4683152601dd7174bf373884f42",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-10-16T04-36-15Z.json",
+      "available": true,
+      "certificateSha256": "0a7741ae64e7a65c9895db2013de033801d5551ec848fda5e99ecca2412430aa"
     }
   ]
 }
