@@ -123,6 +123,28 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "6f988e02e6f13b67fe319ee93458b93fa3bf8c9e44efc8deff0b8f9e54023488"
+    },
+    {
+      "sourceId": "fm03-ara-portal",
+      "title": "FM-03 Araçás — Transparência — despesas, contratos, obras e transferências estaduais",
+      "publisher": "Portal público municipal de Araçás",
+      "originalUrl": "https://transparencia.aracas.ba.gov.br/",
+      "retrievedAt": "2026-10-16T16:43:21Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.aracas.ba.gov.br/",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "32042",
+      "etag": "\"7d2a-65df799a3388d\"",
+      "last-modified": "Fri, 16 Oct 2026 16:24:36 GMT",
+      "date": "Fri, 16 Oct 2026 16:43:27 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 32042,
+      "sha256": "30b1edcfa0a66033d2cd427084d5247319bc5380871b182d48e34cdbde031333",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "6ff9dacb6155bd3a202bb58b31bac3184c8a3a3366656c838d430f0d0812a1ec"
     }
   ]
 }
