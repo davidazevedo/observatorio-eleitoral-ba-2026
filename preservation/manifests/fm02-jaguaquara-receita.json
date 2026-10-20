@@ -632,6 +632,17 @@
       "rawPath": "preservation/snapshots/fm02-jaguaquara-receita/2026-10-20T04-55-00Z.html",
       "available": true,
       "certificateSha256": "9eeaea02809c1f0132baab04e536cd8b8537b35da38562209b27477dc7f8a361"
+    },
+    {
+      "sourceId": "fm02-jaguaquara-receita",
+      "title": "FM-02 Jaguaquara — receita municipal convênio estadual 28/2026 estádio",
+      "publisher": "Prefeitura de Jaguaquara / Município Online",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/receita",
+      "retrievedAt": "2026-10-20T17:10:35Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "TimeoutError: The read operation timed out",
+      "available": false,
+      "certificateSha256": "08fbbdde0c00101e8dc07825f637da9414a1ba2a5ffa1cf3266349a799303e04"
     }
   ]
 }

@@ -189,6 +189,28 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "3d9d011745cd5a9859a6f11b75ab0c1c253d940257f268f6f77ff2cea3e77c73"
+    },
+    {
+      "sourceId": "fm03-belo-sic",
+      "title": "FM-03 Belo Campo — Portal municipal de transparência e SIC",
+      "publisher": "Portal público municipal de Belo Campo",
+      "originalUrl": "https://transparencia.belocampo.ba.gov.br/",
+      "retrievedAt": "2026-10-20T17:13:21Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.belocampo.ba.gov.br/",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "32042",
+      "etag": "\"7d2a-65e4663821adf\"",
+      "last-modified": "Tue, 20 Oct 2026 14:24:30 GMT",
+      "date": "Tue, 20 Oct 2026 17:13:26 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 32042,
+      "sha256": "3bc41aa3c75ecccea14cfaa3577211a765bc9af33f9e9f00bf9e2596978bcd01",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "7bcad9f6bad0dc3761b003d6486d2cf21d19724d93e6a16f4088178620b65077"
     }
   ]
 }

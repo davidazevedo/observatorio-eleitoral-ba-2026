@@ -101,6 +101,28 @@
       "rawPath": "preservation/snapshots/pge-eleicoes-faq/2026-10-18T15-53-38Z.html",
       "available": true,
       "certificateSha256": "d188ec9d3869ff5b2a2960800df3e5e8072ff113a8c562e4f72ba8cdcc094652"
+    },
+    {
+      "sourceId": "pge-eleicoes-faq",
+      "title": "PGE-BA — FAQ Eleições 2026",
+      "publisher": "PGE Bahia",
+      "originalUrl": "https://www.ba.gov.br/pge/perguntas-frequentes-faq",
+      "retrievedAt": "2026-10-20T17:09:53Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ba.gov.br/pge/perguntas-frequentes-faq",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "118461",
+      "etag": "\"1792516193\"",
+      "last-modified": "Tue, 20 Oct 2026 17:09:53 GMT",
+      "date": "Tue, 20 Oct 2026 17:09:54 GMT",
+      "cache-control": "private",
+      "size": 118461,
+      "sha256": "142275aef669e773de5b9542fd56a8ab8d58ca5afed30e5e9f026f023ee22b39",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pge-eleicoes-faq/2026-10-20T17-09-53Z.html",
+      "available": true,
+      "certificateSha256": "4f305422c028bbf265eeea2508b2966393695f41b89acd3e4326eda9f09164e1"
     }
   ]
 }

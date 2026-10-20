@@ -553,6 +553,25 @@
       "rawPath": "preservation/snapshots/pncp-cipo-63-detail/2026-10-20T04-53-36Z.json",
       "available": true,
       "certificateSha256": "efc9f3088cedf72c704f43f569b4450178afade4cb6e670a5ca8f15e2fa0dc4b"
+    },
+    {
+      "sourceId": "pncp-cipo-63-detail",
+      "title": "Cipó — CE 009/2026 (republicação das 50 moradias)",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/63",
+      "retrievedAt": "2026-10-20T17:10:14Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13808936000195/compras/2026/63",
+      "content-type": "application/json",
+      "date": "Tue, 20 Oct 2026 17:10:14 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1931,
+      "sha256": "eda0179e913217bd34a8d58556026fffc737835f26fa3c9fd179b033557bf76e",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-cipo-63-detail/2026-10-20T17-10-14Z.json",
+      "available": true,
+      "certificateSha256": "6bb02e1ad52a86dc41586a3a27deff7dacc973d2535bbc23031160514ae527c0"
     }
   ]
 }
