@@ -613,6 +613,25 @@
       "rawPath": "preservation/snapshots/pncp-macajuba-19-detail-auto/2026-10-22T04-51-01Z.json",
       "available": true,
       "certificateSha256": "83c3887bd6df9dcc42145b9161ab6f4e52cc6a88c215b6bb5a44a53e8090db9c"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-detail-auto",
+      "title": "Macajuba — CE 004/2026 / PA 254/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13810841000106/compras/2026/19",
+      "retrievedAt": "2026-10-22T17:13:31Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13810841000106/compras/2026/19",
+      "content-type": "application/json",
+      "date": "Thu, 22 Oct 2026 17:13:31 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 2266,
+      "sha256": "0877a7728d83c9e132b52ea068d3e00e31e8bde75543ab03cdde7a702423cf27",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-macajuba-19-detail-auto/2026-10-22T17-13-31Z.json",
+      "available": true,
+      "certificateSha256": "6dc26976f5fbaadc75bebd2298092394e230318937bd778acf149a239df310a9"
     }
   ]
 }
