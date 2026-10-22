@@ -97,6 +97,25 @@
       "rawPath": "preservation/snapshots/tse-res-23760-2026/2026-10-21T17-14-37Z.html",
       "available": true,
       "certificateSha256": "8cebd6e7ffcf0be8efe4fada5a74a1701a75705f6c1b51dc85a46cffca8d00b3"
+    },
+    {
+      "sourceId": "tse-res-23760-2026",
+      "title": "Resolução TSE nº 23.760/2026",
+      "publisher": "Tribunal Superior Eleitoral",
+      "originalUrl": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "retrievedAt": "2026-10-22T04:50:36Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-760-de-2-de-marco-de-2026",
+      "content-type": "text/html;charset=utf-8",
+      "date": "Thu, 22 Oct 2026 04:50:37 GMT",
+      "cache-control": "must-revalidate, max-age=0, s-maxage=86400",
+      "size": 328848,
+      "sha256": "e4a537c993584c8de10a6fe9cb975f67408960005bf8a7b62b06154f87029cd0",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/tse-res-23760-2026/2026-10-22T04-50-36Z.html",
+      "available": true,
+      "certificateSha256": "b3b7d7e7afc1c2e786ac796a2d05c3413960947d0d27f46c9ac05b620a4d7983"
     }
   ]
 }
