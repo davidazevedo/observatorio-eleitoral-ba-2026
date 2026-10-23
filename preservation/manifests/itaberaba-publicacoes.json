@@ -496,6 +496,27 @@
       "rawPath": "preservation/snapshots/itaberaba-publicacoes/2026-10-23T04-53-05Z.html",
       "available": true,
       "certificateSha256": "4d1a435593c1842baf2548708d10a7e8f725b717233b68c9c6ae8a6db4039ec5"
+    },
+    {
+      "sourceId": "itaberaba-publicacoes",
+      "title": "Itaberaba — Publicações em Outros Veículos",
+      "publisher": "Prefeitura Municipal de Itaberaba",
+      "originalUrl": "https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos",
+      "retrievedAt": "2026-10-23T17:10:57Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://sai.io.org.br/ba/itaberaba/Site/PublicacoesOutrosVeiculos",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "57780",
+      "date": "Fri, 23 Oct 2026 17:11:02 GMT",
+      "cache-control": "private",
+      "server": "Microsoft-IIS/10.0",
+      "size": 57780,
+      "sha256": "5b6620593afb94c55e1c849ab19cf5ff2a03d3effa7d81d01e9a84ef76b96aef",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/itaberaba-publicacoes/2026-10-23T17-10-57Z.html",
+      "available": true,
+      "certificateSha256": "eb469bc681431c865d4fe297fcd0a8d3889906f8d57c83207d3fce9fb9fb5487"
     }
   ]
 }
