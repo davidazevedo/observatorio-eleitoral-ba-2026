@@ -62,6 +62,25 @@
       "error": "TimeoutError: The read operation timed out",
       "available": false,
       "certificateSha256": "5fb2e58cc4bf542eaaf80abc80601a5bc5aded9b080ad14f0152db1e83f6e157"
+    },
+    {
+      "sourceId": "fm03-lajedo-pncp-items",
+      "title": "FM-03 Lajedo do Tabocal — PNCP itens da compra 26/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens",
+      "retrievedAt": "2026-10-25T16:27:03Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens",
+      "content-type": "application/json",
+      "date": "Sun, 25 Oct 2026 16:27:03 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1261,
+      "sha256": "e68aa5376eeef36d0baa9a77d81e8b7405b159a219c20504dbe702113d20bb09",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm03-lajedo-pncp-items/2026-10-25T16-27-03Z.json",
+      "available": true,
+      "certificateSha256": "03a7a2cf3d0f491752de94179d12c1c673cca5f0f6883648d5c3bf73589e5cd3"
     }
   ]
 }
