@@ -62,6 +62,25 @@
       "error": "TimeoutError: The read operation timed out",
       "available": false,
       "certificateSha256": "4d7053314a5ebbbd6244aff3af512fb06838c319e92520a6e1b1129fc3da73fe"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-itens",
+      "title": "Macajuba — itens CE 004/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "retrievedAt": "2026-10-26T18:42:46Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "content-type": "application/json",
+      "date": "Mon, 26 Oct 2026 18:42:45 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1198,
+      "sha256": "1fe9c151290af6e631e3e497ce765c697f156338ee960756c18e7395f69c29e2",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-macajuba-19-itens/2026-10-26T18-42-46Z.json",
+      "available": true,
+      "certificateSha256": "8ac20a9425dbf5a84c2f1314b4362a2e0d5737d3ca49a78eda2cbd15db27ecb1"
     }
   ]
 }

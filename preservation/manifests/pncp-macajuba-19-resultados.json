@@ -62,6 +62,25 @@
       "error": "TimeoutError: The read operation timed out",
       "available": false,
       "certificateSha256": "62f175e895e6ca635597b51aa08ea3a82b03f9a987ad2d25390dd95b4bc5bd6e"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-resultados",
+      "title": "Macajuba — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens/1/resultados",
+      "retrievedAt": "2026-10-26T18:42:46Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 204,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens/1/resultados",
+      "content-type": "application/json",
+      "date": "Mon, 26 Oct 2026 18:42:47 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-macajuba-19-resultados/2026-10-26T18-42-46Z.json",
+      "available": true,
+      "certificateSha256": "d5ac77a0ad0470bfa4b6bbfadb35285bb3a975e5c9a1fa99491e8afe503d5977"
     }
   ]
 }
