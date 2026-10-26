@@ -51,6 +51,17 @@
       "rawPath": "preservation/snapshots/pncp-lajedinho-98-resultados/2026-10-13T19-19-07Z.json",
       "available": true,
       "certificateSha256": "548631934196e0c213e0e143c4f94de3ec18600f728cf95c76796f28d2d2bf90"
+    },
+    {
+      "sourceId": "pncp-lajedinho-98-resultados",
+      "title": "Lajedinho — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810544000160/compras/2026/98/itens/1/resultados",
+      "retrievedAt": "2026-10-26T04:58:39Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "TimeoutError: The read operation timed out",
+      "available": false,
+      "certificateSha256": "07bf50c2c08f0ad0f89e9317f82de77a350510ec2715529db7bb116db9ed37d4"
     }
   ]
 }
