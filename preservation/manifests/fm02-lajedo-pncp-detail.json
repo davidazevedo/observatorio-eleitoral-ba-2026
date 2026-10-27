@@ -606,6 +606,25 @@
       "rawPath": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-27T05-10-26Z.json",
       "available": true,
       "certificateSha256": "4fadfbecbd04a4b89a984aca2b121939be3716744ae8b96b7c4b201e8f3daac7"
+    },
+    {
+      "sourceId": "fm02-lajedo-pncp-detail",
+      "title": "FM-02 Lajedo — concorrência eletrônica 04/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16434441000131/compras/2026/26",
+      "retrievedAt": "2026-10-27T18:03:21Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16434441000131/compras/2026/26",
+      "content-type": "application/json",
+      "date": "Tue, 27 Oct 2026 18:03:22 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 2008,
+      "sha256": "9dc020f31916315c4103f723ed2762066686e20956e42de4434f7abddc50ca4f",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-lajedo-pncp-detail/2026-10-27T18-03-21Z.json",
+      "available": true,
+      "certificateSha256": "60f3dfb3e51e63b35ca7bcd1f96b39b43511cc7d9d9370c19810dc6d0a3b40f1"
     }
   ]
 }
