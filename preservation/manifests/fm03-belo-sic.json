@@ -310,6 +310,28 @@
       "error": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
       "available": false,
       "certificateSha256": "1353441e44d5843f1ece07ea06d89f393e0b26cf9fe0f678eba05253752cb96f"
+    },
+    {
+      "sourceId": "fm03-belo-sic",
+      "title": "FM-03 Belo Campo — Portal municipal de transparência e SIC",
+      "publisher": "Portal público municipal de Belo Campo",
+      "originalUrl": "https://transparencia.belocampo.ba.gov.br/",
+      "retrievedAt": "2026-10-28T05:46:05Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.belocampo.ba.gov.br/",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "32042",
+      "etag": "\"7d2a-65ed1f7bac266\"",
+      "last-modified": "Tue, 27 Oct 2026 12:55:57 GMT",
+      "date": "Wed, 28 Oct 2026 05:46:07 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 32042,
+      "sha256": "6ae85b8101b5df333e3d29ef188406126a1d20fc3c0428a9cc5fbbb0e0f0b314",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "0267fcdbf8ccb8e16ee41c168b49dcef7d8be12027e815355c70a2d862660bcc"
     }
   ]
 }
