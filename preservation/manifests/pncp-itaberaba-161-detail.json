@@ -819,6 +819,25 @@
       "rawPath": "preservation/snapshots/pncp-itaberaba-161-detail/2026-10-28T05-45-26Z.json",
       "available": true,
       "certificateSha256": "fdfd247c41c1334d3fddd7deddb34f6bf10b43d822d3017102281dffa222caaf"
+    },
+    {
+      "sourceId": "pncp-itaberaba-161-detail",
+      "title": "Itaberaba — controle PNCP 161/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13719646000175/compras/2026/161",
+      "retrievedAt": "2026-10-28T18:22:06Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13719646000175/compras/2026/161",
+      "content-type": "application/json",
+      "date": "Wed, 28 Oct 2026 18:22:08 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 2197,
+      "sha256": "24c71bfd5fc980aaf130eb56afddbee685f4f5714ba7d9f5ae69083306a24ca2",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-itaberaba-161-detail/2026-10-28T18-22-06Z.json",
+      "available": true,
+      "certificateSha256": "fef7efa4a341fae55a27e4f4653faeec8413404cce08d584bae50b3e7050c8b2"
     }
   ]
 }
