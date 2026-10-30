@@ -44,6 +44,27 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "d7bfc249eb572981663e0084528d452cf5cf53f8088a8a54cf57d74323163e05"
+    },
+    {
+      "sourceId": "fm03-laj-contratos",
+      "title": "FM-03 Lajedo do Tabocal — Publicações de contratos do município",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "retrievedAt": "2026-10-30T05:53:23Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "34899",
+      "date": "Fri, 30 Oct 2026 05:53:23 GMT",
+      "cache-control": "private",
+      "server": "Microsoft-IIS/10.0",
+      "size": 34899,
+      "sha256": "b6f639bac5fbe5cad93ffd3a76ba834ee050e93a25b4fb2b17306bc3c15515c1",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "9d0ad2931c281ac325abf0e44a78b9b546fee48df709e8afffbe50598b466b4c"
     }
   ]
 }
