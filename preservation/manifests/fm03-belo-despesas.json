@@ -170,6 +170,27 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "7abef9b6e4e0d65dd0e61aecdeab8133a5ce9d888d9b8f0611b16fbaec71279d"
+    },
+    {
+      "sourceId": "fm03-belo-despesas",
+      "title": "FM-03 Belo Campo — Portal da Transparência — Empenhos/Liquidações/Pagamentos/Favorecidos",
+      "publisher": "Portal público municipal de Belo Campo",
+      "originalUrl": "https://belocampo-ba.portaltp.com.br/",
+      "retrievedAt": "2026-10-31T05:47:37Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://belocampo-ba.portaltp.com.br/",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "33484",
+      "date": "Sat, 31 Oct 2026 05:47:38 GMT",
+      "cache-control": "private,no-cache, no-store, must-revalidate",
+      "server": "Microsoft-IIS/10.0",
+      "size": 33484,
+      "sha256": "6f188f8620f30ecc192bb69c25f509803053307814156f8ad1b8bb629315c777",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "2694dea728ca5678f339702e1e128aba1ce99ab69696328969dea8b51fb706d7"
     }
   ]
 }
