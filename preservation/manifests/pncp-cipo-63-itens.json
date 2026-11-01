@@ -81,6 +81,17 @@
       "rawPath": "preservation/snapshots/pncp-cipo-63-itens/2026-10-26T18-42-39Z.json",
       "available": true,
       "certificateSha256": "5c6488cebc217ac646ea10395a2627571ecb30d306b7d7ac7f6b80c2639a0b32"
+    },
+    {
+      "sourceId": "pncp-cipo-63-itens",
+      "title": "Cipó — itens CE 009/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13808936000195/compras/2026/63/itens",
+      "retrievedAt": "2026-11-01T17:56:50Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "TimeoutError: The read operation timed out",
+      "available": false,
+      "certificateSha256": "37cadc7e49089fcf60ff8b3512c6b5df4a02dd72a21f55dcda81d2241f05e95f"
     }
   ]
 }
