@@ -321,6 +321,28 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "078e6d80472c002168b735a4d56fce5037f781a5514494a81563dcf1e018b644"
+    },
+    {
+      "sourceId": "fm03-belo-despesa-direta",
+      "title": "FM-03 Belo Campo — Consulta direta de despesas e execução municipal, com filtros de exercício e exportações",
+      "publisher": "Portal público municipal de Belo Campo",
+      "originalUrl": "https://transparencia.belocampo.ba.gov.br/despesa",
+      "retrievedAt": "2026-11-03T19:33:14Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.belocampo.ba.gov.br/despesa",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "32042",
+      "etag": "\"7d2a-65f638a810443\"",
+      "last-modified": "Tue, 03 Nov 2026 18:36:30 GMT",
+      "date": "Tue, 03 Nov 2026 19:33:14 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 32042,
+      "sha256": "c302d2d8502bce4165eba8c5e9423c3b7781fe66a5faf8468ea238870987a269",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "1651da9cafe4a87597cfc112f5b4331d367ef5353310830373c015d383b376fc"
     }
   ]
 }
