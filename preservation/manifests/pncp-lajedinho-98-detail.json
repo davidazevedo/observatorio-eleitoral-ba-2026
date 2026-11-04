@@ -895,6 +895,25 @@
       "rawPath": "preservation/snapshots/pncp-lajedinho-98-detail/2026-11-03T06-51-26Z.json",
       "available": true,
       "certificateSha256": "a7a2abc7c1eedaee669c3fedaef7af7ff9fcf4fc38e9bd0e376a12b58bbae111"
+    },
+    {
+      "sourceId": "pncp-lajedinho-98-detail",
+      "title": "Lajedinho — CE 008/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13810544000160/compras/2026/98",
+      "retrievedAt": "2026-11-04T06:26:44Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/13810544000160/compras/2026/98",
+      "content-type": "application/json",
+      "date": "Wed, 04 Nov 2026 06:26:45 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 3251,
+      "sha256": "cbe2711e4388a2e2ade5cd58f651a184e9a539b1fa2b7c5f6ad683e45559f7d2",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-lajedinho-98-detail/2026-11-04T06-26-44Z.json",
+      "available": true,
+      "certificateSha256": "9ab548467b09cc826a0b47ed85ad546076a63647662912f878ab94b0f5b25b85"
     }
   ]
 }

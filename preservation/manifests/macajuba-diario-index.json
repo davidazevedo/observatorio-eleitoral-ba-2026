@@ -1029,6 +1029,24 @@
       "rawPath": "preservation/snapshots/macajuba-diario-index/2026-11-03T19-31-27Z.html",
       "available": true,
       "certificateSha256": "d442d78f07192071295cbd4ffdb05229d631920cd5e27c339d21ab260cb0d514"
+    },
+    {
+      "sourceId": "macajuba-diario-index",
+      "title": "Macajuba — índice do Diário Oficial 2026",
+      "publisher": "Prefeitura Municipal de Macajuba",
+      "originalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "retrievedAt": "2026-11-04T06:26:49Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Wed, 04 Nov 2026 06:26:53 GMT",
+      "size": 1805471,
+      "sha256": "c6e67f69280d2e1d6d3156c307ad95aef51d0870b72a6126e2e9d388fbff7360",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/macajuba-diario-index/2026-11-04T06-26-49Z.html",
+      "available": true,
+      "certificateSha256": "e8399fe19c74963e443bca10d4c1b4572c7705f61ca8eb970d3ab68b6eb452a4"
     }
   ]
 }
