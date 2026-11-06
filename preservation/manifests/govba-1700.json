@@ -1421,6 +1421,28 @@
       "rawPath": "preservation/snapshots/govba-1700/2026-11-06T06-50-25Z.html",
       "available": true,
       "certificateSha256": "8fd489680b64a54de7db5a6e76f752f839462b8cd2274ed5ef3d96cba23b5085"
+    },
+    {
+      "sourceId": "govba-1700",
+      "title": "Pacote estadual superior a R$ 1,7 bilhão — 11/06/2026",
+      "publisher": "SECOM Bahia",
+      "originalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
+      "retrievedAt": "2026-11-06T19:25:51Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "104654",
+      "etag": "\"1793993156\"",
+      "last-modified": "Fri, 06 Nov 2026 19:25:56 GMT",
+      "date": "Fri, 06 Nov 2026 19:25:56 GMT",
+      "cache-control": "private",
+      "size": 104654,
+      "sha256": "510219c34687b693538fcac8d0e70088a0112a80681ec7c2b25a0233f416bebc",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/govba-1700/2026-11-06T19-25-51Z.html",
+      "available": true,
+      "certificateSha256": "a5ebbf8a53a17b0747c2f8d130d5692cd9e96c586417f22960bbd096945090e8"
     }
   ]
 }
