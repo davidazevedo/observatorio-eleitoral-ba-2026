@@ -825,6 +825,25 @@
       "error": "RemoteDisconnected: Remote end closed connection without response",
       "available": false,
       "certificateSha256": "e8ea828e569529b24ad894d1c0a0e9fff9d7e54d3ab2014fa504ec742a9f76a5"
+    },
+    {
+      "sourceId": "fm03-lajedo-pncp-history",
+      "title": "FM-03 Lajedo do Tabocal — PNCP historico da compra 26/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
+      "retrievedAt": "2026-11-09T22:24:52Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
+      "content-type": "application/json",
+      "date": "Mon, 09 Nov 2026 22:24:52 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1545,
+      "sha256": "59b6e1d17ab8f302022faaa90cfed8b023485cc96b566323130df664f046e4d0",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-11-09T22-24-52Z.json",
+      "available": true,
+      "certificateSha256": "eb3245ddcf164bc0931819733da01c0f21c87674d121b883f8316972d67c0bb0"
     }
   ]
 }
