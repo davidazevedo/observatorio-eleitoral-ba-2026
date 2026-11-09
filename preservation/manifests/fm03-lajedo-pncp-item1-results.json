@@ -111,6 +111,17 @@
       "rawPath": "preservation/snapshots/fm03-lajedo-pncp-item1-results/2026-11-03T19-33-23Z.json",
       "available": true,
       "certificateSha256": "a04347b90ce87803b7a9bd744576ccf630634078effd39820af27d1de6190ec7"
+    },
+    {
+      "sourceId": "fm03-lajedo-pncp-item1-results",
+      "title": "FM-03 Lajedo do Tabocal — resultados oficiais PNCP item 1 (identificado no JSON original)",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/itens/1/resultados",
+      "retrievedAt": "2026-11-09T06:36:22Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "available": false,
+      "certificateSha256": "bc6e64734f07edfeb02f1a0ba82455b4f3b53d021697cae945be6505aa2a94ad"
     }
   ]
 }
