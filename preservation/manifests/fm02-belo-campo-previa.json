@@ -497,6 +497,27 @@
       "rawPath": "preservation/snapshots/fm02-belo-campo-previa/2026-11-09T22-24-18Z.html",
       "available": true,
       "certificateSha256": "44f3a245637f6d6a83435e6990d483d6d7eb1791504edaefe311e2ede611860c"
+    },
+    {
+      "sourceId": "fm02-belo-campo-previa",
+      "title": "FM-02 Belo Campo — comunicação prévia da Cavalgada",
+      "publisher": "Prefeitura de Belo Campo",
+      "originalUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-030620260948572561-Cavalgada-A-Tradi-o-do-Vaqueiro-movimenta-Belo-Campo-no-pr-ximo-domingo",
+      "retrievedAt": "2026-11-10T19:46:08Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-030620260948572561-Cavalgada-A-Tradi-o-do-Vaqueiro-movimenta-Belo-Campo-no-pr-ximo-domingo",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "39994",
+      "date": "Tue, 10 Nov 2026 19:46:08 GMT",
+      "cache-control": "private",
+      "server": "Microsoft-IIS/10.0",
+      "size": 39994,
+      "sha256": "218a120a758967cba18fa21c355e3804b7a204ff1919b02371d111a3b24a8528",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-belo-campo-previa/2026-11-10T19-46-08Z.html",
+      "available": true,
+      "certificateSha256": "1c175a814eae03b64abfa5332abfbead7cd300bf3ac3c15a53cdc186ce37cf47"
     }
   ]
 }
