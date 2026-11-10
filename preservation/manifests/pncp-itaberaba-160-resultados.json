@@ -141,6 +141,17 @@
       "rawPath": "preservation/snapshots/pncp-itaberaba-160-resultados/2026-11-09T22-23-56Z.json",
       "available": true,
       "certificateSha256": "245854dc5bd666d9e258d0e6c0ea5c9151952d308e9cf91e8616233fc4351d82"
+    },
+    {
+      "sourceId": "pncp-itaberaba-160-resultados",
+      "title": "Itaberaba — resultados controle PNCP 160/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/160/itens/1/resultados",
+      "retrievedAt": "2026-11-10T07:21:43Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "available": false,
+      "certificateSha256": "90cdf7d2e0fcf17d76af8bdecd3f784e9833163f3562c0ec02e8d4db27a0048a"
     }
   ]
 }

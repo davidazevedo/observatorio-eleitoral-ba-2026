@@ -141,6 +141,17 @@
       "rawPath": "preservation/snapshots/pncp-macajuba-19-resultados/2026-11-09T22-24-00Z.json",
       "available": true,
       "certificateSha256": "20b7e1fbccaf29c38d689de4ec022485d3d2da7054bc7df116e73fe45f29bd7b"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-resultados",
+      "title": "Macajuba — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens/1/resultados",
+      "retrievedAt": "2026-11-10T07:21:49Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "available": false,
+      "certificateSha256": "5068080f9f720f4d7b9273d47ba8afbef911ceaf4da69686e5b9f694f8fb8e7b"
     }
   ]
 }
