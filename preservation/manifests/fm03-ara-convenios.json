@@ -409,6 +409,28 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "6782dd47a920924025941b64889cc0f0452e7bb6f797cf77826158a6fbd0baae"
+    },
+    {
+      "sourceId": "fm03-ara-convenios",
+      "title": "FM-03 Araçás — Consulta direta de convênios recebidos, com filtro de número e exercício; valor inicial sem filtro não serve como prova de inexistência",
+      "publisher": "Portal público municipal de Araçás",
+      "originalUrl": "https://transparencia.aracas.ba.gov.br/convenios",
+      "retrievedAt": "2026-11-12T19:59:15Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.aracas.ba.gov.br/convenios",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "32042",
+      "etag": "\"7d2a-6601340573f2d\"",
+      "last-modified": "Thu, 12 Nov 2026 12:14:20 GMT",
+      "date": "Thu, 12 Nov 2026 19:59:16 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 32042,
+      "sha256": "8fcf4d7daa0bc1780148f5b7eeb75411645ada5f70bb1103cdb4de26d91611fe",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "8691d26ecb03e608823482183f971709503a0d29b5aa811457398ec9f9435dec"
     }
   ]
 }

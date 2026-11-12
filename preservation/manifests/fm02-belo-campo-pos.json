@@ -486,6 +486,27 @@
       "rawPath": "preservation/snapshots/fm02-belo-campo-pos/2026-11-10T19-46-09Z.html",
       "available": true,
       "certificateSha256": "386e05c10fc8c339eab395ed8224cf63d54454f999128f5c6f157b7ff674901a"
+    },
+    {
+      "sourceId": "fm02-belo-campo-pos",
+      "title": "FM-02 Belo Campo — comunicação posterior da Cavalgada",
+      "publisher": "Prefeitura de Belo Campo",
+      "originalUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "retrievedAt": "2026-11-12T19:58:30Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.belocampo.ba.gov.br/Site/Noticias/noticia-120620262339492561-Cavalgada-A-Tradi-o-do-Vaqueiro-re-ne-cerca-de-11-mil-pessoas-e-celebra-a",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "54867",
+      "date": "Thu, 12 Nov 2026 19:58:36 GMT",
+      "cache-control": "private",
+      "server": "Microsoft-IIS/10.0",
+      "size": 54867,
+      "sha256": "bd244b751c7d3d084c3b0fa80cd5b78da96c3c6bd83d1fd97649debdfe8a89bb",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-belo-campo-pos/2026-11-12T19-58-30Z.html",
+      "available": true,
+      "certificateSha256": "40dca1eabcccef3410e6a3cdf40e55d57788ccaf18a5ccc545a0fd1974e9c92f"
     }
   ]
 }

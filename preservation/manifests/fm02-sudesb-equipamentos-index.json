@@ -321,6 +321,28 @@
       "rawPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-11-11T19-38-56Z.html",
       "available": true,
       "certificateSha256": "eb85b89502b36ee8d3cc01afaa5e4058574caa1d75514681657497a32faf6fe7"
+    },
+    {
+      "sourceId": "fm02-sudesb-equipamentos-index",
+      "title": "FM-02 SUDESB — índice oficial termos e erratas 31 e 32/2026",
+      "publisher": "SUDESB",
+      "originalUrl": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "retrievedAt": "2026-11-12T19:58:04Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ba.gov.br/esporte/35/construcoes-e-reformas-de-equipamentos-esportivos",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "328381",
+      "etag": "\"1794509120\"",
+      "last-modified": "Thu, 12 Nov 2026 18:45:20 GMT",
+      "date": "Thu, 12 Nov 2026 19:58:05 GMT",
+      "cache-control": "private",
+      "size": 328381,
+      "sha256": "eb03bf24581529d66b9ee9dffa44a7126240ab22b7d8828403aea9da48f840ed",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-sudesb-equipamentos-index/2026-11-12T19-58-04Z.html",
+      "available": true,
+      "certificateSha256": "3a5e9a7a715a1a6bfc6f3ebff52fa8b671b12312febc7d663283a0ba9e735742"
     }
   ]
 }
