@@ -228,6 +228,25 @@
       "rawPath": "preservation/snapshots/pncp-cipo-63-resultados/2026-11-12T19-57-00Z.json",
       "available": true,
       "certificateSha256": "e0ad03b3907d83e944f41e049802fc38cd8564bb9ce03838eb7dc53e0ce7b4e7"
+    },
+    {
+      "sourceId": "pncp-cipo-63-resultados",
+      "title": "Cipó — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13808936000195/compras/2026/63/itens/7936485/resultados",
+      "retrievedAt": "2026-11-13T06:48:53Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13808936000195/compras/2026/63/itens/7936485/resultados",
+      "content-type": "application/json",
+      "date": "Fri, 13 Nov 2026 06:48:53 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1231,
+      "sha256": "dbfa61dc7cd8060099dbd5fee3b3ffe0dfb63d55220dc58c2143610d5e24ef6d",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-cipo-63-resultados/2026-11-13T06-48-53Z.json",
+      "available": true,
+      "certificateSha256": "d92cfa48903d7e7f0ae4d0e9d684b734c3d43b69c03e3598c00fd7a9b6ff548f"
     }
   ]
 }
