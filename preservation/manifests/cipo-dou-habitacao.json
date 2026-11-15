@@ -1536,6 +1536,25 @@
       "rawPath": "preservation/snapshots/cipo-dou-habitacao/2026-11-14T18-05-32Z.html",
       "available": true,
       "certificateSha256": "9b9d5c13313e380a66be339e3122b6dd9cc6033e30da98b2084e5d4e63da7174"
+    },
+    {
+      "sourceId": "cipo-dou-habitacao",
+      "title": "Cipó — aviso de licitação das unidades habitacionais",
+      "publisher": "Diário Oficial da União",
+      "originalUrl": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
+      "retrievedAt": "2026-11-15T06:36:04Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
+      "content-type": "text/html;charset=UTF-8",
+      "date": "Sun, 15 Nov 2026 06:36:04 GMT",
+      "cache-control": "public",
+      "size": 84028,
+      "sha256": "4d5464a3f74f4ade150ebdfd6654928f94a6823e6e8085b76d1f13795d1743a2",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/cipo-dou-habitacao/2026-11-15T06-36-04Z.html",
+      "available": true,
+      "certificateSha256": "8abaccf9bf552bcfa44e650eb813d25b2fa0f93b6a417de563b90195c4ca1baf"
     }
   ]
 }

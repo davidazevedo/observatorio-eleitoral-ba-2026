@@ -171,6 +171,17 @@
       "rawPath": "preservation/snapshots/pncp-macajuba-19-itens/2026-11-10T19-45-54Z.json",
       "available": true,
       "certificateSha256": "911ba01b1d4d00bfd4b6fdf65db0f86f1647f7c15980e3173c13c636d09a7f02"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-itens",
+      "title": "Macajuba — itens CE 004/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "retrievedAt": "2026-11-15T06:36:31Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 503: Service Unavailable",
+      "available": false,
+      "certificateSha256": "97e65a79ffd6db5e7ceeedc4564b449624ef88e9e73c285ddf71c7b9c0055d01"
     }
   ]
 }
