@@ -1170,6 +1170,25 @@
       "rawPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-11-17T07-58-07Z.json",
       "available": true,
       "certificateSha256": "f611515e80bead40859e60a004aebe3e194bfb062aa67a423c939ea492ab04e8"
+    },
+    {
+      "sourceId": "fm03-aracas-pncp-history",
+      "title": "FM-03 Araçás — PNCP historico da compra 7/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
+      "retrievedAt": "2026-11-17T20:58:39Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
+      "content-type": "application/json",
+      "date": "Tue, 17 Nov 2026 20:58:39 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 943,
+      "sha256": "72285e3ae52a9697c1cc796aec960d69df2132908ca804054ffa37ebf87b9a1b",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-11-17T20-58-39Z.json",
+      "available": true,
+      "certificateSha256": "de508ff43513e37820a3708d6059c7a91797996763c80fabcb029b84a86032ed"
     }
   ]
 }
