@@ -139,6 +139,17 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "54be44730ffbc8aebe74c7033a98d5f8ef5e012f5a55835714f7a4b913fe1834"
+    },
+    {
+      "sourceId": "fm03-laj-portal",
+      "title": "FM-03 Lajedo do Tabocal — Portal municipal da transparência; menu de despesas/contratos",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/transparencia",
+      "retrievedAt": "2026-11-18T07:31:58Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "available": false,
+      "certificateSha256": "02a1f00aac51c4b5f08ab36e12feba205366cd9c6de5a24b86ee3e857798a729"
     }
   ]
 }

@@ -1787,6 +1787,17 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "01c8f51b187eb21fe2d446c608f8cada4296b67a70fd9c5a8e8726f59d3c272f"
+    },
+    {
+      "sourceId": "fm03-laj-despesa",
+      "title": "FM-03 Lajedo do Tabocal — Listagem de despesas municipais; requer filtros por período/objeto",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/despesa",
+      "retrievedAt": "2026-11-18T07:31:59Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "available": false,
+      "certificateSha256": "52140f42f453de1e3ec46942ee25a3d4d032e649aa43682bf16242d61a22e8f6"
     }
   ]
 }
