@@ -118,6 +118,27 @@
       "error": "HTTPError: HTTP Error 500: Internal Server Error",
       "available": false,
       "certificateSha256": "086c584c8ebf114fef3ddda9e8f0965b0786c98ad807e8f262c6f2a0513ed163"
+    },
+    {
+      "sourceId": "fm03-laj-contratos",
+      "title": "FM-03 Lajedo do Tabocal — Publicações de contratos do município",
+      "publisher": "Portal público municipal de Lajedo do Tabocal",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "retrievedAt": "2026-11-18T20:34:45Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.municipioonline.com.br/ba/prefeitura/lajedodotabocal/cidadao/publicacaocontrato",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "34899",
+      "date": "Wed, 18 Nov 2026 20:34:45 GMT",
+      "cache-control": "private",
+      "server": "Microsoft-IIS/10.0",
+      "size": 34899,
+      "sha256": "b6f639bac5fbe5cad93ffd3a76ba834ee050e93a25b4fb2b17306bc3c15515c1",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "8ab7f5f88d66cb13457b483c7ae1a5a175481228bad7d94d12fd8db5248c9728"
     }
   ]
 }
