@@ -1809,6 +1809,17 @@
       "rawReason": "disabled_or_size_limit",
       "available": true,
       "certificateSha256": "f21ce64173c37a7bade745748661f4679f01e90f64164a1e09e1198ad7e423aa"
+    },
+    {
+      "sourceId": "fm03-jag-despesa",
+      "title": "FM-03 Jaguaquara — Despesa — Empenhos, Liquidações, Pagamentos e Favorecidos; aplicar 2026",
+      "publisher": "Portal público municipal de Jaguaquara",
+      "originalUrl": "https://www.municipioonline.com.br/ba/prefeitura/jaguaquara/cidadao/despesa",
+      "retrievedAt": "2026-11-19T07:30:02Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "available": false,
+      "certificateSha256": "fec345d6069325364b441d2b00403a0595c24700cc2dcd134b14dce11ce509cc"
     }
   ]
 }
