@@ -1264,6 +1264,25 @@
       "error": "HTTPError: HTTP Error 503: Service Unavailable",
       "available": false,
       "certificateSha256": "d1c8b1608518b0768b3f5de50e1d4ac4da1cc557901acdd25f27d36491e46e1b"
+    },
+    {
+      "sourceId": "fm02-aracas-pncp-detail",
+      "title": "FM-02 Araçás — concorrência eletrônica 007/2026",
+      "publisher": "PNCP",
+      "originalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16131088000110/compras/2026/7",
+      "retrievedAt": "2026-11-19T20:40:54Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/consulta/v1/orgaos/16131088000110/compras/2026/7",
+      "content-type": "application/json",
+      "date": "Thu, 19 Nov 2026 20:40:58 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1917,
+      "sha256": "4564013e727ab2f420981f00ed28b32445e0e1853d2947e20c807e00c5c9c51f",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/fm02-aracas-pncp-detail/2026-11-19T20-40-54Z.json",
+      "available": true,
+      "certificateSha256": "7b96c343aa790a9c013604b4e049a65417be23c7d6fc7e4f840476c00b1fe401"
     }
   ]
 }
