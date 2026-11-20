@@ -1563,6 +1563,24 @@
       "error": "HTTPError: HTTP Error 403: Forbidden",
       "available": false,
       "certificateSha256": "fd1bd04bc88632a7fe725b7c1aa3363c4b4908fc3d84329e3a93174792f7a178"
+    },
+    {
+      "sourceId": "macajuba-diario-index",
+      "title": "Macajuba — índice do Diário Oficial 2026",
+      "publisher": "Prefeitura Municipal de Macajuba",
+      "originalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "retrievedAt": "2026-11-20T07:19:34Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Fri, 20 Nov 2026 07:19:36 GMT",
+      "size": 1900642,
+      "sha256": "badb224c9c928e1f69ce16c94587f78906b9db80408c8579ae014e8f148d7cda",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/macajuba-diario-index/2026-11-20T07-19-34Z.html",
+      "available": true,
+      "certificateSha256": "afb65400603bfe3f97e262eb2e8fafb8c7599a6e4b30c2adc229b87687b6259c"
     }
   ]
 }
