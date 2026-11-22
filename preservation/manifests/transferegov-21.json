@@ -1913,6 +1913,17 @@
       "rawPath": "preservation/snapshots/transferegov-21/2026-11-21T19-17-49Z.html",
       "available": true,
       "certificateSha256": "f7ea8b6c552d772f0974ba43f64b2c66e2ca1247d1e0608c54d9e4c4278c1288"
+    },
+    {
+      "sourceId": "transferegov-21",
+      "title": "Comunicado nº 21/2026 — defeso eleitoral",
+      "publisher": "Transferegov / MGI",
+      "originalUrl": "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-21-2026-orientacoes-para-gestao-das-transferencias-durante-o-periodo-de-defeso-eleitoral-e-suspensao-da-emissao-automatica-da-autorizacao-de-inicio-de-obras-aio",
+      "retrievedAt": "2026-11-22T06:51:33Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+      "available": false,
+      "certificateSha256": "cd4997754ba7834b7e026bdf50084da9553a1263e2bb2ef8ce86b790f42da1d7"
     }
   ]
 }
