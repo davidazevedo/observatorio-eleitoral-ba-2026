@@ -286,6 +286,27 @@
       "error": "TimeoutError: The read operation timed out",
       "available": false,
       "certificateSha256": "2a1e557ba7a05320d9275674b4eb515f04180bbbaf635576b2a3defac7bd17c9"
+    },
+    {
+      "sourceId": "fm03-belo-despesas",
+      "title": "FM-03 Belo Campo — Portal da Transparência — Empenhos/Liquidações/Pagamentos/Favorecidos",
+      "publisher": "Portal público municipal de Belo Campo",
+      "originalUrl": "https://belocampo-ba.portaltp.com.br/",
+      "retrievedAt": "2026-11-24T09:59:53Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://belocampo-ba.portaltp.com.br/",
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "33484",
+      "date": "Tue, 24 Nov 2026 09:59:54 GMT",
+      "cache-control": "private,no-cache, no-store, must-revalidate",
+      "server": "Microsoft-IIS/10.0",
+      "size": 33484,
+      "sha256": "fe3663e4735ae96fe67e3abd9820341ead370d54ab67d97e849a25731185cb07",
+      "rawPreserved": false,
+      "rawReason": "disabled_or_size_limit",
+      "available": true,
+      "certificateSha256": "c9ad22a3ac761fc36eb7da6ce341a8c5b3225dcfa902ae6d34b5b4d77d50e63b"
     }
   ]
 }
