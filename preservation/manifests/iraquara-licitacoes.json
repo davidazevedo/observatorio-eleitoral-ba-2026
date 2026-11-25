@@ -2033,6 +2033,26 @@
       "rawPath": "preservation/snapshots/iraquara-licitacoes/2026-11-24T22-28-57Z.html",
       "available": true,
       "certificateSha256": "999d4abdee8a6dc5c3921a58e69064ab47807d90bf76d79d8a4464fd7a346104"
+    },
+    {
+      "sourceId": "iraquara-licitacoes",
+      "title": "Iraquara — Editais de Licitação",
+      "publisher": "Prefeitura Municipal de Iraquara",
+      "originalUrl": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
+      "retrievedAt": "2026-11-25T08:38:25Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Wed, 25 Nov 2026 08:38:26 GMT",
+      "cache-control": "no-store, no-cache, must-revalidate",
+      "server": "Apache",
+      "size": 164930,
+      "sha256": "faf8ad8fc2d3b00231a7654e22b88e05acf942d602265dba10b6d3cf204acc46",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/iraquara-licitacoes/2026-11-25T08-38-25Z.html",
+      "available": true,
+      "certificateSha256": "cf0a6f591a36db2157b443d58db18f0ab99c84b246674b26fe2971b5b3d2d7f5"
     }
   ]
 }
