@@ -272,6 +272,25 @@
       "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
       "available": false,
       "certificateSha256": "40105d6b4786b2b6f92f57076cd9826de2caacf7447c815bc568d23ec17eb4c3"
+    },
+    {
+      "sourceId": "pncp-itaberaba-160-itens",
+      "title": "Itaberaba — itens controle PNCP 160/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/160/itens",
+      "retrievedAt": "2026-11-26T08:23:59Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13719646000175/compras/2026/160/itens",
+      "content-type": "application/json",
+      "date": "Thu, 26 Nov 2026 08:23:58 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1519,
+      "sha256": "26042ca470f2c16eedd32d18d7b0085a181445d3268e30086f6363c52618021c",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-itaberaba-160-itens/2026-11-26T08-23-59Z.json",
+      "available": true,
+      "certificateSha256": "5019478929ffddc7b72b94cf565aa2ab0afede7934ab4f1c996fec32e0ed1216"
     }
   ]
 }

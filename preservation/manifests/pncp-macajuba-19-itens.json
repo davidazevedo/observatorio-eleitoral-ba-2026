@@ -212,6 +212,25 @@
       "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
       "available": false,
       "certificateSha256": "ab4dce8537435dd9886ec3189e467cea8c08098239b89187d4bc75d246643a13"
+    },
+    {
+      "sourceId": "pncp-macajuba-19-itens",
+      "title": "Macajuba — itens CE 004/2026",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "retrievedAt": "2026-11-26T08:24:04Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810841000106/compras/2026/19/itens",
+      "content-type": "application/json",
+      "date": "Thu, 26 Nov 2026 08:24:04 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 1198,
+      "sha256": "1fe9c151290af6e631e3e497ce765c697f156338ee960756c18e7395f69c29e2",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-macajuba-19-itens/2026-11-26T08-24-04Z.json",
+      "available": true,
+      "certificateSha256": "ea78af00d1dfa8d475943822262ce9d7725a5d7b6b3d0f88377e6c1c0551f07b"
     }
   ]
 }

@@ -212,6 +212,25 @@
       "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
       "available": false,
       "certificateSha256": "daa477e54a20289132c8bfaf55edf88f672b36189069b0324391ced896f69880"
+    },
+    {
+      "sourceId": "pncp-lajedinho-98-resultados",
+      "title": "Lajedinho — resultados do item das 50 moradias",
+      "publisher": "Portal Nacional de Contratações Públicas",
+      "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810544000160/compras/2026/98/itens/1/resultados",
+      "retrievedAt": "2026-11-26T08:24:03Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 204,
+      "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/13810544000160/compras/2026/98/itens/1/resultados",
+      "content-type": "application/json",
+      "date": "Thu, 26 Nov 2026 08:24:03 GMT",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/pncp-lajedinho-98-resultados/2026-11-26T08-24-03Z.json",
+      "available": true,
+      "certificateSha256": "4d65a58fdac0c9dd4b8bd86aa69edce188bdb78662c419312f137135af72d0a2"
     }
   ]
 }
