@@ -695,6 +695,28 @@
       "rawPath": "preservation/snapshots/lajedinho-licitacoes/2026-11-26T21-35-02Z.html",
       "available": true,
       "certificateSha256": "c8ba2966ba90a809544eac20afa1a7847bbc8d348ac0b62bcbc32b9ac0344e1c"
+    },
+    {
+      "sourceId": "lajedinho-licitacoes",
+      "title": "Lajedinho — Licitações 2026",
+      "publisher": "Prefeitura Municipal de Lajedinho",
+      "originalUrl": "https://transparencia.lajedinho.ba.gov.br/licitacoes",
+      "retrievedAt": "2026-11-27T21:19:41Z",
+      "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
+      "httpStatus": 200,
+      "finalUrl": "https://transparencia.lajedinho.ba.gov.br/licitacoes",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "33867",
+      "etag": "\"844b-6614361cad386\"",
+      "last-modified": "Fri, 27 Nov 2026 15:04:51 GMT",
+      "date": "Fri, 27 Nov 2026 21:19:44 GMT",
+      "server": "Apache/2.4.62 (Oracle Linux Server) OpenSSL/3.5.1",
+      "size": 33867,
+      "sha256": "6cd1d8b0dd9d4c6a293a37945a1871f3b376ae6d1774ac13c67ac9998cf4beb6",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/lajedinho-licitacoes/2026-11-27T21-19-41Z.html",
+      "available": true,
+      "certificateSha256": "69271723b386834850406992ffe49c6cea09579c107144ae63dcd5c057102917"
     }
   ]
 }
