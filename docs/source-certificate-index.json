@@ -1,25 +1,25 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-26T21:39:47Z",
+  "generatedAt": "2026-11-27T08:41:08Z",
   "sources": [
     {
       "sourceId": "cipo-dou-habitacao",
       "title": "Cipó — aviso de licitação das unidades habitacionais",
       "publisher": "Diário Oficial da União",
       "originalUrl": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
-      "retrievedAt": "2026-11-26T21:35:10Z",
+      "retrievedAt": "2026-11-27T08:38:01Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
       "httpStatus": 200,
       "finalUrl": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-722316704",
       "content-type": "text/html;charset=UTF-8",
-      "date": "Thu, 26 Nov 2026 21:35:15 GMT",
+      "date": "Fri, 27 Nov 2026 08:38:07 GMT",
       "cache-control": "public",
       "size": 84028,
-      "sha256": "fa455bf5357d63ec7118b164c42b7af0a70ddf71e88bd7e7c33443eb4ec70afa",
+      "sha256": "a568dc7e1ec695baa96d36f00a8fdf36e248a1c0e82818df2afe1d8a154de39a",
       "rawPreserved": true,
-      "rawPath": "preservation/snapshots/cipo-dou-habitacao/2026-11-26T21-35-10Z.html",
+      "rawPath": "preservation/snapshots/cipo-dou-habitacao/2026-11-27T08-38-01Z.html",
       "available": true,
-      "certificateSha256": "d04935f57a214a64b2c58de75369f6ce24d0b7c424c3d95d7c35e2bf13ae28eb"
+      "certificateSha256": "431a9adccae6f729280f5f3b1d9bfb27cf0ab4ca3ba838b360f6931618e26a7a"
     },
     {
       "sourceId": "dados-ba-convenios-api",
@@ -249,19 +249,19 @@
       "title": "FM-03 Araçás — PNCP historico da compra 7/2026",
       "publisher": "PNCP",
       "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
-      "retrievedAt": "2026-11-26T21:39:44Z",
+      "retrievedAt": "2026-11-27T08:41:05Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
       "httpStatus": 200,
       "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16131088000110/compras/2026/7/historico",
       "content-type": "application/json",
-      "date": "Thu, 26 Nov 2026 21:39:45 GMT",
+      "date": "Fri, 27 Nov 2026 08:41:05 GMT",
       "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
       "size": 943,
-      "sha256": "988ade3a0658b9edcc1c4814e5da979918896f01af103ab2eba63a2b8e321cb6",
+      "sha256": "6fca574bdb9f46693e5a2b51e4da96236d3feeae574ae61cf96593ac7a74ab7b",
       "rawPreserved": true,
-      "rawPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-11-26T21-39-44Z.json",
+      "rawPath": "preservation/snapshots/fm03-aracas-pncp-history/2026-11-27T08-41-05Z.json",
       "available": true,
-      "certificateSha256": "99bbb50b8ca40b1f73daee390e8c1391777893d27dea9be5a4993713e54a8e98"
+      "certificateSha256": "e96bfaeccae1785bacae53a4fea378217ca8b07051e16459fc627043eb195c86"
     },
     {
       "sourceId": "fm03-aracas-pncp-item1-results",
@@ -426,19 +426,19 @@
       "title": "FM-03 Lajedo do Tabocal — PNCP historico da compra 26/2026",
       "publisher": "PNCP",
       "originalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
-      "retrievedAt": "2026-11-26T21:39:43Z",
+      "retrievedAt": "2026-11-27T08:41:04Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
       "httpStatus": 200,
       "finalUrl": "https://pncp.gov.br/api/pncp/v1/orgaos/16434441000131/compras/2026/26/historico",
       "content-type": "application/json",
-      "date": "Thu, 26 Nov 2026 21:39:44 GMT",
+      "date": "Fri, 27 Nov 2026 08:41:04 GMT",
       "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
       "size": 1545,
-      "sha256": "1edffacae2d113f1a6d77a87ae0db981718b1eeceeb4f1a373082ea29ddabb9e",
+      "sha256": "be707d94ffc9ccc33543994ebe3d9dffc35d2845bc81639d11f06f82d77841c9",
       "rawPreserved": true,
-      "rawPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-11-26T21-39-43Z.json",
+      "rawPath": "preservation/snapshots/fm03-lajedo-pncp-history/2026-11-27T08-41-04Z.json",
       "available": true,
-      "certificateSha256": "d1ec5a47bdb8dbbf934881346d6f635f9fa3ecac63262b0331b249c7f7f75ea5"
+      "certificateSha256": "9ffe39b6c3321668f9f22d293ef9d3bc72afc34f7788e6ceeebca6182fe1ee80"
     },
     {
       "sourceId": "fm03-lajedo-pncp-item1-results",
@@ -494,22 +494,22 @@
       "title": "Pacote estadual superior a R$ 1,7 bilhão — 11/06/2026",
       "publisher": "SECOM Bahia",
       "originalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
-      "retrievedAt": "2026-11-26T21:34:39Z",
+      "retrievedAt": "2026-11-27T08:37:26Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
       "httpStatus": 200,
       "finalUrl": "https://www.ba.gov.br/comunicacao/noticias/2026-06/382803/investimentos-de-mais-de-r-17-bilhao-do-estado-fortalecem-municipios-e",
       "content-type": "text/html; charset=UTF-8",
       "content-length": "105596",
-      "etag": "\"1795728880\"",
-      "last-modified": "Thu, 26 Nov 2026 21:34:40 GMT",
-      "date": "Thu, 26 Nov 2026 21:34:41 GMT",
+      "etag": "\"1795768647\"",
+      "last-modified": "Fri, 27 Nov 2026 08:37:27 GMT",
+      "date": "Fri, 27 Nov 2026 08:37:27 GMT",
       "cache-control": "private",
       "size": 105596,
-      "sha256": "74ae467d7fa47efa3be768505743339f2c3715d6af1c6a0a1eec3b3574dc9fcb",
+      "sha256": "3432ff5559901777a7731784f2096888219ec702f1cf85c160f1225847fc6e5b",
       "rawPreserved": true,
-      "rawPath": "preservation/snapshots/govba-1700/2026-11-26T21-34-39Z.html",
+      "rawPath": "preservation/snapshots/govba-1700/2026-11-27T08-37-26Z.html",
       "available": true,
-      "certificateSha256": "d2f966bb8eb9350d2bb35d71bf8868ef2914055715b73edb588617715104d37f"
+      "certificateSha256": "16777cbc867163a62c861d9e78ae11251338192f42b4473c2f770f475a40c738"
     },
     {
       "sourceId": "govba-6000",
@@ -538,20 +538,20 @@
       "title": "Iraquara — Editais de Licitação",
       "publisher": "Prefeitura Municipal de Iraquara",
       "originalUrl": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
-      "retrievedAt": "2026-11-26T21:35:05Z",
+      "retrievedAt": "2026-11-27T08:37:58Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
       "httpStatus": 200,
       "finalUrl": "https://www.iraquara.ba.gov.br/portal-da-transparencia/licitacoes/3",
       "content-type": "text/html; charset=UTF-8",
-      "date": "Thu, 26 Nov 2026 21:35:09 GMT",
+      "date": "Fri, 27 Nov 2026 08:38:00 GMT",
       "cache-control": "no-store, no-cache, must-revalidate",
       "server": "Apache",
-      "size": 164930,
-      "sha256": "d30b8fcce8e86055c12ce632fdc67c7d4830073cf4683b25577f3af8b94f3ba6",
+      "size": 164802,
+      "sha256": "ba9bcd587acf4d75e720dbe0677681a75384f2411b5191f07cee8ce6ba2d8575",
       "rawPreserved": true,
-      "rawPath": "preservation/snapshots/iraquara-licitacoes/2026-11-26T21-35-05Z.html",
+      "rawPath": "preservation/snapshots/iraquara-licitacoes/2026-11-27T08-37-58Z.html",
       "available": true,
-      "certificateSha256": "76032dfec8144077dfe5995862d112010d1b93b6b0211d48e3f77cd73bf776dd"
+      "certificateSha256": "ff6dfe2e192c990014f2713e92fb21d0c951413ccff72dafb4d47920533d616d"
     },
     {
       "sourceId": "itaberaba-publicacoes",
@@ -601,11 +601,18 @@
       "title": "Macajuba — índice do Diário Oficial 2026",
       "publisher": "Prefeitura Municipal de Macajuba",
       "originalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
-      "retrievedAt": "2026-11-26T21:36:52Z",
+      "retrievedAt": "2026-11-27T08:38:56Z",
       "retrievalAgent": "Observatorio-Eleitoral-Bahia-2026-Preservation/1.0",
-      "error": "HTTPError: HTTP Error 403: Forbidden",
-      "available": false,
-      "certificateSha256": "67b6159aaada147d704b4e9bbdfc94afde588bb668e6be903ae0294a093ca375"
+      "httpStatus": 200,
+      "finalUrl": "https://macajuba.ba.gov.br/?page=28&vpage=1",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Fri, 27 Nov 2026 08:38:59 GMT",
+      "size": 1945873,
+      "sha256": "e1673b6e2a1104dce1d7255b33ad90391df84b278f2a7f3a8c4ce2413f420ba0",
+      "rawPreserved": true,
+      "rawPath": "preservation/snapshots/macajuba-diario-index/2026-11-27T08-38-56Z.html",
+      "available": true,
+      "certificateSha256": "048bc879578d17e76f792cb1e72ff49fee17764f2e3d1c2afccc156b8a579016"
     },
     {
       "sourceId": "pge-eleicoes-faq",
@@ -975,5 +982,5 @@
       "certificateSha256": "ee89d760e5f77eb87ae72177b852ef1d1e99e06c0b17d8efe5750e3b61c67dde"
     }
   ],
-  "batchRootSha256": "22b3e811069695e16dbbfb03d8e4688554268ca0fae173b4853ceb6cbea10245"
+  "batchRootSha256": "4afdde92bb03f397051238351a63652fb09f82fe35dc7402ecf8170f9b2fab29"
 }
